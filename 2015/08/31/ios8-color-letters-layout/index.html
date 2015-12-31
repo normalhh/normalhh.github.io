@@ -1,0 +1,889 @@
+<!doctype html>
+<html class="theme-next use-motion ">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  
+    <link href='//fonts.lug.ustc.edu.cn/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  
+
+
+<link rel="stylesheet" type="text/css" href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" />
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.2"/>
+
+
+    <meta name="description" content="不要让任何理由成为你不去学习的借口！" />
+
+
+
+  <meta name="keywords" content="Axure,交互设计,原型设计,设计," />
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Normal's Blog!" type="application/atom+xml" />
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+<meta name="description" content="在去年，Apple针对新时代用户彻底更新了其设计语言。现在的设计语言相对之前大为简化，能够让设计师将精力集中到动画和功能上，而不是繁复的视觉细节上。
+很多人都曾问过我：设计应当如何入门？成为一名优秀设计师有没有捷径可走？要我说，虽然没有捷径，但确实有几个适用于iOS的设计技巧和规则能够从全局角度改变你的设计方式。
+当 然，即便你目前的设计目标是完全不同于iOS的平台，相互之间的设计理念也是相通的，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS8的颜色、文字和布局学习">
+<meta property="og:url" content="http://normalhh.github.io/2015/08/31/ios8-color-letters-layout/index.html">
+<meta property="og:site_name" content="Normal's Blog!">
+<meta property="og:description" content="在去年，Apple针对新时代用户彻底更新了其设计语言。现在的设计语言相对之前大为简化，能够让设计师将精力集中到动画和功能上，而不是繁复的视觉细节上。
+很多人都曾问过我：设计应当如何入门？成为一名优秀设计师有没有捷径可走？要我说，虽然没有捷径，但确实有几个适用于iOS的设计技巧和规则能够从全局角度改变你的设计方式。
+当 然，即便你目前的设计目标是完全不同于iOS的平台，相互之间的设计理念也是相通的，">
+<meta property="og:image" content="http://www.yuanxingku.com/data/attachment/portal/201412/06/102331km541tqcccwm43m8.jpg">
+<meta property="og:image" content="http://www.yuanxingku.com/data/attachment/portal/201412/06/102331fqx9v49ldg34k3eb.jpg">
+<meta property="og:image" content="http://www.yuanxingku.com/data/attachment/portal/201412/06/102331csaaa7rkdg6a7jqj.jpg">
+<meta property="og:image" content="http://www.yuanxingku.com/data/attachment/portal/201412/06/102331xs3v1yyh3w0t3sm3.jpg">
+<meta property="og:image" content="http://www.yuanxingku.com/data/attachment/portal/201412/06/102332jwzr55n18z5z514l.jpg">
+<meta property="og:image" content="http://www.yuanxingku.com/data/attachment/portal/201412/06/102332lpxihijgp18g1iah.jpg">
+<meta property="og:image" content="http://www.yuanxingku.com/data/attachment/portal/201412/06/102332d9uzpkwosyonxz9o.png">
+<meta property="og:image" content="http://www.yuanxingku.com/data/attachment/portal/201412/06/102332hgr11xmxtgi6x61r.png">
+<meta property="og:image" content="http://www.yuanxingku.com/data/attachment/portal/201412/06/102332rmtpc8gmmhjj8mm5.jpg">
+<meta property="og:image" content="http://www.yuanxingku.com/data/attachment/portal/201412/06/102332ol5q8off5f44o77e.jpg">
+<meta property="og:image" content="http://www.yuanxingku.com/data/attachment/portal/201412/06/102333gkmsqokxlogu1kkn.jpg">
+<meta property="og:image" content="http://www.yuanxingku.com/data/attachment/portal/201412/06/102333oxbedud66du6p77x.jpg">
+<meta property="og:image" content="http://s1.nq.com/img/cnnq/20141202/20141202133755_bg6.jpg">
+<meta property="og:image" content="http://s1.nq.com/img/cnnq/20141202/20141202135535_bg6.jpg">
+<meta property="og:image" content="http://s1.nq.com/img/cnnq/20141202/20141202135004_Unknown-26.jpg">
+<meta property="og:image" content="http://s1.nq.com/img/cnnq/20141202/20141202135152_textsize.png">
+<meta property="og:image" content="http://s1.nq.com/img/cnnq/20141202/20141202135423_bg6.jpg">
+<meta property="og:image" content="http://s1.nq.com/img/cnnq/20141202/20141202135654_iphone_6.png">
+<meta property="og:image" content="http://s1.nq.com/img/cnnq/20141202/20141202135734_ios8_vector_zoom_out.png">
+<meta property="og:image" content="http://s1.nq.com/img/cnnq/20141202/20141202135830_iphone6bg.jpg">
+<meta property="og:updated_time" content="2015-12-14T12:44:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS8的颜色、文字和布局学习">
+<meta name="twitter:description" content="在去年，Apple针对新时代用户彻底更新了其设计语言。现在的设计语言相对之前大为简化，能够让设计师将精力集中到动画和功能上，而不是繁复的视觉细节上。
+很多人都曾问过我：设计应当如何入门？成为一名优秀设计师有没有捷径可走？要我说，虽然没有捷径，但确实有几个适用于iOS的设计技巧和规则能够从全局角度改变你的设计方式。
+当 然，即便你目前的设计目标是完全不同于iOS的平台，相互之间的设计理念也是相通的，">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'post'
+  };
+</script>
+
+
+
+  <title> iOS8的颜色、文字和布局学习 | Normal's Blog! </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Normal's Blog!</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">简简单单的技术博客</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS8的颜色、文字和布局学习
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-08-31T01:24:37+08:00" content="2015-08-31">
+              2015-08-31
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Axure/" itemprop="url" rel="index">
+                    <span itemprop="name">Axure</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Axure/设计/" itemprop="url" rel="index">
+                    <span itemprop="name">设计</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/08/31/ios8-color-letters-layout/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/31/ios8-color-letters-layout/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>在去年，Apple针对新时代用户彻底更新了其设计语言。现在的设计语言相对之前大为简化，能够让设计师将精力集中到动画和功能上，而不是繁复的视觉细节上。</p>
+<p><strong>很多人都曾问过我：设计应当如何入门？成为一名优秀设计师有没有捷径可走？要我说，虽然没有捷径，但确实有几个适用于iOS的设计技巧和规则能够从全局角度改变你的设计方式。</strong></p>
+<p>当 然，即便你目前的设计目标是完全不同于iOS的平台，相互之间的设计理念也是相通的，你可以将在web和印刷领域学习到的技巧运用到iOS设计中去。 iOS 8是一个让设计寻回根源的平台，它给人一种类似现代杂志的感觉，文字精美、布局简单。本书中所介绍的内容将在你未来设计优秀产品的旅程中给你带来巨大的裨 益。</p>
+<p><img src="http://www.yuanxingku.com/data/attachment/portal/201412/06/102331km541tqcccwm43m8.jpg" alt=""></p>
+<p><strong>iOS 8人机界面指南</strong></p>
+<p>在开始设计之前，我们需要先了解一下都有哪些资源可为我们所用。幸运的是，这方面资源还是很多的。</p>
+<p><img src="http://www.yuanxingku.com/data/attachment/portal/201412/06/102331fqx9v49ldg34k3eb.jpg" alt=""></p>
+<p>如果你还没读过iOS 8人机界面指南，我强烈建议你快速浏览一遍，让自己从整体上了解一下新版本进行了哪些改变和改进。</p>
+<p><strong>核心理念</strong></p>
+<p>iOS 8包含3大核心理念：遵从、明晰与深度。</p>
+<p>下面我将这几项设计原则的含义细化成能够实际操作的内容进行解释，当然，我解释的深度将远甚于Apple指南。</p>
+<p>&nbsp;</p>
+<p><strong>顺从</strong></p>
+<p>以内容为主角，其他都是配角。所使用的元素应当作为内容的补充，不要使用会分散人注意力的视觉元素与内容争抢目光。</p>
+<p>&nbsp;</p>
+<p><strong>简化</strong></p>
+<p>将用户界面简化到只保留最核心的美感。每次在你要添加新元素时都应自问：是否必要？如果你的应用不属于游戏或者没有特定的主题，那么请慎重使用大量的材质、3D效果和多重阴影，将关键放到功能性颜色、协调渐变和美观的文字上。</p>
+<p><img src="http://www.yuanxingku.com/data/attachment/portal/201412/06/102331csaaa7rkdg6a7jqj.jpg" alt=""></p>
+<p><strong>内容最大化</strong></p>
+<p>内容应占满整个屏幕，给内中的元素留出最大的空间。不要使用多重容器，将滚动区域最大化以便给交互留出更多空间。</p>
+<p><img src="http://www.yuanxingku.com/data/attachment/portal/201412/06/102331xs3v1yyh3w0t3sm3.jpg" alt=""></p>
+<p><strong>颜色</strong></p>
+<p>使用显眼的颜色表现能够点击或需要突出的元素。颜色和中性色调选择的正确与否将决定你设计的成败。这是iOS 8设计中将要深层次讲解的一个方面。</p>
+<p><img src="http://www.yuanxingku.com/data/attachment/portal/201412/06/102332jwzr55n18z5z514l.jpg" alt=""></p>
+<p><strong>文字既是内容</strong></p>
+<p>为了简化用户界面以及突出内容，文字将占到整个屏幕的50%到90%。考虑到这一点，你应当选用漂亮的字体，通过设定适当的粗细、线宽和颜色使其达到视觉美观、适合阅读的状态。这一方面将在文字部分进行更深入的介绍。</p>
+<p><img src="http://www.yuanxingku.com/data/attachment/portal/201412/06/102332lpxihijgp18g1iah.jpg" alt=""></p>
+<p><strong>负空间</strong></p>
+<p>使用负空间凸显内容。你所能看到的东西越少，就越能将注意力全部集中到仅有的物体上。负空间能够留出呼吸的余地。不用在屏幕中堆砌太多的结构和无用的视觉元素。</p>
+<p><img src="http://www.yuanxingku.com/data/attachment/portal/201412/06/102332d9uzpkwosyonxz9o.png" alt=""></p>
+<p><strong>图标状态</strong></p>
+<p>用于导航的图标有两种状态：轮廓及填充。使用轮廓的好处是不分散注意力。如果对图标进行填充，就会转移人的注意力。另外其还可能表示当前页面为活动页面。</p>
+<p><img src="http://www.yuanxingku.com/data/attachment/portal/201412/06/102332hgr11xmxtgi6x61r.png" alt=""></p>
+<p><strong>明晰</strong></p>
+<p>让一切显然易懂。按钮应当表现出自己的功能，文字应该方便阅读并留出舒适的间距。你的内容应当明确表现出应用的功效。例如，如果是有关咖啡的应用，则应当能让人联想到咖啡豆、浓缩咖啡和咖啡的棕褐色。</p>
+<p><strong>文字要方便阅读</strong></p>
+<p>在视网膜屏幕上，文字的大小不能小于22px。最佳阅读尺寸为32px。</p>
+<p><img src="http://www.yuanxingku.com/data/attachment/portal/201412/06/102332rmtpc8gmmhjj8mm5.jpg" alt=""></p>
+<p><strong>使用作用明确的图标</strong></p>
+<p>图 标不能含混不清，应当明确表现出自身的作用。在可能的情况下，尽量使用文字辅助。如果你使用了图标，那就一定不能在其他地方使用与当前图标类似的其他图 标，否则会让用户看不懂。同样，不要使用“后退”或者“提交”这种太泛泛的文字，而应尽可能明确，例如“返回首页”或者“注册新账号”等。更多细节请阅读 图标部分。</p>
+<p><img src="http://www.yuanxingku.com/data/attachment/portal/201412/06/102332ol5q8off5f44o77e.jpg" alt=""></p>
+<p><strong>描述性画面</strong></p>
+<p>每个页面都应说明自己的用途。尽量减少使用品牌内容，代以明确的画面标题，如果采用了标签栏，则还应使用高亮的当前标签状态。</p>
+<p><img src="http://www.yuanxingku.com/data/attachment/portal/201412/06/102333gkmsqokxlogu1kkn.jpg" alt=""></p>
+<p><strong>颜色的含义</strong></p>
+<p>颜色是有含义的。你可以使用红色、绿色、蓝色和中性色调分别表现破坏性操作、确认操作、链接和非活动状态。如果将这些颜色用做其他用途则会误导用户。例如，删除按钮上一定不要使用绿色。</p>
+<p><img src="http://www.yuanxingku.com/data/attachment/portal/201412/06/102333oxbedud66du6p77x.jpg" alt=""></p>
+<p><strong>深度</strong></p>
+<p>深度可能是最难理解的一个部分了。这是个非常抽象，同时又很有力而独特的概念。深度是指所有内容都应当具有关联和过渡关系。在真实生活中，当你从一个房间进到另一个房间中时，你会产生过渡和距离感，这样你才不会迷路。这个理念同样适用于用户界面。</p>
+<p>“对人和人所存在的现实的冷漠，是设计的唯一大忌。”-Dieter Rams</p>
+<p><strong>过渡界面</strong></p>
+<p>从个人角度来讲，我认为这是iOS 8最有意思也最独一无二的一方面。每个屏幕之间的过渡、桌面缩放成文件夹然后缩放到应用。从传统角度来说，这种技巧很难操作，但Xcode 5让这一切变得容易实现。有关这部分技巧将在动画部分进行详解。</p>
+<p>&nbsp;</p>
+<p>[embed]<a href="https://designcode.io/images/mp4/transitional.mp4[/embed" target="_blank" rel="external">https://designcode.io/images/mp4/transitional.mp4[/embed</a>]</p>
+<p><strong>模糊背景</strong></p>
+<p>背景不能影响到内容的清晰度。将背景模糊化不仅能让你保证其颜色的自然，同时能够突出前景。模糊并不是无中生有的效果，它在现实生活中也真实存在，比如你定睛看某个物体时，其他物体就会变模糊。</p>
+<p>[embed]<a href="https://designcode.io/images/mp4/blur.mp4[/embed" target="_blank" rel="external">https://designcode.io/images/mp4/blur.mp4[/embed</a>]</p>
+<p><a href="http://s1.nq.com/img/cnnq/20141202/20141202133755_bg6.jpg" target="_blank" rel="external"><img src="http://s1.nq.com/img/cnnq/20141202/20141202133755_bg6.jpg" alt=""></a></p>
+<p><strong>一切为了讨喜</strong></p>
+<p>在指南中有3项能够让应用出彩的内容没有被提到：动画、手势和音效。这3项内容很容易用过火，所以要谨慎。</p>
+<p><strong>动画</strong></p>
+<p>动画不仅能作为画面之间的过渡，还能给你的设计增添趣味性。另外还能让容易被忽略的元素受到关注。</p>
+<p>[embed]<a href="https://designcode.io/images/mp4/animations.mp4[/embed" target="_blank" rel="external">https://designcode.io/images/mp4/animations.mp4[/embed</a>]</p>
+<p><strong>手势</strong></p>
+<p>[embed]<a href="https://designcode.io/images/mp4/uikit.mp4[/embed" target="_blank" rel="external">https://designcode.io/images/mp4/uikit.mp4[/embed</a>]</p>
+<p>自iPhone 5开始采用长屏幕以来，后退按钮按起来就不那么方便了。所以说，手势虽然比不上眼睛看得见的视觉按钮，但也可以作为视觉交互的一个延伸。其对于水平比较高的用户来说非常方便。而随着我们大家的水平日渐提高，视觉提示正逐渐让位给一些真正有用的功能。</p>
+<p>[embed]<a href="https://designcode.io/images/mp4/gestures.mp4[/embed" target="_blank" rel="external">https://designcode.io/images/mp4/gestures.mp4[/embed</a>]</p>
+<p><strong>音效</strong></p>
+<p>音效在应用中的使用很少，但其却能将一项平凡的任务转变成令人激动的体验。通过音效，大家不用眼睛就能知道你使用的是什么应用。如果能让音效达到耳熟能详的效果，你就能以最小的努力赢得很大的成功。</p>
+<p>[embed]<a href="https://designcode.io/images/mp4/sounds.mp4[/embed" target="_blank" rel="external">https://designcode.io/images/mp4/sounds.mp4[/embed</a>]</p>
+<p><img src="http://s1.nq.com/img/cnnq/20141202/20141202135535_bg6.jpg" alt=""></p>
+<p><strong>三条规则</strong></p>
+<p>下面这3条极为重要的iOS 设计规则是万万不可忽略的：思考触摸界面、提高文字可读性并针对iPhone 4进行优化。</p>
+<p><strong>触摸设计</strong></p>
+<p>按钮应当方便好按。在视网膜屏幕上，按钮的大小应当为60-120px高。最佳高度为88px。在极少数情况下，可以为文字内部的链接设定44px，但使用时要慎重——用户可能很难按得到。即便是纯文字按钮也应该有至少60px的可点击区域。宽度应与高度相同。</p>
+<p><img src="http://s1.nq.com/img/cnnq/20141202/20141202135004_Unknown-26.jpg" alt=""></p>
+<p><strong>可读性</strong></p>
+<p>在视网膜屏幕上，文字大小不能小于22px。最佳阅读字体大小为32px。使用120-140%的线高可提高阅读体验。</p>
+<p><img src="http://s1.nq.com/img/cnnq/20141202/20141202135152_textsize.png" alt=""></p>
+<p><img src="http://s1.nq.com/img/cnnq/20141202/20141202135423_bg6.jpg" alt=""></p>
+<p><strong>入门模板</strong></p>
+<p>学习新技术的最佳方式就是对他人的作品进行反向工程。这些模板不仅可以帮助你学习，还可以拿来直接使用或者定制，这样一来你就不用每每从零开始，从而能够避免很多出错的可能性。模板能让你的设计更加得心应手，慢慢地你就会入迷。</p>
+<p><strong>ios 8 Template for Sketch</strong></p>
+<p>iOS 8 Template for Sketch是一个绝佳的起点。其可为你提供iOS 8中现有的大多数UI元素，你可以在自己的设计中随心使用。在使用时，要逐渐习惯标题、按钮、对话框等元素的尺寸。</p>
+<p><a href="https://github.com/rafaelconde/ios8-ui-kit" target="_blank" rel="external"><img src="http://s1.nq.com/img/cnnq/20141202/20141202135654_iphone_6.png" alt=""></a></p>
+<p><strong>iOS 8 Illustrator Vector UI Kit</strong></p>
+<p>这是针对iOS 8的一套非常完整的UI包。这个模板虽然全面但是只适用于Illustrator。</p>
+<p><a href="http://mercury.io/blog/ios-8-illustrator-vector-ui-kit-update" target="_blank" rel="external"><img src="http://s1.nq.com/img/cnnq/20141202/20141202135734_ios8_vector_zoom_out.png" alt=""></a></p>
+<p><strong>iOS 8及iPhone 6资源</strong></p>
+<p>为iOS 8和iPhone 6及Plus进行设计相对还说还是个比较新颖的课题，所以说这一部分会不断更新。</p>
+<p><a href="https://designcode.io/iphone6" target="_blank" rel="external"><img src="http://s1.nq.com/img/cnnq/20141202/20141202135830_iphone6bg.jpg" alt=""></a></p>
+<p>&nbsp;</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Axure/" rel="tag">#Axure</a>
+          
+            <a href="/tags/交互设计/" rel="tag">#交互设计</a>
+          
+            <a href="/tags/原型设计/" rel="tag">#原型设计</a>
+          
+            <a href="/tags/设计/" rel="tag">#设计</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/07/30/securecrt-command/" rel="next" title="SecureCRT常用指令">
+                <i class="fa fa-chevron-left"></i> SecureCRT常用指令
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/08/31/the-knowledge-framework-for-interactive-design/" rel="prev" title="一名交互设计师必备的知识架构">
+                一名交互设计师必备的知识架构 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2015/08/31/ios8-color-letters-layout/"
+                   data-title="iOS8的颜色、文字和布局学习" data-url="http://normalhh.github.io/2015/08/31/ios8-color-letters-layout/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="https://avatars2.githubusercontent.com/u/5423840?v=3&s=460" alt="Normal" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Normal</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">不要让任何理由成为你不去学习的借口！</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">44</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">83</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/normalhh" target="_blank">
+                  <i class="fa fa-github"></i> github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/aisiw" target="_blank">
+                  <i class="fa fa-weibo"></i> weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://douban.com/people/normalhh" target="_blank">
+                  <i class="fa fa-douban"></i> douban
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/normalhh" target="_blank">
+                  <i class="fa fa-zhihu"></i> zhihu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Normal</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"normalme"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.2" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+
+      motionIntegrator.bootstrap();
+    });
+  </script>
+
+  
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

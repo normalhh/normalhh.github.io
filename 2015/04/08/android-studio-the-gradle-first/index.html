@@ -1,0 +1,844 @@
+<!doctype html>
+<html class="theme-next use-motion ">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  
+    <link href='//fonts.lug.ustc.edu.cn/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  
+
+
+<link rel="stylesheet" type="text/css" href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" />
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.2"/>
+
+
+    <meta name="description" content="不要让任何理由成为你不去学习的借口！" />
+
+
+
+  <meta name="keywords" content="Android,Android Studio,Gradle," />
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Normal's Blog!" type="application/atom+xml" />
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+<meta name="description" content="本文转载自：http://stormzhang.com/devtools/2014/12/18/android-studio-tutorial4/
+其实很早之前也写了一篇Gradle的基础博客，但是时间很久了，现在Gradle已经更新了很多，所以暂且结合Stduio 1.0正式版与最新的Gradle语法来详细讲解下，小伙伴们直接跟我一步步来学习吧。
+什么是Gradle？Gradle是一种依赖管理工">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Studio系列教程四--Gradle基础">
+<meta property="og:url" content="http://normalhh.github.io/2015/04/08/android-studio-the-gradle-first/index.html">
+<meta property="og:site_name" content="Normal's Blog!">
+<meta property="og:description" content="本文转载自：http://stormzhang.com/devtools/2014/12/18/android-studio-tutorial4/
+其实很早之前也写了一篇Gradle的基础博客，但是时间很久了，现在Gradle已经更新了很多，所以暂且结合Stduio 1.0正式版与最新的Gradle语法来详细讲解下，小伙伴们直接跟我一步步来学习吧。
+什么是Gradle？Gradle是一种依赖管理工">
+<meta property="og:image" content="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/gradle1.png">
+<meta property="og:updated_time" content="2015-12-14T12:44:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android Studio系列教程四--Gradle基础">
+<meta name="twitter:description" content="本文转载自：http://stormzhang.com/devtools/2014/12/18/android-studio-tutorial4/
+其实很早之前也写了一篇Gradle的基础博客，但是时间很久了，现在Gradle已经更新了很多，所以暂且结合Stduio 1.0正式版与最新的Gradle语法来详细讲解下，小伙伴们直接跟我一步步来学习吧。
+什么是Gradle？Gradle是一种依赖管理工">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'post'
+  };
+</script>
+
+
+
+  <title> Android Studio系列教程四--Gradle基础 | Normal's Blog! </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Normal's Blog!</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">简简单单的技术博客</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android Studio系列教程四--Gradle基础
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-04-08T14:56:02+08:00" content="2015-04-08">
+              2015-04-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Studio/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Studio</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Studio/开发工具/" itemprop="url" rel="index">
+                    <span itemprop="name">开发工具</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/04/08/android-studio-the-gradle-first/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/08/android-studio-the-gradle-first/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>本文转载自：<a href="http://stormzhang.com/devtools/2014/12/18/android-studio-tutorial4/" title="Android Studio系列教程四--Gradle基础" target="_blank" rel="external">http://stormzhang.com/devtools/2014/12/18/android-studio-tutorial4/</a></p>
+<p>其实很早之前也写了一篇Gradle的基础博客，但是时间很久了，现在Gradle已经更新了很多，所以暂且结合Stduio 1.0正式版与最新的Gradle语法来详细讲解下，小伙伴们直接跟我一步步来学习吧。</p>
+<h2 id="u4EC0_u4E48_u662FGradle_uFF1F"><a href="#u4EC0_u4E48_u662FGradle_uFF1F" class="headerlink" title="什么是Gradle？"></a>什么是Gradle？</h2><p>Gradle是一种依赖管理工具，基于Groovy语言，面向Java应用为主，它抛弃了基于XML的各种繁琐配置，取而代之的是一种基于Groovy的内部领域特定（DSL）语言。</p>
+<h2 id="u5B89_u88C5Gradle"><a href="#u5B89_u88C5Gradle" class="headerlink" title="安装Gradle"></a>安装Gradle</h2><p>在<a href="http://1.normalme.sinaapp.com/android-studio-start1-install/" title="【转载】Android Studio系列教程一–下载与安装" target="_blank" rel="external">Android Studio系列教程一–下载与安装</a>中新建项目成功后会下载Gradle，貌似这个过程不翻墙也是可以下载，但是访问特别慢，建议翻墙下载。那么下载的Gradle到什么地方呢？</p>
+<ul>
+<li>Mac上会默认下载到 <strong>/Users/&lt;用户名&gt;/.gradle/wrapper/dists</strong> 目录</li>
+<li>Win平台会默认下载到 <strong>C:\Documents and Settings&lt;用户名&gt;.gradle\wrapper\dists</strong> 目录<br>你会看到这个目录下有个 gradle-x.xx-all 的文件夹, 如果下载实在太慢，但是又不想翻墙的话，可以自己手动到<a href="http://www.gradle.org/downloads" target="_blank" rel="external">Gradle官网</a>下载对应的版本，然后将下载的.zip文件(也可以解压)复制到上述的gradle-x.xx-all 文件夹下，不过还是建议让它直接下载的好。</li>
+</ul>
+<h2 id="Gradle__u57FA_u672C_u6982_u5FF5"><a href="#Gradle__u57FA_u672C_u6982_u5FF5" class="headerlink" title="Gradle 基本概念"></a>Gradle 基本概念</h2><p>下面就以我的开源项目 <a href="https://github.com/stormzhang/9GAG" target="_blank" rel="external"><strong>9GAG</strong></a> 来详细讲解下和Gradle相关的知识, 和Gradle相关的几个文件一般有如下几个：</p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/gradle1.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/gradle1.png" alt="gradle1"></a></p>
+<p>红色标记部分从上到下咱们来一步步分析：</p>
+<h4 id="1-_9GAG/app/build-gradle"><a href="#1-_9GAG/app/build-gradle" class="headerlink" title="1. 9GAG/app/build.gradle"></a>1. 9GAG/app/build.gradle</h4><p>这个文件是app文件夹下这个Module的gradle配置文件，也可以算是整个项目最主要的gradle配置文件，我们来看下这个文件的内容：</p>
+<p><pre class="lang:java decode:true ">// 声明是Android程序<br>apply plugin: ‘com.android.application’</pre></p>
+<p>android {<br>    // 编译SDK的版本<br>    compileSdkVersion 21<br>    // build tools的版本<br>    buildToolsVersion “21.1.1”</p>
+<pre><code>defaultConfig {
+    // 应用的包名
+    applicationId &quot;me.storm.ninegag&quot;
+    minSdkVersion 14
+    targetSdkVersion 21
+    versionCode 1
+    versionName &quot;1.0.0&quot;
+}
+
+// java版本
+compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_7
+    targetCompatibility JavaVersion.VERSION_1_7
+}
+
+buildTypes {
+    debug {
+        // debug模式
+    }
+
+    release {
+        // 是否进行混淆
+        minifyEnabled false
+        // 混淆文件的位置
+        proguardFiles getDefaultProguardFile(&apos;proguard-android.txt&apos;), &apos;proguard-rules.txt&apos;
+    }
+}
+
+// 移除lint检查的error
+lintOptions {
+  abortOnError false
+}
+</code></pre><p>}</p>
+<p>dependencies {<br>    // 编译libs目录下的所有jar包<br>    compile fileTree(dir: ‘libs’, include: [‘*.jar’])<br>    compile ‘com.android.support:support-v4:21.0.2’<br>    compile ‘com.etsy.android.grid:library:1.0.5’<br>    compile ‘com.alexvasilkov:foldable-layout:1.0.1’<br>    // 编译extras目录下的ShimmerAndroid模块<br>    compile project(‘:extras:ShimmerAndroid’)<br>}<br>这里需要说明几点：</p>
+<ul>
+<li>文件开头apply plugin是最新gradle版本的写法，以前的写法是apply plugin: ‘android’, 如果还是以前的写法，请改正过来。</li>
+<li>buildToolsVersion这个需要你本地安装该版本才行，很多人导入新的第三方库，失败的原因之一是build version的版本不对，这个可以手动更改成你本地已有的版本或者打开 <strong>SDK Manager</strong> 去下载对应版本。</li>
+<li>applicationId代表应用的包名，也是最新的写法，这里就不在多说了。</li>
+<li>android 5.0开始默认安装jdk1.7才能编译，但是由于mac系统自带jdk的版本是1.6，所以需要手动下载jdk1.7并配置下，具体可以见我这篇博客<a href="http://stormzhang.com/android/2014/06/27/manage-java-on-macosx/" target="_blank" rel="external">Mac下安装和管理Java</a></li>
+<li>minifyEnabled也是最新的语法，很早之前是runProguard,这个也需要更新下。</li>
+<li>proguardFiles这部分有两段，前一部分代表系统默认的android程序的混淆文件，该文件已经包含了基本的混淆声明，免去了我们很多事，这个文件的目录在 <strong>&lt;sdk目录&gt;/tools/proguard/proguard-android.txt</strong> , 后一部分是我们项目里的自定义的混淆文件，目录就在 <strong>app/proguard-rules.txt</strong> , 如果你用Studio 1.0创建的新项目默认生成的文件名是 <strong>proguard-rules.pro</strong> , 这个名字没关系，在这个文件里你可以声明一些第三方依赖的一些混淆规则，由于是开源项目，9GAG里并未进行混淆，具体混淆的语法也不是本篇博客讨论的范 围。最终混淆的结果是这两部分文件共同作用的。</li>
+<li>compile project(‘:extras:ShimmerAndroid’)这一行是因为9GAG中存在其他Module，不知道Module的概念可以看下这篇博客<a href="http://1.normalme.sinaapp.com/android-studio-setup-run/" title="Android Studio系列教程二–基本设置与运行" target="_blank" rel="external">Android Studio系列教程二–基本设置与运行</a>, 总之你可以理解成Android Library，由于Gradle的普及以及远程仓库的完善，这种依赖渐渐的会变得非常不常见，但是你需要知道有这种依赖的。</li>
+<li>以上文件里的内容只是基本配置，其实还有很多自定义部分，如自动打包debug，release，beta等环境，签名，多渠道打包等，后续会单独拿出来讲解。</li>
+</ul>
+<h4 id="2-_9GAG/extras/ShimmerAndroid/build-gradle"><a href="#2-_9GAG/extras/ShimmerAndroid/build-gradle" class="headerlink" title="2. 9GAG/extras/ShimmerAndroid/build.gradle"></a>2. 9GAG/extras/ShimmerAndroid/build.gradle</h4><p>每一个Module都需要有一个gradle配置文件，语法都是一样，唯一不同的是开头声明的是 <strong>apply plugin: ‘com.android.library’</strong></p>
+<h4 id="3-_9GAG/gradle"><a href="#3-_9GAG/gradle" class="headerlink" title="3. 9GAG/gradle"></a>3. 9GAG/gradle</h4><p>这个目录下有个 <strong>wrapper</strong> 文件夹，里面可以看到有两个文件，我们主要看下 <strong>gradle-wrapper.properties</strong> 这个文件的内容：</p>
+<p><pre class="lang:java decode:true ">#Thu Dec 18 16:02:24 CST 2014<br>distributionBase=GRADLE_USER_HOME<br>distributionPath=wrapper/dists<br>zipStoreBase=GRADLE_USER_HOME<br>zipStorePath=wrapper/dists<br>distributionUrl=https\://services.gradle.org/distributions/gradle-2.2.1-all.zip</pre><br>可以看到里面声明了gradle的目录与下载路径以及当前项目使用的gradle版本，这些默认的路径我们一般不会更改的，这个文件里指明的gradle版本不对也是很多导包不成功的原因之一。</p>
+<h2 id="4-_9GAG/build-gradle"><a href="#4-_9GAG/build-gradle" class="headerlink" title="4. 9GAG/build.gradle"></a>4. 9GAG/build.gradle</h2><p>这个文件是整个项目的gradle基础配置文件,我们来看看这里面的内容</p>
+<p><pre class="lang:java decode:true ">// Top-level build file where you can add configuration options common to all sub-projects/modules.</pre></p>
+<p>buildscript {<br>    repositories {<br>        jcenter()<br>    }<br>    dependencies {<br>        classpath ‘com.android.tools.build:gradle:1.0.0’<br>    }<br>}</p>
+<p>allprojects {<br>    repositories {<br>        jcenter()<br>    }<br>}<br>内容主要包含了两个方面：一个是声明仓库的源，这里可以看到是指明的jcenter(), 之前版本则是mavenCentral(), jcenter可以理解成是一个新的中央远程仓库，兼容maven中心仓库，而且性能更优。另一个是声明了android gradle plugin的版本，android studio 1.0正式版必须要求支持gradle plugin 1.0的版本。</p>
+<h2 id="5-_9GAG/settings-gradle"><a href="#5-_9GAG/settings-gradle" class="headerlink" title="5. 9GAG/settings.gradle"></a>5. 9GAG/settings.gradle</h2><p>这个文件是全局的项目配置文件，里面主要声明一些需要加入gradle的module，我们来看看9GAG该文件的内容：</p>
+<p><pre class="lang:java decode:true ">include ‘:app’, ‘:extras:ShimmerAndroid’</pre><br>文件中的 <strong>app</strong>, <strong>extras:ShimmerAndroid</strong> 都是module，如果还有其他module都需要按照如上格式加进去。</p>
+<h2 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h2><p>关于gradle的基础知识就介绍到这里，接下来会介绍一种我常用的快速方便的编译查看第三方开源项目的方法，如何导入Android Studio，Gradle常用基本命令，多渠道打包配置等。有疑问或者发现错误欢迎大家直接博客留言。</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+            <a href="/tags/Android-Studio/" rel="tag">#Android Studio</a>
+          
+            <a href="/tags/Gradle/" rel="tag">#Gradle</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/04/08/android-studio-keymap/" rel="next" title="Android Studio系列教程三--快捷键">
+                <i class="fa fa-chevron-left"></i> Android Studio系列教程三--快捷键
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/04/08/android-studio-gradle-command-import-library/" rel="prev" title="Android Studio系列教程五--Gradle命令详解与导入第三方包">
+                Android Studio系列教程五--Gradle命令详解与导入第三方包 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2015/04/08/android-studio-the-gradle-first/"
+                   data-title="Android Studio系列教程四--Gradle基础" data-url="http://normalhh.github.io/2015/04/08/android-studio-the-gradle-first/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="https://avatars2.githubusercontent.com/u/5423840?v=3&s=460" alt="Normal" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Normal</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">不要让任何理由成为你不去学习的借口！</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">44</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">83</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/normalhh" target="_blank">
+                  <i class="fa fa-github"></i> github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/aisiw" target="_blank">
+                  <i class="fa fa-weibo"></i> weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://douban.com/people/normalhh" target="_blank">
+                  <i class="fa fa-douban"></i> douban
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/normalhh" target="_blank">
+                  <i class="fa fa-zhihu"></i> zhihu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u4EC0_u4E48_u662FGradle_uFF1F"><span class="nav-number">1.</span> <span class="nav-text">什么是Gradle？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5B89_u88C5Gradle"><span class="nav-number">2.</span> <span class="nav-text">安装Gradle</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gradle__u57FA_u672C_u6982_u5FF5"><span class="nav-number">3.</span> <span class="nav-text">Gradle 基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-_9GAG/app/build-gradle"><span class="nav-number">3.0.1.</span> <span class="nav-text">1. 9GAG/app/build.gradle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-_9GAG/extras/ShimmerAndroid/build-gradle"><span class="nav-number">3.0.2.</span> <span class="nav-text">2. 9GAG/extras/ShimmerAndroid/build.gradle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-_9GAG/gradle"><span class="nav-number">3.0.3.</span> <span class="nav-text">3. 9GAG/gradle</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-_9GAG/build-gradle"><span class="nav-number">4.</span> <span class="nav-text">4. 9GAG/build.gradle</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-_9GAG/settings-gradle"><span class="nav-number">5.</span> <span class="nav-text">5. 9GAG/settings.gradle</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u603B_u7ED3"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Normal</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"normalme"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.2" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+
+      motionIntegrator.bootstrap();
+    });
+  </script>
+
+  
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,844 @@
+<!doctype html>
+<html class="theme-next use-motion ">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  
+    <link href='//fonts.lug.ustc.edu.cn/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  
+
+
+<link rel="stylesheet" type="text/css" href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" />
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.2"/>
+
+
+    <meta name="description" content="不要让任何理由成为你不去学习的借口！" />
+
+
+
+  <meta name="keywords" content="Android,Android Studio,Gradle," />
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Normal's Blog!" type="application/atom+xml" />
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+<meta name="description" content="本文转载自：http://stormzhang.com/devtools/2015/01/05/android-studio-tutorial5/
+Android Studio + Gradle的组合用起来非常方便，很多第三方开源项目也早都迁移到了Studio，为此今天就来介绍下查看、编译并导入第三方开源项目的方法。
+Sublime + Terminal编译并查看源码首先来给大家介绍一种简便并且个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Studio系列教程五--Gradle命令详解与导入第三方包">
+<meta property="og:url" content="http://normalhh.github.io/2015/04/08/android-studio-gradle-command-import-library/index.html">
+<meta property="og:site_name" content="Normal's Blog!">
+<meta property="og:description" content="本文转载自：http://stormzhang.com/devtools/2015/01/05/android-studio-tutorial5/
+Android Studio + Gradle的组合用起来非常方便，很多第三方开源项目也早都迁移到了Studio，为此今天就来介绍下查看、编译并导入第三方开源项目的方法。
+Sublime + Terminal编译并查看源码首先来给大家介绍一种简便并且个">
+<meta property="og:image" content="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/gradle_download1.png">
+<meta property="og:image" content="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_import1.png">
+<meta property="og:image" content="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/gradle_download2.png">
+<meta property="og:image" content="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/build-tools.png">
+<meta property="og:updated_time" content="2015-12-14T12:44:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android Studio系列教程五--Gradle命令详解与导入第三方包">
+<meta name="twitter:description" content="本文转载自：http://stormzhang.com/devtools/2015/01/05/android-studio-tutorial5/
+Android Studio + Gradle的组合用起来非常方便，很多第三方开源项目也早都迁移到了Studio，为此今天就来介绍下查看、编译并导入第三方开源项目的方法。
+Sublime + Terminal编译并查看源码首先来给大家介绍一种简便并且个">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'post'
+  };
+</script>
+
+
+
+  <title> Android Studio系列教程五--Gradle命令详解与导入第三方包 | Normal's Blog! </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Normal's Blog!</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">简简单单的技术博客</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android Studio系列教程五--Gradle命令详解与导入第三方包
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-04-08T15:06:37+08:00" content="2015-04-08">
+              2015-04-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Studio/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Studio</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Studio/开发工具/" itemprop="url" rel="index">
+                    <span itemprop="name">开发工具</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/04/08/android-studio-gradle-command-import-library/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/08/android-studio-gradle-command-import-library/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>本文转载自：<a href="http://stormzhang.com/devtools/2015/01/05/android-studio-tutorial5/" title="Android Studio系列教程五--Gradle命令详解与导入第三方包 " target="_blank" rel="external">http://stormzhang.com/devtools/2015/01/05/android-studio-tutorial5/</a></p>
+<p>Android Studio + Gradle的组合用起来非常方便，很多第三方开源项目也早都迁移到了Studio，为此今天就来介绍下查看、编译并导入第三方开源项目的方法。</p>
+<h2 id="Sublime_+_Terminal_u7F16_u8BD1_u5E76_u67E5_u770B_u6E90_u7801"><a href="#Sublime_+_Terminal_u7F16_u8BD1_u5E76_u67E5_u770B_u6E90_u7801" class="headerlink" title="Sublime + Terminal编译并查看源码"></a>Sublime + Terminal编译并查看源码</h2><p>首先来给大家介绍一种简便并且个人最喜欢的一种办法。很多时候我们在GitHub上看到一个不错的开源项目，一般有两种需求，阅读源码和查看运行效 果，如果是单纯的查看源码我更喜欢用一些轻量级编辑器，如vim，sublime等，vim不是很熟练，所以个人一种都习惯用sublime来查看并阅读 源码（实际开发还是Android Studio、Eclipse等IDE更有效率）；至于查看运行效果首先得需要apk，对于一些开源项目已提供apk下载，那就好办，直接安装到手机即 可。 而对于一些没有提供apk下载的，则需要自己手动编译打包。</p>
+<p>下面以<a href="https://github.com/stormzhang/9GAG" target="_blank" rel="external">9GAG</a>为例来讲解下命令行Gradle编译的过程。</p>
+<ul>
+<li>1、切换到9GAG项目的根目录，执行 <strong>./gradlew -v</strong> 来查看下项目所用的Gradle版本<br>如果你是第一次执行会去下载Gradle，这个过程如果不翻墙非常慢，建议翻墙</li>
+</ul>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/gradle_download1.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/gradle_download1.png" alt="gradle_download1"></a></p>
+<p>紧接着下载成功会看到如下信息：</p>
+<pre class="lang:batch decode:true ">------------------------------------------------------------
+Gradle 2.2.1
+------------------------------------------------------------
+
+Build time:   2014-11-24 09:45:35 UTC
+Build number: none
+Revision:     6fcb59c06f43a4e6b1bcb401f7686a8601a1fb4a
+
+Groovy:       2.3.6
+Ant:          Apache Ant(TM) version 1.9.3 compiled on December 23 2013
+JVM:          1.7.0_60 (Oracle Corporation 24.60-b09)
+OS:           Mac OS X 10.9.5 x86_64</pre>
+
+<ul>
+<li>2、接着执行 <strong>./gradlew clean</strong><br>执行这个命令会去下载Gradle的一些依赖，下载成功并编译通过时会看到如下信息：<br><pre class="lang:batch decode:true ">:app:clean UP-TO-DATE<br>:extras:ShimmerAndroid:clean UP-TO-DATE</pre></li>
+</ul>
+<p>BUILD SUCCESSFUL</p>
+<ul>
+<li>3、最后执行 <strong>./gradlew build</strong><br>这个命令会直接编译并生成相应的apk文件，如果看到如下字样就代表build成功了<br><pre class="lang:batch decode:true ">BUILD SUCCESSFUL<br>Total time: 31.456 secs</pre><br>紧接着在 <strong>9GAG/app/build/outputs/apk</strong> 目录下会看到类似于app-debug-unaligned.apk, app-release-unsigned.apk等，看名字应该能理解意思，unaligned代表没有进行zip优化的，unsigned代表没有签 名的。然后就可以直接安装apk查看运行效果了。</li>
+</ul>
+<p>以上是我个人习惯的一种阅读第三方源码的习惯，关于上面提到的一些gradle命令大家应该还不理解，后面会一一进行说明的。</p>
+<h2 id="u5BFC_u5165Android_Studio"><a href="#u5BFC_u5165Android_Studio" class="headerlink" title="导入Android Studio"></a>导入Android Studio</h2><p>但是如果你还是想导入Android Studio的话，下面就来简单介绍下导入Studio的方法以及一些注意事项。</p>
+<ul>
+<li><p>1、选择File-&gt;Import Project, 选择本地9GAG项目的目录<br><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_import1.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_import1.png" alt="studio_import1"></a></p>
+</li>
+<li><p>2、第一次依然会下载Gradle，其实自己在命令行已经下载过了，但是这次依然还要下载一次（依然要翻墙），可能是个bug<br><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/gradle_download2.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/gradle_download2.png" alt="gradle_download2"></a></p>
+</li>
+<li><p>3、导入之后你需要注意以下几个地方</p>
+</li>
+</ul>
+<ol>
+<li><p>每个Module下的 <strong>build.gradle</strong> 下的buildToolsVersion，即<strong>9GAG/app/build.gradle</strong> 和 <strong>9GAG/extras/ShimmerAndroid/build.gradle</strong> , 可以打开 <strong>SDK Manager</strong> 查看本地你安装的 <strong>SDK Build-tools</strong>, 如下图，如果相应版本没有安装请先下载。<br><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/build-tools.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/build-tools.png" alt="build-tools"></a></p>
+</li>
+<li><p>项目根目录下的 <strong>build.gradle</strong> 下gradle插件的版本，如 <strong>9GAG/build.gradle</strong> 的内容：</p>
+</li>
+</ol>
+<p>classpath ‘com.android.tools.build:gradle:1.0.0’<br>Android Studio 1.0必须指定gradle插件1.0的版本</p>
+<ol>
+<li>Gradle Wrapper的版本，在 <strong>9GAG/gradle/wrapper/gralde-wrapper.properties</strong> 文件里有如下内容：<br><pre class="lang:batch decode:true ">#Thu Dec 18 16:02:24 CST 2014<br>distributionBase=GRADLE_USER_HOME<br>distributionPath=wrapper/dists<br>zipStoreBase=GRADLE_USER_HOME<br>zipStorePath=wrapper/dists<br>distributionUrl=https\://services.gradle.org/distributions/gradle-2.2.1-all.zip</pre><br>上述内容制定了gradle的版本使用2.2.1，在Studio中如果你手动改了gradle插件的版本会有提示要不要更新Gradle Wrapper的版本。</li>
+</ol>
+<p>如果以上几个地方确定版本是ok的，那么导入Android Studio应该没有问题，有些老的项目可能gradle版本比较老，仍然在使用一些老的语法，如果编译还通不过参考<a href="http://1.normalme.sinaapp.com/android-studio-the-gradle-first/" title="Android Studio系列教程四–Gradle基础" target="_blank" rel="external">Android Studio系列教程四–Gradle基础</a>更改成最新的语法。</p>
+<h2 id="Gradle_u5E38_u7528_u547D_u4EE4"><a href="#Gradle_u5E38_u7528_u547D_u4EE4" class="headerlink" title="Gradle常用命令"></a>Gradle常用命令</h2><p>上面大家接触了一些命令如 <strong>./gradlew -v</strong> <strong>./gradlew clean</strong> <strong>./gradlew build</strong>, 这里注意是<strong>./gradlew</strong>, <strong>./</strong>代表当前目录，<strong>gradlew</strong>代表 gradle wrapper，意思是gradle的一层包装，大家可以理解为在这个项目本地就封装了gradle，即gradle wrapper， 在<strong>9GAG/gradle/wrapper/gralde-wrapper.properties</strong>文件中声明了它指向的目录和版本。只要下载成功即可用grdlew wrapper的命令代替全局的gradle命令。</p>
+<p>理解了gradle wrapper的概念，下面一些常用命令也就容易理解了。</p>
+<ul>
+<li>./gradlew -v 版本号</li>
+<li>./gradlew clean 清除9GAG/app目录下的build文件夹</li>
+<li><p>./gradlew build 检查依赖并编译打包<br>这里注意的是 <strong>./gradlew build</strong> 命令把debug、release环境的包都打出来，如果正式发布只需要打Release的包，该怎么办呢，下面介绍一个很有用的命令 <strong>assemble</strong>, 如</p>
+</li>
+<li><p>./gradlew assembleDebug 编译并打Debug包</p>
+</li>
+<li><p>./gradlew assembleRelease 编译并打Release的包<br>除此之外，assemble还可以和productFlavors结合使用，具体在下一篇多渠道打包进一步解释。</p>
+</li>
+<li><p>./gradlew installRelease Release模式打包并安装</p>
+</li>
+<li>./gradlew uninstallRelease 卸载Release模式包<br>下一篇来介绍用Gradle进行方便的多渠道打包，以及项目中完整的Gradle配置。有问题或建议欢迎大家直接博客留言。</li>
+</ul>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+            <a href="/tags/Android-Studio/" rel="tag">#Android Studio</a>
+          
+            <a href="/tags/Gradle/" rel="tag">#Gradle</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/04/08/android-studio-the-gradle-first/" rel="next" title="Android Studio系列教程四--Gradle基础">
+                <i class="fa fa-chevron-left"></i> Android Studio系列教程四--Gradle基础
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/04/08/android-studio-gradle-multi-channel-package/" rel="prev" title="Android Studio系列教程六--Gradle多渠道打包">
+                Android Studio系列教程六--Gradle多渠道打包 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2015/04/08/android-studio-gradle-command-import-library/"
+                   data-title="Android Studio系列教程五--Gradle命令详解与导入第三方包" data-url="http://normalhh.github.io/2015/04/08/android-studio-gradle-command-import-library/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="https://avatars2.githubusercontent.com/u/5423840?v=3&s=460" alt="Normal" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Normal</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">不要让任何理由成为你不去学习的借口！</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">44</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">83</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/normalhh" target="_blank">
+                  <i class="fa fa-github"></i> github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/aisiw" target="_blank">
+                  <i class="fa fa-weibo"></i> weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://douban.com/people/normalhh" target="_blank">
+                  <i class="fa fa-douban"></i> douban
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/normalhh" target="_blank">
+                  <i class="fa fa-zhihu"></i> zhihu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sublime_+_Terminal_u7F16_u8BD1_u5E76_u67E5_u770B_u6E90_u7801"><span class="nav-number">1.</span> <span class="nav-text">Sublime + Terminal编译并查看源码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5BFC_u5165Android_Studio"><span class="nav-number">2.</span> <span class="nav-text">导入Android Studio</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gradle_u5E38_u7528_u547D_u4EE4"><span class="nav-number">3.</span> <span class="nav-text">Gradle常用命令</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Normal</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"normalme"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.2" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+
+      motionIntegrator.bootstrap();
+    });
+  </script>
+
+  
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

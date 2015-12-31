@@ -1,0 +1,778 @@
+<!doctype html>
+<html class="theme-next use-motion ">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  
+    <link href='//fonts.lug.ustc.edu.cn/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  
+
+
+<link rel="stylesheet" type="text/css" href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" />
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.2"/>
+
+
+    <meta name="description" content="不要让任何理由成为你不去学习的借口！" />
+
+
+
+  <meta name="keywords" content="Github,Hexo,npm,淘宝,静态博客," />
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Normal's Blog!" type="application/atom+xml" />
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+<meta name="description" content="之前一直看到很多人在说使用Github Pages服务可以部署静态的博客，以前由于用的是Jekyll，大概研究了一下，发现实在是太复杂了，于是就没有折腾。后来发现有人使用Hexo很轻松的就部署了博客，于是我也趁闲暇之余部署了一下我的静态博客。中间参考了各种教程，由于太多了，这里就不再一一列举，只是大致叙述一下我自己的部署的经历，以及中间所遇到的各种问题，如何解决，都在这里po出来，希望能够留作存档">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo部署静态博客到Github上">
+<meta property="og:url" content="http://normalhh.github.io/2015/04/24/hexo-deploy-blog-to-github/index.html">
+<meta property="og:site_name" content="Normal's Blog!">
+<meta property="og:description" content="之前一直看到很多人在说使用Github Pages服务可以部署静态的博客，以前由于用的是Jekyll，大概研究了一下，发现实在是太复杂了，于是就没有折腾。后来发现有人使用Hexo很轻松的就部署了博客，于是我也趁闲暇之余部署了一下我的静态博客。中间参考了各种教程，由于太多了，这里就不再一一列举，只是大致叙述一下我自己的部署的经历，以及中间所遇到的各种问题，如何解决，都在这里po出来，希望能够留作存档">
+<meta property="og:updated_time" content="2015-12-14T12:44:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo部署静态博客到Github上">
+<meta name="twitter:description" content="之前一直看到很多人在说使用Github Pages服务可以部署静态的博客，以前由于用的是Jekyll，大概研究了一下，发现实在是太复杂了，于是就没有折腾。后来发现有人使用Hexo很轻松的就部署了博客，于是我也趁闲暇之余部署了一下我的静态博客。中间参考了各种教程，由于太多了，这里就不再一一列举，只是大致叙述一下我自己的部署的经历，以及中间所遇到的各种问题，如何解决，都在这里po出来，希望能够留作存档">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'post'
+  };
+</script>
+
+
+
+  <title> Hexo部署静态博客到Github上 | Normal's Blog! </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Normal's Blog!</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">简简单单的技术博客</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Hexo部署静态博客到Github上
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-04-24T23:49:19+08:00" content="2015-04-24">
+              2015-04-24
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/代码/" itemprop="url" rel="index">
+                    <span itemprop="name">代码</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/04/24/hexo-deploy-blog-to-github/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/24/hexo-deploy-blog-to-github/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>之前一直看到很多人在说使用Github Pages服务可以部署静态的博客，以前由于用的是Jekyll，大概研究了一下，发现实在是太复杂了，于是就没有折腾。后来发现有人使用Hexo很轻松的就部署了博客，于是我也趁闲暇之余部署了一下我的静态博客。中间参考了各种教程，由于太多了，这里就不再一一列举，只是大致叙述一下我自己的部署的经历，以及中间所遇到的各种问题，如何解决，都在这里po出来，希望能够留作存档，并给大家一些参考。</p>
+<p>MAC环境：准备工作，Git，网络，Github帐号。</p>
+<p>步骤：</p>
+<ol>
+<li>在node.js的官网下载node.js的安装程序（因为命令行的下载速度实在慢）。</li>
+<li>安装node.js。</li>
+<li>打开终端，根据Hexo官网的说明，输入“<span id="banner-start-command">npm install hexo-cli -g</span>”（这里是第一个坑，而且一下子就有2个坑）<span id="banner-start-command"></span><span id="banner-start-command"></span></li>
+<li>因为国内各种原因，导致上面这条命令执行之后一直转圈圈，最后超时，所以我们需要配置npm的镜像地址来安装hexo，具体可以参考淘宝npm镜像站的说明，也可以使用这条命令，修改npm的配置文件“npm install -g cnpm –registry=<a href="http://registry.npm.taobao.org”或者“npm" target="_blank" rel="external">http://registry.npm.taobao.org”或者“npm</a> config set registry <a href="http://registry.cnpmjs.org" target="_blank" rel="external">http://registry.cnpmjs.org</a> ”，前一条是临时生效，后一条是永久生效。为了以后方便，我个人选择了后一条。另外一个坑是上面这条命令需要用超级用户权限才可以正确执行，因此需要执行的命令就是“sudo npm install hexo-cli -g”，然后输入你的MAC的密码就好了。</li>
+<li>我们的目的是部署到Github，使用Github pages服务托管我们的静态博客页面。下面就可以分2种方式部署了，一种是SSH，一种是HTTPS的方式，个人最喜欢的是SSH方式，重点介绍这种方式，可以省去每次都要输入github的用户名和密码的繁琐步骤就可以部署成功。这样就需要生成id_rsa公钥，重新打开一个终端窗口，执行“cd ~/.ssh”，如果顺利进入，则输入“ls”命令查看一下目录下的id_rsa公钥文件是否存在。一般情况下会有2个匹配的文件，一个叫“id_rsa”，一个叫“id_rsa.pub”。如果没有进入.ssh文件夹，那么就执行“mkdir .ssh”，创建一个.ssh文件夹，然后进入文件夹，生成id_rsa公钥，执行的命令“ssh-keygen -t rsa -C “your_email@example.com””，注意邮箱是要加英文的引号，然后连续回车就可以默认生成id_rsa和id_rsa.pub文件了。</li>
+<li>用文本编辑器打开id_rsa.pub文件，复制里面的所有内容，进入github的添加SSH Keys页面，添加一个公钥，标题随便写，内容就粘贴刚刚复制的id_rsa.pub文件中的所有内容，提交。然后在终端执行“ssh -T git@github.com”命令，如果看到“The authenticity of host ‘github.com (207.97.227.239)’ can’t be established. RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48. Are you sure you want to continue connecting (yes/no)?” 输入yes回车，然后就会看到“Hi username! You’ve successfully authenticated, but GitHub does not provide shell access.”</li>
+<li>这样我们公钥就添加好了，现在就是git的配置了，需要在终端执行“<span class="content"><span class="block"><code>git config --global user.name &quot;your_username&quot;</code></span></span>”，your_username是需要用英文的引号的。再执行“<span class="content"><span class="block"><code>git config --global user.email youremail@mail``.com</code></span></span>”，这两条是配置git的全局配置文件的，修改用户名和邮箱为你注册github时使用的用户名和邮箱。</li>
+<li>配置好之后，就要我们建立博客项目并初始化博客程序了。要在Github上建立一个名为“<strong>**</strong>.github.io”的repository。创建好之后Clone到本地，由于是MAC，我直接Clone到了桌面了。具体Clone的命令请自行学习。</li>
+<li>终端进入刚刚Clone出来的repository目录，我的是“normalhh.github.io”，执行“hexo init”命令。</li>
+<li>结束之后会看到提示，“别忘记执行‘npm install’命令”，千万别以为之前安装过，在这里就不需要执行了。这条命令在当前文件夹还需要执行一遍。执行过就算是环境配置好了。</li>
+<li>在Finder中打开“normalhh.github.io”文件夹，会看到有一个_config.yml文件，这个就是你的Hexo博客的配置文件了，使用文本编辑器打开，里面具体的参数可以自行研究，这里仅介绍deploy，在默认的配置文件，deploy项下面只有一个type:的空白项，后面的值我们需要填成“git”，然后回车再创建一个“repository:”的项，后面的值我们使用github上你创建的博客的repository的SSH地址，我的地址是：“git@github.com:normalhh/normalhh.github.io.git”。保存，然后在normalhh.github.io目录打开终端，执行命令“hexo g -d”等待执行完成。然后打开网页“<a href="https://normalhh.github.io”就可以看到自己的静态博客页面了。" target="_blank" rel="external">https://normalhh.github.io”就可以看到自己的静态博客页面了。</a></li>
+<li>hexo博客的主题已经有很多不错的了，这个可以在hexo的官网可以看到。每个主题都会有对应的说明，按照说明安装主题这里就略过了。</li>
+</ol>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Github/" rel="tag">#Github</a>
+          
+            <a href="/tags/Hexo/" rel="tag">#Hexo</a>
+          
+            <a href="/tags/npm/" rel="tag">#npm</a>
+          
+            <a href="/tags/淘宝/" rel="tag">#淘宝</a>
+          
+            <a href="/tags/静态博客/" rel="tag">#静态博客</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/04/08/android-studio-gradle-multi-channel-package/" rel="next" title="Android Studio系列教程六--Gradle多渠道打包">
+                <i class="fa fa-chevron-left"></i> Android Studio系列教程六--Gradle多渠道打包
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/04/24/hexo-high-time/" rel="prev" title="Hexo静态博客的“High一下”娱乐功能">
+                Hexo静态博客的“High一下”娱乐功能 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2015/04/24/hexo-deploy-blog-to-github/"
+                   data-title="Hexo部署静态博客到Github上" data-url="http://normalhh.github.io/2015/04/24/hexo-deploy-blog-to-github/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="https://avatars2.githubusercontent.com/u/5423840?v=3&s=460" alt="Normal" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Normal</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">不要让任何理由成为你不去学习的借口！</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">44</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">83</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/normalhh" target="_blank">
+                  <i class="fa fa-github"></i> github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/aisiw" target="_blank">
+                  <i class="fa fa-weibo"></i> weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://douban.com/people/normalhh" target="_blank">
+                  <i class="fa fa-douban"></i> douban
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/normalhh" target="_blank">
+                  <i class="fa fa-zhihu"></i> zhihu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Normal</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"normalme"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.2" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+
+      motionIntegrator.bootstrap();
+    });
+  </script>
+
+  
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

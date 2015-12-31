@@ -1,0 +1,833 @@
+<!doctype html>
+<html class="theme-next use-motion ">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  
+    <link href='//fonts.lug.ustc.edu.cn/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  
+
+
+<link rel="stylesheet" type="text/css" href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" />
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.2"/>
+
+
+    <meta name="description" content="不要让任何理由成为你不去学习的借口！" />
+
+
+
+  <meta name="keywords" content="Normal, Simple" />
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Normal's Blog!" type="application/atom+xml" />
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+<meta name="description" content="rz  : 上传文件.
+ps -auxf  :查看进程
+tar -cvf /home/cbinews/openads_new_20090827.tar ./openads_new:打包命令
+mkdir:新建目录
+.zip解 压：unzip FileName.zip压缩：zip FileName.zip DirName
+.tar解 包：tar xvf FileName.tar打包：tar cvf F">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SecureCRT常用指令">
+<meta property="og:url" content="http://normalhh.github.io/2015/07/30/securecrt-command/index.html">
+<meta property="og:site_name" content="Normal's Blog!">
+<meta property="og:description" content="rz  : 上传文件.
+ps -auxf  :查看进程
+tar -cvf /home/cbinews/openads_new_20090827.tar ./openads_new:打包命令
+mkdir:新建目录
+.zip解 压：unzip FileName.zip压缩：zip FileName.zip DirName
+.tar解 包：tar xvf FileName.tar打包：tar cvf F">
+<meta property="og:updated_time" content="2015-12-14T12:44:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SecureCRT常用指令">
+<meta name="twitter:description" content="rz  : 上传文件.
+ps -auxf  :查看进程
+tar -cvf /home/cbinews/openads_new_20090827.tar ./openads_new:打包命令
+mkdir:新建目录
+.zip解 压：unzip FileName.zip压缩：zip FileName.zip DirName
+.tar解 包：tar xvf FileName.tar打包：tar cvf F">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'post'
+  };
+</script>
+
+
+
+  <title> SecureCRT常用指令 | Normal's Blog! </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Normal's Blog!</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">简简单单的技术博客</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                SecureCRT常用指令
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-07-30T13:53:10+08:00" content="2015-07-30">
+              2015-07-30
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/代码/" itemprop="url" rel="index">
+                    <span itemprop="name">代码</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/07/30/securecrt-command/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/30/securecrt-command/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>rz  : 上传文件.</p>
+<p>ps -auxf  :查看进程</p>
+<p>tar -cvf /home/cbinews/openads_new_20090827.tar ./openads_new:打包命令</p>
+<p>mkdir:新建目录</p>
+<p>.zip<br>解 压：unzip FileName.zip<br>压缩：zip FileName.zip DirName</p>
+<p>.tar<br>解 包：tar xvf FileName.tar<br>打包：tar cvf FileName.tar DirName</p>
+<p>.tgz<br>解 压：tar zxvf FileName.tgz<br>压缩：未知</p>
+<p>查看文件末尾命令：</p>
+<p>tail -f /var/log/messages.log</p>
+<p>当前目录下文件数：</p>
+<p>ls   |   wc   -l</p>
+<p>查看空间使用情况命令：</p>
+<p>df -lh</p>
+<p>linux定时执行文件：</p>
+<p>crontab -e</p>
+<p>保存后要重载：</p>
+<p>/etc/rc.d/init.d/crond reload</p>
+<p>了解当前目录：</p>
+<p>pwd</p>
+<p>查看内存状态命令：</p>
+<p>free</p>
+<p>查看磁盘空间使用情况：</p>
+<p>df -am</p>
+<p>linux后台执行程序：</p>
+<p>nohup java -jar <em>**</em>.jar &amp;</p>
+<p>目前使用CPU,MEM的状况</p>
+<p>ps -uxwww</p>
+<p>修改文件编码方式：</p>
+<p>iconv -f gbk -t utf8 index.html &gt; index1.html</p>
+<p>把gbk编码的index.html文件转成index1.html</p>
+<p>查找目录：</p>
+<p>查找名字为conf的目录</p>
+<p>#find /目录-type d -name conf</p>
+<hr>
+<p>一、ls 只列出文件名 （相当于dir，dir也可以使用）<br>-A:列出所有文件，包含隐藏文 件。<br>-l：列表形式，包含文件的绝大部分属性。<br>-R：递归显示。<br>–help：此命令的帮助。</p>
+<p>二、cd 改变目录<br>cd /:进入根目录<br>cd ：回到自己的目录（用户不同则目录也不同，root为/root，xxt为/home/xxt<br>cd ..：回到上级目录<br>pwd：显示当前所在的目录</p>
+<p>三.less 文件名：查看文件内 容。</p>
+<p>四.q 退出打开的文件。</p>
+<p>五.上传文件： rz 选择要传送的文件，确定。</p>
+<p>六.下载文件： sz 指定文件名,enter敲，即下载到了secureCRT/download目录下。</p>
+<p>七：删除文件： rm 删除文件 ，rmdir 删除空目录。<br>八.显示 最近输入的20条命令：history 20<br>九.获得帮助命令 –help查看命令下详细参数：  如：rz –help   ， sz –help  。</p>
+<p>十.cd 进入某个文件夹的命令：<br>mkdir+ 文件夹名 创建某个文件夹的命令<br>sz+文件名 从服务器端向本机发送文件的命令<br>rz 从本机向服务器端传送文件的命令<br>ll 列出当前目录下的所有文件,包括每个文件的详细信息<br>dir 对当前文件夹<br>vi 打开当前文件</p>
+<p>十一.在编辑某个文件的时候：<br>a 切换到编辑模式<br>ctrl+c 退出编辑模式<br>dd 删除整行<br>:q 退出当前文件<br>:w 写入并保存当前文件<br>-f 强行xx的参数。。。</p>
+<p>&nbsp;</p>
+<p>其它命令：<br>1.ps -ef  //查看server的进程,以列表形式显示的server进程。<br>ps 显示当前在系统运行的进程 /usr/bin/ps [选项] -e 显示每个现在运行的进程 -f 生成一个完全的列表</p>
+<h2 id="u5B9E_u9645_u64CD_u4F5C_uFF1A"><a href="#u5B9E_u9645_u64CD_u4F5C_uFF1A" class="headerlink" title="实际操作："></a>实际操作：</h2><p>1 SSH客户端连接到10.5.1.55系统（参见《启动远程客户端说明SecureCRT.doc》）</p>
+<p>$ cd /home/bea2/user_projects/csdomain/bin</p>
+<p>2 查看weblogic92服务进程</p>
+<p>$ ps -eaf | grep weblogic</p>
+<p>bea2 327926 331940   0 13:08:45 pts/4 0:00 grep weblogic</p>
+<p>webadmin 421908 368956   0   Sep 24      - 4:13 /usr/java5_64/bin/java -Xms256m -Xmx512m -da -Dplatform.home=/home/weblogic/bea/weblogic92 -Dwls.home=/home/weblogic/bea/weblogic92/server -Dwli.home=/home/weblogic/bea/weblogic92/integration -Dweblogic.management.discover=true -Dwlw.iterativeDev=false -Dwlw.testConsole=false -Dwlw.logErrorsToConsole= -Dweblogic.ext.dirs=/home/weblogic/bea/patch_weblogic923/profiles/default/sy<em>*</em>t_manifest_classpath -Dweblogic.Name=AdminServer -Djava.security.policy=/home/weblogic/bea/weblogic92/server/lib/weblogic.policy weblogic.Server</p>
+<p>bea2 491796 385044 17 00:12:50 pts/6 182:55 /usr/java5_64/bin/java -Xms6g -Xmx8g -javaagent:/home/bea2/user_projects/csdomain/Introscope/wily/Agent.jar -Dcom.wily.introscope.agentProfile=/home/bea2/user_projects/csdomain/Introscope/wily/IntroscopeAgent.profile -Dcom.wily.introscope.agent.agentName=AdminServer -da -Dplatform.home=/home/weblogic/bea/weblogic92 -Dwls.home=/home/weblogic/bea/weblogic92/server -Dwli.home=/home/weblogic/bea/weblogic92/integration -Dweblogic.management.discover=true -Dwlw.iterativeDev= -Dwlw.testConsole= -Dwlw.logErrorsToConsole= -Dfile.encoding=GBK -Dibm.stream.nio=true -Dweblogic.ext.dirs=/home/weblogic/bea/patch_weblogic923/profiles/default/sy<em>*</em>t_manifest_classpath -Dweblogic.Name=AdminServer -Djava.security.policy=/home/weblogic/bea/weblogic92/server/lib/weblogic.policy weblogic.Server</p>
+<p>说明：根据以上提示查看登陆用户bea2启动的进程，注意标红的bea2为进程拥有着， 491796为进程号</p>
+<p>3 执行如下命令杀掉进程</p>
+<p>$ kill -9 491796（根据2操做查找到得系统进程号）</p>
+<p>说明：执行后再执行$ ps -eaf | grep weblogic命令将不会看到该进程号的weblogic进程</p>
+<p>4 启动服务</p>
+<p>$ ./quickRun.sh</p>
+<hr>
+<p>2.ant -buildfile CMS_MainTrunk.xml  //build 包</p>
+<p>3.vi test.txt  //浏览文件内容<br>i {insert写输入}<br>esc  退出insert<br>:wq! write 保存并退出vi模式<br>:q!  不保存退出vi模式</p>
+<p>4.我一般习惯用ps –ef命令，这样看到以列表形式显示的server进程；用命令pstree来查看server的进程，这样看到以树的形式显示的server进程。<br>Pstree 命令的优点在于可以立即找出某进程的父进程。您可能会需要使用 -p 选项显示每个进程的 PID，以及 -u 选项来显示启动该进程的用户名。<br>一 般来说，这一树结构比较长，您就需要这么执行 pstree –up | less　这将让您纵览整个进程树结构。</p>
+<p>5.secureCRT中乱码解决：Options-&gt;SessionOptions-&gt;Appearance-&gt;font把 default改成UTF-8，就可以显示中文字体了。</p>
+<p>6.hostname：查hostname</p>
+<p>7.ifconfig 查询主机IP</p>
+<p>8.在S-CRT下用ctrl+c 和ctrl+v：<br>Options—Global Options—Edit default Settings进去后点Terminal—Emulation然后点Mapped Keys，点中低部的，use windows copy and paste key，点确认。</p>
+<p>&nbsp;</p>
+<p>9.进入vi的命令：<br>vi filename :打开或新建文件，并将光标置于第一行首<br>vi +n filename ：打开文件，并将光标置于第n行首<br>vi + filename ：打开文件，并将光标置于最后一行首<br>vi +/pattern filename：打开文件，并将光标置于第一个与pattern匹配的串处</p>
+<p>10.移动光标类命令：<br>}：光标移至段落开头<br>{：光标移至段落结尾<br>nG： 光标移至第n行首<br>n+：光标下移n行<br>n-：光标上移n行<br>n$：光标移至第n行尾<br>H ：光标移至屏幕顶行<br>M ：光标移至屏幕中间行<br>L ：光标移至屏幕最后行<br>0：（注意是数字零）光标移至当前行首<br>$：光标移至当前行尾</p>
+<p>11.屏幕翻滚类命令：<br>Ctrl+u：向文件首翻半屏<br>Ctrl+d：向文件尾翻半屏<br>Ctrl+f：向文件尾翻一屏  //好像是 r<br>Ctrl＋b；向文件首翻一屏<br>12.搜索命令：<br>/pattern：从光标开始处向文件尾搜索pattern<br>?pattern：从光标开始处向文件首搜索pattern<br>n：在同一方向重复上一次搜索命令<br>N：在反方向上重复上一次搜索命令</p>
+<p>显示行号    :set number     或 :set nu<br>去除行号    :set nonumber  或  :set nonu</p>
+<div></div><br><div>13.VI中复制与粘贴：</div><br>1）单行复制<br><br>在命令模式下，将光标移动到将要复制的行处，按“yy”进行复制；<br><br>2）多行复制<br><div>在命令模式下，将光标移动到将要复制的首行处，按“nyy”复制n行；其中n为1、2、3.</div><br><div>3）粘贴</div><br><div>在命令模式下，将光标移动到将要粘贴的行处，按“p”进行粘贴</div><br><div></div><br><div>14.在屏幕上移动</div><br><div><br><div>Vi提供了三个关于光标在全屏幕上移动并且文件本身不发生滚动的命令。它们分别是H、M和L命令。</div><br><div>　　(1)H命令</div><br><div>　 　该命令将光标移至屏幕首行的行首（即左上角），也就是当前屏幕的第一行，而不是整个文件的第一行。利用此命令可以快速将光标移至屏幕顶部。若在H命令之 前加上数字n，则将光标移至第n行的行首。值得一提的是，使用命令dH将会删除从光标当前所在行至所显示屏幕首行的全部内容。</div><br><div>　　(2)M命令</div><br><div>　 　该命令将光标移至屏幕显示文件的中间行的行首。即如果当前屏幕已经充满,则移动到整个屏幕的中间行；如果并未充满，则移动到文本的那些行的中间行。利用 此命令可以快速地将光标从屏幕的任意位置移至屏幕显示文件的中间行的行首。例如，在上面屏幕显示的情况下（不论光标在屏幕的何处），在命令模式下，输入命 令M之后，光标都将移到add这一行的字母a上。同样值得一提的是，使用命令dM将会删除从光标当前所在行至屏幕显示文件的中间行的全部内容。</div><br><div>　　(3)L命令</div><br><div>　 　当文件显示内容超过一屏时，该命令将光标移至屏幕上的最底行的行首；当文件显示内容不足一屏时，该命令将光标移至文件的最后一行的行首。可见，利用此命 令可以快速准确地将光标移至屏幕底部或文件的最后一行。若在L命令之前加上数字n，则将光标移至从屏幕底部算起第n行的行首。同样值得一提的是，使用命令 dL将会删除从光标当前行至屏幕底行的全部内容。</div><br></div><br><div></div><br><div><br><br>postgres 使用：<br>1.进入sql运行环境。<br>[test@test bin]$ ./psql -n dbname -U usrname<br>stay81=# select count(*) from table1;<br>count<br>——-<br>5986<br>(1 row)<br><br>2. 退出，使用结束后退出，不然连接一直被挂起。<br>stay81=# \q<br><br>3.postgres 数据导出。<br>[postgres@test bin]$ ./pg_dump -U postgres -t testTable -d testDB &gt; testTable.dump<br>或[postgres@test bin]$ ./pg_dump -U postgres -d testDB -t testTable -F c -v &gt; testTable.dump<br><br>4. postgres 数据导入。<br>[postgres@test bin]$ ./psql -U postgres -d testDB &lt; testTable.dump<br>或[postgres@test bin]$ ./pg_restore -U postgres -d testDB &lt; testTable.dump<br><br>5.一台主机上将数据库目录转储到另一台主机上。<br>pg_dump -h host1 -p 5432 dbname | psql -h host2 -p post1 dbname<br>或./pg_dump -U postgres -d testDB1 -t testTable | ./psql -U postgres -d testDB2<br>-U 为用户名 ，-d 为DB名，-t 为表名称，如果整个数据库导出，不需此项。<br><br>6.php执行。<br>[test@test bin]$ /usr/bin/php -q ./batchstart.php<br><br></div></span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/07/29/utorrent-must-read/" rel="next" title="uTorrent新手必看">
+                <i class="fa fa-chevron-left"></i> uTorrent新手必看
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/08/31/ios8-color-letters-layout/" rel="prev" title="iOS8的颜色、文字和布局学习">
+                iOS8的颜色、文字和布局学习 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2015/07/30/securecrt-command/"
+                   data-title="SecureCRT常用指令" data-url="http://normalhh.github.io/2015/07/30/securecrt-command/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="https://avatars2.githubusercontent.com/u/5423840?v=3&s=460" alt="Normal" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Normal</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">不要让任何理由成为你不去学习的借口！</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">44</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">83</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/normalhh" target="_blank">
+                  <i class="fa fa-github"></i> github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/aisiw" target="_blank">
+                  <i class="fa fa-weibo"></i> weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://douban.com/people/normalhh" target="_blank">
+                  <i class="fa fa-douban"></i> douban
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/normalhh" target="_blank">
+                  <i class="fa fa-zhihu"></i> zhihu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u5B9E_u9645_u64CD_u4F5C_uFF1A"><span class="nav-number">1.</span> <span class="nav-text">实际操作：</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Normal</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"normalme"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.2" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+
+      motionIntegrator.bootstrap();
+    });
+  </script>
+
+  
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>
