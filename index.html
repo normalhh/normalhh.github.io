@@ -204,6 +204,358 @@
             
             
               
+                <a class="post-title-link" href="/2016/01/03/MAC-OSX上配置adb命令（附2个抓log的实用小脚本）/" itemprop="url">
+                  MAC OSX上配置adb命令（附2个抓log的实用小脚本）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-01-03T21:04:46+08:00" content="2016-01-03">
+              2016-01-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/MAC/" itemprop="url" rel="index">
+                    <span itemprop="name">MAC</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/MAC/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/MAC/Android/adb/" itemprop="url" rel="index">
+                    <span itemprop="name">adb</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/03/MAC-OSX上配置adb命令（附2个抓log的实用小脚本）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/03/MAC-OSX上配置adb命令（附2个抓log的实用小脚本）/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p><strong>本文转载自：<a href="http://blog.csdn.net/yanzi1225627/article/details/42130401" target="_blank" rel="external">MAC OSX上配置adb命令（附2个抓log的实用小脚本）</a></strong></p>
+<p>Mac上跟linux是一样的，要想使用adb命令，配置如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/profile</span><br></pre></td></tr></table></figure></p>
+<p>然后在里面加上如下两行代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;PATH&#125;</span>:/Users/yanzi/work/adt-bundle-mac-x86_64-<span class="number">20140702</span>/sdk/platform-tools</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;PATH&#125;</span>:/Users/yanzi/work/adt-bundle-mac-x86_64-<span class="number">20140702</span>/sdk/tools</span><br></pre></td></tr></table></figure></p>
+<p>保存完毕后，输入下面的命令使刚才的设置生效。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure></p>
+<p>eclispe自带的ddms看log有时候不是那么好使，总是自动跳的太快，然后嗖的一下就没了，为此贡献下面2个.sh小脚本。<br>第一个，保存所有的log到固定文件:getAllLog.sh<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adb shell logcat -c</span><br><span class="line"></span><br><span class="line">adb shell logcat -v time &gt; /Users/yanzi/Desktop/all.log</span><br></pre></td></tr></table></figure></p>
+<p>第二个，实时显示固定tag的log：showTagLog.sh<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">adb shell logcat -c</span><br><span class="line"></span><br><span class="line"><span class="comment">#adb shell logcat -v time | grep -i yanzi</span></span><br><span class="line"></span><br><span class="line">adb shell logcat -v time | grep --color=auto -i yanzi</span><br></pre></td></tr></table></figure></p>
+<p>其中－i的意思是忽略大小写，加了－－color之后可以让符合条件的字符变成红色。上面的yanzi就是你要抓的tag。</p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                <a class="post-title-link" href="/2016/01/03/Android应用程序权限解析/" itemprop="url">
+                  Android应用程序权限解析
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-01-03T16:06:13+08:00" content="2016-01-03">
+              2016-01-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/permissions/" itemprop="url" rel="index">
+                    <span itemprop="name">permissions</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/03/Android应用程序权限解析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/03/Android应用程序权限解析/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br><span class="line">478</span><br><span class="line">479</span><br><span class="line">480</span><br><span class="line">481</span><br><span class="line">482</span><br><span class="line">483</span><br><span class="line">484</span><br><span class="line">485</span><br><span class="line">486</span><br><span class="line">487</span><br><span class="line">488</span><br><span class="line">489</span><br><span class="line">490</span><br><span class="line">491</span><br><span class="line">492</span><br><span class="line">493</span><br><span class="line">494</span><br><span class="line">495</span><br><span class="line">496</span><br><span class="line">497</span><br><span class="line">498</span><br><span class="line">499</span><br><span class="line">500</span><br><span class="line">501</span><br><span class="line">502</span><br><span class="line">503</span><br><span class="line">504</span><br><span class="line">505</span><br><span class="line">506</span><br><span class="line">507</span><br></pre></td><td class="code"><pre><span class="line">ACCESS_CHECKIN_PROPERTIES = "mandroid.permission.ACCESS_CHECKIN_PROPERTIES";</span><br><span class="line"></span><br><span class="line">ACCESS_CHECKIN_PROPERTIES_DES = "允许程序读取或写入登记check-in数据库属性表的权限";</span><br><span class="line"></span><br><span class="line">ACCESS_COARSE_LOCATION = "android.permission.ACCESS_COARSE_LOCATION";</span><br><span class="line"></span><br><span class="line">ACCESS_COARSE_LOCATION_DES = "允许程序通过WiFi或移动基站的方式获取用户错略的经纬度信息，定位精度大概误差在~米";</span><br><span class="line"></span><br><span class="line">ACCESS_FINE_LOCATION = "android.permission.ACCESS_FINE_LOCATION";</span><br><span class="line"></span><br><span class="line">ACCESS_FINE_LOCATION_DES = "允许程序通过GPS芯片接收卫星的定位信息，定位精度达米以内";</span><br><span class="line"></span><br><span class="line">ACCESS_LOCATION_EXTRA_COMMANDS = "android.permission.ACCESS_LOCATION_EXTRA_COMMANDS";</span><br><span class="line"></span><br><span class="line">ACCESS_LOCATION_EXTRA_COMMANDS_DES = "允许程序访问额外的定位提供者指令";</span><br><span class="line"></span><br><span class="line">ACCESS_MOCK_LOCATION = "android.permission.ACCESS_MOCK_LOCATION";</span><br><span class="line"></span><br><span class="line">ACCESS_MOCK_LOCATION_DES = "允许程序获取模拟定位信息，一般用于帮助开发者调试应用";</span><br><span class="line"></span><br><span class="line">ACCESS_NETWORK_STATE = "android.permission.ACCESS_NETWORK_STATE";</span><br><span class="line"></span><br><span class="line">ACCESS_NETWORK_STATE_DES = "允许程序获取网络信息状态，如当前的网络连接是否有效";</span><br><span class="line"></span><br><span class="line">ACCESS_SURFACE_FLINGER = "android.permission.ACCESS_SURFACE_FLINGER";</span><br><span class="line"></span><br><span class="line">ACCESS_SURFACE_FLINGER_DES = "Android平台上底层的图形显示支持，一般用于游戏或照相机预览界面和底层模式的屏幕截图";</span><br><span class="line"></span><br><span class="line">ACCESS_WIFI_STATE = "android.permission.ACCESS_WIFI_STATE";</span><br><span class="line"></span><br><span class="line">ACCESS_WIFI_STATE_DES = "允许程序获取当前WiFi接入的状态以及WLAN热点的信息";</span><br><span class="line"></span><br><span class="line">ACCOUNT_MANAGER = "android.permission.ACCOUNT_MANAGER";</span><br><span class="line"></span><br><span class="line">ACCOUNT_MANAGER_DES = "允许程序获取账户验证信息，主要为GMail账户信息，只有系统级进程才能访问的权限";</span><br><span class="line"></span><br><span class="line">AUTHENTICATE_ACCOUNTS = "android.permission.AUTHENTICATE_ACCOUNTS";</span><br><span class="line"></span><br><span class="line">AUTHENTICATE_ACCOUNTS_DES = "允许程序通过账户验证方式访问账户管理ACCOUNT_MANAGER相关信息";</span><br><span class="line"></span><br><span class="line">BATTERY_STATS = "android.permission.BATTERY_STATS";</span><br><span class="line"></span><br><span class="line">BATTERY_STATS_DES = "允许程序获取电池电量统计信息";</span><br><span class="line"></span><br><span class="line">BIND_APPWIDGET = "android.permission.BIND_APPWIDGET";</span><br><span class="line"></span><br><span class="line">BIND_APPWIDGET_DES = "允许程序告诉appWidget服务需要访问小插件的数据库，只有非常少的应用才用到此权限";</span><br><span class="line"></span><br><span class="line">BIND_DEVICE_ADMIN = "android.permission.BIND_DEVICE_ADMIN";</span><br><span class="line"></span><br><span class="line">BIND_DEVICE_ADMIN_DES = "请求系统管理员接收者receiver，只有系统才能使用";</span><br><span class="line"></span><br><span class="line">BIND_INPUT_METHOD = "android.permission.BIND_INPUT_METHOD";</span><br><span class="line"></span><br><span class="line">BIND_INPUT_METHOD_DES = "请求InputMethodService服务，只有系统才能使用";</span><br><span class="line"></span><br><span class="line">BIND_REMOTEVIEWS = "android.permission.BIND_REMOTEVIEWS";</span><br><span class="line"></span><br><span class="line">BIND_REMOTEVIEWS_DES = "必须通过RemoteViewsService服务来请求，只有系统才能用";</span><br><span class="line"></span><br><span class="line">BIND_WALLPAPER = "android.permission.BIND_WALLPAPER";</span><br><span class="line"></span><br><span class="line">BIND_WALLPAPER_DES = "必须通过WallpaperService服务来请求，只有系统才能用";</span><br><span class="line"></span><br><span class="line">BLUETOOTH = "android.permission.BLUETOOTH";</span><br><span class="line"></span><br><span class="line">BLUETOOTH_DES = "允许程序连接配对过的蓝牙设备";</span><br><span class="line"></span><br><span class="line">BLUETOOTH_ADMIN = "android.permission.BLUETOOTH_ADMIN";</span><br><span class="line"></span><br><span class="line">BLUETOOTH_ADMIN_DES = "允许程序进行发现和配对新的蓝牙设备";</span><br><span class="line"></span><br><span class="line">BRICK = "android.permission.BRICK";</span><br><span class="line"></span><br><span class="line">BRICK_DES = "能够禁用手机，非常危险，顾名思义就是让手机变成砖头";</span><br><span class="line"></span><br><span class="line">BROADCAST_PACKAGE_REMOVED = "android.permission.BROADCAST_PACKAGE_REMOVED";</span><br><span class="line"></span><br><span class="line">BROADCAST_PACKAGE_REMOVED_DES = "允许程序删除时广播";</span><br><span class="line"></span><br><span class="line">BROADCAST_SMS = "android.permission.BROADCAST_SMS";</span><br><span class="line"></span><br><span class="line">BROADCAST_SMS_DES = "允许程序当收到短信时触发一个广播";</span><br><span class="line"></span><br><span class="line">BROADCAST_STICKY = "android.permission.BROADCAST_STICKY";</span><br><span class="line"></span><br><span class="line">BROADCAST_STICKY_DES = "允许程序收到广播后快速收到下一个广播";</span><br><span class="line"></span><br><span class="line">BROADCAST_WAP_PUSH = "ndroid.permission.BROADCAST_WAP_PUSH";</span><br><span class="line"></span><br><span class="line">BROADCAST_WAP_PUSH_DES = "WAPPUSH服务收到后触发一个广播";</span><br><span class="line"></span><br><span class="line">CALL_PHONE = "android.permission.CALL_PHONE";</span><br><span class="line"></span><br><span class="line">CALL_PHONE_DES = "允许程序从非系统拨号器里拨打电话";</span><br><span class="line"></span><br><span class="line">CALL_PRIVILEGED = "android.permission.CALL_PRIVILEGED";</span><br><span class="line"></span><br><span class="line">CALL_PRIVILEGED_DES = "允许程序拨打电话，替换系统的拨号器界面";</span><br><span class="line"></span><br><span class="line">CAMERA = "android.permission.CAMERA";</span><br><span class="line"></span><br><span class="line">CAMERA_DES = "允许程序访问摄像头进行拍照";</span><br><span class="line"></span><br><span class="line">CHANGE_COMPONENT_ENABLED_STATE = "android.permission.CHANGE_COMPONENT_ENABLED_STATE";</span><br><span class="line"></span><br><span class="line">CHANGE_COMPONENT_ENABLED_STATE_DES = "改变组件是否启用状态";</span><br><span class="line"></span><br><span class="line">CHANGE_CONFIGURATION = "android.permission.CHANGE_CONFIGURATION";</span><br><span class="line"></span><br><span class="line">CHANGE_CONFIGURATION_DES = "允许当前应用改变配置，如定位";</span><br><span class="line"></span><br><span class="line">CHANGE_NETWORK_STATE = "android.permission.CHANGE_NETWORK_STATE";</span><br><span class="line"></span><br><span class="line">CHANGE_NETWORK_STATE_DES = "允许程序改变网络状态,如是否联网";</span><br><span class="line"></span><br><span class="line">CHANGE_WIFI_MULTICAST_STATE = "android.permission.CHANGE_WIFI_MULTICAST_STATE";</span><br><span class="line"></span><br><span class="line">CHANGE_WIFI_MULTICAST_STATE_DES = "允许程序改变WiFi多播状态";</span><br><span class="line"></span><br><span class="line">CHANGE_WIFI_STATE = "android.permission.CHANGE_WIFI_STATE";</span><br><span class="line"></span><br><span class="line">CHANGE_WIFI_STATE_DES = "允许程序改变WiFi状态";</span><br><span class="line"></span><br><span class="line">CLEAR_APP_CACHE = "android.permission.CLEAR_APP_CACHE";</span><br><span class="line"></span><br><span class="line">CLEAR_APP_CACHE_DES = "允许程序清除应用缓存";</span><br><span class="line"></span><br><span class="line">CLEAR_APP_USER_DATA = "android.permission.CLEAR_APP_USER_DATA";</span><br><span class="line"></span><br><span class="line">CLEAR_APP_USER_DATA_DES = "允许程序清除用户数据";</span><br><span class="line"></span><br><span class="line">CWJ_GROUP = "android.permission.CWJ_GROUP";</span><br><span class="line"></span><br><span class="line">CWJ_GROUP_DES = "允许CWJ账户组访问底层信息";</span><br><span class="line"></span><br><span class="line">CELL_PHONE_MASTER_EX = "android.permission.CELL_PHONE_MASTER_EX";</span><br><span class="line"></span><br><span class="line">CELL_PHONE_MASTER_EX_DES = "手机优化大师扩展权限";</span><br><span class="line"></span><br><span class="line">CONTROL_LOCATION_UPDATES = "android.permission.CONTROL_LOCATION_UPDATES";</span><br><span class="line"></span><br><span class="line">CONTROL_LOCATION_UPDATES_DES = "允许程序获得移动网络定位信息改变";</span><br><span class="line"></span><br><span class="line">DELETE_CACHE_FILES = "android.permission.DELETE_CACHE_FILES";</span><br><span class="line"></span><br><span class="line">DELETE_CACHE_FILES_DES = "允许程序删除缓存文件";</span><br><span class="line"></span><br><span class="line">DELETE_PACKAGES = "android.permission.DELETE_PACKAGES";</span><br><span class="line"></span><br><span class="line">DELETE_PACKAGES_DES = "允许程序删除应用";</span><br><span class="line"></span><br><span class="line">DEVICE_POWER = "android.permission.DEVICE_POWER";</span><br><span class="line"></span><br><span class="line">DEVICE_POWER_DES = "允许程序访问底层电源管理";</span><br><span class="line"></span><br><span class="line">DIAGNOSTIC = "android.permission.DIAGNOSTIC";</span><br><span class="line"></span><br><span class="line">DIAGNOSTIC_DES = "允许程序到RW到诊断资源";</span><br><span class="line"></span><br><span class="line">DISABLE_KEYGUARD = "android.permission.DISABLE_KEYGUARD";</span><br><span class="line"></span><br><span class="line">DISABLE_KEYGUARD_DES = "允许程序禁用键盘锁";</span><br><span class="line"></span><br><span class="line">DUMP = "android.permission.DUMP";</span><br><span class="line"></span><br><span class="line">DUMP_DES = "允许程序获取系统dump信息从系统服务";</span><br><span class="line"></span><br><span class="line">EXPAND_STATUS_BAR = "android.permission.EXPAND_STATUS_BAR";</span><br><span class="line"></span><br><span class="line">EXPAND_STATUS_BAR_DES = "允许程序扩展或收缩状态栏";</span><br><span class="line"></span><br><span class="line">FACTORY_TEST = "android.permission.FACTORY_TEST";</span><br><span class="line"></span><br><span class="line">FACTORY_TEST_DES = "允许程序运行工厂测试模式";</span><br><span class="line"></span><br><span class="line">FLASHLIGHT = "android.permission.FLASHLIGHT";</span><br><span class="line"></span><br><span class="line">FLASHLIGHT_DES = "允许访问闪光灯";</span><br><span class="line"></span><br><span class="line">FORCE_BACK = "android.permission.FORCE_BACK";</span><br><span class="line"></span><br><span class="line">FORCE_BACK_DES = "允许程序强制使用back后退按键，无论Activity是否在顶层";</span><br><span class="line"></span><br><span class="line">GET_ACCOUNTS = "android.permission.GET_ACCOUNTS";</span><br><span class="line"></span><br><span class="line">GET_ACCOUNTS_DES = "允许程序访问账户Gmail列表";</span><br><span class="line"></span><br><span class="line">GET_PACKAGE_SIZE = "android.permission.GET_PACKAGE_SIZE";</span><br><span class="line"></span><br><span class="line">GET_PACKAGE_SIZE_DES = "允许程序获取应用的文件大小";</span><br><span class="line"></span><br><span class="line">GET_TASKS = "android.permission.GET_TASKS";</span><br><span class="line"></span><br><span class="line">GET_TASKS_DES = "允许程序获取任务信息";</span><br><span class="line"></span><br><span class="line">GLOBAL_SEARCH = "android.permission.GLOBAL_SEARCH";</span><br><span class="line"></span><br><span class="line">GLOBAL_SEARCH_DES = "允许程序允许全局搜索";</span><br><span class="line"></span><br><span class="line">HARDWARE_TEST = "android.permission.HARDWARE_TEST";</span><br><span class="line"></span><br><span class="line">HARDWARE_TEST_DES = "允许程序访问硬件辅助设备，用于硬件测试";</span><br><span class="line"></span><br><span class="line">INJECT_EVENTS = "android.permission.INJECT_EVENTS";</span><br><span class="line"></span><br><span class="line">INJECT_EVENTS_DES = "允许程序访问本程序的底层事件，获取按键、轨迹球的事件流";</span><br><span class="line"></span><br><span class="line">INSTALL_LOCATION_PROVIDER = "android.permission.INSTALL_LOCATION_PROVIDER";</span><br><span class="line"></span><br><span class="line">INSTALL_LOCATION_PROVIDER_DES = "允许程序安装定位提供";</span><br><span class="line"></span><br><span class="line">INSTALL_PACKAGES = "android.permission.INSTALL_PACKAGES";</span><br><span class="line"></span><br><span class="line">INSTALL_PACKAGES_DES = "允许程序安装应用";</span><br><span class="line"></span><br><span class="line">INTERNAL_SYSTEM_WINDOW = "android.permission.INTERNAL_SYSTEM_WINDOW";</span><br><span class="line"></span><br><span class="line">INTERNAL_SYSTEM_WINDOW_DES = "允许程序打开内部窗口，不对第三方应用程序开放此权限";</span><br><span class="line"></span><br><span class="line">INTERNET = "android.permission.INTERNET";</span><br><span class="line"></span><br><span class="line">INTERNET_DES = "允许程序访问网络连接，可能产生GPRS流量";</span><br><span class="line"></span><br><span class="line">KILL_BACKGROUND_PROCESSES = "android.permission.KILL_BACKGROUND_PROCESSES";</span><br><span class="line"></span><br><span class="line">KILL_BACKGROUND_PROCESSES_DES = "允许程序调用killBackgroundProcesses(String).方法结束后台进程";</span><br><span class="line"></span><br><span class="line">MANAGE_ACCOUNTS = "android.permission.MANAGE_ACCOUNTS";</span><br><span class="line"></span><br><span class="line">MANAGE_ACCOUNTS_DES = "允许程序管理AccountManager中的账户列表";</span><br><span class="line"></span><br><span class="line">MANAGE_APP_TOKENS = "android.permission.MANAGE_APP_TOKENS";</span><br><span class="line"></span><br><span class="line">MANAGE_APP_TOKENS_DES = "管理创建、摧毁、Z轴顺序，仅用于系统";</span><br><span class="line"></span><br><span class="line">MTWEAK_USER = "android.permission.MTWEAK_USER";</span><br><span class="line"></span><br><span class="line">MTWEAK_USER_DES = "允许mTweak用户访问高级系统权限";</span><br><span class="line"></span><br><span class="line">MTWEAK_FORUM = "android.permission.MTWEAK_FORUM";</span><br><span class="line"></span><br><span class="line">MTWEAK_FORUM_DES = "允许程序使用mTweak社区权限";</span><br><span class="line"></span><br><span class="line">MASTER_CLEAR = "android.permission.MASTER_CLEAR";</span><br><span class="line"></span><br><span class="line">MASTER_CLEAR_DES = "允许程序执行软格式化，删除系统配置信息";</span><br><span class="line"></span><br><span class="line">MODIFY_AUDIO_SETTINGS = "android.permission.MODIFY_AUDIO_SETTINGS";</span><br><span class="line"></span><br><span class="line">MODIFY_AUDIO_SETTINGS_DES = "允许程序修改声音设置信息";</span><br><span class="line"></span><br><span class="line">MODIFY_PHONE_STATE = "android.permission.MODIFY_PHONE_STATE";</span><br><span class="line"></span><br><span class="line">MODIFY_PHONE_STATE_DES = "允许程序修改电话状态，如飞行模式，但不包含替换系统拨号器界面";</span><br><span class="line"></span><br><span class="line">MOUNT_FORMAT_FILESYSTEMS = "android.permission.MOUNT_FORMAT_FILESYSTEMS";</span><br><span class="line"></span><br><span class="line">MOUNT_FORMAT_FILESYSTEMS_DES = "允许程序格式化可移动文件系统，比如格式化清空SD卡";</span><br><span class="line"></span><br><span class="line">MOUNT_UNMOUNT_FILESYSTEMS = "android.permission.MOUNT_UNMOUNT_FILESYSTEMS";</span><br><span class="line"></span><br><span class="line">MOUNT_UNMOUNT_FILESYSTEMS_DES = "允许程序挂载、反挂载外部文件系统";</span><br><span class="line"></span><br><span class="line">NFC = "android.permission.NFC";</span><br><span class="line"></span><br><span class="line">NFC_DES = "允许程序执行NFC近距离通讯操作，用于移动支持";</span><br><span class="line"></span><br><span class="line">PERSISTENT_ACTIVITY = "android.permission.PERSISTENT_ACTIVITY";</span><br><span class="line"></span><br><span class="line">PERSISTENT_ACTIVITY_DES = "允许程序创建一个永久的Activity，该功能标记为将来将被移除";</span><br><span class="line"></span><br><span class="line">PROCESS_OUTGOING_CALLS = "android.permission.PROCESS_OUTGOING_CALLS";</span><br><span class="line"></span><br><span class="line">PROCESS_OUTGOING_CALLS_DES = "允许程序监视，修改或放弃播出电话";</span><br><span class="line"></span><br><span class="line">READ_CALENDAR = "android.permission.READ_CALENDAR";</span><br><span class="line"></span><br><span class="line">READ_CALENDAR_DES = "允许程序读取用户的日程信息";</span><br><span class="line"></span><br><span class="line">READ_CONTACTS = "android.permission.READ_CONTACTS";</span><br><span class="line"></span><br><span class="line">READ_CONTACTS_DES = "允许程序访问联系人通讯录信息";</span><br><span class="line"></span><br><span class="line">READ_FRAME_BUFFER = "android.permission.READ_FRAME_BUFFER";</span><br><span class="line"></span><br><span class="line">READ_FRAME_BUFFER_DES = "允许程序读取帧缓存用于屏幕截图";</span><br><span class="line"></span><br><span class="line">READ_HISTORY_BOOKMARKS = "com.android.browser.permission.READ_HISTORY_BOOKMARKS";</span><br><span class="line"></span><br><span class="line">READ_HISTORY_BOOKMARKS_DES = "允许程序读取浏览器收藏夹和历史记录";</span><br><span class="line"></span><br><span class="line">READ_INPUT_STATE = "android.permission.READ_INPUT_STATE";</span><br><span class="line"></span><br><span class="line">READ_INPUT_STATE_DES = "允许程序读取当前键的输入状态，仅用于系统";</span><br><span class="line"></span><br><span class="line">READ_LOGS = "android.permission.READ_LOGS";</span><br><span class="line"></span><br><span class="line">READ_LOGS_DES = "允许程序读取系统底层日志";</span><br><span class="line"></span><br><span class="line">READ_PHONE_STATE = "android.permission.READ_PHONE_STATE";</span><br><span class="line"></span><br><span class="line">READ_PHONE_STATE_DES = "允许程序访问电话状态";</span><br><span class="line"></span><br><span class="line">READ_SMS = "android.permission.READ_SMS";</span><br><span class="line"></span><br><span class="line">READ_SMS_DES = "允许程序读取短信内容";</span><br><span class="line"></span><br><span class="line">READ_SYNC_SETTINGS = "android.permission.READ_SYNC_SETTINGS";</span><br><span class="line"></span><br><span class="line">READ_SYNC_SETTINGS_DES = "允许程序读取同步设置，读取Google在线同步设置";</span><br><span class="line"></span><br><span class="line">READ_SYNC_STATS = "android.permission.READ_SYNC_STATS";</span><br><span class="line"></span><br><span class="line">READ_SYNC_STATS_DES = "允许程序读取同步状态，获得Google在线同步状态";</span><br><span class="line"></span><br><span class="line">REBOOT = "android.permission.REBOOT";</span><br><span class="line"></span><br><span class="line">REBOOT_DES = "允许程序重新启动设备";</span><br><span class="line"></span><br><span class="line">RECEIVE_BOOT_COMPLETED = "android.permission.RECEIVE_BOOT_COMPLETED";</span><br><span class="line"></span><br><span class="line">RECEIVE_BOOT_COMPLETED_DES = "允许程序开机自动运行";</span><br><span class="line"></span><br><span class="line">RECEIVE_MMS = "android.permission.RECEIVE_MMS";</span><br><span class="line"></span><br><span class="line">RECEIVE_MMS_DES = "允许程序接收彩信";</span><br><span class="line"></span><br><span class="line">RECEIVE_SMS = "android.permission.RECEIVE_SMS";</span><br><span class="line"></span><br><span class="line">RECEIVE_SMS_DES = "允许程序接收短信";</span><br><span class="line"></span><br><span class="line">RECEIVE_WAP_PUSH = "android.permission.RECEIVE_WAP_PUSH";</span><br><span class="line"></span><br><span class="line">RECEIVE_WAP_PUSH_DES = "允许程序接收WAPPUSH信息";</span><br><span class="line"></span><br><span class="line">RECORD_AUDIO = "android.permission.RECORD_AUDIO";</span><br><span class="line"></span><br><span class="line">RECORD_AUDIO_DES = "允许程序录制声音通过手机或耳机的麦克";</span><br><span class="line"></span><br><span class="line">REORDER_TASKS = "android.permission.REORDER_TASKS";</span><br><span class="line"></span><br><span class="line">REORDER_TASKS_DES = "允许程序重新排序系统Z轴运行中的任务";</span><br><span class="line"></span><br><span class="line">RESTART_PACKAGES = "android.permission.RESTART_PACKAGES";</span><br><span class="line"></span><br><span class="line">RESTART_PACKAGES_DES = "允许程序结束任务通过restartPackage(String)方法，该方式将在外来放弃";</span><br><span class="line"></span><br><span class="line">SEND_SMS = "android.permission.SEND_SMS";</span><br><span class="line"></span><br><span class="line">SEND_SMS_DES = "允许程序发送短信";</span><br><span class="line"></span><br><span class="line">SET_ACTIVITY_WATCHER = "android.permission.SET_ACTIVITY_WATCHER";</span><br><span class="line"></span><br><span class="line">SET_ACTIVITY_WATCHER_DES = "允许程序设置Activity观察器一般用于monkey测试";</span><br><span class="line"></span><br><span class="line">SET_ALARM = "com.android.alarm.permission.SET_ALARM";</span><br><span class="line"></span><br><span class="line">SET_ALARM_DES = "允许程序设置闹铃提醒";</span><br><span class="line"></span><br><span class="line">SET_ALWAYS_FINISH = "android.permission.SET_ALWAYS_FINISH";</span><br><span class="line"></span><br><span class="line">SET_ALWAYS_FINISH_DES = "允许程序设置程序在后台是否总是退出";</span><br><span class="line"></span><br><span class="line">SET_ANIMATION_SCALE = "android.permission.SET_ANIMATION_SCALE";</span><br><span class="line"></span><br><span class="line">SET_ANIMATION_SCALE_DES = "允许程序设置全局动画缩放";</span><br><span class="line"></span><br><span class="line">SET_DEBUG_APP = "android.permission.SET_DEBUG_APP";</span><br><span class="line"></span><br><span class="line">SET_DEBUG_APP_DES = "允许程序设置调试程序，一般用于开发";</span><br><span class="line"></span><br><span class="line">SET_ORIENTATION = "android.permission.SET_ORIENTATION";</span><br><span class="line"></span><br><span class="line">SET_ORIENTATION_DES = "允许程序设置屏幕方向为横屏或标准方式显示，不用于普通应用";</span><br><span class="line"></span><br><span class="line">SET_PREFERRED_APPLICATIONS = "android.permission.SET_PREFERRED_APPLICATIONS";</span><br><span class="line"></span><br><span class="line">SET_PREFERRED_APPLICATIONS_DES = "允许程序设置应用的参数，已不再工作具体查看addPackageToPreferred(String)介绍";</span><br><span class="line"></span><br><span class="line">SET_PROCESS_LIMIT = "android.permission.SET_PROCESS_LIMIT";</span><br><span class="line"></span><br><span class="line">SET_PROCESS_LIMIT_DES = "允许程序设置最大的进程数量的限制";</span><br><span class="line"></span><br><span class="line">SET_TIME = "android.permission.SET_TIME";</span><br><span class="line"></span><br><span class="line">SET_TIME_DES = "允许程序设置系统时间";</span><br><span class="line"></span><br><span class="line">SET_TIME_ZONE = "android.permission.SET_TIME_ZONE";</span><br><span class="line"></span><br><span class="line">SET_TIME_ZONE_DES = "允许程序设置系统时区";</span><br><span class="line"></span><br><span class="line">SET_WALLPAPER = "android.permission.SET_WALLPAPER";</span><br><span class="line"></span><br><span class="line">SET_WALLPAPER_DES = "允许程序设置桌面壁纸";</span><br><span class="line"></span><br><span class="line">SET_WALLPAPER_HINTS = "android.permission.SET_WALLPAPER_HINTS";</span><br><span class="line"></span><br><span class="line">SET_WALLPAPER_HINTS_DES = "允许程序设置壁纸建议";</span><br><span class="line"></span><br><span class="line">SIGNAL_PERSISTENT_PROCESSES = "ndroid.permission.SIGNAL_PERSISTENT_PROCESSES";</span><br><span class="line"></span><br><span class="line">SIGNAL_PERSISTENT_PROCESSES_DES = "允许程序发送一个永久的进程信号";</span><br><span class="line"></span><br><span class="line">STATUS_BAR = "android.permission.STATUS_BAR";</span><br><span class="line"></span><br><span class="line">STATUS_BAR_DES = "允许程序打开、关闭、禁用状态栏";</span><br><span class="line"></span><br><span class="line">SUBSCRIBED_FEEDS_READ = "android.permission.SUBSCRIBED_FEEDS_READ";</span><br><span class="line"></span><br><span class="line">SUBSCRIBED_FEEDS_READ_DES = "允许程序访问订阅信息的数据库";</span><br><span class="line"></span><br><span class="line">SUBSCRIBED_FEEDS_WRITE = "android.permission.SUBSCRIBED_FEEDS_WRITE";</span><br><span class="line"></span><br><span class="line">SUBSCRIBED_FEEDS_WRITE_DES = "允许程序写入或修改订阅内容的数据库";</span><br><span class="line"></span><br><span class="line">SYSTEM_ALERT_WINDOW = "android.permission.SYSTEM_ALERT_WINDOW";</span><br><span class="line"></span><br><span class="line">SYSTEM_ALERT_WINDOW_DES = "允许程序显示系统窗口";</span><br><span class="line"></span><br><span class="line">UPDATE_DEVICE_STATS = "android.permission.UPDATE_DEVICE_STATS";</span><br><span class="line"></span><br><span class="line">UPDATE_DEVICE_STATS_DES = "允许程序更新设备状态";</span><br><span class="line"></span><br><span class="line">USE_CREDENTIALS = "android.permission.USE_CREDENTIALS";</span><br><span class="line"></span><br><span class="line">USE_CREDENTIALS_DES = "允许程序请求验证从AccountManager";</span><br><span class="line"></span><br><span class="line">USE_SIP = "android.permission.USE_SIP";</span><br><span class="line"></span><br><span class="line">USE_SIP_DES = "允许程序使用SIP视频服务";</span><br><span class="line"></span><br><span class="line">VIBRATE = "android.permission.VIBRATE";</span><br><span class="line"></span><br><span class="line">VIBRATE_DES = "允许程序振动";</span><br><span class="line"></span><br><span class="line">WAKE_LOCK = "android.permission.WAKE_LOCK";</span><br><span class="line"></span><br><span class="line">WAKE_LOCK_DES = "允许程序在手机屏幕关闭后后台进程仍然运行";</span><br><span class="line"></span><br><span class="line">WRITE_APN_SETTINGS = "android.permission.WRITE_APN_SETTINGS";</span><br><span class="line"></span><br><span class="line">WRITE_APN_SETTINGS_DES = "允许程序写入网络GPRS接入点设置";</span><br><span class="line"></span><br><span class="line">WRITE_CALENDAR = "android.permission.WRITE_CALENDAR";</span><br><span class="line"></span><br><span class="line">WRITE_CALENDAR_DES = "允许程序写入日程，但不可读取";</span><br><span class="line"></span><br><span class="line">WRITE_CONTACTS = "android.permission.WRITE_CONTACTS";</span><br><span class="line"></span><br><span class="line">WRITE_CONTACTS_DES = "允许程序写入联系人，但不可读取";</span><br><span class="line"></span><br><span class="line">WRITE_EXTERNAL_STORAGE = "android.permission.WRITE_EXTERNAL_STORAGE";</span><br><span class="line"></span><br><span class="line">WRITE_EXTERNAL_STORAGE_DES = "允许程序写入外部存储，如SD卡上写文件";</span><br><span class="line"></span><br><span class="line">WRITE_GSERVICES = "android.permission.WRITE_GSERVICES";</span><br><span class="line"></span><br><span class="line">WRITE_GSERVICES_DES = "允许程序写入GoogleMap服务数据";</span><br><span class="line"></span><br><span class="line">WRITE_HISTORY_BOOKMARKS = "com.android.browser.permission.WRITE_HISTORY_BOOKMARKS";</span><br><span class="line"></span><br><span class="line">WRITE_HISTORY_BOOKMARKS_DES = "允许程序写入浏览器历史记录或收藏夹，但不可读取";</span><br><span class="line"></span><br><span class="line">WRITE_SECURE_SETTINGS = "android.permission.WRITE_SECURE_SETTINGS";</span><br><span class="line"></span><br><span class="line">WRITE_SECURE_SETTINGS_DES = "允许程序读写系统安全敏感的设置项";</span><br><span class="line"></span><br><span class="line">WRITE_SETTINGS = "android.permission.WRITE_SETTINGS";</span><br><span class="line"></span><br><span class="line">WRITE_SETTINGS_DES = "允许程序读写系统设置项";</span><br><span class="line"></span><br><span class="line">WRITE_SMS = "android.permission.WRITE_SMS";</span><br><span class="line"></span><br><span class="line">WRITE_SMS_DES = "允许程序编写短信";</span><br><span class="line"></span><br><span class="line">WRITE_SYNC_SETTINGS = "android.permission.WRITE_SYNC_SETTINGS";</span><br><span class="line"></span><br><span class="line">WRITE_SYNC_SETTINGS_DES = "允许程序写入Google在线同步设置";</span><br><span class="line"></span><br><span class="line">INSTALL_SHORTCUT = "com.android.launcher.permission.INSTALL_SHORTCUT";</span><br><span class="line"></span><br><span class="line">INSTALL_SHORTCUT_DES = "允许程序创建快捷方式";</span><br><span class="line"></span><br><span class="line">UNINSTALL_SHORTCUT = "com.android.launcher.permission.UNINSTALL_SHORTCUT";</span><br><span class="line"></span><br><span class="line">UNINSTALL_SHORTCUT_DES = "允许程序删除快捷方式";</span><br><span class="line"></span><br><span class="line">READ_SETTINGS = "com.android.launcher.permission.READ_SETTINGS";</span><br><span class="line"></span><br><span class="line">READ_SETTINGS_DES = "允许程序读取快捷方式信息";</span><br><span class="line"></span><br><span class="line">READ_EXTERNAL_STORAGE = "android.permission.READ_EXTERNAL_STORAGE";</span><br><span class="line"></span><br><span class="line">READ_EXTERNAL_STORAGE_DES = "允许程序读取设备外部存储空间（内置SDcard和外置SDCard)";</span><br><span class="line"></span><br><span class="line">READ_CALL_LOG = "android.permission.READ_CALL_LOG";</span><br><span class="line"></span><br><span class="line">READ_CALL_LOG_DES = "允许程序读取用户的通话记录";</span><br><span class="line"></span><br><span class="line">WRITE_CALL_LOG = "android.permission.WRITE_CALL_LOG";</span><br><span class="line"></span><br><span class="line">WRITE_CALL_LOG_DES = "允许程序写入（但是不能读）用户的联系人数据";</span><br><span class="line"></span><br><span class="line">READ_SETTINGS = "com.android.launcher.permission.READ_SETTINGS";</span><br><span class="line"></span><br><span class="line">READ_SETTINGS_DES = "允许程序读取快捷方式信息";</span><br></pre></td></tr></table></figure>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                <a class="post-title-link" href="/2016/01/03/Mac之vim普通命令使用/" itemprop="url">
+                  Mac之vim普通命令使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-01-03T14:12:23+08:00" content="2016-01-03">
+              2016-01-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/MAC/" itemprop="url" rel="index">
+                    <span itemprop="name">MAC</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/03/Mac之vim普通命令使用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/03/Mac之vim普通命令使用/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p>高级一些的编辑器，都会包含宏功能，vim当然不能缺少了，在vim中使用宏是非常方便的：</p>
+<p>:qx     开始记录宏，并将结果存入寄存器x<br>q     退出记录模式<br>@x     播放记录在x寄存器中的宏命令<br>稍微解释一下，当在normal模式下输入:qx后，你对文本的所有编辑动作将会被记录下来，再次输入q即退出了记录模<br>式，然后输入@x对刚才记录下来的命令进行重复，此命令后可跟数字，表示要重复多少次，比如@x20，可以重复20次。这个在文本的批处理中是非常有用的。<br>同时编辑多个文件<br>在vim众多的插件中，有一个叫minibuffer的插件，就是下面所说的标签页功能了，可以支持同时编辑多个文件。</p>
+<h2 id="u6807_u7B7E_u547D_u4EE4"><a href="#u6807_u7B7E_u547D_u4EE4" class="headerlink" title="标签命令"></a>标签命令</h2><p>:tabe fn     在一个新的标签页中编辑文件fn<br>gt     切换到下一个标签页<br>gT     切换到上一个标签页<br>:tabr     切换到第一个标签页<br>:tabl     切换到最后一个标签页<br>:tabm [N]     把当前tab移动到第N个tab之后<br>对，正如你所想象的那样，跟eclipse, ue等的标签页是一个意思！</p>
+<h2 id="u7A97_u53E3_u547D_u4EE4"><a href="#u7A97_u53E3_u547D_u4EE4" class="headerlink" title="窗口命令"></a>窗口命令</h2><p>ctrl+w s     水平分割窗口<br>ctrl+w w     切换窗口<br>ctrl+w q     退出当前窗口(由于同时有多个文件，此命令不会影响其他窗口)<br>ctrl+w v     垂直分割窗口</p>
+<h2 id="u5176_u4ED6"><a href="#u5176_u4ED6" class="headerlink" title="其他"></a>其他</h2><p>vim在保存之前不会对文件做实际的修改，只是加载到缓冲区中，对文件的编辑其实是对缓冲区的编辑，直到:w时才会存入物理文件。</p>
+<p>:e file     把file加载到新的缓冲区中<br>:bn     跳转到下一个缓冲区<br>:bd     删除缓冲区(关闭文件)<br>:sp fn     分割窗口，并将fn加载到新的窗口中</p>
+<h2 id="u9000_u51FA_u7F16_u8F91_u5668"><a href="#u9000_u51FA_u7F16_u8F91_u5668" class="headerlink" title="退出编辑器"></a>退出编辑器</h2><p>:w     将缓冲区写入文件，即保存修改<br>:wq     保存修改并退出<br>:x     保存修改并退出<br>:q     退出，如果对缓冲区进行过修改，则会提示<br>:q!     强制退出，放弃修改</p>
+<h2 id="u67E5_u627E_u66FF_u6362"><a href="#u67E5_u627E_u66FF_u6362" class="headerlink" title="查找替换"></a>查找替换</h2><p>/pattern     向后搜索字符串pattern<br>?pattern     向前搜索字符串pattern<br>n     下一个匹配(如果是/搜索，则是向下的下一个，?搜索则是向上的下一个)<br>N     上一个匹配(同上)<br>:%s/old/new/g     搜索整个文件，将所有的old替换为new<br>:%s/old/new/gc     搜索整个文件，将所有的old替换为new，每次都要你确认是否替换</p>
+<h2 id="u590D_u5236_u7C98_u8D34"><a href="#u590D_u5236_u7C98_u8D34" class="headerlink" title="复制粘贴"></a>复制粘贴</h2><p>dd     删除光标所在行<br>dw     删除一个字(word)<br>x     删除当前字符<br>X     删除前一个字符<br>D     删除到行末<br>yy     复制一行，此命令前可跟数字，标识复制多行，如6yy，表示从当前行开始复制6行<br>yw     复制一个字<br>y$     复制到行末<br>p     粘贴粘贴板的内容到当前行的下面<br>P     粘贴粘贴板的内容到当前行的上面<br>]p     有缩进的粘贴，vim会自动调节代码的缩进<br>“a     将内容放入/存入a寄存器，可以支持多粘贴板<br>附：比如常用的一个寄存器就是系统寄存器，名称为+，所以从系统粘贴板粘贴到vim中的命令为”+p,注意此处的+不表示操作符，二十一个寄存器。</p>
+<h2 id="u79FB_u52A8_u5149_u6807"><a href="#u79FB_u52A8_u5149_u6807" class="headerlink" title="移动光标"></a>移动光标</h2><p>在vim中移动光标跟其他的编辑器中有很大的区别，不过一旦学会了，就会飞速的在文本中移动了。</p>
+<p>h,j,k,l     左，下，上，右<br>ctrl-f     上翻一页<br>ctrl-b     下翻一页<br>%     跳到与当前括号匹配的括号处，如当前在{，则跳转到与之匹配的}处<br>w     跳到下一个字首，按标点或单词分割<br>W     跳到下一个字首，长跳，如end-of-line被认为是一个字<br>e     跳到下一个字尾<br>E     跳到下一个字尾，长跳<br>b     跳到上一个字<br>B     跳到上一个字，长跳<br>0     跳至行首，不管有无缩进，就是跳到第0个字符<br>^     跳至行首的第一个字符<br>$     跳至行尾<br>gg     跳至文件的第一行<br>gd     跳至当前光标所在的变量的声明处<br>[N]G     跳到第N行，如0G，就等价于gg，100G就是第100行<br>fx     在当前行中找x字符，找到了就跳转至<br>;     重复上一个f命令，而不用重复的输入fx<br>tx     与fx类似，但是只是跳转到x的前一个字符处<br>Fx     跟fx的方向相反<br>),(     跳转到上/下一个语句<br>*     查找光标所在处的单词，向下查找<br>#     查找光标所在处的单词，向上查找<br>`.     跳转至上次编辑位置</p>
+<h2 id="u5728_u5C4F_u5E55_u4E0A_u79FB_u52A8"><a href="#u5728_u5C4F_u5E55_u4E0A_u79FB_u52A8" class="headerlink" title="在屏幕上移动"></a>在屏幕上移动</h2><p>H     移动光标到当前屏幕上最上边的一行<br>M     移动光标到当前屏幕上中间的一行<br>L     移动光标到当前屏幕上最下边的一行</p>
+<h2 id="u4E66_u7B7E"><a href="#u4E66_u7B7E" class="headerlink" title="书签"></a>书签</h2><p>ma     把当前位置存成标签a<br>`a     跳转到标签a处</p>
+<h2 id="u7F16_u8F91"><a href="#u7F16_u8F91" class="headerlink" title="编辑"></a>编辑</h2><p>r     替换一个字符<br>J     将下一行和当前行连接为一行<br>cc     删除当前行并进入编辑模式<br>cw     删除当前字，并进入编辑模式<br>c$     擦除从当前位置至行末的内容，并进入编辑模式<br>s     删除当前字符并进入编辑模式<br>S     删除光标所在行并进入编辑模式<br>xp     交换当前字符和下一个字符<br>u     撤销<br>ctrl+r     重做<br>.     重复上一个编辑命令<br>~     切换大小写，当前字符<br>g~iw     切换当前字的大小写<br>gUiw     将当前字变成大写<br>guiw     将当前字变成小写<br>>&gt;     将当前行右移一个单位<br>&lt;&lt;     将当前行左移一个单位(一个tab符)<br>==     自动缩进当前行</p>
+<h2 id="u63D2_u5165_u6A21_u5F0F"><a href="#u63D2_u5165_u6A21_u5F0F" class="headerlink" title="插入模式"></a>插入模式</h2><p>i     从当前光标处进入插入模式<br>I     进入插入模式，并置光标于行首<br>a     追加模式，置光标于当前光标之后<br>A     追加模式，置光标于行末<br>o     在当前行之下新加一行，并进入插入模式<br>O     在当前行之上新加一行，并进入插入模式<br>Esc     退出插入模式</p>
+<h2 id="u53EF_u89C6_u6A21_u5F0F"><a href="#u53EF_u89C6_u6A21_u5F0F" class="headerlink" title="可视模式"></a>可视模式</h2><h3 id="u6807_u8BB0_u6587_u672C"><a href="#u6807_u8BB0_u6587_u672C" class="headerlink" title="标记文本"></a>标记文本</h3><p>v     进入可视模式，单字符模式<br>V     进入可视模式，行模式<br>ctrl+v     进入可视模式，列模式，类似于UE的列模式<br>o     跳转光标到选中块的另一个端点<br>U     将选中块中的内容转成大写<br>O     跳转光标到块的另一个端点<br>aw     选中一个字<br>ab     选中括号中的所有内容，包括括号本身<br>aB     选中{}括号中的所有内容<br>ib     选中括号中的内容，不含括号<br>iB     选中{}中的内容，不含{}</p>
+<h3 id="u5BF9_u6807_u8BB0_u8FDB_u884C_u52A8_u4F5C"><a href="#u5BF9_u6807_u8BB0_u8FDB_u884C_u52A8_u4F5C" class="headerlink" title="对标记进行动作"></a>对标记进行动作</h3><p>>     块右移<br>&lt;     块左移<br>y     复制块<br>d     删除块<br>~     切换块中内容的大小写 </p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
                 <a class="post-title-link" href="/2015/11/28/教你制作完美的Favicon/" itemprop="url">
                   教你制作完美的Favicon
                 </a>
@@ -1068,370 +1420,6 @@
 
 
     
-      
-
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                <a class="post-title-link" href="/2015/10/28/android-studio-app-name/" itemprop="url">
-                  Android Studio编译后安装在手机上，显示在应用程序的名字不正确
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-10-28T07:43:48+08:00" content="2015-10-28">
-              2015-10-28
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android-Studio/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Studio</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android-Studio/JAVA/" itemprop="url" rel="index">
-                    <span itemprop="name">JAVA</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android-Studio/JAVA/代码/" itemprop="url" rel="index">
-                    <span itemprop="name">代码</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android-Studio/JAVA/代码/开发工具/" itemprop="url" rel="index">
-                    <span itemprop="name">开发工具</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/28/android-studio-app-name/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/28/android-studio-app-name/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p><pre class="lang:xhtml decode:true">&lt;activity<br>            android:name=”.activities.WireMainActivity”<br>            android:label=”@string/app_name”&gt;<br>            &lt;intent-filter&gt;<br>                &lt;action android:name=”android.intent.action.MAIN”/&gt;<br>                &lt;category android:name=”android.intent.category.LAUNCHER”/&gt;<br>            &lt;/intent-filter&gt;<br>        &lt;/activity&gt;</pre><br>上面这段代码是AndroidManifest.xml文件中定义的启动的默认Activity</p>
-<p>其中有一个label的属性的值，在之前是Mainactivity，后来在安装到手机上的时候发现显示在界面上的图标下的名称是MainActivity</p>
-<p>于是将label的值改为@string/app_name，使其与application的name值一致就可以了。</p>
-<div id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd"></div>
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                <a class="post-title-link" href="/2015/10/15/beyond-compare-try-every-time/" itemprop="url">
-                  【MAC】无限试用Beyond Compare 4.0
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-10-15T08:55:42+08:00" content="2015-10-15">
-              2015-10-15
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/开发工具/" itemprop="url" rel="index">
-                    <span itemprop="name">开发工具</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/开发工具/杂/" itemprop="url" rel="index">
-                    <span itemprop="name">杂</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/15/beyond-compare-try-every-time/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/15/beyond-compare-try-every-time/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>有能力买正版的还是支持正版。。<em>(:з」∠)</em></p>
-<p>方法来自玩儿转苹果，执行 <code>rm &quot;/Users/$(whoami)/Library/Application Support/Beyond Compare/registry.dat&quot;</code> 删除注册信息就能初始化试用时间，不过每30天执行一次。。强迫症实在是受不了orz。</p>
-<p>试着在软件运行流程中插入脚本，没想到还真成功了。这样的话就可以做出自动执行命令、永久试用的无限试用版了。<br><span id="more-677"></span></p>
-<p>首先，下载 Beyond Compare 4 for Mac ，把它拖到 应用程序 文件夹里。</p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/10/78FD58FD-611A-4366-9814-B95A2214D509.jpg" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/10/78FD58FD-611A-4366-9814-B95A2214D509.jpg" alt="78FD58FD-611A-4366-9814-B95A2214D509"></a></p>
-<p>右键，显示包内容，依次打开Contents，MacOS文件夹</p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/10/BB8619A4-FC3D-4519-9D76-6EF929EF8F1F.jpg" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/10/BB8619A4-FC3D-4519-9D76-6EF929EF8F1F.jpg" alt="BB8619A4-FC3D-4519-9D76-6EF929EF8F1F"></a></p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/10/FE807A57-9A9D-4558-A140-DF9AD9245145.jpg" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/10/FE807A57-9A9D-4558-A140-DF9AD9245145.jpg" alt="FE807A57-9A9D-4558-A140-DF9AD9245145"></a></p>
-<p>BCompare 是主程序，每次开软件的时候就是打开了它。把它改名 BCompare.real ，用系统自带的文本编辑器创建一个名叫 BCompare 的文本文件，内容写上下面的脚本内容</p>
-<p>脚本内容：</p>
-<p><pre spellcheck="false" contenteditable="true">#!/bin/bash<br>rm “/Users/$(whoami)/Library/Application Support/Beyond Compare/registry.dat”<br>“<code>dirname &quot;$0&quot;</code>“/BCompare.real &amp;</pre><br>第一行是注明解释器，第二行是删除注册信息，第三行是启动真正的主程序。</p>
-<p>用终端执行 chmod +x 脚本路径 加上可执行权限。注意如果新建时带了 .txt 等后缀名，得在显示简介中奖后缀删除再执行加可执行权限的命令。</p>
-<p>这样我们每次打开软件的时候，都会先自动删掉注册信息，也就是永久免费试用了。<br><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/10/D1969336-382D-4237-BF3D-462B92CF6293.jpg" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/10/D1969336-382D-4237-BF3D-462B92CF6293.jpg" alt="D1969336-382D-4237-BF3D-462B92CF6293"></a></p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/10/02B0323E-2C5F-4F29-B657-EB5A3DC02002.jpg" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/10/02B0323E-2C5F-4F29-B657-EB5A3DC02002.jpg" alt="02B0323E-2C5F-4F29-B657-EB5A3DC02002"></a></p>
-<p>这个方法理论上适用一切需要定时执行命令清注册信息的Mac软件，PD的破解流程应该也可以这么塞进软件里。</p>
-<p>因为脚本里啥都能写，我来修改打包的话可能让人不放心，所以就不提供下载了。需要的照着自己改吧。</p>
-<div id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd"></div>
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                <a class="post-title-link" href="/2015/10/15/hexo-blog-add-bilibili-tag/" itemprop="url">
-                  Hexo博客添加Bilibili视频标签
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-10-15T00:07:38+08:00" content="2015-10-15">
-              2015-10-15
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/杂/" itemprop="url" rel="index">
-                    <span itemprop="name">杂</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/15/hexo-blog-add-bilibili-tag/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/15/hexo-blog-add-bilibili-tag/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>在终端中进入博客文件夹下</p>
-<p>输入命令：$  cnpm install hexo-tag-bilibili</p>
-<p>安装好之后，在站点的配置文件_config.yml中加入以下内容</p>
-<p><pre class="lang:yaml decode:true"># bilibili<br>bilibili:<br>  height: 640<br>  width: 480</pre><br>在文章中使用<div class="bili_video"><embed height="452" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="http://share.acg.tv/flash.swf" flashvars="aid=2831578&page=3" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"></div>标签来添加B站视频</p>
-<p>其中：2831578为视频的id，即av<strong><em>**</em></strong>的*代表的内容</p>
-<p>后面的3代表的是页数，可以省略不写。</p>
-<div id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd">PS:个人使用的主题是Next，经过多次尝试之后发现，使用上面的配置在页面显示的效果最好。</div><br><div id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd"></div>
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1474,21 +1462,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">44</span>
+              <span class="site-state-item-count">47</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-count">33</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">83</span>
+              <span class="site-state-item-count">88</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -1561,8 +1549,8 @@
     <footer id="footer" class="footer">
       <div class="footer-inner"> <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2015</span>
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="icon-next-heart fa fa-heart"></i>
   </span>

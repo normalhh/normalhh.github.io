@@ -204,6 +204,370 @@
             
             
               
+                <a class="post-title-link" href="/2015/10/28/android-studio-app-name/" itemprop="url">
+                  Android Studio编译后安装在手机上，显示在应用程序的名字不正确
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-10-28T07:43:48+08:00" content="2015-10-28">
+              2015-10-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Studio/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Studio</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Studio/JAVA/" itemprop="url" rel="index">
+                    <span itemprop="name">JAVA</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Studio/JAVA/代码/" itemprop="url" rel="index">
+                    <span itemprop="name">代码</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Studio/JAVA/代码/开发工具/" itemprop="url" rel="index">
+                    <span itemprop="name">开发工具</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/28/android-studio-app-name/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/28/android-studio-app-name/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p><pre class="lang:xhtml decode:true">&lt;activity<br>            android:name=”.activities.WireMainActivity”<br>            android:label=”@string/app_name”&gt;<br>            &lt;intent-filter&gt;<br>                &lt;action android:name=”android.intent.action.MAIN”/&gt;<br>                &lt;category android:name=”android.intent.category.LAUNCHER”/&gt;<br>            &lt;/intent-filter&gt;<br>        &lt;/activity&gt;</pre><br>上面这段代码是AndroidManifest.xml文件中定义的启动的默认Activity</p>
+<p>其中有一个label的属性的值，在之前是Mainactivity，后来在安装到手机上的时候发现显示在界面上的图标下的名称是MainActivity</p>
+<p>于是将label的值改为@string/app_name，使其与application的name值一致就可以了。</p>
+<div id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd"></div>
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                <a class="post-title-link" href="/2015/10/15/beyond-compare-try-every-time/" itemprop="url">
+                  【MAC】无限试用Beyond Compare 4.0
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-10-15T08:55:42+08:00" content="2015-10-15">
+              2015-10-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/开发工具/" itemprop="url" rel="index">
+                    <span itemprop="name">开发工具</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/开发工具/杂/" itemprop="url" rel="index">
+                    <span itemprop="name">杂</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/15/beyond-compare-try-every-time/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/15/beyond-compare-try-every-time/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p>有能力买正版的还是支持正版。。<em>(:з」∠)</em></p>
+<p>方法来自玩儿转苹果，执行 <code>rm &quot;/Users/$(whoami)/Library/Application Support/Beyond Compare/registry.dat&quot;</code> 删除注册信息就能初始化试用时间，不过每30天执行一次。。强迫症实在是受不了orz。</p>
+<p>试着在软件运行流程中插入脚本，没想到还真成功了。这样的话就可以做出自动执行命令、永久试用的无限试用版了。<br><span id="more-677"></span></p>
+<p>首先，下载 Beyond Compare 4 for Mac ，把它拖到 应用程序 文件夹里。</p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/10/78FD58FD-611A-4366-9814-B95A2214D509.jpg" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/10/78FD58FD-611A-4366-9814-B95A2214D509.jpg" alt="78FD58FD-611A-4366-9814-B95A2214D509"></a></p>
+<p>右键，显示包内容，依次打开Contents，MacOS文件夹</p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/10/BB8619A4-FC3D-4519-9D76-6EF929EF8F1F.jpg" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/10/BB8619A4-FC3D-4519-9D76-6EF929EF8F1F.jpg" alt="BB8619A4-FC3D-4519-9D76-6EF929EF8F1F"></a></p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/10/FE807A57-9A9D-4558-A140-DF9AD9245145.jpg" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/10/FE807A57-9A9D-4558-A140-DF9AD9245145.jpg" alt="FE807A57-9A9D-4558-A140-DF9AD9245145"></a></p>
+<p>BCompare 是主程序，每次开软件的时候就是打开了它。把它改名 BCompare.real ，用系统自带的文本编辑器创建一个名叫 BCompare 的文本文件，内容写上下面的脚本内容</p>
+<p>脚本内容：</p>
+<p><pre spellcheck="false" contenteditable="true">#!/bin/bash<br>rm “/Users/$(whoami)/Library/Application Support/Beyond Compare/registry.dat”<br>“<code>dirname &quot;$0&quot;</code>“/BCompare.real &amp;</pre><br>第一行是注明解释器，第二行是删除注册信息，第三行是启动真正的主程序。</p>
+<p>用终端执行 chmod +x 脚本路径 加上可执行权限。注意如果新建时带了 .txt 等后缀名，得在显示简介中奖后缀删除再执行加可执行权限的命令。</p>
+<p>这样我们每次打开软件的时候，都会先自动删掉注册信息，也就是永久免费试用了。<br><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/10/D1969336-382D-4237-BF3D-462B92CF6293.jpg" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/10/D1969336-382D-4237-BF3D-462B92CF6293.jpg" alt="D1969336-382D-4237-BF3D-462B92CF6293"></a></p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/10/02B0323E-2C5F-4F29-B657-EB5A3DC02002.jpg" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/10/02B0323E-2C5F-4F29-B657-EB5A3DC02002.jpg" alt="02B0323E-2C5F-4F29-B657-EB5A3DC02002"></a></p>
+<p>这个方法理论上适用一切需要定时执行命令清注册信息的Mac软件，PD的破解流程应该也可以这么塞进软件里。</p>
+<p>因为脚本里啥都能写，我来修改打包的话可能让人不放心，所以就不提供下载了。需要的照着自己改吧。</p>
+<div id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd"></div>
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                <a class="post-title-link" href="/2015/10/15/hexo-blog-add-bilibili-tag/" itemprop="url">
+                  Hexo博客添加Bilibili视频标签
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-10-15T00:07:38+08:00" content="2015-10-15">
+              2015-10-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/杂/" itemprop="url" rel="index">
+                    <span itemprop="name">杂</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/15/hexo-blog-add-bilibili-tag/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/15/hexo-blog-add-bilibili-tag/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p>在终端中进入博客文件夹下</p>
+<p>输入命令：$  cnpm install hexo-tag-bilibili</p>
+<p>安装好之后，在站点的配置文件_config.yml中加入以下内容</p>
+<p><pre class="lang:yaml decode:true"># bilibili<br>bilibili:<br>  height: 640<br>  width: 480</pre><br>在文章中使用<div class="bili_video"><embed height="452" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="http://share.acg.tv/flash.swf" flashvars="aid=2831578&page=3" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"></div>标签来添加B站视频</p>
+<p>其中：2831578为视频的id，即av<strong><em>**</em></strong>的*代表的内容</p>
+<p>后面的3代表的是页数，可以省略不写。</p>
+<div id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd">PS:个人使用的主题是Next，经过多次尝试之后发现，使用上面的配置在页面显示的效果最好。</div><br><div id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd"></div>
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
                 <a class="post-title-link" href="/2015/10/14/BiliBili-Video-Test/" itemprop="url">
                   BiliBili Video Test
                 </a>
@@ -1072,562 +1436,6 @@
 
 
     
-      
-
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                <a class="post-title-link" href="/2015/07/30/securecrt-command/" itemprop="url">
-                  SecureCRT常用指令
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-07-30T13:53:10+08:00" content="2015-07-30">
-              2015-07-30
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/代码/" itemprop="url" rel="index">
-                    <span itemprop="name">代码</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/07/30/securecrt-command/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/30/securecrt-command/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>rz  : 上传文件.</p>
-<p>ps -auxf  :查看进程</p>
-<p>tar -cvf /home/cbinews/openads_new_20090827.tar ./openads_new:打包命令</p>
-<p>mkdir:新建目录</p>
-<p>.zip<br>解 压：unzip FileName.zip<br>压缩：zip FileName.zip DirName</p>
-<p>.tar<br>解 包：tar xvf FileName.tar<br>打包：tar cvf FileName.tar DirName</p>
-<p>.tgz<br>解 压：tar zxvf FileName.tgz<br>压缩：未知</p>
-<p>查看文件末尾命令：</p>
-<p>tail -f /var/log/messages.log</p>
-<p>当前目录下文件数：</p>
-<p>ls   |   wc   -l</p>
-<p>查看空间使用情况命令：</p>
-<p>df -lh</p>
-<p>linux定时执行文件：</p>
-<p>crontab -e</p>
-<p>保存后要重载：</p>
-<p>/etc/rc.d/init.d/crond reload</p>
-<p>了解当前目录：</p>
-<p>pwd</p>
-<p>查看内存状态命令：</p>
-<p>free</p>
-<p>查看磁盘空间使用情况：</p>
-<p>df -am</p>
-<p>linux后台执行程序：</p>
-<p>nohup java -jar <em>**</em>.jar &amp;</p>
-<p>目前使用CPU,MEM的状况</p>
-<p>ps -uxwww</p>
-<p>修改文件编码方式：</p>
-<p>iconv -f gbk -t utf8 index.html &gt; index1.html</p>
-<p>把gbk编码的index.html文件转成index1.html</p>
-<p>查找目录：</p>
-<p>查找名字为conf的目录</p>
-<p>#find /目录-type d -name conf</p>
-<hr>
-<p>一、ls 只列出文件名 （相当于dir，dir也可以使用）<br>-A:列出所有文件，包含隐藏文 件。<br>-l：列表形式，包含文件的绝大部分属性。<br>-R：递归显示。<br>–help：此命令的帮助。</p>
-<p>二、cd 改变目录<br>cd /:进入根目录<br>cd ：回到自己的目录（用户不同则目录也不同，root为/root，xxt为/home/xxt<br>cd ..：回到上级目录<br>pwd：显示当前所在的目录</p>
-<p>三.less 文件名：查看文件内 容。</p>
-<p>四.q 退出打开的文件。</p>
-<p>五.上传文件： rz 选择要传送的文件，确定。</p>
-<p>六.下载文件： sz 指定文件名,enter敲，即下载到了secureCRT/download目录下。</p>
-<p>七：删除文件： rm 删除文件 ，rmdir 删除空目录。<br>八.显示 最近输入的20条命令：history 20<br>九.获得帮助命令 –help查看命令下详细参数：  如：rz –help   ， sz –help  。</p>
-<p>十.cd 进入某个文件夹的命令：<br>mkdir+ 文件夹名 创建某个文件夹的命令<br>sz+文件名 从服务器端向本机发送文件的命令<br>rz 从本机向服务器端传送文件的命令<br>ll 列出当前目录下的所有文件,包括每个文件的详细信息<br>dir 对当前文件夹<br>vi 打开当前文件</p>
-<p>十一.在编辑某个文件的时候：<br>a 切换到编辑模式<br>ctrl+c 退出编辑模式<br>dd 删除整行<br>:q 退出当前文件<br>:w 写入并保存当前文件<br>-f 强行xx的参数。。。</p>
-<p>&nbsp;</p>
-<p>其它命令：<br>1.ps -ef  //查看server的进程,以列表形式显示的server进程。<br>ps 显示当前在系统运行的进程 /usr/bin/ps [选项] -e 显示每个现在运行的进程 -f 生成一个完全的列表</p>
-<h2 id="u5B9E_u9645_u64CD_u4F5C_uFF1A"><a href="#u5B9E_u9645_u64CD_u4F5C_uFF1A" class="headerlink" title="实际操作："></a>实际操作：</h2><p>1 SSH客户端连接到10.5.1.55系统（参见《启动远程客户端说明SecureCRT.doc》）</p>
-<p>$ cd /home/bea2/user_projects/csdomain/bin</p>
-<p>2 查看weblogic92服务进程</p>
-<p>$ ps -eaf | grep weblogic</p>
-<p>bea2 327926 331940   0 13:08:45 pts/4 0:00 grep weblogic</p>
-<p>webadmin 421908 368956   0   Sep 24      - 4:13 /usr/java5_64/bin/java -Xms256m -Xmx512m -da -Dplatform.home=/home/weblogic/bea/weblogic92 -Dwls.home=/home/weblogic/bea/weblogic92/server -Dwli.home=/home/weblogic/bea/weblogic92/integration -Dweblogic.management.discover=true -Dwlw.iterativeDev=false -Dwlw.testConsole=false -Dwlw.logErrorsToConsole= -Dweblogic.ext.dirs=/home/weblogic/bea/patch_weblogic923/profiles/default/sy<em>*</em>t_manifest_classpath -Dweblogic.Name=AdminServer -Djava.security.policy=/home/weblogic/bea/weblogic92/server/lib/weblogic.policy weblogic.Server</p>
-<p>bea2 491796 385044 17 00:12:50 pts/6 182:55 /usr/java5_64/bin/java -Xms6g -Xmx8g -javaagent:/home/bea2/user_projects/csdomain/Introscope/wily/Agent.jar -Dcom.wily.introscope.agentProfile=/home/bea2/user_projects/csdomain/Introscope/wily/IntroscopeAgent.profile -Dcom.wily.introscope.agent.agentName=AdminServer -da -Dplatform.home=/home/weblogic/bea/weblogic92 -Dwls.home=/home/weblogic/bea/weblogic92/server -Dwli.home=/home/weblogic/bea/weblogic92/integration -Dweblogic.management.discover=true -Dwlw.iterativeDev= -Dwlw.testConsole= -Dwlw.logErrorsToConsole= -Dfile.encoding=GBK -Dibm.stream.nio=true -Dweblogic.ext.dirs=/home/weblogic/bea/patch_weblogic923/profiles/default/sy<em>*</em>t_manifest_classpath -Dweblogic.Name=AdminServer -Djava.security.policy=/home/weblogic/bea/weblogic92/server/lib/weblogic.policy weblogic.Server</p>
-<p>说明：根据以上提示查看登陆用户bea2启动的进程，注意标红的bea2为进程拥有着， 491796为进程号</p>
-<p>3 执行如下命令杀掉进程</p>
-<p>$ kill -9 491796（根据2操做查找到得系统进程号）</p>
-<p>说明：执行后再执行$ ps -eaf | grep weblogic命令将不会看到该进程号的weblogic进程</p>
-<p>4 启动服务</p>
-<p>$ ./quickRun.sh</p>
-<hr>
-<p>2.ant -buildfile CMS_MainTrunk.xml  //build 包</p>
-<p>3.vi test.txt  //浏览文件内容<br>i {insert写输入}<br>esc  退出insert<br>:wq! write 保存并退出vi模式<br>:q!  不保存退出vi模式</p>
-<p>4.我一般习惯用ps –ef命令，这样看到以列表形式显示的server进程；用命令pstree来查看server的进程，这样看到以树的形式显示的server进程。<br>Pstree 命令的优点在于可以立即找出某进程的父进程。您可能会需要使用 -p 选项显示每个进程的 PID，以及 -u 选项来显示启动该进程的用户名。<br>一 般来说，这一树结构比较长，您就需要这么执行 pstree –up | less　这将让您纵览整个进程树结构。</p>
-<p>5.secureCRT中乱码解决：Options-&gt;SessionOptions-&gt;Appearance-&gt;font把 default改成UTF-8，就可以显示中文字体了。</p>
-<p>6.hostname：查hostname</p>
-<p>7.ifconfig 查询主机IP</p>
-<p>8.在S-CRT下用ctrl+c 和ctrl+v：<br>Options—Global Options—Edit default Settings进去后点Terminal—Emulation然后点Mapped Keys，点中低部的，use windows copy and paste key，点确认。</p>
-<p>&nbsp;</p>
-<p>9.进入vi的命令：<br>vi filename :打开或新建文件，并将光标置于第一行首<br>vi +n filename ：打开文件，并将光标置于第n行首<br>vi + filename ：打开文件，并将光标置于最后一行首<br>vi +/pattern filename：打开文件，并将光标置于第一个与pattern匹配的串处</p>
-<p>10.移动光标类命令：<br>}：光标移至段落开头<br>{：光标移至段落结尾<br>nG： 光标移至第n行首<br>n+：光标下移n行<br>n-：光标上移n行<br>n$：光标移至第n行尾<br>H ：光标移至屏幕顶行<br>M ：光标移至屏幕中间行<br>L ：光标移至屏幕最后行<br>0：（注意是数字零）光标移至当前行首<br>$：光标移至当前行尾</p>
-<p>11.屏幕翻滚类命令：<br>Ctrl+u：向文件首翻半屏<br>Ctrl+d：向文件尾翻半屏<br>Ctrl+f：向文件尾翻一屏  //好像是 r<br>Ctrl＋b；向文件首翻一屏<br>12.搜索命令：<br>/pattern：从光标开始处向文件尾搜索pattern<br>?pattern：从光标开始处向文件首搜索pattern<br>n：在同一方向重复上一次搜索命令<br>N：在反方向上重复上一次搜索命令</p>
-<p>显示行号    :set number     或 :set nu<br>去除行号    :set nonumber  或  :set nonu</p>
-<div></div><br><div>13.VI中复制与粘贴：</div><br>1）单行复制<br><br>在命令模式下，将光标移动到将要复制的行处，按“yy”进行复制；<br><br>2）多行复制<br><div>在命令模式下，将光标移动到将要复制的首行处，按“nyy”复制n行；其中n为1、2、3.</div><br><div>3）粘贴</div><br><div>在命令模式下，将光标移动到将要粘贴的行处，按“p”进行粘贴</div><br><div></div><br><div>14.在屏幕上移动</div><br><div><br><div>Vi提供了三个关于光标在全屏幕上移动并且文件本身不发生滚动的命令。它们分别是H、M和L命令。</div><br><div>　　(1)H命令</div><br><div>　 　该命令将光标移至屏幕首行的行首（即左上角），也就是当前屏幕的第一行，而不是整个文件的第一行。利用此命令可以快速将光标移至屏幕顶部。若在H命令之 前加上数字n，则将光标移至第n行的行首。值得一提的是，使用命令dH将会删除从光标当前所在行至所显示屏幕首行的全部内容。</div><br><div>　　(2)M命令</div><br><div>　 　该命令将光标移至屏幕显示文件的中间行的行首。即如果当前屏幕已经充满,则移动到整个屏幕的中间行；如果并未充满，则移动到文本的那些行的中间行。利用 此命令可以快速地将光标从屏幕的任意位置移至屏幕显示文件的中间行的行首。例如，在上面屏幕显示的情况下（不论光标在屏幕的何处），在命令模式下，输入命 令M之后，光标都将移到add这一行的字母a上。同样值得一提的是，使用命令dM将会删除从光标当前所在行至屏幕显示文件的中间行的全部内容。</div><br><div>　　(3)L命令</div><br><div>　 　当文件显示内容超过一屏时，该命令将光标移至屏幕上的最底行的行首；当文件显示内容不足一屏时，该命令将光标移至文件的最后一行的行首。可见，利用此命 令可以快速准确地将光标移至屏幕底部或文件的最后一行。若在L命令之前加上数字n，则将光标移至从屏幕底部算起第n行的行首。同样值得一提的是，使用命令 dL将会删除从光标当前行至屏幕底行的全部内容。</div><br></div><br><div></div><br><div><br><br>postgres 使用：<br>1.进入sql运行环境。<br>[test@test bin]$ ./psql -n dbname -U usrname<br>stay81=# select count(*) from table1;<br>count<br>——-<br>5986<br>(1 row)<br><br>2. 退出，使用结束后退出，不然连接一直被挂起。<br>stay81=# \q<br><br>3.postgres 数据导出。<br>[postgres@test bin]$ ./pg_dump -U postgres -t testTable -d testDB &gt; testTable.dump<br>或[postgres@test bin]$ ./pg_dump -U postgres -d testDB -t testTable -F c -v &gt; testTable.dump<br><br>4. postgres 数据导入。<br>[postgres@test bin]$ ./psql -U postgres -d testDB &lt; testTable.dump<br>或[postgres@test bin]$ ./pg_restore -U postgres -d testDB &lt; testTable.dump<br><br>5.一台主机上将数据库目录转储到另一台主机上。<br>pg_dump -h host1 -p 5432 dbname | psql -h host2 -p post1 dbname<br>或./pg_dump -U postgres -d testDB1 -t testTable | ./psql -U postgres -d testDB2<br>-U 为用户名 ，-d 为DB名，-t 为表名称，如果整个数据库导出，不需此项。<br><br>6.php执行。<br>[test@test bin]$ /usr/bin/php -q ./batchstart.php<br><br></div>
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                <a class="post-title-link" href="/2015/07/29/utorrent-must-read/" itemprop="url">
-                  uTorrent新手必看
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-07-29T08:24:29+08:00" content="2015-07-29">
-              2015-07-29
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/杂/" itemprop="url" rel="index">
-                    <span itemprop="name">杂</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/07/29/utorrent-must-read/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/29/utorrent-must-read/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <div id="post_content_41844970031" class="d_post_content j_d_post_content ">新手请看：可连接状态为“否”的解决方法<br>1、连接状态为“否”是什么意思？<br>连接状态为“否”不是说你的PT客户端连不上TRACKER服务器，而是说外网的同时下载的用户无法连接到你，不能跟你交换数据了，也就是说你只能单向地发送数据和取数据，这会大大地影响你的下载和上传速度。2、连接状态为“否”的原因是什么？<br>原因概括地说是网络设置问题，通常会因为防火墙阻挡、路由未设置、端口映射不正确等原因。<br><br>3、连接状态为“否”有什么影响？<br>简单地说只影响速度，其他没有影响。<br><br>4、如何确认我的网络设置是否正确？<br>如果对站里反馈的连接状态有疑问，可以自己来测试一下，方法有二：<br>测试前先保证你已经打开PT客户端，并正常运行，记下你的IP地址和PT使用的端口号。<br>A、借用EMULE的端口测试，打开<a href="http://jump.bdimg.com/safecheck/index?url=x+Z5mMbGPAvyQjgFIr6pySokMhDUBkzuEj49KCTzKSRrm2KZkCDuGwmc9bMRB0hg4BnMGzFiHt82DIepa4OlDCBKN/Xwo+zJ2mhtjrFny56GcCxON2VEldcH1G5+YcaStk0BpqvyjkV2Pah4egTNMg==" target="_blank" rel="external">http://www.emule.org.cn/porttest/</a>，输入你的PT客户端所使用的端口号，看看是否能测试成功。<br>B、让你的朋友在外部测试你的PT端口号。假设你的IP地址是1.2.3.4,端口号为6666，让你的朋友运行 TELNET 1.2.3.4 6666 ，如果连接失败，说明端口未正确设置。<br><br>5、如何正确设置网络？<br>ADSL用户及通过路由上网的兄弟请参考第7条<br>公司内网用户：公司内网一般无法正确路由，需由网管在路由或防火墙上作设置，网管更专业。但有些公司是用NAT透明代理方式的，PT不会受到限制。<br>校园网用户：与公司网类似，多数校园网是内网，通过路由和网关接入互联网，无解，除非你搞定网管。IPV6的用户如何设置，因没有合适环境未研究，请有办法的兄弟跟贴。<br><br>6、连接“否”会不会影响上传下载流量的统计？<br>连接状态不影响流量统计，上传下载是通过TRACKER服务器进行的，与此无关。<br><br>7、ADSL用户设置路由器<br>以下内容由网络收集转载而来，仅供参考，因各种环境不同请大家根据自己的实际情况操作<br><br>内网ADSL 端口映射准备工作!新手必看！<br><br>Quote:<br>首先，确定你的ADSL是公网还是内网？<br>判断公网还是内网的方法：<br><br>用ipconfig查：<br>（1）Windows 9x/Me用户<br>用鼠标选择“开始”-&gt;“程序”-&gt;“MS-DOS方式”，打开一个DOS命令行窗口，执行：ipconfig<br>（2）Windows NT/2000/XP用户<br>用鼠标选择“开始”-&gt;“程序”-&gt;“附件”-&gt;“命令提示符”，打开一个DOS命令行窗口，执行：ipconfig<br><br>Ethernet adapter 本地连接:<br><br>Connection-specific DNS Suffix . :<br>Description . . . . . . . . . . . : Realtek RTL8139/810x Family Fast Ethernet<br>NIC<br>Physical Address. . . . . . . . . : 00-11-D8-EB-8B-A8<br>DHCP Enabled. . . . . . . . . . . : No<br>IP Address. . . . . . . . . . . . : 192.168.1.250 就是你电脑的IP地址<br>Subnet Mask . . . . . . . . . . . : 255.255.255.0 子网掩码<br>Default Gateway . . . . . . . . . : 192.168.1.1 网关，也就是你路由器的IP地址！<br>DNS Servers . . . . . . . . . . . : 202.96.134.133<br>202.96.128.68<br><br>如果你的ＩＰ是以下三种基本上判定为内网：<br>10.x.x.x；172.x.x.x；192.168.x.x。<br><br>现在我们找到了路由器的IP地址后，可以直接在浏览器地址栏输入路由器的IP，进入路由器的设置界面！进行端口映射！<br><br>其次，是否支持并开启了路由？<br>现在大部分ＡＤＳＬ支持路由功能，这个应该没有问题。这里要确定你的ＡＤＳＬ的路由是否已经开启。有一点需要明确的就是开启路由与端口映射的关系：是因为开启了路由才需要作端口映射。<br>因此对于ＡＤＳＬ公网用户：<br>1、如果没有开启路由功能，则无需再作端口映射。只要打开防火墙相应端口就没有问题。<br>2、如果是通过ＡＤＳＬ路由自动拨号或者共享上网的，即变为内网用户，则有必要进行端口映射。请继续。<br><br>最后，获得ＡＤＳＬ默认ＩＰ的地址，以及用户名与密码。<br>在做端口映射前，请大家详细看说明书，特别是有关NAT方面的设置。这样会让你少走很多弯路，也许很有可能你在看完说明书就已经找到的解决问题的方法。有一点需要说明的是，很多附带的说明书都比较粗略地提到这方面的信息，这就需要你到该产品的主页上去查找。<br><br>这里根据我的ADSL的设置以及网友们的成功经验。特地把ADSL分为有Virtual Server（虚拟服务器）设置和只有NAT（端口映射）设置的两种。<br><br>在IE中输入你的默认ＩＰ地址（比如：10.0.0.2或192.168.1.1），通过用户名和密码进入ADSL的Web页设置。端口映射便开始了<br><br>如果你是电信送的ADSL就有可能在WEB页里面找不到Virtual Server（虚拟服务器）或NAT（端口映射）设置<br><br>我们还可以用telnet（远程连接）的方法设置<br>在“运行”里输入 telnet 192.168.1.1 在 LOGON PASSWORD: 输入密码后所有的设置选项都出来了<br><br>此方法可以适用所有DASL（不包括USB接口的）<br>分享率：1,949.277<br><br>教程]UT简易设置教程<br>参考版本 uTorrent 2.0.1 build 19248<br><br>凡是使用UT 2.0.1的用户，请将高级设置中的net.calc_overhead要设置为false，否则UT的流量统计将包括网络开销，但网络开销不是真正的流量<br><br>如果想看完整版本的介绍，请移步<br>[教程]uTorrent安装设置指南及绿化方法<br><br>隐私信息<br>自动检查更新 ： 不勾<br>更新到beta版本 ： 不勾<br>在检测更新时发送详细信息(总是匿名) ： 勾选<br><br>说明：建议大家不要更新到BETA版本。另外虽然工作人员相当努力，但是对新版本的支持还是会有一定的延迟，所以请取消自动更新，避免更新后提示为”banned client”(被禁客户端)。<br>如要更新请到官网下载或者手动更新，具体方法为：菜单栏上，帮助-&gt;检查更新，此时需注意ChinaHDTV是否已经支持新版本。<br><br>下载任务<br>未完成文件添加.!ut后缀 ： ？<br>这个根据自己的喜好选择。对于想预览文件的朋友就不要勾选这个选项了，毕竟更改了文件扩展名，很多时候会不方便。<br><br>活动时避免进入待机状态 ： 勾选<br>对于电脑会自动进入待机状态的同学，请务必勾选，避免因为长时间无人看守而待机，使得电脑断开网络连接最终使得UT无法下载及上传<br><br>监听端口<br>添加系统防火墙例外 ： 勾选<br>这个一定要勾选，重要性就不多说什么了。你说你把系统自带的防火墙禁用了？好吧，你不勾选也行……<br>每次启动后使用随即端口 ： 不勾<br>没有必要在每次启动UT的时候都更换一个端口，使用一个确定的端口的效果会更好。除非你有特殊的需求<br><br>这里的端口号选择，尽量避免和一些常用软件的默认端口冲突，可以考虑8000以上的高段端口，或者让UT随即一个端口，如果对自己有信心，也可以自己设置一个端口。<br>对于ADSL用户，由于部分ISP会封锁端口，这里的端口尽量避免使用6881—6999、8881—8889、16881—16889端口<br><br>队列设置<br>最大的活动任务数(上传或下载) ： 20<br>最大的活动下载数 ： 5<br>UT本身此处的设置值比较小，需要自己改动。另外说明一下，活动任务不是指所有的任务，而是指到达一定传输速度的任务，所以一般来说20已经能满足要求了。<br><br>出现排队的现象就是因为这里的设置值过小，请设当增大设置值<br><br>做种目标<br>做种任务的优先级高于下载任务 ： 勾选<br>说明一下，UT默认分享率为150%。我比较喜欢整数，所以改为了200%，截图时忘记改回去了……大家请见谅<br><br>当uTorrent达到做种目标时<br>限制上传速度为 ： 不勾<br><br></div><br><div id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd"></div>
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                <a class="post-title-link" href="/2015/05/25/hexo-usual-command/" itemprop="url">
-                  hexo常用命令笔记
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-05-25T11:04:45+08:00" content="2015-05-25">
-              2015-05-25
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/代码/" itemprop="url" rel="index">
-                    <span itemprop="name">代码</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/05/25/hexo-usual-command/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/25/hexo-usual-command/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <div class="article fmt"><br><br>## hexo<br><br>    bash<code>&lt;a name=&quot;baidusnap0&quot;&gt;&lt;/a&gt;**npm** &lt;a name=&quot;baidusnap1&quot;&gt;&lt;/a&gt;**install** hexo -g #安装  
-    **npm** update hexo -g #升级  
-    hexo init #初始化
-    `&lt;/pre&gt;
-
-    ## 简写
-
-    `hexo n &quot;我的博客&quot;` == `hexo new &quot;我的博客&quot;` #新建文章
-    `hexo p` == `hexo publish`
-    `hexo g` == `hexo generate`#生成
-    `hexo s` == `hexo server` #启动服务预览
-    `hexo d` == `hexo deploy`#部署
-
-    ## 服务器
-
-    `hexo server` #Hexo 会监视文件变动并自动更新，您无须重启服务器。
-    `hexo server -s` #静态模式
-    `hexo server -p 5000` #更改端口
-    `hexo server -i 192.168.1.1` #自定义 IP
-
-    `hexo clean` #清除缓存 网页正常情况下可以忽略此条命令
-    `hexo g` #生成静态网页
-    `hexo d` #开始部署
-
-    ### 监视文件变动
-
-    `hexo generate` #使用 Hexo 生成静态文件快速而且简单
-    `hexo generate --watch` #监视文件变动
-
-    ### 完成后部署
-
-    &gt; 两个命令的作用是相同的
-&gt; 
-&gt;     `hexo generate --deploy`
-&gt; 
-&gt;     `hexo deploy --generate`
-    `hexo deploy -g`
-    `hexo server -g`
-
-    ## 草稿
-
-    `hexo publish [layout] &amp;lt;title&amp;gt;`
-
-    ## 模版
-
-    `hexo new &quot;postName&quot;` #新建文章
-    `hexo new page &quot;pageName&quot;` #新建页面
-    `hexo generate` #生成静态页面至public目录
-    `hexo server` #开启预览访问端口（默认端口4000，&#39;ctrl + c&#39;关闭server）
-    `hexo deploy` #将.deploy目录部署到GitHub
-
-    `hexo new [layout] &amp;lt;title&amp;gt;`
-    `hexo new photo &quot;My Gallery&quot;`
-    `hexo new &quot;Hello World&quot; --lang tw`
-    &lt;table&gt;
-    &lt;thead&gt;
-    &lt;tr&gt;
-    &lt;th&gt;变量&lt;/th&gt;
-    &lt;th&gt;描述&lt;/th&gt;
-    &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-    &lt;tr&gt;
-    &lt;td&gt;layout&lt;/td&gt;
-    &lt;td&gt;布局&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td&gt;title&lt;/td&gt;
-    &lt;td&gt;标题&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td&gt;date&lt;/td&gt;
-    &lt;td&gt;文件建立日期&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;/tbody&gt;
-    &lt;/table&gt;
-    &lt;pre&gt;`title: 使用Hexo搭建个人博客
-    layout: post
-    date: 2014-03-03 19:07:43
-    comments: true
-    categories: Blog
-    tags: [Hexo]
-    keywords: Hexo, Blog
-    description: 生命在于折腾，又把博客折腾到Hexo了。给Hexo点赞。
-    `&lt;/pre&gt;
-
-    ## 模版（Scaffold）
-
-    `hexo new photo &quot;My Gallery&quot;`
-    &lt;table&gt;
-    &lt;thead&gt;
-    &lt;tr&gt;
-    &lt;th&gt;变量&lt;/th&gt;
-    &lt;th&gt;描述&lt;/th&gt;
-    &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-    &lt;tr&gt;
-    &lt;td&gt;layout&lt;/td&gt;
-    &lt;td&gt;布局&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td&gt;title&lt;/td&gt;
-    &lt;td&gt;标题&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td&gt;date&lt;/td&gt;
-    &lt;td&gt;文件建立日期&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;/tbody&gt;
-    &lt;/table&gt;
-
-    ## 设置文章摘要
-
-    &lt;pre&gt;`以上是文章摘要 &amp;lt;!--more--&amp;gt; 以下是余下全文 
-    `&lt;/pre&gt;
-
-    ## 写作
-
-    `hexo new page &amp;lt;title&amp;gt;`
-    `hexo new post &amp;lt;title&amp;gt;`
-    &lt;table&gt;
-    &lt;thead&gt;
-    &lt;tr&gt;
-    &lt;th&gt;变量&lt;/th&gt;
-    &lt;th&gt;描述&lt;/th&gt;
-    &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-    &lt;tr&gt;
-    &lt;td&gt;:title&lt;/td&gt;
-    &lt;td&gt;标题&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td&gt;:year&lt;/td&gt;
-    &lt;td&gt;建立的年份（4 位数）&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td&gt;:month&lt;/td&gt;
-    &lt;td&gt;建立的月份（2 位数）&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td&gt;:i_month&lt;/td&gt;
-    &lt;td&gt;建立的月份（去掉开头的零）&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td&gt;:day&lt;/td&gt;
-    &lt;td&gt;建立的日期（2 位数）&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td&gt;:i_day&lt;/td&gt;
-    &lt;td&gt;建立的日期（去掉开头的零）&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;/tbody&gt;
-    &lt;/table&gt;
-
-    ### 推送到服务器上
-
-    `hexo n` #写文章
-    `hexo g` #生成
-    `hexo d` #部署 #可与`hexo g`合并为 `hexo d -g`
-
-    ## 报错
-
-    ### 1.找不到git部署
-
-    &lt;pre&gt;`ERROR Deployer not found: git
-    `&lt;/pre&gt;
-    **解决方法**
-
-    `**npm** **install** &lt;a name=&quot;baidusnap2&quot;&gt;&lt;/a&gt;**hexo-deployer-git** --save`
-
-    ### 3.部署类型设置git
-
-    hexo 3.0 部署类型不再是`github`，`_config.yml` 中修改
-    &lt;pre&gt;`bash</code># Deployment<br>    ## Docs: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">http://hexo.io/docs/deployment.html</a><br>    deploy:<br>      type: git<br>      repository: git@<strong><em>.github.com:</em></strong>/<strong>*.github.io.git<br>      branch: master<br>    <code>&lt;/pre&gt;
-
-    ### 4\. xcodebuild
-
-    xcode-select: error: tool &#39;xcodebuild&#39; requires Xcode, but active developer directory &#39;/Library/Developer/CommandLineTools&#39; is a command line tools instance</code></strong>npm<strong> </strong>install<strong> bcrypt<code>### 5\. RSS不显示
-
-    #### 安装RSS插件</code></strong>npm<strong> </strong>install** hexo-generator-feed –save<code>#### 开启RSS功能
-
-    编辑hexo/_config.yml，添加如下代码：
-    &lt;pre&gt;</code>rss: /atom.xml #rss地址  默认即可<br>    <code>&lt;/pre&gt;
-
-    #### 开启评论
-
-    1.我使用多说代替自带的评论，在[多说](http://duoshuo.com) 网站注册 &amp;gt; 后台管理 &amp;gt; 添加新站点 &amp;gt; 工具 === 复制通用代码 里面有 short_name
-
-1.  在根目录</code>_config.yml<code>添加一行</code>disqus_shortname: jslite<code>是在多说注册时产生的
-2.  复制到</code>themes\landscape\layout_partial\article.ejs<code>把
-    &lt;pre&gt;</code>&lt;% if (!index &amp;&amp; post.comments &amp;&amp; config.disqus_shortname){ %&gt;<br>    &lt;section id=”comments”&gt;<br>    &lt;div id=”disqus_thread”&gt;<br>      &lt;noscript&gt;Please enable JavaScript to view the &lt;a href=”//disqus.com/?ref_noscript”&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;<br>    &lt;/div&gt;<br>    &lt;/section&gt;<br>    &lt;% } %&gt;<br>    <code>&lt;/pre&gt;
-    改为
-    &lt;pre&gt;</code>html``&lt;% if (!index &amp;&amp; post.comments &amp;&amp; config.disqus_shortname){ %&gt;<br>      &lt;section id=”comments”&gt;<br>        &lt;!– 多说评论框 start –&gt;<br>        &lt;div class=”ds-thread” data-thread-key=”&lt;%= post.layout %&gt;-&lt;%= post.slug %&gt;” data-title=”&lt;%= post.title %&gt;” data-url=”&lt;%= page.permalink %&gt;”&gt;&lt;/div&gt;<br>        &lt;!– 多说评论框 end –&gt;<br>        &lt;!– 多说公共JS代码 start (一个网页只需插入一次) –&gt;<br>        &lt;script type=”text/javascript”&gt;<br>        var duoshuoQuery = {short_name:’&lt;%= config.disqus_shortname %&gt;’};<br>          (function() {<br>            var ds = document.createElement(‘script’);<br>            ds.type = ‘text/javascript’;ds.async = true;<br>            ds.src = (document.location.protocol == ‘https:’ ? ‘https:’ : ‘http:’) + ‘//static.duoshuo.com/embed.js’;<br>            ds.charset = ‘UTF-8’;<br>            (document.getElementsByTagName(‘head’)[0]<br>             || document.getElementsByTagName(‘body’)[0]).appendChild(ds);<br>          })();<br>          &lt;/script&gt;<br>        &lt;!– 多说公共JS代码 end –&gt;<br>      &lt;/section&gt;<br>    &lt;% } %&gt;<br><br></div>
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1670,21 +1478,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">44</span>
+              <span class="site-state-item-count">47</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-count">33</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">83</span>
+              <span class="site-state-item-count">88</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -1757,8 +1565,8 @@
     <footer id="footer" class="footer">
       <div class="footer-inner"> <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2015</span>
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="icon-next-heart fa fa-heart"></i>
   </span>

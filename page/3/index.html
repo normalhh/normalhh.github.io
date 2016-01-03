@@ -204,6 +204,562 @@
             
             
               
+                <a class="post-title-link" href="/2015/07/30/securecrt-command/" itemprop="url">
+                  SecureCRT常用指令
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-07-30T13:53:10+08:00" content="2015-07-30">
+              2015-07-30
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/代码/" itemprop="url" rel="index">
+                    <span itemprop="name">代码</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/07/30/securecrt-command/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/30/securecrt-command/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p>rz  : 上传文件.</p>
+<p>ps -auxf  :查看进程</p>
+<p>tar -cvf /home/cbinews/openads_new_20090827.tar ./openads_new:打包命令</p>
+<p>mkdir:新建目录</p>
+<p>.zip<br>解 压：unzip FileName.zip<br>压缩：zip FileName.zip DirName</p>
+<p>.tar<br>解 包：tar xvf FileName.tar<br>打包：tar cvf FileName.tar DirName</p>
+<p>.tgz<br>解 压：tar zxvf FileName.tgz<br>压缩：未知</p>
+<p>查看文件末尾命令：</p>
+<p>tail -f /var/log/messages.log</p>
+<p>当前目录下文件数：</p>
+<p>ls   |   wc   -l</p>
+<p>查看空间使用情况命令：</p>
+<p>df -lh</p>
+<p>linux定时执行文件：</p>
+<p>crontab -e</p>
+<p>保存后要重载：</p>
+<p>/etc/rc.d/init.d/crond reload</p>
+<p>了解当前目录：</p>
+<p>pwd</p>
+<p>查看内存状态命令：</p>
+<p>free</p>
+<p>查看磁盘空间使用情况：</p>
+<p>df -am</p>
+<p>linux后台执行程序：</p>
+<p>nohup java -jar <em>**</em>.jar &amp;</p>
+<p>目前使用CPU,MEM的状况</p>
+<p>ps -uxwww</p>
+<p>修改文件编码方式：</p>
+<p>iconv -f gbk -t utf8 index.html &gt; index1.html</p>
+<p>把gbk编码的index.html文件转成index1.html</p>
+<p>查找目录：</p>
+<p>查找名字为conf的目录</p>
+<p>#find /目录-type d -name conf</p>
+<hr>
+<p>一、ls 只列出文件名 （相当于dir，dir也可以使用）<br>-A:列出所有文件，包含隐藏文 件。<br>-l：列表形式，包含文件的绝大部分属性。<br>-R：递归显示。<br>–help：此命令的帮助。</p>
+<p>二、cd 改变目录<br>cd /:进入根目录<br>cd ：回到自己的目录（用户不同则目录也不同，root为/root，xxt为/home/xxt<br>cd ..：回到上级目录<br>pwd：显示当前所在的目录</p>
+<p>三.less 文件名：查看文件内 容。</p>
+<p>四.q 退出打开的文件。</p>
+<p>五.上传文件： rz 选择要传送的文件，确定。</p>
+<p>六.下载文件： sz 指定文件名,enter敲，即下载到了secureCRT/download目录下。</p>
+<p>七：删除文件： rm 删除文件 ，rmdir 删除空目录。<br>八.显示 最近输入的20条命令：history 20<br>九.获得帮助命令 –help查看命令下详细参数：  如：rz –help   ， sz –help  。</p>
+<p>十.cd 进入某个文件夹的命令：<br>mkdir+ 文件夹名 创建某个文件夹的命令<br>sz+文件名 从服务器端向本机发送文件的命令<br>rz 从本机向服务器端传送文件的命令<br>ll 列出当前目录下的所有文件,包括每个文件的详细信息<br>dir 对当前文件夹<br>vi 打开当前文件</p>
+<p>十一.在编辑某个文件的时候：<br>a 切换到编辑模式<br>ctrl+c 退出编辑模式<br>dd 删除整行<br>:q 退出当前文件<br>:w 写入并保存当前文件<br>-f 强行xx的参数。。。</p>
+<p>&nbsp;</p>
+<p>其它命令：<br>1.ps -ef  //查看server的进程,以列表形式显示的server进程。<br>ps 显示当前在系统运行的进程 /usr/bin/ps [选项] -e 显示每个现在运行的进程 -f 生成一个完全的列表</p>
+<h2 id="u5B9E_u9645_u64CD_u4F5C_uFF1A"><a href="#u5B9E_u9645_u64CD_u4F5C_uFF1A" class="headerlink" title="实际操作："></a>实际操作：</h2><p>1 SSH客户端连接到10.5.1.55系统（参见《启动远程客户端说明SecureCRT.doc》）</p>
+<p>$ cd /home/bea2/user_projects/csdomain/bin</p>
+<p>2 查看weblogic92服务进程</p>
+<p>$ ps -eaf | grep weblogic</p>
+<p>bea2 327926 331940   0 13:08:45 pts/4 0:00 grep weblogic</p>
+<p>webadmin 421908 368956   0   Sep 24      - 4:13 /usr/java5_64/bin/java -Xms256m -Xmx512m -da -Dplatform.home=/home/weblogic/bea/weblogic92 -Dwls.home=/home/weblogic/bea/weblogic92/server -Dwli.home=/home/weblogic/bea/weblogic92/integration -Dweblogic.management.discover=true -Dwlw.iterativeDev=false -Dwlw.testConsole=false -Dwlw.logErrorsToConsole= -Dweblogic.ext.dirs=/home/weblogic/bea/patch_weblogic923/profiles/default/sy<em>*</em>t_manifest_classpath -Dweblogic.Name=AdminServer -Djava.security.policy=/home/weblogic/bea/weblogic92/server/lib/weblogic.policy weblogic.Server</p>
+<p>bea2 491796 385044 17 00:12:50 pts/6 182:55 /usr/java5_64/bin/java -Xms6g -Xmx8g -javaagent:/home/bea2/user_projects/csdomain/Introscope/wily/Agent.jar -Dcom.wily.introscope.agentProfile=/home/bea2/user_projects/csdomain/Introscope/wily/IntroscopeAgent.profile -Dcom.wily.introscope.agent.agentName=AdminServer -da -Dplatform.home=/home/weblogic/bea/weblogic92 -Dwls.home=/home/weblogic/bea/weblogic92/server -Dwli.home=/home/weblogic/bea/weblogic92/integration -Dweblogic.management.discover=true -Dwlw.iterativeDev= -Dwlw.testConsole= -Dwlw.logErrorsToConsole= -Dfile.encoding=GBK -Dibm.stream.nio=true -Dweblogic.ext.dirs=/home/weblogic/bea/patch_weblogic923/profiles/default/sy<em>*</em>t_manifest_classpath -Dweblogic.Name=AdminServer -Djava.security.policy=/home/weblogic/bea/weblogic92/server/lib/weblogic.policy weblogic.Server</p>
+<p>说明：根据以上提示查看登陆用户bea2启动的进程，注意标红的bea2为进程拥有着， 491796为进程号</p>
+<p>3 执行如下命令杀掉进程</p>
+<p>$ kill -9 491796（根据2操做查找到得系统进程号）</p>
+<p>说明：执行后再执行$ ps -eaf | grep weblogic命令将不会看到该进程号的weblogic进程</p>
+<p>4 启动服务</p>
+<p>$ ./quickRun.sh</p>
+<hr>
+<p>2.ant -buildfile CMS_MainTrunk.xml  //build 包</p>
+<p>3.vi test.txt  //浏览文件内容<br>i {insert写输入}<br>esc  退出insert<br>:wq! write 保存并退出vi模式<br>:q!  不保存退出vi模式</p>
+<p>4.我一般习惯用ps –ef命令，这样看到以列表形式显示的server进程；用命令pstree来查看server的进程，这样看到以树的形式显示的server进程。<br>Pstree 命令的优点在于可以立即找出某进程的父进程。您可能会需要使用 -p 选项显示每个进程的 PID，以及 -u 选项来显示启动该进程的用户名。<br>一 般来说，这一树结构比较长，您就需要这么执行 pstree –up | less　这将让您纵览整个进程树结构。</p>
+<p>5.secureCRT中乱码解决：Options-&gt;SessionOptions-&gt;Appearance-&gt;font把 default改成UTF-8，就可以显示中文字体了。</p>
+<p>6.hostname：查hostname</p>
+<p>7.ifconfig 查询主机IP</p>
+<p>8.在S-CRT下用ctrl+c 和ctrl+v：<br>Options—Global Options—Edit default Settings进去后点Terminal—Emulation然后点Mapped Keys，点中低部的，use windows copy and paste key，点确认。</p>
+<p>&nbsp;</p>
+<p>9.进入vi的命令：<br>vi filename :打开或新建文件，并将光标置于第一行首<br>vi +n filename ：打开文件，并将光标置于第n行首<br>vi + filename ：打开文件，并将光标置于最后一行首<br>vi +/pattern filename：打开文件，并将光标置于第一个与pattern匹配的串处</p>
+<p>10.移动光标类命令：<br>}：光标移至段落开头<br>{：光标移至段落结尾<br>nG： 光标移至第n行首<br>n+：光标下移n行<br>n-：光标上移n行<br>n$：光标移至第n行尾<br>H ：光标移至屏幕顶行<br>M ：光标移至屏幕中间行<br>L ：光标移至屏幕最后行<br>0：（注意是数字零）光标移至当前行首<br>$：光标移至当前行尾</p>
+<p>11.屏幕翻滚类命令：<br>Ctrl+u：向文件首翻半屏<br>Ctrl+d：向文件尾翻半屏<br>Ctrl+f：向文件尾翻一屏  //好像是 r<br>Ctrl＋b；向文件首翻一屏<br>12.搜索命令：<br>/pattern：从光标开始处向文件尾搜索pattern<br>?pattern：从光标开始处向文件首搜索pattern<br>n：在同一方向重复上一次搜索命令<br>N：在反方向上重复上一次搜索命令</p>
+<p>显示行号    :set number     或 :set nu<br>去除行号    :set nonumber  或  :set nonu</p>
+<div></div><br><div>13.VI中复制与粘贴：</div><br>1）单行复制<br><br>在命令模式下，将光标移动到将要复制的行处，按“yy”进行复制；<br><br>2）多行复制<br><div>在命令模式下，将光标移动到将要复制的首行处，按“nyy”复制n行；其中n为1、2、3.</div><br><div>3）粘贴</div><br><div>在命令模式下，将光标移动到将要粘贴的行处，按“p”进行粘贴</div><br><div></div><br><div>14.在屏幕上移动</div><br><div><br><div>Vi提供了三个关于光标在全屏幕上移动并且文件本身不发生滚动的命令。它们分别是H、M和L命令。</div><br><div>　　(1)H命令</div><br><div>　 　该命令将光标移至屏幕首行的行首（即左上角），也就是当前屏幕的第一行，而不是整个文件的第一行。利用此命令可以快速将光标移至屏幕顶部。若在H命令之 前加上数字n，则将光标移至第n行的行首。值得一提的是，使用命令dH将会删除从光标当前所在行至所显示屏幕首行的全部内容。</div><br><div>　　(2)M命令</div><br><div>　 　该命令将光标移至屏幕显示文件的中间行的行首。即如果当前屏幕已经充满,则移动到整个屏幕的中间行；如果并未充满，则移动到文本的那些行的中间行。利用 此命令可以快速地将光标从屏幕的任意位置移至屏幕显示文件的中间行的行首。例如，在上面屏幕显示的情况下（不论光标在屏幕的何处），在命令模式下，输入命 令M之后，光标都将移到add这一行的字母a上。同样值得一提的是，使用命令dM将会删除从光标当前所在行至屏幕显示文件的中间行的全部内容。</div><br><div>　　(3)L命令</div><br><div>　 　当文件显示内容超过一屏时，该命令将光标移至屏幕上的最底行的行首；当文件显示内容不足一屏时，该命令将光标移至文件的最后一行的行首。可见，利用此命 令可以快速准确地将光标移至屏幕底部或文件的最后一行。若在L命令之前加上数字n，则将光标移至从屏幕底部算起第n行的行首。同样值得一提的是，使用命令 dL将会删除从光标当前行至屏幕底行的全部内容。</div><br></div><br><div></div><br><div><br><br>postgres 使用：<br>1.进入sql运行环境。<br>[test@test bin]$ ./psql -n dbname -U usrname<br>stay81=# select count(*) from table1;<br>count<br>——-<br>5986<br>(1 row)<br><br>2. 退出，使用结束后退出，不然连接一直被挂起。<br>stay81=# \q<br><br>3.postgres 数据导出。<br>[postgres@test bin]$ ./pg_dump -U postgres -t testTable -d testDB &gt; testTable.dump<br>或[postgres@test bin]$ ./pg_dump -U postgres -d testDB -t testTable -F c -v &gt; testTable.dump<br><br>4. postgres 数据导入。<br>[postgres@test bin]$ ./psql -U postgres -d testDB &lt; testTable.dump<br>或[postgres@test bin]$ ./pg_restore -U postgres -d testDB &lt; testTable.dump<br><br>5.一台主机上将数据库目录转储到另一台主机上。<br>pg_dump -h host1 -p 5432 dbname | psql -h host2 -p post1 dbname<br>或./pg_dump -U postgres -d testDB1 -t testTable | ./psql -U postgres -d testDB2<br>-U 为用户名 ，-d 为DB名，-t 为表名称，如果整个数据库导出，不需此项。<br><br>6.php执行。<br>[test@test bin]$ /usr/bin/php -q ./batchstart.php<br><br></div>
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                <a class="post-title-link" href="/2015/07/29/utorrent-must-read/" itemprop="url">
+                  uTorrent新手必看
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-07-29T08:24:29+08:00" content="2015-07-29">
+              2015-07-29
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/杂/" itemprop="url" rel="index">
+                    <span itemprop="name">杂</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/07/29/utorrent-must-read/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/29/utorrent-must-read/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <div id="post_content_41844970031" class="d_post_content j_d_post_content ">新手请看：可连接状态为“否”的解决方法<br>1、连接状态为“否”是什么意思？<br>连接状态为“否”不是说你的PT客户端连不上TRACKER服务器，而是说外网的同时下载的用户无法连接到你，不能跟你交换数据了，也就是说你只能单向地发送数据和取数据，这会大大地影响你的下载和上传速度。2、连接状态为“否”的原因是什么？<br>原因概括地说是网络设置问题，通常会因为防火墙阻挡、路由未设置、端口映射不正确等原因。<br><br>3、连接状态为“否”有什么影响？<br>简单地说只影响速度，其他没有影响。<br><br>4、如何确认我的网络设置是否正确？<br>如果对站里反馈的连接状态有疑问，可以自己来测试一下，方法有二：<br>测试前先保证你已经打开PT客户端，并正常运行，记下你的IP地址和PT使用的端口号。<br>A、借用EMULE的端口测试，打开<a href="http://jump.bdimg.com/safecheck/index?url=x+Z5mMbGPAvyQjgFIr6pySokMhDUBkzuEj49KCTzKSRrm2KZkCDuGwmc9bMRB0hg4BnMGzFiHt82DIepa4OlDCBKN/Xwo+zJ2mhtjrFny56GcCxON2VEldcH1G5+YcaStk0BpqvyjkV2Pah4egTNMg==" target="_blank" rel="external">http://www.emule.org.cn/porttest/</a>，输入你的PT客户端所使用的端口号，看看是否能测试成功。<br>B、让你的朋友在外部测试你的PT端口号。假设你的IP地址是1.2.3.4,端口号为6666，让你的朋友运行 TELNET 1.2.3.4 6666 ，如果连接失败，说明端口未正确设置。<br><br>5、如何正确设置网络？<br>ADSL用户及通过路由上网的兄弟请参考第7条<br>公司内网用户：公司内网一般无法正确路由，需由网管在路由或防火墙上作设置，网管更专业。但有些公司是用NAT透明代理方式的，PT不会受到限制。<br>校园网用户：与公司网类似，多数校园网是内网，通过路由和网关接入互联网，无解，除非你搞定网管。IPV6的用户如何设置，因没有合适环境未研究，请有办法的兄弟跟贴。<br><br>6、连接“否”会不会影响上传下载流量的统计？<br>连接状态不影响流量统计，上传下载是通过TRACKER服务器进行的，与此无关。<br><br>7、ADSL用户设置路由器<br>以下内容由网络收集转载而来，仅供参考，因各种环境不同请大家根据自己的实际情况操作<br><br>内网ADSL 端口映射准备工作!新手必看！<br><br>Quote:<br>首先，确定你的ADSL是公网还是内网？<br>判断公网还是内网的方法：<br><br>用ipconfig查：<br>（1）Windows 9x/Me用户<br>用鼠标选择“开始”-&gt;“程序”-&gt;“MS-DOS方式”，打开一个DOS命令行窗口，执行：ipconfig<br>（2）Windows NT/2000/XP用户<br>用鼠标选择“开始”-&gt;“程序”-&gt;“附件”-&gt;“命令提示符”，打开一个DOS命令行窗口，执行：ipconfig<br><br>Ethernet adapter 本地连接:<br><br>Connection-specific DNS Suffix . :<br>Description . . . . . . . . . . . : Realtek RTL8139/810x Family Fast Ethernet<br>NIC<br>Physical Address. . . . . . . . . : 00-11-D8-EB-8B-A8<br>DHCP Enabled. . . . . . . . . . . : No<br>IP Address. . . . . . . . . . . . : 192.168.1.250 就是你电脑的IP地址<br>Subnet Mask . . . . . . . . . . . : 255.255.255.0 子网掩码<br>Default Gateway . . . . . . . . . : 192.168.1.1 网关，也就是你路由器的IP地址！<br>DNS Servers . . . . . . . . . . . : 202.96.134.133<br>202.96.128.68<br><br>如果你的ＩＰ是以下三种基本上判定为内网：<br>10.x.x.x；172.x.x.x；192.168.x.x。<br><br>现在我们找到了路由器的IP地址后，可以直接在浏览器地址栏输入路由器的IP，进入路由器的设置界面！进行端口映射！<br><br>其次，是否支持并开启了路由？<br>现在大部分ＡＤＳＬ支持路由功能，这个应该没有问题。这里要确定你的ＡＤＳＬ的路由是否已经开启。有一点需要明确的就是开启路由与端口映射的关系：是因为开启了路由才需要作端口映射。<br>因此对于ＡＤＳＬ公网用户：<br>1、如果没有开启路由功能，则无需再作端口映射。只要打开防火墙相应端口就没有问题。<br>2、如果是通过ＡＤＳＬ路由自动拨号或者共享上网的，即变为内网用户，则有必要进行端口映射。请继续。<br><br>最后，获得ＡＤＳＬ默认ＩＰ的地址，以及用户名与密码。<br>在做端口映射前，请大家详细看说明书，特别是有关NAT方面的设置。这样会让你少走很多弯路，也许很有可能你在看完说明书就已经找到的解决问题的方法。有一点需要说明的是，很多附带的说明书都比较粗略地提到这方面的信息，这就需要你到该产品的主页上去查找。<br><br>这里根据我的ADSL的设置以及网友们的成功经验。特地把ADSL分为有Virtual Server（虚拟服务器）设置和只有NAT（端口映射）设置的两种。<br><br>在IE中输入你的默认ＩＰ地址（比如：10.0.0.2或192.168.1.1），通过用户名和密码进入ADSL的Web页设置。端口映射便开始了<br><br>如果你是电信送的ADSL就有可能在WEB页里面找不到Virtual Server（虚拟服务器）或NAT（端口映射）设置<br><br>我们还可以用telnet（远程连接）的方法设置<br>在“运行”里输入 telnet 192.168.1.1 在 LOGON PASSWORD: 输入密码后所有的设置选项都出来了<br><br>此方法可以适用所有DASL（不包括USB接口的）<br>分享率：1,949.277<br><br>教程]UT简易设置教程<br>参考版本 uTorrent 2.0.1 build 19248<br><br>凡是使用UT 2.0.1的用户，请将高级设置中的net.calc_overhead要设置为false，否则UT的流量统计将包括网络开销，但网络开销不是真正的流量<br><br>如果想看完整版本的介绍，请移步<br>[教程]uTorrent安装设置指南及绿化方法<br><br>隐私信息<br>自动检查更新 ： 不勾<br>更新到beta版本 ： 不勾<br>在检测更新时发送详细信息(总是匿名) ： 勾选<br><br>说明：建议大家不要更新到BETA版本。另外虽然工作人员相当努力，但是对新版本的支持还是会有一定的延迟，所以请取消自动更新，避免更新后提示为”banned client”(被禁客户端)。<br>如要更新请到官网下载或者手动更新，具体方法为：菜单栏上，帮助-&gt;检查更新，此时需注意ChinaHDTV是否已经支持新版本。<br><br>下载任务<br>未完成文件添加.!ut后缀 ： ？<br>这个根据自己的喜好选择。对于想预览文件的朋友就不要勾选这个选项了，毕竟更改了文件扩展名，很多时候会不方便。<br><br>活动时避免进入待机状态 ： 勾选<br>对于电脑会自动进入待机状态的同学，请务必勾选，避免因为长时间无人看守而待机，使得电脑断开网络连接最终使得UT无法下载及上传<br><br>监听端口<br>添加系统防火墙例外 ： 勾选<br>这个一定要勾选，重要性就不多说什么了。你说你把系统自带的防火墙禁用了？好吧，你不勾选也行……<br>每次启动后使用随即端口 ： 不勾<br>没有必要在每次启动UT的时候都更换一个端口，使用一个确定的端口的效果会更好。除非你有特殊的需求<br><br>这里的端口号选择，尽量避免和一些常用软件的默认端口冲突，可以考虑8000以上的高段端口，或者让UT随即一个端口，如果对自己有信心，也可以自己设置一个端口。<br>对于ADSL用户，由于部分ISP会封锁端口，这里的端口尽量避免使用6881—6999、8881—8889、16881—16889端口<br><br>队列设置<br>最大的活动任务数(上传或下载) ： 20<br>最大的活动下载数 ： 5<br>UT本身此处的设置值比较小，需要自己改动。另外说明一下，活动任务不是指所有的任务，而是指到达一定传输速度的任务，所以一般来说20已经能满足要求了。<br><br>出现排队的现象就是因为这里的设置值过小，请设当增大设置值<br><br>做种目标<br>做种任务的优先级高于下载任务 ： 勾选<br>说明一下，UT默认分享率为150%。我比较喜欢整数，所以改为了200%，截图时忘记改回去了……大家请见谅<br><br>当uTorrent达到做种目标时<br>限制上传速度为 ： 不勾<br><br></div><br><div id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd"></div>
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                <a class="post-title-link" href="/2015/05/25/hexo-usual-command/" itemprop="url">
+                  hexo常用命令笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-05-25T11:04:45+08:00" content="2015-05-25">
+              2015-05-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/代码/" itemprop="url" rel="index">
+                    <span itemprop="name">代码</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/05/25/hexo-usual-command/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/25/hexo-usual-command/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <div class="article fmt"><br><br>## hexo<br><br>    bash<code>&lt;a name=&quot;baidusnap0&quot;&gt;&lt;/a&gt;**npm** &lt;a name=&quot;baidusnap1&quot;&gt;&lt;/a&gt;**install** hexo -g #安装  
+    **npm** update hexo -g #升级  
+    hexo init #初始化
+    `&lt;/pre&gt;
+
+    ## 简写
+
+    `hexo n &quot;我的博客&quot;` == `hexo new &quot;我的博客&quot;` #新建文章
+    `hexo p` == `hexo publish`
+    `hexo g` == `hexo generate`#生成
+    `hexo s` == `hexo server` #启动服务预览
+    `hexo d` == `hexo deploy`#部署
+
+    ## 服务器
+
+    `hexo server` #Hexo 会监视文件变动并自动更新，您无须重启服务器。
+    `hexo server -s` #静态模式
+    `hexo server -p 5000` #更改端口
+    `hexo server -i 192.168.1.1` #自定义 IP
+
+    `hexo clean` #清除缓存 网页正常情况下可以忽略此条命令
+    `hexo g` #生成静态网页
+    `hexo d` #开始部署
+
+    ### 监视文件变动
+
+    `hexo generate` #使用 Hexo 生成静态文件快速而且简单
+    `hexo generate --watch` #监视文件变动
+
+    ### 完成后部署
+
+    &gt; 两个命令的作用是相同的
+&gt; 
+&gt;     `hexo generate --deploy`
+&gt; 
+&gt;     `hexo deploy --generate`
+    `hexo deploy -g`
+    `hexo server -g`
+
+    ## 草稿
+
+    `hexo publish [layout] &amp;lt;title&amp;gt;`
+
+    ## 模版
+
+    `hexo new &quot;postName&quot;` #新建文章
+    `hexo new page &quot;pageName&quot;` #新建页面
+    `hexo generate` #生成静态页面至public目录
+    `hexo server` #开启预览访问端口（默认端口4000，&#39;ctrl + c&#39;关闭server）
+    `hexo deploy` #将.deploy目录部署到GitHub
+
+    `hexo new [layout] &amp;lt;title&amp;gt;`
+    `hexo new photo &quot;My Gallery&quot;`
+    `hexo new &quot;Hello World&quot; --lang tw`
+    &lt;table&gt;
+    &lt;thead&gt;
+    &lt;tr&gt;
+    &lt;th&gt;变量&lt;/th&gt;
+    &lt;th&gt;描述&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+    &lt;tr&gt;
+    &lt;td&gt;layout&lt;/td&gt;
+    &lt;td&gt;布局&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+    &lt;td&gt;title&lt;/td&gt;
+    &lt;td&gt;标题&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+    &lt;td&gt;date&lt;/td&gt;
+    &lt;td&gt;文件建立日期&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/tbody&gt;
+    &lt;/table&gt;
+    &lt;pre&gt;`title: 使用Hexo搭建个人博客
+    layout: post
+    date: 2014-03-03 19:07:43
+    comments: true
+    categories: Blog
+    tags: [Hexo]
+    keywords: Hexo, Blog
+    description: 生命在于折腾，又把博客折腾到Hexo了。给Hexo点赞。
+    `&lt;/pre&gt;
+
+    ## 模版（Scaffold）
+
+    `hexo new photo &quot;My Gallery&quot;`
+    &lt;table&gt;
+    &lt;thead&gt;
+    &lt;tr&gt;
+    &lt;th&gt;变量&lt;/th&gt;
+    &lt;th&gt;描述&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+    &lt;tr&gt;
+    &lt;td&gt;layout&lt;/td&gt;
+    &lt;td&gt;布局&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+    &lt;td&gt;title&lt;/td&gt;
+    &lt;td&gt;标题&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+    &lt;td&gt;date&lt;/td&gt;
+    &lt;td&gt;文件建立日期&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/tbody&gt;
+    &lt;/table&gt;
+
+    ## 设置文章摘要
+
+    &lt;pre&gt;`以上是文章摘要 &amp;lt;!--more--&amp;gt; 以下是余下全文 
+    `&lt;/pre&gt;
+
+    ## 写作
+
+    `hexo new page &amp;lt;title&amp;gt;`
+    `hexo new post &amp;lt;title&amp;gt;`
+    &lt;table&gt;
+    &lt;thead&gt;
+    &lt;tr&gt;
+    &lt;th&gt;变量&lt;/th&gt;
+    &lt;th&gt;描述&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+    &lt;tr&gt;
+    &lt;td&gt;:title&lt;/td&gt;
+    &lt;td&gt;标题&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+    &lt;td&gt;:year&lt;/td&gt;
+    &lt;td&gt;建立的年份（4 位数）&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+    &lt;td&gt;:month&lt;/td&gt;
+    &lt;td&gt;建立的月份（2 位数）&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+    &lt;td&gt;:i_month&lt;/td&gt;
+    &lt;td&gt;建立的月份（去掉开头的零）&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+    &lt;td&gt;:day&lt;/td&gt;
+    &lt;td&gt;建立的日期（2 位数）&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+    &lt;td&gt;:i_day&lt;/td&gt;
+    &lt;td&gt;建立的日期（去掉开头的零）&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/tbody&gt;
+    &lt;/table&gt;
+
+    ### 推送到服务器上
+
+    `hexo n` #写文章
+    `hexo g` #生成
+    `hexo d` #部署 #可与`hexo g`合并为 `hexo d -g`
+
+    ## 报错
+
+    ### 1.找不到git部署
+
+    &lt;pre&gt;`ERROR Deployer not found: git
+    `&lt;/pre&gt;
+    **解决方法**
+
+    `**npm** **install** &lt;a name=&quot;baidusnap2&quot;&gt;&lt;/a&gt;**hexo-deployer-git** --save`
+
+    ### 3.部署类型设置git
+
+    hexo 3.0 部署类型不再是`github`，`_config.yml` 中修改
+    &lt;pre&gt;`bash</code># Deployment<br>    ## Docs: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">http://hexo.io/docs/deployment.html</a><br>    deploy:<br>      type: git<br>      repository: git@<strong><em>.github.com:</em></strong>/<strong>*.github.io.git<br>      branch: master<br>    <code>&lt;/pre&gt;
+
+    ### 4\. xcodebuild
+
+    xcode-select: error: tool &#39;xcodebuild&#39; requires Xcode, but active developer directory &#39;/Library/Developer/CommandLineTools&#39; is a command line tools instance</code></strong>npm<strong> </strong>install<strong> bcrypt<code>### 5\. RSS不显示
+
+    #### 安装RSS插件</code></strong>npm<strong> </strong>install** hexo-generator-feed –save<code>#### 开启RSS功能
+
+    编辑hexo/_config.yml，添加如下代码：
+    &lt;pre&gt;</code>rss: /atom.xml #rss地址  默认即可<br>    <code>&lt;/pre&gt;
+
+    #### 开启评论
+
+    1.我使用多说代替自带的评论，在[多说](http://duoshuo.com) 网站注册 &amp;gt; 后台管理 &amp;gt; 添加新站点 &amp;gt; 工具 === 复制通用代码 里面有 short_name
+
+1.  在根目录</code>_config.yml<code>添加一行</code>disqus_shortname: jslite<code>是在多说注册时产生的
+2.  复制到</code>themes\landscape\layout_partial\article.ejs<code>把
+    &lt;pre&gt;</code>&lt;% if (!index &amp;&amp; post.comments &amp;&amp; config.disqus_shortname){ %&gt;<br>    &lt;section id=”comments”&gt;<br>    &lt;div id=”disqus_thread”&gt;<br>      &lt;noscript&gt;Please enable JavaScript to view the &lt;a href=”//disqus.com/?ref_noscript”&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;<br>    &lt;/div&gt;<br>    &lt;/section&gt;<br>    &lt;% } %&gt;<br>    <code>&lt;/pre&gt;
+    改为
+    &lt;pre&gt;</code>html``&lt;% if (!index &amp;&amp; post.comments &amp;&amp; config.disqus_shortname){ %&gt;<br>      &lt;section id=”comments”&gt;<br>        &lt;!– 多说评论框 start –&gt;<br>        &lt;div class=”ds-thread” data-thread-key=”&lt;%= post.layout %&gt;-&lt;%= post.slug %&gt;” data-title=”&lt;%= post.title %&gt;” data-url=”&lt;%= page.permalink %&gt;”&gt;&lt;/div&gt;<br>        &lt;!– 多说评论框 end –&gt;<br>        &lt;!– 多说公共JS代码 start (一个网页只需插入一次) –&gt;<br>        &lt;script type=”text/javascript”&gt;<br>        var duoshuoQuery = {short_name:’&lt;%= config.disqus_shortname %&gt;’};<br>          (function() {<br>            var ds = document.createElement(‘script’);<br>            ds.type = ‘text/javascript’;ds.async = true;<br>            ds.src = (document.location.protocol == ‘https:’ ? ‘https:’ : ‘http:’) + ‘//static.duoshuo.com/embed.js’;<br>            ds.charset = ‘UTF-8’;<br>            (document.getElementsByTagName(‘head’)[0]<br>             || document.getElementsByTagName(‘body’)[0]).appendChild(ds);<br>          })();<br>          &lt;/script&gt;<br>        &lt;!– 多说公共JS代码 end –&gt;<br>      &lt;/section&gt;<br>    &lt;% } %&gt;<br><br></div>
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
                 <a class="post-title-link" href="/2015/04/29/sublime-text-3-install-package-control/" itemprop="url">
                   Sublime Text 3 安装 Package Control
                 </a>
@@ -1410,549 +1966,6 @@ lintOptions {
 
 
     
-      
-
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                <a class="post-title-link" href="/2015/04/08/android-studio-keymap/" itemprop="url">
-                  Android Studio系列教程三--快捷键
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-04-08T14:49:40+08:00" content="2015-04-08">
-              2015-04-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android-Studio/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Studio</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android-Studio/开发工具/" itemprop="url" rel="index">
-                    <span itemprop="name">开发工具</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/04/08/android-studio-keymap/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/08/android-studio-keymap/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>本文转载自：<a href="http://stormzhang.com/devtools/2014/12/09/android-studio-tutorial3/" target="_blank" rel="external">http://stormzhang.com/devtools/2014/12/09/android-studio-tutorial3/</a></p>
-<h2 id="Android_Studio_1-0_u6B63_u5F0F_u7248_u53D1_u5E03_u5566"><a href="#Android_Studio_1-0_u6B63_u5F0F_u7248_u53D1_u5E03_u5566" class="headerlink" title="Android Studio 1.0正式版发布啦"></a>Android Studio 1.0正式版发布啦</h2><p>今天是个大日子，Android Studio 1.0 终于发布了正式版， 这对于Android开发者来说简直是喜大普奔的大消息啊，那么就果断来下载使用。</p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio1.0.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio1.0.png" alt="studio1.0"></a></p>
-<p>官方下载地址： <a href="http://developer.android.com/sdk/index.html" target="_blank" rel="external">http://developer.android.com/sdk/index.html</a></p>
-<p>如果你之前已经使用其他版本的Studio，那么直接覆盖就好了，如果是第一次使用，那么参照<a href="http://1.normalme.sinaapp.com/android-studio-start1-install/" title="【转载】Android Studio系列教程一–下载与安装" target="_blank" rel="external">Android Studio系列教程一</a>进行安装配置。</p>
-<p>于此同时一起更新的还有SDK Tools等，打开SDK Manager进行更新就OK。如果之前有在使用RC版本的Studio，更新覆盖之后应该会出错，那是因为Stuido 1.0默认使用1.0的Gradle插件，所以只需到项目根目录的 <strong>build.gradle</strong> 更新成如下代码然后同步下就OK了</p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/update_gradle.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/update_gradle.png" alt="update_gradle"></a></p>
-<h2 id="u5FEB_u6377_u952E"><a href="#u5FEB_u6377_u952E" class="headerlink" title="快捷键"></a>快捷键</h2><p>对于很多Eclipse转过来的同学，不适应的最主要就是快捷键部分了，Studio默认的快捷键和Eclipse差别很大，但是Studio强大的地方在于通过设置你可以一直沿用Eclipse风格的快捷键，这样对于那些Eclipse过渡来的同学省了很多学习成本。</p>
-<p><strong>Preferences</strong> -&gt; <strong>Keymap</strong> 然后就可以选择你想要的快捷键，这里不止可以选择Eclipse，还可以选择 <strong>Emacs</strong>、<strong>Net Beans</strong> 等编辑器的快捷键</p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/keymap.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/keymap.png" alt="keymap"></a></p>
-<p>对于新手们或者对Eclipse没有好感的同学们，肯定想学习默认的Studio快捷键，下面整理了下常用的一些快捷键，更多的快捷键还需要大家自己去习惯适应。（我自己选择的是Mac OS X 10.5+）</p>
-<p><table></table></p>
-<p><thead></thead></p>
-<p><tr></tr></p>
-<p><th>Action</th></p>
-<p><th>Mac OSX</th></p>
-<p><th>Win/Linux</th><br><br></p>
-<p><tbody></tbody></p>
-<p><tr></tr></p>
-<p><td>注释代码(//)</td></p>
-<p><td>Cmd + /</td></p>
-<p><td>Ctrl + /</td><br></p>
-<p><tr></tr></p>
-<p><td>注释代码(/**/)</td></p>
-<p><td>Cmd + Option + /</td></p>
-<p><td>Ctrl + Shift + /</td><br></p>
-<p><tr></tr></p>
-<p><td>格式化代码</td></p>
-<p><td>Cmd + Option + L</td></p>
-<p><td>Ctrl + Alt + L</td><br></p>
-<p><tr></tr></p>
-<p><td>清除无效包引用</td></p>
-<p><td>Option + Control + O</td></p>
-<p><td>Alt + Ctrl + O</td><br></p>
-<p><tr></tr></p>
-<p><td>查找</td></p>
-<p><td>Cmd + F</td></p>
-<p><td>Ctrl + F</td><br></p>
-<p><tr></tr></p>
-<p><td>查找+替换</td></p>
-<p><td>Cmd + R</td></p>
-<p><td>Ctrl + R</td><br></p>
-<p><tr></tr></p>
-<p><td>上下移动代码</td></p>
-<p><td>Option + Shift + Up/Down</td></p>
-<p><td>Alt + Shift + Up/Down</td><br></p>
-<p><tr></tr></p>
-<p><td>删除行</td></p>
-<p><td>Cmd + Delete</td></p>
-<p><td>Ctrl + Y</td><br></p>
-<p><tr></tr></p>
-<p><td>扩大缩小选中范围</td></p>
-<p><td>Option + Up/Down</td></p>
-<p><td>Ctrl + W/Ctrl + Shift + W</td><br></p>
-<p><tr></tr></p>
-<p><td>快捷生成结构体</td></p>
-<p><td>Cmd + Option + T</td></p>
-<p><td>Ctrl + Alt + T</td><br></p>
-<p><tr></tr></p>
-<p><td>快捷覆写方法</td></p>
-<p><td>Cmd + O</td></p>
-<p><td>Ctrl + O</td><br></p>
-<p><tr></tr></p>
-<p><td>快捷定位到行首/尾</td></p>
-<p><td>Cmd + Left/Right</td></p>
-<p><td>Ctrl + Left/Right</td><br></p>
-<p><tr></tr></p>
-<p><td>折叠展开代码块</td></p>
-<p><td>Cmd + Plus,Minus</td></p>
-<p><td>Ctrl + Plus/Minus</td><br></p>
-<p><tr></tr></p>
-<p><td>折叠展开全部代码块</td></p>
-<p><td>Cmd + Shift + Plus,Minus</td></p>
-<p><td>Ctrl + Shift + Plus,Minus</td><br></p>
-<p><tr></tr></p>
-<p><td>文件方法结构</td></p>
-<p><td>Cmd + F12</td></p>
-<p><td>Ctrl + F12</td><br></p>
-<p><tr></tr></p>
-<p><td>查找调用的位置</td></p>
-<p><td>Ctrl + Option + H</td></p>
-<p><td>Ctrl + Alt + H</td><br></p>
-<p><tr></tr></p>
-<p><td>大小写转换</td></p>
-<p><td>Cmd + Shift + U</td></p>
-<p><td>Ctrl + Shift + U</td><br><br><br><br><strong>(PS: 以上快捷键没有在win平台尝试确认，欢迎反馈错误与补充)</strong></p>
-<p><span style="color: #0000ff;"><strong>另附上Win下的快捷键打印版：<span style="text-decoration: underline;"><a href="http://1.normalme.sinaapp.com/android-studio-keymap/intellij-idea%e5%bf%ab%e6%8d%b7%e9%94%ae%e6%89%93%e5%8d%b0%e7%89%88/" target="_blank" rel="external">Intellij IDEA快捷键打印版</a>.xlsx</span></strong></span></p>
-<h2 id="u81EA_u52A8_u5BFC_u5305"><a href="#u81EA_u52A8_u5BFC_u5305" class="headerlink" title="自动导包"></a>自动导包</h2><p>最后再介绍一个最有用的设置，我们只有每次引用一些类的时候必须要导包，而Studio可以通过设置自动导包，简直太实用了.</p>
-<p>到 <strong>Preferences</strong> -&gt; <strong>Editor</strong> -&gt; <strong>Auto Import</strong> -&gt; <strong>Java</strong> 把以下选项勾上就OK了</p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/auto_import.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/auto_import.png" alt="auto_import"></a></p>
-<p>从此世界清静了。。。</p>
-<p>至此Android Studio的基本使用相信大家都已经会了，从下一系列开始介绍Gradle语法以及基本配置与多渠道打包等，敬请期待！</p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                <a class="post-title-link" href="/2015/04/08/android-studio-setup-run/" itemprop="url">
-                  Android Studio系列教程二--基本设置与运行
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-04-08T14:46:04+08:00" content="2015-04-08">
-              2015-04-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android-Studio/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Studio</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android-Studio/开发工具/" itemprop="url" rel="index">
-                    <span itemprop="name">开发工具</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/04/08/android-studio-setup-run/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/08/android-studio-setup-run/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>本文转载自：<a href="http://stormzhang.com/devtools/2014/11/28/android-studio-tutorial2/" title="Android Studio系列教程二--基本设置与运行" target="_blank" rel="external">http://stormzhang.com/devtools/2014/11/28/android-studio-tutorial2/</a></p>
-<p>上面一篇博客，介绍了Studio的优点与1.0 RC的安装与上手体验，没想到google的更新速度这么快，已经出了RC 2版本，主要是修复一些bug。那么今天就带大家预览下Stduio的界面与基本功能。</p>
-<h2 id="u9879_u76EE_u7ED3_u6784"><a href="#u9879_u76EE_u7ED3_u6784" class="headerlink" title="项目结构"></a>项目结构</h2><p>当我们新建一个项目的目录结构默认是这样的</p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/summary1.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/summary1.png" alt="summary1"></a></p>
-<p>可以看到和Eclipse的目录结构有很大区别，Studio一个窗口只能有一个项目，而Eclipse则可以同时存在很多项目，如果你看着不习惯可以点击左上角进行切换</p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/summary2.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/summary2.png" alt="summary2"></a></p>
-<p>切换到“project”模式下的目录结构是这样的，我个人也更习惯这种格式</p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/summary3.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/summary3.png" alt="summary3"></a></p>
-<p>和Eclipse的区别有如下：</p>
-<ul>
-<li>1、Studio中有Project和Module的概念，前面说到Studio中一个窗口只能有一个项目，即Project，代表一个 workspace，但是一个Project可以包含多个Module，比如你项目引用的Android Library, Java Library等，这些都可以看做是一个Module;</li>
-<li>2、上述目录中将java代码和资源文件（图片、布局文件等）全部归结为src，在src目录下有一个main的分组，同时划分出java和res两个文件夹，java文件夹则相当于Eclipse下的src文件夹，res目录结构则一样.</li>
-</ul>
-<h2 id="u504F_u597D_u8BBE_u7F6E"><a href="#u504F_u597D_u8BBE_u7F6E" class="headerlink" title="偏好设置"></a>偏好设置</h2><p>进入后你也许发现字体大小或者样式不符合你的习惯，比如我是觉得代码太小看起来伤眼，Darcular主题默认的字体是12，我个人更习惯14的字体大小。没关系，到 <strong>Preferences</strong> (设置)页面搜索 <strong>Font</strong> 找到 <strong>Colors&amp;Fonts</strong> 下的 <strong>Font</strong> 选项，我们可以看到默认字体大小是12，但是无法修改，需要先保存才可以修改，点击 <strong>Save as</strong> 输入一个名字，比如 <strong>MyDarcular</strong>，然后就可以修改字体大小和字体样式了.</p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/preference_font1.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/preference_font1.png" alt="preference_font1"></a></p>
-<p>点击确定之后再回到页面发现字体是变大了，但是Studio默认的一些字体大小如侧边栏等确没有变化，看起来很不协调，如下图</p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/preference_font2.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/preference_font2.png" alt="preference_font2"></a></p>
-<p>强迫症的你肯定无法忍受，没关系，这里也同样可以设置，到 <strong>Preferences</strong> -&gt; <strong>Appearance</strong> 修改如图所示就ok，这里同样不仅可以更改字体大小，也可以选择不同的字体,点击OK，这次页面字体就完全对你胃口了。</p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/preference_font3.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/preference_font3.png" alt="preference_font3"></a></p>
-<p>调整之后再看下效果</p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/preference_font4.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/preference_font4.png" alt="preference_font4"></a></p>
-<h2 id="u8FD0_u884C"><a href="#u8FD0_u884C" class="headerlink" title="运行"></a>运行</h2><p>接下来运行程序，运行和 <strong>Eclipse</strong> 中比较像，点击菜单栏的绿色箭头直接运行</p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/menu1.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/menu1.png" alt="menu1"></a></p>
-<p><strong>Studio</strong> 默认安装会启动模拟器，如果想让安装到真机上可以配置一下。在下拉菜单中选择 <strong>Edit Configurations</strong> 选择提示或者是USB设备。</p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/menu2.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/menu2.png" alt="menu2"></a></p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/menu3.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/menu3.png" alt="menu3"></a></p>
-<h2 id="u5E38_u7528_u529F_u80FD"><a href="#u5E38_u7528_u529F_u80FD" class="headerlink" title="常用功能"></a>常用功能</h2><p>在Studio菜单栏的右边有这样几个常用的功能，如图分别是 <strong>Gradle同步</strong>、<strong>AVD Manager</strong>、<strong>SDK Manager</strong>、<strong>DDMS</strong></p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/menu4.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/menu4.png" alt="menu4"></a></p>
-<p><strong>Gradle同步</strong> 在你项目运行或者更改Gradle配置的时候都要点击下这个按钮，会下载相应的依赖</p>
-<p><strong>AVD Manager</strong> 模拟器管理</p>
-<p><strong>SDK Manager</strong> 就是管理你的SDK版本</p>
-<p><strong>DDMS</strong> 即 Dalvik Debug Monitor Service，Dalvik调试监控服务。</p>
-<h2 id="u521B_u5EFA_u6A21_u62DF_u5668"><a href="#u521B_u5EFA_u6A21_u62DF_u5668" class="headerlink" title="创建模拟器"></a>创建模拟器</h2><p>建议在创建模拟器前把 <strong>SDK Manager</strong> 中的 <strong>Tools</strong>、<strong>Extras</strong> 都更新到最新。</p>
-<p>点击 <strong>AVD Manager</strong> 按钮</p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/avd1.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/avd1.png" alt="avd1"></a></p>
-<p>点击图中的创建按钮</p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/avd2.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/avd2.png" alt="avd2"></a></p>
-<p>选择一个设备，这里我选择 Nexus 5，然后Next</p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/avd3.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/avd3.png" alt="avd3"></a></p>
-<p>这里选择一个系统版本，这里以5.0为例，然后Next</p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/avd4.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/avd4.png" alt="avd4"></a></p>
-<p>由于各位的屏幕尺寸不一样，建议这里Scale一栏选择Auto，然后点击Finish接着可以看到我们已经创建好一个5.0的模拟器了</p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/avd5.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/avd5.png" alt="avd5"></a></p>
-<p>这次我们再运行，选择模拟器启动看下最终效果（模拟器的启动很慢，大家耐心等待）</p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/select_avd.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/select_avd.png" alt="select_avd"></a></p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/avd6.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/avd6.png" alt="avd6"></a></p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                <a class="post-title-link" href="/2015/04/08/android-studio-start1-install/" itemprop="url">
-                  【转载】Android Studio系列教程一--下载与安装
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-04-08T14:30:39+08:00" content="2015-04-08">
-              2015-04-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android-Studio/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Studio</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android-Studio/开发工具/" itemprop="url" rel="index">
-                    <span itemprop="name">开发工具</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/04/08/android-studio-start1-install/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/08/android-studio-start1-install/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>本文转载自：<a href="http://stormzhang.com/devtools/2014/11/25/android-studio-tutorial1/" title="Android Studio系列教程一--下载与安装" target="_blank" rel="external">http://stormzhang.com/devtools/2014/11/25/android-studio-tutorial1/</a></p>
-<h2 id="u80CC_u666F"><a href="#u80CC_u666F" class="headerlink" title="背景"></a>背景</h2><p>相信大家对Android Studio已经不陌生了，Android Studio是Google于2013 I/O大会针对Android开发推出的新的开发工具，目前很多开源项目都已经在采用，Google的更新速度也很快，明显能感觉到这是Android开 发的未来，那么我们还有什么理由不去拥抱未来呢？</p>
-<p>虽然推出了很久，但是国内貌似普及的程度并不高，鉴于很多朋友求studio的详细教程，那么今天我就手把手教大家下载、安装、使用，Studio之路从这里开始。</p>
-<h2 id="Android_Studio_VS_Eclipse"><a href="#Android_Studio_VS_Eclipse" class="headerlink" title="Android Studio VS Eclipse"></a>Android Studio VS Eclipse</h2><p>相信目前国内用Eclipse的还是大多数，那么首先就来说一下Studio的一些优点，比较才能更有说服力，才能说明为什么我们要从Eclipse迁移到Studio。</p>
-<ul>
-<li><p>1、Google推出的<br>毫无疑问，这个是它的最大优势，Android Stuido是Google推出，专门为Android“量身订做”的，是Google大力支持的一款基于IntelliJ IDEA改造的IDE，这个应该能说明为什么它是Android的未来</p>
-</li>
-<li><p>2、速度更快<br>Eclipse的启动速度、响应速度、内存占用一直被诟病，相信大家这点应该深有体会，而且经常遇到卡死状态。Studio不管哪一个方面都全面领先Eclipse</p>
-</li>
-<li><p>3、UI更漂亮<br>I/O上演示的那款黑色主题真是太棒了，极客范，Stuido自带的Darcula主题的炫酷黑界面实在是高大上，相比而言Eclipse下的黑色主题太low了</p>
-</li>
-<li><p>4、更加智能<br>提示补全对于开发来说意义重大， Studio则更加智能，智能保存，从此再也不用每次都 Ctrl + S了。熟悉Studio以后效率会大大提升。</p>
-</li>
-<li><p>5、整合了Gradle构建工具<br>Gradle是一个新的构建工具，自Studio亮相之处就支持Gradle，可以说Gradle集合了Ant和Maven的优点，不管是配置、编译、打包都非常棒。</p>
-</li>
-<li><p>6、强大的UI编辑器<br>Android Studio的编辑器非常的智能，除了吸收Eclipse+ADT的优点之外，还自带了多设备的实时预览，相对这对Android开发者来说简直是神器啊。</p>
-</li>
-<li><p>7、内置终端<br>Studio内置终端，这对于习惯命令行操作的人来说简直是福音啊，再也不用来回切换了，一个Studio全部搞定。</p>
-</li>
-<li><p>8、更完善的插件系统<br>Studio下支持各种插件，如Git、Markdown、Gradle等等，你想要什么插件，直接搜索下载。</p>
-</li>
-<li><p>9、完美整合版本控制系统<br>安装的时候就自带了如GitHub, Git, SVN等流行的版本控制系统，可以直接check out你的项目。</p>
-</li>
-</ul>
-<p>大家看完以上是不是很动心呢，优点是很多，但是大家学习的时候会遇到很多问题，如Studio和Eclipse的目录结构、快捷键等等完全不一样， 需要适应一段时间，Gradle同样增加了学习成本，虽然Google的更新速度已经相当快了，但是目前最新的是1.0RC版本，仍未推出正式版，说明可 能会有一些小问题等，Studio官方解释暂未支持NDK，所以如果你的项目用到了NDK最好也不要使用Studio。</p>
-<p>但是相信Google会越来越完善的，学习成本与适应阶段是我们做技术一直要保持的心态，一旦上手相信你要离不开它了。</p>
-<p>最后这里先上一张我本地Studio的截图：</p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_preview.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_preview.png" alt="studio_preview"></a></p>
-<h2 id="u51C6_u5907"><a href="#u51C6_u5907" class="headerlink" title="准备"></a>准备</h2><p>因为Google Android的一些官方网站在国内访问有限制，原因你懂得。所以在开始下载安装Studio之前，你需要自备梯子，关于如何翻墙有很多种方法，这里就不 做过多介绍，私以为作为一个Android开发者，不懂翻墙基本没法做下去。所以这点投入是值得的，这里推荐大家直接购买VPN吧，因为我曾经折腾了很多 翻墙的玩意，要么不稳定，要么速度慢，后来想通了，凡是花点钱能解决的问题都不是问题。个人购买的是<strong>Shadowsocks</strong>，<span style="color: #0000ff;"><strong><a href="https://portal.shadowsocks.com/aff.php?aff=451" title="shadowsocks代理" target="_blank" rel="external">点击我可以到购买页面</a></strong></span>。Shadowsocks是不需要担心流量的一款梯子工具，速度还是不错的基本在200-300kb之间的下载速度，看视频也是没问题的。一共2个套餐看个人的需要进行选择吧，我选的是99元的。</p>
-<h2 id="u4E0B_u8F7D"><a href="#u4E0B_u8F7D" class="headerlink" title="下载"></a>下载</h2><p>官方下载有两个地方，均需要翻墙。</p>
-<ul>
-<li><p><a href="http://developer.android.com/sdk/installing/studio.html" target="_blank" rel="external">Android Developer官网</a><br>Android开发者官网的网站，可直接下载，但是这个网站貌似只更新Beta和正式版，目前只更新到Beta 0.8.14版本。</p>
-</li>
-<li><p><a href="http://tools.android.com/download/studio/canary" target="_blank" rel="external">Android Tools Project Site</a><br>Android开发工具的网站，上面链接是Studio的canary渠道，列出了Studio各种实时预览版等，目前最新的是1.0RC版本。</p>
-</li>
-</ul>
-<h2 id="u521B_u5EFAHelloWorld_u9879_u76EE"><a href="#u521B_u5EFAHelloWorld_u9879_u76EE" class="headerlink" title="创建HelloWorld项目"></a>创建HelloWorld项目</h2><p>至于安装就没什么可说的了，点击直接运行了。这里我以Mac系统的1.0RC版本为例，来创建第一个HelloWorld项目。其他平台基本上差不多，在这之前假设你已经配置好了JDK和Android SDK环境，并且你是第一次安装Studio。</p>
-<ul>
-<li><p>1、首先运行时的欢迎画面<br><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_splash.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_splash.png" alt="studio_splash"></a></p>
-</li>
-<li><p>2、之后第一次的话会进入到设置向导页<br><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard1.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard1.png" alt="studio_wizard1"></a></p>
-</li>
-</ul>
-<p>点击Next进入选择设置类型向导页</p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard2.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard2.png" alt="studio_wizard2"></a></p>
-<p>这里有两个选项“Standard”和“Custom”，即标准和自定义，如果你本机的Android SDK没有配置过，那么建议直接选择“Standard”, 点击“Finish”按钮</p>
-<p>因为我本地已经下载SDK并配置好了环境变量，所以我选择”Custom”，然后到下一步：</p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard3.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard3.png" alt="studio_wizard3"></a></p>
-<p>这一步选择你本地SDK的位置，可以看到有个2.25GB的SDK要下载，那是因为Studio 1.0默认要下载5.0的SDK以及一些Tools之类的，然后点击”Finish”按钮</p>
-<p>（PS: 这个选择并下载2.25G的组件是studio的一个bug，评论里有人提醒，感谢这位同学。如果网速不行想跳过这步的可以在bin目录的 idea.properties增加一行：disable.android.first.run=true就行了，mac平台的右键安装包-&gt; Show Package Contents 就找到bin目录了。）</p>
-<ul>
-<li>3、下载依赖组件<br><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard4.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard4.png" alt="studio_wizard4"></a></li>
-</ul>
-<p>之后便到下载组件页面，这个过程需要翻墙，而且依赖你的网速，时间有点久，大家耐心等待…</p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard5.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard5.png" alt="studio_wizard5"></a></p>
-<p>下载完成后点击”Finish”按钮</p>
-<ul>
-<li>4、新建项目<br><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard6.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard6.png" alt="studio_wizard6"></a></li>
-</ul>
-<p>在这个页面我们可以新建项目，也可以导入项目本地或者GitHub上的项目等，左边可以查看最近打开的项目等，这里我直接新建项目</p>
-<p>然后到如下界面</p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard7.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard7.png" alt="studio_wizard7"></a></p>
-<p>我们填上项目名称和报名以及项目路径等然后”Next”</p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard8.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard8.png" alt="studio_wizard8"></a></p>
-<p>这个页面支持你适配TV、Wear、Glass等，我们只选择第一项就ok，选好最小SDK然后”Next”</p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard9.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard9.png" alt="studio_wizard9"></a></p>
-<p>这个页面选择一个Activity模板，和Eclipse很像，我们直接选择一个Blank Activity好了</p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard10.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard10.png" alt="studio_wizard10"></a></p>
-<p>点击”Finish”后等一会出来如下一个进度条，很多人容易卡在这里，这里需要下载Gradle，只第一次会下载，有点慢，需要翻墙，大家也耐心等待下</p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard11.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard11.png" alt="studio_wizard11"></a></p>
-<p>下载成功后变看到如下完整的项目界面</p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/setup.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/setup.png" alt="setup"></a></p>
-<p>至此一个简单的Studio项目就完成了，图片中也可以看到默认是一个白色主题，不够酷炫？Studio默认自带一款高大上的黑色主题，只需要简单修改下就OK。</p>
-<p>到Preference -&gt; Appearance下更改主题到Darcula</p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_theme.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_theme.png" alt="studio_theme"></a></p>
-<p>之后我们再来看一下更改后的主题</p>
-<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/setup2.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/setup2.png" alt="setup2"></a></p>
-<p>很酷炫有木有？至此第一期的Studio简单介绍就到这里，后面会介绍目录结构、快捷键、导入项目、集成GitHub、Gradle等等，敬请期待。</p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1995,21 +2008,21 @@ lintOptions {
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">44</span>
+              <span class="site-state-item-count">47</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-count">33</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">83</span>
+              <span class="site-state-item-count">88</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -2082,8 +2095,8 @@ lintOptions {
     <footer id="footer" class="footer">
       <div class="footer-inner"> <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2015</span>
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="icon-next-heart fa fa-heart"></i>
   </span>

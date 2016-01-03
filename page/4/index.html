@@ -204,6 +204,549 @@
             
             
               
+                <a class="post-title-link" href="/2015/04/08/android-studio-keymap/" itemprop="url">
+                  Android Studio系列教程三--快捷键
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-04-08T14:49:40+08:00" content="2015-04-08">
+              2015-04-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Studio/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Studio</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Studio/开发工具/" itemprop="url" rel="index">
+                    <span itemprop="name">开发工具</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/04/08/android-studio-keymap/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/08/android-studio-keymap/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p>本文转载自：<a href="http://stormzhang.com/devtools/2014/12/09/android-studio-tutorial3/" target="_blank" rel="external">http://stormzhang.com/devtools/2014/12/09/android-studio-tutorial3/</a></p>
+<h2 id="Android_Studio_1-0_u6B63_u5F0F_u7248_u53D1_u5E03_u5566"><a href="#Android_Studio_1-0_u6B63_u5F0F_u7248_u53D1_u5E03_u5566" class="headerlink" title="Android Studio 1.0正式版发布啦"></a>Android Studio 1.0正式版发布啦</h2><p>今天是个大日子，Android Studio 1.0 终于发布了正式版， 这对于Android开发者来说简直是喜大普奔的大消息啊，那么就果断来下载使用。</p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio1.0.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio1.0.png" alt="studio1.0"></a></p>
+<p>官方下载地址： <a href="http://developer.android.com/sdk/index.html" target="_blank" rel="external">http://developer.android.com/sdk/index.html</a></p>
+<p>如果你之前已经使用其他版本的Studio，那么直接覆盖就好了，如果是第一次使用，那么参照<a href="http://1.normalme.sinaapp.com/android-studio-start1-install/" title="【转载】Android Studio系列教程一–下载与安装" target="_blank" rel="external">Android Studio系列教程一</a>进行安装配置。</p>
+<p>于此同时一起更新的还有SDK Tools等，打开SDK Manager进行更新就OK。如果之前有在使用RC版本的Studio，更新覆盖之后应该会出错，那是因为Stuido 1.0默认使用1.0的Gradle插件，所以只需到项目根目录的 <strong>build.gradle</strong> 更新成如下代码然后同步下就OK了</p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/update_gradle.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/update_gradle.png" alt="update_gradle"></a></p>
+<h2 id="u5FEB_u6377_u952E"><a href="#u5FEB_u6377_u952E" class="headerlink" title="快捷键"></a>快捷键</h2><p>对于很多Eclipse转过来的同学，不适应的最主要就是快捷键部分了，Studio默认的快捷键和Eclipse差别很大，但是Studio强大的地方在于通过设置你可以一直沿用Eclipse风格的快捷键，这样对于那些Eclipse过渡来的同学省了很多学习成本。</p>
+<p><strong>Preferences</strong> -&gt; <strong>Keymap</strong> 然后就可以选择你想要的快捷键，这里不止可以选择Eclipse，还可以选择 <strong>Emacs</strong>、<strong>Net Beans</strong> 等编辑器的快捷键</p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/keymap.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/keymap.png" alt="keymap"></a></p>
+<p>对于新手们或者对Eclipse没有好感的同学们，肯定想学习默认的Studio快捷键，下面整理了下常用的一些快捷键，更多的快捷键还需要大家自己去习惯适应。（我自己选择的是Mac OS X 10.5+）</p>
+<p><table></table></p>
+<p><thead></thead></p>
+<p><tr></tr></p>
+<p><th>Action</th></p>
+<p><th>Mac OSX</th></p>
+<p><th>Win/Linux</th><br><br></p>
+<p><tbody></tbody></p>
+<p><tr></tr></p>
+<p><td>注释代码(//)</td></p>
+<p><td>Cmd + /</td></p>
+<p><td>Ctrl + /</td><br></p>
+<p><tr></tr></p>
+<p><td>注释代码(/**/)</td></p>
+<p><td>Cmd + Option + /</td></p>
+<p><td>Ctrl + Shift + /</td><br></p>
+<p><tr></tr></p>
+<p><td>格式化代码</td></p>
+<p><td>Cmd + Option + L</td></p>
+<p><td>Ctrl + Alt + L</td><br></p>
+<p><tr></tr></p>
+<p><td>清除无效包引用</td></p>
+<p><td>Option + Control + O</td></p>
+<p><td>Alt + Ctrl + O</td><br></p>
+<p><tr></tr></p>
+<p><td>查找</td></p>
+<p><td>Cmd + F</td></p>
+<p><td>Ctrl + F</td><br></p>
+<p><tr></tr></p>
+<p><td>查找+替换</td></p>
+<p><td>Cmd + R</td></p>
+<p><td>Ctrl + R</td><br></p>
+<p><tr></tr></p>
+<p><td>上下移动代码</td></p>
+<p><td>Option + Shift + Up/Down</td></p>
+<p><td>Alt + Shift + Up/Down</td><br></p>
+<p><tr></tr></p>
+<p><td>删除行</td></p>
+<p><td>Cmd + Delete</td></p>
+<p><td>Ctrl + Y</td><br></p>
+<p><tr></tr></p>
+<p><td>扩大缩小选中范围</td></p>
+<p><td>Option + Up/Down</td></p>
+<p><td>Ctrl + W/Ctrl + Shift + W</td><br></p>
+<p><tr></tr></p>
+<p><td>快捷生成结构体</td></p>
+<p><td>Cmd + Option + T</td></p>
+<p><td>Ctrl + Alt + T</td><br></p>
+<p><tr></tr></p>
+<p><td>快捷覆写方法</td></p>
+<p><td>Cmd + O</td></p>
+<p><td>Ctrl + O</td><br></p>
+<p><tr></tr></p>
+<p><td>快捷定位到行首/尾</td></p>
+<p><td>Cmd + Left/Right</td></p>
+<p><td>Ctrl + Left/Right</td><br></p>
+<p><tr></tr></p>
+<p><td>折叠展开代码块</td></p>
+<p><td>Cmd + Plus,Minus</td></p>
+<p><td>Ctrl + Plus/Minus</td><br></p>
+<p><tr></tr></p>
+<p><td>折叠展开全部代码块</td></p>
+<p><td>Cmd + Shift + Plus,Minus</td></p>
+<p><td>Ctrl + Shift + Plus,Minus</td><br></p>
+<p><tr></tr></p>
+<p><td>文件方法结构</td></p>
+<p><td>Cmd + F12</td></p>
+<p><td>Ctrl + F12</td><br></p>
+<p><tr></tr></p>
+<p><td>查找调用的位置</td></p>
+<p><td>Ctrl + Option + H</td></p>
+<p><td>Ctrl + Alt + H</td><br></p>
+<p><tr></tr></p>
+<p><td>大小写转换</td></p>
+<p><td>Cmd + Shift + U</td></p>
+<p><td>Ctrl + Shift + U</td><br><br><br><br><strong>(PS: 以上快捷键没有在win平台尝试确认，欢迎反馈错误与补充)</strong></p>
+<p><span style="color: #0000ff;"><strong>另附上Win下的快捷键打印版：<span style="text-decoration: underline;"><a href="http://1.normalme.sinaapp.com/android-studio-keymap/intellij-idea%e5%bf%ab%e6%8d%b7%e9%94%ae%e6%89%93%e5%8d%b0%e7%89%88/" target="_blank" rel="external">Intellij IDEA快捷键打印版</a>.xlsx</span></strong></span></p>
+<h2 id="u81EA_u52A8_u5BFC_u5305"><a href="#u81EA_u52A8_u5BFC_u5305" class="headerlink" title="自动导包"></a>自动导包</h2><p>最后再介绍一个最有用的设置，我们只有每次引用一些类的时候必须要导包，而Studio可以通过设置自动导包，简直太实用了.</p>
+<p>到 <strong>Preferences</strong> -&gt; <strong>Editor</strong> -&gt; <strong>Auto Import</strong> -&gt; <strong>Java</strong> 把以下选项勾上就OK了</p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/auto_import.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/auto_import.png" alt="auto_import"></a></p>
+<p>从此世界清静了。。。</p>
+<p>至此Android Studio的基本使用相信大家都已经会了，从下一系列开始介绍Gradle语法以及基本配置与多渠道打包等，敬请期待！</p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                <a class="post-title-link" href="/2015/04/08/android-studio-setup-run/" itemprop="url">
+                  Android Studio系列教程二--基本设置与运行
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-04-08T14:46:04+08:00" content="2015-04-08">
+              2015-04-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Studio/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Studio</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Studio/开发工具/" itemprop="url" rel="index">
+                    <span itemprop="name">开发工具</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/04/08/android-studio-setup-run/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/08/android-studio-setup-run/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p>本文转载自：<a href="http://stormzhang.com/devtools/2014/11/28/android-studio-tutorial2/" title="Android Studio系列教程二--基本设置与运行" target="_blank" rel="external">http://stormzhang.com/devtools/2014/11/28/android-studio-tutorial2/</a></p>
+<p>上面一篇博客，介绍了Studio的优点与1.0 RC的安装与上手体验，没想到google的更新速度这么快，已经出了RC 2版本，主要是修复一些bug。那么今天就带大家预览下Stduio的界面与基本功能。</p>
+<h2 id="u9879_u76EE_u7ED3_u6784"><a href="#u9879_u76EE_u7ED3_u6784" class="headerlink" title="项目结构"></a>项目结构</h2><p>当我们新建一个项目的目录结构默认是这样的</p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/summary1.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/summary1.png" alt="summary1"></a></p>
+<p>可以看到和Eclipse的目录结构有很大区别，Studio一个窗口只能有一个项目，而Eclipse则可以同时存在很多项目，如果你看着不习惯可以点击左上角进行切换</p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/summary2.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/summary2.png" alt="summary2"></a></p>
+<p>切换到“project”模式下的目录结构是这样的，我个人也更习惯这种格式</p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/summary3.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/summary3.png" alt="summary3"></a></p>
+<p>和Eclipse的区别有如下：</p>
+<ul>
+<li>1、Studio中有Project和Module的概念，前面说到Studio中一个窗口只能有一个项目，即Project，代表一个 workspace，但是一个Project可以包含多个Module，比如你项目引用的Android Library, Java Library等，这些都可以看做是一个Module;</li>
+<li>2、上述目录中将java代码和资源文件（图片、布局文件等）全部归结为src，在src目录下有一个main的分组，同时划分出java和res两个文件夹，java文件夹则相当于Eclipse下的src文件夹，res目录结构则一样.</li>
+</ul>
+<h2 id="u504F_u597D_u8BBE_u7F6E"><a href="#u504F_u597D_u8BBE_u7F6E" class="headerlink" title="偏好设置"></a>偏好设置</h2><p>进入后你也许发现字体大小或者样式不符合你的习惯，比如我是觉得代码太小看起来伤眼，Darcular主题默认的字体是12，我个人更习惯14的字体大小。没关系，到 <strong>Preferences</strong> (设置)页面搜索 <strong>Font</strong> 找到 <strong>Colors&amp;Fonts</strong> 下的 <strong>Font</strong> 选项，我们可以看到默认字体大小是12，但是无法修改，需要先保存才可以修改，点击 <strong>Save as</strong> 输入一个名字，比如 <strong>MyDarcular</strong>，然后就可以修改字体大小和字体样式了.</p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/preference_font1.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/preference_font1.png" alt="preference_font1"></a></p>
+<p>点击确定之后再回到页面发现字体是变大了，但是Studio默认的一些字体大小如侧边栏等确没有变化，看起来很不协调，如下图</p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/preference_font2.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/preference_font2.png" alt="preference_font2"></a></p>
+<p>强迫症的你肯定无法忍受，没关系，这里也同样可以设置，到 <strong>Preferences</strong> -&gt; <strong>Appearance</strong> 修改如图所示就ok，这里同样不仅可以更改字体大小，也可以选择不同的字体,点击OK，这次页面字体就完全对你胃口了。</p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/preference_font3.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/preference_font3.png" alt="preference_font3"></a></p>
+<p>调整之后再看下效果</p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/preference_font4.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/preference_font4.png" alt="preference_font4"></a></p>
+<h2 id="u8FD0_u884C"><a href="#u8FD0_u884C" class="headerlink" title="运行"></a>运行</h2><p>接下来运行程序，运行和 <strong>Eclipse</strong> 中比较像，点击菜单栏的绿色箭头直接运行</p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/menu1.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/menu1.png" alt="menu1"></a></p>
+<p><strong>Studio</strong> 默认安装会启动模拟器，如果想让安装到真机上可以配置一下。在下拉菜单中选择 <strong>Edit Configurations</strong> 选择提示或者是USB设备。</p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/menu2.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/menu2.png" alt="menu2"></a></p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/menu3.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/menu3.png" alt="menu3"></a></p>
+<h2 id="u5E38_u7528_u529F_u80FD"><a href="#u5E38_u7528_u529F_u80FD" class="headerlink" title="常用功能"></a>常用功能</h2><p>在Studio菜单栏的右边有这样几个常用的功能，如图分别是 <strong>Gradle同步</strong>、<strong>AVD Manager</strong>、<strong>SDK Manager</strong>、<strong>DDMS</strong></p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/menu4.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/menu4.png" alt="menu4"></a></p>
+<p><strong>Gradle同步</strong> 在你项目运行或者更改Gradle配置的时候都要点击下这个按钮，会下载相应的依赖</p>
+<p><strong>AVD Manager</strong> 模拟器管理</p>
+<p><strong>SDK Manager</strong> 就是管理你的SDK版本</p>
+<p><strong>DDMS</strong> 即 Dalvik Debug Monitor Service，Dalvik调试监控服务。</p>
+<h2 id="u521B_u5EFA_u6A21_u62DF_u5668"><a href="#u521B_u5EFA_u6A21_u62DF_u5668" class="headerlink" title="创建模拟器"></a>创建模拟器</h2><p>建议在创建模拟器前把 <strong>SDK Manager</strong> 中的 <strong>Tools</strong>、<strong>Extras</strong> 都更新到最新。</p>
+<p>点击 <strong>AVD Manager</strong> 按钮</p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/avd1.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/avd1.png" alt="avd1"></a></p>
+<p>点击图中的创建按钮</p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/avd2.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/avd2.png" alt="avd2"></a></p>
+<p>选择一个设备，这里我选择 Nexus 5，然后Next</p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/avd3.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/avd3.png" alt="avd3"></a></p>
+<p>这里选择一个系统版本，这里以5.0为例，然后Next</p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/avd4.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/avd4.png" alt="avd4"></a></p>
+<p>由于各位的屏幕尺寸不一样，建议这里Scale一栏选择Auto，然后点击Finish接着可以看到我们已经创建好一个5.0的模拟器了</p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/avd5.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/avd5.png" alt="avd5"></a></p>
+<p>这次我们再运行，选择模拟器启动看下最终效果（模拟器的启动很慢，大家耐心等待）</p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/select_avd.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/select_avd.png" alt="select_avd"></a></p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/avd6.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/avd6.png" alt="avd6"></a></p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                <a class="post-title-link" href="/2015/04/08/android-studio-start1-install/" itemprop="url">
+                  【转载】Android Studio系列教程一--下载与安装
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-04-08T14:30:39+08:00" content="2015-04-08">
+              2015-04-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Studio/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Studio</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Studio/开发工具/" itemprop="url" rel="index">
+                    <span itemprop="name">开发工具</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/04/08/android-studio-start1-install/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/08/android-studio-start1-install/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p>本文转载自：<a href="http://stormzhang.com/devtools/2014/11/25/android-studio-tutorial1/" title="Android Studio系列教程一--下载与安装" target="_blank" rel="external">http://stormzhang.com/devtools/2014/11/25/android-studio-tutorial1/</a></p>
+<h2 id="u80CC_u666F"><a href="#u80CC_u666F" class="headerlink" title="背景"></a>背景</h2><p>相信大家对Android Studio已经不陌生了，Android Studio是Google于2013 I/O大会针对Android开发推出的新的开发工具，目前很多开源项目都已经在采用，Google的更新速度也很快，明显能感觉到这是Android开 发的未来，那么我们还有什么理由不去拥抱未来呢？</p>
+<p>虽然推出了很久，但是国内貌似普及的程度并不高，鉴于很多朋友求studio的详细教程，那么今天我就手把手教大家下载、安装、使用，Studio之路从这里开始。</p>
+<h2 id="Android_Studio_VS_Eclipse"><a href="#Android_Studio_VS_Eclipse" class="headerlink" title="Android Studio VS Eclipse"></a>Android Studio VS Eclipse</h2><p>相信目前国内用Eclipse的还是大多数，那么首先就来说一下Studio的一些优点，比较才能更有说服力，才能说明为什么我们要从Eclipse迁移到Studio。</p>
+<ul>
+<li><p>1、Google推出的<br>毫无疑问，这个是它的最大优势，Android Stuido是Google推出，专门为Android“量身订做”的，是Google大力支持的一款基于IntelliJ IDEA改造的IDE，这个应该能说明为什么它是Android的未来</p>
+</li>
+<li><p>2、速度更快<br>Eclipse的启动速度、响应速度、内存占用一直被诟病，相信大家这点应该深有体会，而且经常遇到卡死状态。Studio不管哪一个方面都全面领先Eclipse</p>
+</li>
+<li><p>3、UI更漂亮<br>I/O上演示的那款黑色主题真是太棒了，极客范，Stuido自带的Darcula主题的炫酷黑界面实在是高大上，相比而言Eclipse下的黑色主题太low了</p>
+</li>
+<li><p>4、更加智能<br>提示补全对于开发来说意义重大， Studio则更加智能，智能保存，从此再也不用每次都 Ctrl + S了。熟悉Studio以后效率会大大提升。</p>
+</li>
+<li><p>5、整合了Gradle构建工具<br>Gradle是一个新的构建工具，自Studio亮相之处就支持Gradle，可以说Gradle集合了Ant和Maven的优点，不管是配置、编译、打包都非常棒。</p>
+</li>
+<li><p>6、强大的UI编辑器<br>Android Studio的编辑器非常的智能，除了吸收Eclipse+ADT的优点之外，还自带了多设备的实时预览，相对这对Android开发者来说简直是神器啊。</p>
+</li>
+<li><p>7、内置终端<br>Studio内置终端，这对于习惯命令行操作的人来说简直是福音啊，再也不用来回切换了，一个Studio全部搞定。</p>
+</li>
+<li><p>8、更完善的插件系统<br>Studio下支持各种插件，如Git、Markdown、Gradle等等，你想要什么插件，直接搜索下载。</p>
+</li>
+<li><p>9、完美整合版本控制系统<br>安装的时候就自带了如GitHub, Git, SVN等流行的版本控制系统，可以直接check out你的项目。</p>
+</li>
+</ul>
+<p>大家看完以上是不是很动心呢，优点是很多，但是大家学习的时候会遇到很多问题，如Studio和Eclipse的目录结构、快捷键等等完全不一样， 需要适应一段时间，Gradle同样增加了学习成本，虽然Google的更新速度已经相当快了，但是目前最新的是1.0RC版本，仍未推出正式版，说明可 能会有一些小问题等，Studio官方解释暂未支持NDK，所以如果你的项目用到了NDK最好也不要使用Studio。</p>
+<p>但是相信Google会越来越完善的，学习成本与适应阶段是我们做技术一直要保持的心态，一旦上手相信你要离不开它了。</p>
+<p>最后这里先上一张我本地Studio的截图：</p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_preview.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_preview.png" alt="studio_preview"></a></p>
+<h2 id="u51C6_u5907"><a href="#u51C6_u5907" class="headerlink" title="准备"></a>准备</h2><p>因为Google Android的一些官方网站在国内访问有限制，原因你懂得。所以在开始下载安装Studio之前，你需要自备梯子，关于如何翻墙有很多种方法，这里就不 做过多介绍，私以为作为一个Android开发者，不懂翻墙基本没法做下去。所以这点投入是值得的，这里推荐大家直接购买VPN吧，因为我曾经折腾了很多 翻墙的玩意，要么不稳定，要么速度慢，后来想通了，凡是花点钱能解决的问题都不是问题。个人购买的是<strong>Shadowsocks</strong>，<span style="color: #0000ff;"><strong><a href="https://portal.shadowsocks.com/aff.php?aff=451" title="shadowsocks代理" target="_blank" rel="external">点击我可以到购买页面</a></strong></span>。Shadowsocks是不需要担心流量的一款梯子工具，速度还是不错的基本在200-300kb之间的下载速度，看视频也是没问题的。一共2个套餐看个人的需要进行选择吧，我选的是99元的。</p>
+<h2 id="u4E0B_u8F7D"><a href="#u4E0B_u8F7D" class="headerlink" title="下载"></a>下载</h2><p>官方下载有两个地方，均需要翻墙。</p>
+<ul>
+<li><p><a href="http://developer.android.com/sdk/installing/studio.html" target="_blank" rel="external">Android Developer官网</a><br>Android开发者官网的网站，可直接下载，但是这个网站貌似只更新Beta和正式版，目前只更新到Beta 0.8.14版本。</p>
+</li>
+<li><p><a href="http://tools.android.com/download/studio/canary" target="_blank" rel="external">Android Tools Project Site</a><br>Android开发工具的网站，上面链接是Studio的canary渠道，列出了Studio各种实时预览版等，目前最新的是1.0RC版本。</p>
+</li>
+</ul>
+<h2 id="u521B_u5EFAHelloWorld_u9879_u76EE"><a href="#u521B_u5EFAHelloWorld_u9879_u76EE" class="headerlink" title="创建HelloWorld项目"></a>创建HelloWorld项目</h2><p>至于安装就没什么可说的了，点击直接运行了。这里我以Mac系统的1.0RC版本为例，来创建第一个HelloWorld项目。其他平台基本上差不多，在这之前假设你已经配置好了JDK和Android SDK环境，并且你是第一次安装Studio。</p>
+<ul>
+<li><p>1、首先运行时的欢迎画面<br><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_splash.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_splash.png" alt="studio_splash"></a></p>
+</li>
+<li><p>2、之后第一次的话会进入到设置向导页<br><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard1.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard1.png" alt="studio_wizard1"></a></p>
+</li>
+</ul>
+<p>点击Next进入选择设置类型向导页</p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard2.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard2.png" alt="studio_wizard2"></a></p>
+<p>这里有两个选项“Standard”和“Custom”，即标准和自定义，如果你本机的Android SDK没有配置过，那么建议直接选择“Standard”, 点击“Finish”按钮</p>
+<p>因为我本地已经下载SDK并配置好了环境变量，所以我选择”Custom”，然后到下一步：</p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard3.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard3.png" alt="studio_wizard3"></a></p>
+<p>这一步选择你本地SDK的位置，可以看到有个2.25GB的SDK要下载，那是因为Studio 1.0默认要下载5.0的SDK以及一些Tools之类的，然后点击”Finish”按钮</p>
+<p>（PS: 这个选择并下载2.25G的组件是studio的一个bug，评论里有人提醒，感谢这位同学。如果网速不行想跳过这步的可以在bin目录的 idea.properties增加一行：disable.android.first.run=true就行了，mac平台的右键安装包-&gt; Show Package Contents 就找到bin目录了。）</p>
+<ul>
+<li>3、下载依赖组件<br><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard4.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard4.png" alt="studio_wizard4"></a></li>
+</ul>
+<p>之后便到下载组件页面，这个过程需要翻墙，而且依赖你的网速，时间有点久，大家耐心等待…</p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard5.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard5.png" alt="studio_wizard5"></a></p>
+<p>下载完成后点击”Finish”按钮</p>
+<ul>
+<li>4、新建项目<br><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard6.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard6.png" alt="studio_wizard6"></a></li>
+</ul>
+<p>在这个页面我们可以新建项目，也可以导入项目本地或者GitHub上的项目等，左边可以查看最近打开的项目等，这里我直接新建项目</p>
+<p>然后到如下界面</p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard7.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard7.png" alt="studio_wizard7"></a></p>
+<p>我们填上项目名称和报名以及项目路径等然后”Next”</p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard8.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard8.png" alt="studio_wizard8"></a></p>
+<p>这个页面支持你适配TV、Wear、Glass等，我们只选择第一项就ok，选好最小SDK然后”Next”</p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard9.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard9.png" alt="studio_wizard9"></a></p>
+<p>这个页面选择一个Activity模板，和Eclipse很像，我们直接选择一个Blank Activity好了</p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard10.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard10.png" alt="studio_wizard10"></a></p>
+<p>点击”Finish”后等一会出来如下一个进度条，很多人容易卡在这里，这里需要下载Gradle，只第一次会下载，有点慢，需要翻墙，大家也耐心等待下</p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard11.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_wizard11.png" alt="studio_wizard11"></a></p>
+<p>下载成功后变看到如下完整的项目界面</p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/setup.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/setup.png" alt="setup"></a></p>
+<p>至此一个简单的Studio项目就完成了，图片中也可以看到默认是一个白色主题，不够酷炫？Studio默认自带一款高大上的黑色主题，只需要简单修改下就OK。</p>
+<p>到Preference -&gt; Appearance下更改主题到Darcula</p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_theme.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/studio_theme.png" alt="studio_theme"></a></p>
+<p>之后我们再来看一下更改后的主题</p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/setup2.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/setup2.png" alt="setup2"></a></p>
+<p>很酷炫有木有？至此第一期的Studio简单介绍就到这里，后面会介绍目录结构、快捷键、导入项目、集成GitHub、Gradle等等，敬请期待。</p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
                 <a class="post-title-link" href="/2015/04/02/android-call-webservice-depend-on-cxf/" itemprop="url">
                   Android调用基于cxf的WebService接口
                 </a>
@@ -1853,564 +2396,6 @@ intentFilter.addAction(String);--为 BroadcastReceiver指定action，使之用�
 
 
     
-      
-
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                <a class="post-title-link" href="/2015/03/04/toast-util-class/" itemprop="url">
-                  Toast的工具类--可以取消的Toast
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-03-04T14:58:34+08:00" content="2015-03-04">
-              2015-03-04
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/JAVA/" itemprop="url" rel="index">
-                    <span itemprop="name">JAVA</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/JAVA/代码/" itemprop="url" rel="index">
-                    <span itemprop="name">代码</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/03/04/toast-util-class/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/04/toast-util-class/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>这个工具类主要定义了2种Toast的显示方式，一种是传统的文字Toast，一种是带图片的Toast。而且在使用系统自带的Toast的过程中，总会遇到这样的情况：连续点击的时候，第一个Toast还没有消失，第二个Toast必须要等第一个Toast消失之后才能显示出来，会造成很长时间屏幕上都会有一个Toast在闪烁，下面这个类可以解决这个问题，其实很简单，只要在创建Toast之前先判断一下Toast对象是否为null，不为null则把Toast取消就可以了。PS:这类Toast最好仅用于点击事件中的提示，其他的情况还是要用系统自带的Toast比较合适。</p>
-<p>参考代码如下：</p>
-<p><pre class="lang:java decode:true ">package com.tp.insurance.util;</pre></p>
-<p>import android.content.Context;<br>import android.view.Gravity;<br>import android.view.View;<br>import android.widget.ImageView;<br>import android.widget.LinearLayout;<br>import android.widget.Toast;</p>
-<p>/**</p>
-<ul>
-<li><p>Created by ex_chenjinghao on 2015/1/28 0028 at 15:06.<br>*/<br>public class ToastUtils {<br> private static Toast toast = null;<br> public static int LENGTH_LONG = Toast.LENGTH_LONG;<br> private static int LENGTH_SHORT = Toast.LENGTH_SHORT;</p>
-<pre><code>public static void TextToast(Context context,CharSequence text,int duration){
-if (toast != null) {
-    toast.cancel();
-}
-toast = Toast.makeText(context,text,duration);
-toast.setText(text);
-toast.setGravity(Gravity.CENTER, 0, 0);
-toast.show();
-</code></pre><p> }</p>
-<p> /**</p>
-<ul>
-<li>带图片消息提示</li>
-<li>@param context</li>
-<li>@param ImageResourceId</li>
-<li>@param text</li>
-<li>@param duration<br>*/<br>public static void ImageToast(Context context,int ImageResourceId,CharSequence text,int duration){<br> if(toast != null){<pre><code>toast.cancel();
-</code></pre> }<br> //创建一个Toast提示消息<br> toast = Toast.makeText(context, text, duration);<br> //设置Toast提示消息在屏幕上的位置<br> toast.setGravity(Gravity.CENTER, 0, 0);<br> //获取Toast提示消息里原有的View<br> View toastView = toast.getView();<br> //创建一个ImageView<br> ImageView img = new ImageView(context);<br> img.setImageResource(ImageResourceId);<br> //创建一个LineLayout容器<br> LinearLayout ll = new LinearLayout(context);<br> ll.setOrientation(LinearLayout.HORIZONTAL);<br> //向LinearLayout中添加ImageView和Toast原有的View<br> ll.addView(img);<br> ll.addView(toastView);<br> //将LineLayout容器设置为toast的View<br> toast.setView(ll);<br> //显示消息<br> toast.show();<br>}<br>}<br>&nbsp;</li>
-</ul>
-</li>
-</ul>
-<p>&nbsp;</p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                <a class="post-title-link" href="/2015/03/04/android-save-log-to-file/" itemprop="url">
-                  Android中使用到的保存Log信息为txt文档的工具类
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-03-04T14:11:29+08:00" content="2015-03-04">
-              2015-03-04
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/JAVA/" itemprop="url" rel="index">
-                    <span itemprop="name">JAVA</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/JAVA/代码/" itemprop="url" rel="index">
-                    <span itemprop="name">代码</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/03/04/android-save-log-to-file/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/04/android-save-log-to-file/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>在做Android开发过程中，有些时候需要分析一下服务端传递的JSON数据是否有误，而在IDEA中Logcat显示的Log信息有限，并且查看起来相当困难，因此我们需要将Log信息保存成txt文档，这样我们就可以把log信息完整的保存下来。之后使用JSONView工具进行查看就清晰很多了。</p>
-<p>这个工具类源码如下：</p>
-<p><pre class="theme:sublime-text font:droid-sans-mono popup:true lang:java decode:true " title="Android中，将完整的Log保存为文件的工具类">package com.tp.insurance.util;</pre></p>
-<p>import android.content.Context;<br>import android.os.Environment;</p>
-<p>import java.io.*;<br>import java.text.SimpleDateFormat;<br>import java.util.Date;</p>
-<p>public class Log {</p>
-<pre><code>private static Log mLog;
-/** 日志保存路径 */
-private static final String LOG_SAVE_PATH = &quot;sdcard//Log/&quot;;
-/** 错误信息保存路径 */
-private static final String EXCEPTION_SAVE_PATH = &quot;sdcard//ExceptionLog/&quot;;
-/** 日志开关 */
-private static final boolean LOG_SWITCH = true;
-
-public static Log LogInstance() {
-    if (mLog == null) {
-        mLog = new Log();
-    }
-    return mLog;
-}
-
-/**
- * 插入日志 logType == 1 数据日志 logType == 2 异常日志
- */
-public void saveLog(int logType, String logStr, Context context) {
-    if (LOG_SWITCH) {
-        if (Environment.getExternalStorageState().equals(
-                Environment.MEDIA_MOUNTED)) {
-            File file = checkLogFileIsExist(logType);
-            if (file == null)
-                return;
-            FileOutputStream fos = null;
-            try {
-                fos = new FileOutputStream(file, true);
-                fos.write((new Date().toLocaleString() + &quot; &quot; + logStr)
-                        .getBytes(&quot;UTF-8&quot;));
-                fos.write(&quot;\r\n\n&quot;.getBytes(&quot;UTF-8&quot;));
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } finally {
-                try {
-                    if (fos != null) {
-                        fos.close();
-                        fos = null;
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                fos = null;
-                file = null;
-            }
-        }
-    }
-}
-
-/** 检查日志文件是否存在 */
-private File checkLogFileIsExist(int logType) {
-    File file = null;
-    if (logType == 1) {
-        file = new File(LOG_SAVE_PATH);
-    } else if (logType == 2) {
-        file = new File(EXCEPTION_SAVE_PATH);
-    }
-    if (!file.exists()) {
-        file.mkdirs();
-    }
-    SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyyMMddHHmmss&quot;);
-    String dateStr = sdf.format(new Date());
-    if (logType == 1) {
-        file = new File(LOG_SAVE_PATH+ dateStr + &quot;.txt&quot;);
-    } else if (logType == 2) {
-        file = new File(EXCEPTION_SAVE_PATH+ dateStr + &quot;.txt&quot;);
-    }
-    if (!isLogExist(file)) {
-        try {
-            file.createNewFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    sdf = null;
-    return file;
-}
-
-/**
- * 检查当天日志文件是否存在
- *
- * @param file
- * @return
- */
-private boolean isLogExist(File file) {
-    File tempFile = new File(LOG_SAVE_PATH);
-    File[] files = tempFile.listFiles();
-    for (int i = 0; i &amp;lt; files.length; i++) {
-        if (files[0].getName().trim().equalsIgnoreCase(file.getName())) {
-            return true;
-        }
-    }
-    return false;
-}
-
-/**
- * 打印异常堆栈信息
- *
- * @param e
- * @return
- */
-public static String getExceptionStackTrace(Throwable e) {
-    if (e != null) {
-        StringWriter sw = new StringWriter();
-        PrintWriter pw = new PrintWriter(sw);
-        e.printStackTrace(pw);
-        return sw.toString();
-    }
-    return &quot;&quot;;
-}
-</code></pre><p>}<br>使用方法：</p>
-<p>在调用的时候使用：</p>
-<p><pre class="lang:java decode:true " title="调用语句">Log.LogInstance().saveLog(logType, logStr, context);</pre><br>&nbsp;</p>
-<p>&nbsp;</p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                <a class="post-title-link" href="/2015/03/01/pt-websites/" itemprop="url">
-                  PT站大全--我个人主要是混交大葡萄的。
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-03-01T18:31:33+08:00" content="2015-03-01">
-              2015-03-01
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/杂/" itemprop="url" rel="index">
-                    <span itemprop="name">杂</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/03/01/pt-websites/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/01/pt-websites/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>国内著名PT站点</p>
-<p>HDchina 高清中国<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fhdchina.org%2Flogin.php&amp;link2key=7a853f0514" target="_blank" rel="external">http://hdchina.org/login.php</a><br>国内pt网站老大，这个不用介绍了吧！</p>
-<p>CHDBits CHD高清联盟<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fchdbits.org%2Flogin.php&amp;link2key=7a853f0514" target="_blank" rel="external">http://chdbits.org/login.php</a><br>以前做高清论坛很牛，后来好想闹分家了，pt网站内资源不错更新快。</p>
-<p>CCFBits<br><a href="http://www.douban.com/link2/?url=https%3A%2F%2Fccfbits.org&amp;link2key=7a853f0514" target="_blank" rel="external">https://ccfbits.org</a><br>不错的一个pt网站，不知道怎么描述了，其实大家资源都差不多。</p>
-<p>HDStar 思路高清<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.hdstar.org%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.hdstar.org/</a><br>感觉还行吧，自己上去看看吧，pt网站内资源更新还是很快的做种的也多。</p>
-<p>HDRoad 思路<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fhdroad.org%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://hdroad.org/</a><br>这pt网站不知道怎么介绍了，分家后的思路自己看。呵呵</p>
-<p>U2动漫乐园<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fu2.dmhy.org%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://u2.dmhy.org/</a><br>动漫方面的pt网站，内容很多。</p>
-<p>HDCity 高清城市<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.hdcity.org%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.hdcity.org/</a><br>和上面都一样，pt网站内资源更新快，种子多。</p>
-<p>纪录片之家<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.jlpzj.com%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.jlpzj.com/</a><br>很不错的一个资源网，也是不定时开发注册。</p>
-<p>中国高清网<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.chinahdtv.org&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.chinahdtv.org</a><br>这pt网站不知道是否还有开放，关注。</p>
-<p>TTG<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fttg.im%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://ttg.im/</a><br>PT网站中的老牌，可是人气好像不怎么样。</p>
-<p>ping2pig<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fpig2pig.com%2Flogin.php&amp;link2key=7a853f0514" target="_blank" rel="external">http://pig2pig.com/login.php</a><br>这个pt网站也不错</p>
-<p>皇后高清<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fpt.kinghou.com&amp;link2key=7a853f0514" target="_blank" rel="external">http://pt.kinghou.com</a><br>皇后高品质pt网站</p>
-<p>ptshow<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.ptshow.net%2Flogin.php&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.ptshow.net/login.php</a><br>ptshow以前这pt网站很不错，现在好像很少更新了</p>
-<p>ourdisc<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fbt.ourdisc.net%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://bt.ourdisc.net/</a><br>还有这个我常用的pt网站</p>
-<p>TorrentCCF CCF官方PT<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fet8.org%2Flogin.php&amp;link2key=7a853f0514" target="_blank" rel="external">http://et8.org/login.php</a><br>pt网站后起之秀</p>
-<p>HDBits<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fhdbits.cn%2Flogin.php&amp;link2key=7a853f0514" target="_blank" rel="external">http://hdbits.cn/login.php</a></p>
-<p>3E帝国<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fpt.3e-online.com%2Flogin.php&amp;link2key=7a853f0514" target="_blank" rel="external">http://pt.3e-online.com/login.php</a></p>
-<p>影视帝国<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fdg.pt1118.com&amp;link2key=7a853f0514" target="_blank" rel="external">http://dg.pt1118.com</a></p>
-<p>高清第一<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.hd001.org%2Flogin.php&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.hd001.org/login.php</a></p>
-<p>HDPVPT<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2F88197.westhost.cn%2Flogin.php&amp;link2key=7a853f0514" target="_blank" rel="external">http://88197.westhost.cn/login.php</a><br>高清MV为主的pt站</p>
-<p>立体世界资源站<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.3d4dnet.com%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.3d4dnet.com/</a><br>以3D为主的pt站，新站来的，现在3d电影那么流行哦。</p>
-<p>CMCT<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fpt.hdcmct.com%2Fsignup.php&amp;link2key=7a853f0514" target="_blank" rel="external">http://pt.hdcmct.com/signup.php</a><br>自己看看吧！</p>
-<p>电影岛<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fpt.dydao.com%2Flogin.php&amp;link2key=7a853f0514" target="_blank" rel="external">http://pt.dydao.com/login.php</a><br>新站点</p>
-<p>圣域PT站<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.cnscg.org&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.cnscg.org</a><br>以前很牛的一个BT站，后来关闭了，现在开PT站了。</p>
-<p>60group<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fpt.60group.com%2Findex.php&amp;link2key=7a853f0514" target="_blank" rel="external">http://pt.60group.com/index.php</a><br>一个软件站，才推出的，暂时没什么人气</p>
-<p>乐透社<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.1up.cn%2Fforum.php&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.1up.cn/forum.php</a><br>小水管的乐园</p>
-<p>教育网PT站</p>
-<p>北邮人BT<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fbt.byr.cn&amp;link2key=7a853f0514" target="_blank" rel="external">http://bt.byr.cn</a><br>北邮人作为一个教育网的PT大站，各种资源还是相当丰富的，同时支持IPv6和IPv4，速度很可观，出种速度很快</p>
-<p>六维空间（东北大学）<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fbt.neu6.edu.cn&amp;link2key=7a853f0514" target="_blank" rel="external">http://bt.neu6.edu.cn</a><br>这个PT站只支持ipv6，资源应该是教育网最多的，人很多，据说注册会员有10万之巨,，一个热门资源几千人挂种的场景蔚为壮观，出种速度极快，资源更新也快，各个大站的资源基本都会被第一时间转过去,外校人员注册时需要手机，用于接收验证吧和以后找回密码，不收费。</p>
-<p>晨光（北交大）<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fcgbt.cn%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://cgbt.cn/</a><br>这个PT站也是纯ipv6，资源极其丰富出种速度特别快，各种热门资源都有，学习方面的资源也挺多，教育网四大PT站之一。</p>
-<p>上交葡萄PT站<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fpt.sjtu.edu.cn%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://pt.sjtu.edu.cn/</a><br>上交葡萄是我较早接触的一个PT站，依托上交优越的网络条件发展很迅速，资源还挺丰富，人气也挺旺，热门资源转的很快，各种资源转载集散地。</p>
-<p>兰州高校PT站<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.lzgxbbs.com%2Fpt%2Flogin.php&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.lzgxbbs.com/pt/login.php</a><br>校园站</p>
-<p>HUDbt（华中科技）<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.kmgtp.org&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.kmgtp.org</a><br>华中科技大学HUDbt创建于2009年3月中旬，位于教育网华中地区，支持IPv6和IPv4。</p>
-<p>TB 乐乎（上海大学）<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fbt.shu6.edu.cn&amp;link2key=7a853f0514" target="_blank" rel="external">http://bt.shu6.edu.cn</a><br>上 海大学的乐乎PT站创建于2009年2月，支持IPv6和IPv4。 这个站的唯一的优点就是速度好，因为里面很多很多西安高校的用户，以陕师大，长安大学，西北农林和交大居多。里面的资源及其混乱，质量参差不齐，各种枪 版，各种rmvb满天飞，这是我见过的PT站里面最混乱的一个了。</p>
-<p>我爱威六(纯V6)<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.52v6.com&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.52v6.com</a><br>北京科技大学这个站人气还不错，界面跟六维很像</p>
-<p>西大PT站<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.btswu.cn&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.btswu.cn</a><br>西南大学</p>
-<p>北师大BT<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fbt.bnu.edu.cn&amp;link2key=7a853f0514" target="_blank" rel="external">http://bt.bnu.edu.cn</a><br>北京师范大学</p>
-<p>BBSBT<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fbbsbt.cupl.edu.cn&amp;link2key=7a853f0514" target="_blank" rel="external">http://bbsbt.cupl.edu.cn</a><br>中国政法大学</p>
-<p>红满堂PT站<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Ftracker.ipv6.scau.edu.cn&amp;link2key=7a853f0514" target="_blank" rel="external">http://tracker.ipv6.scau.edu.cn</a><br>华南农业大学</p>
-<p>未来花园BT<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fbt.buaa6.edu.cn%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://bt.buaa6.edu.cn/</a><br>北京航空航天大学</p>
-<p>天地人大PT站<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fdownload.tdrd.org&amp;link2key=7a853f0514" target="_blank" rel="external">http://download.tdrd.org</a><br>中国人民大学</p>
-<p>民主湖pt<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fbt.cqumzh.cn&amp;link2key=7a853f0514" target="_blank" rel="external">http://bt.cqumzh.cn</a><br>重庆大学 刚升级，只对校内开放</p>
-<p>NexusHD<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.nexushd.org&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.nexushd.org</a><br>浙江大学 只对校内开放</p>
-<p>银杏园BT<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fyxybt.cmc6.edu.cn&amp;link2key=7a853f0514" target="_blank" rel="external">http://yxybt.cmc6.edu.cn</a><br>成都医学院</p>
-<p>NKBT<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fbt.nankai.edu.cn&amp;link2key=7a853f0514" target="_blank" rel="external">http://bt.nankai.edu.cn</a><br>南开大学</p>
-<p>极速之星<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fbitpt.cn&amp;link2key=7a853f0514" target="_blank" rel="external">http://bitpt.cn</a><br>北京理工大学</p>
-<p>幻想PT<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fpt.swufe6.edu.cn&amp;link2key=7a853f0514" target="_blank" rel="external">http://pt.swufe6.edu.cn</a><br>西南财经大学</p>
-<p>华翔PT<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fipv6.flypt.org%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://ipv6.flypt.org/</a><br>华北电力大学</p>
-<p>紫荆站PT<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fzijingbt.njuftp.org&amp;link2key=7a853f0514" target="_blank" rel="external">http://zijingbt.njuftp.org</a><br>南京大学</p>
-<p>美美PT<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.jlumm.com&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.jlumm.com</a><br>吉林大学</p>
-<p>陶园PT<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fpt.scnu.edu.cn&amp;link2key=7a853f0514" target="_blank" rel="external">http://pt.scnu.edu.cn</a><br>华南师范大学</p>
-<p>睿思BT<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fresource.xidian.edu.cn&amp;link2key=7a853f0514" target="_blank" rel="external">http://resource.xidian.edu.cn</a><br>西安电子科技大学 新开的</p>
-<p>樱花BT<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fbt.buct6.edu.cn&amp;link2key=7a853f0514" target="_blank" rel="external">http://bt.buct6.edu.cn</a><br>北京化工大学</p>
-<p>五色土PT<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fpt.cau.edu.cn&amp;link2key=7a853f0514" target="_blank" rel="external">http://pt.cau.edu.cn</a><br>中国农业大学</p>
-<p>国外著名PT名站</p>
-<p>PT站大哥 HDB<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fhdbits.org%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://hdbits.org/</a><br>关闭注册，也不对中国开放邀请注册，所以大家不要去想了。</p>
-<p><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fsdbits.org%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://sdbits.org/</a><br>HDB姐妹站.电影.dvd.x264</p>
-<p><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.hd-corea.org%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.hd-corea.org/</a><br>韩国BtS，韩剧电影MV音乐，地址已经换了，还要修改hosts才能访问,</p>
-<p>Torrentleech<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.torrentleech.org%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.torrentleech.org/</a><br>综合0Day站有16万用户，资源覆盖面比较广，什么东西都有,需要邀请注册</p>
-<p>SceneTorrents<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.scenetorrents.org%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.scenetorrents.org/</a><br>综合0Day站,和上站一样，资源覆盖面比较广，什么东西都有,需要邀请注册。</p>
-<p>SceneLife<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fscenelife.net%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://scenelife.net/</a><br>综合0Day站,和上站一样广,什么东西都有,需要邀请注册。</p>
-<p>scc<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.sceneaccess.org%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.sceneaccess.org/</a><br>0Day站,电影.音乐,电视剧分成三个版面,资源更新快，需要邀请注册.</p>
-<p>revtt<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.revolutiontt.net%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.revolutiontt.net/</a><br>综合0Day站,和上站一样广,什么东西都有,需要邀请注册。</p>
-<p>Torrent Damage<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.torrent-damage.net%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.torrent-damage.net/</a><br>0ADY小组站点，0day综合站，需要邀请注册</p>
-<p><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.bit-hdtv.com%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.bit-hdtv.com/</a><br>原盘数量已经达到501片，有点赶超HDC的意思，需要邀请注册。</p>
-<p>hd-bits<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.hd-bits.ro%2Fsignup.php&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.hd-bits.ro/signup.php</a><br>这个pt站兄弟们都说是HDB山寨版，有自己小组，作品不错免费种子多，现在开放注册<br>每月必须10G流量，不然T了</p>
-<p><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.bitmetv.org%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.bitmetv.org/</a><br>电视剧下载站，这个pt网站出连续剧比较快，需要邀请注册.</p>
-<p><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.tvtorrents.com%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.tvtorrents.com/</a><br>电视节目下载站,需要邀请注册，这个pt网站打开超级慢，加入也不想要。</p>
-<p><a href="http://www.douban.com/link2/?url=http%3A%2F%2Ftv.torrents.ro%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://tv.torrents.ro/</a><br>电视节目下载站，各站点出片相差不过几分钟时间，这个站也是很快的.开放注册</p>
-<p>HD-Club 乌克兰第一高清<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Ftracker.hdclub.com.ua&amp;link2key=7a853f0514" target="_blank" rel="external">http://tracker.hdclub.com.ua</a><br>免费资源很多，有自己的制作小组。我主要下点演唱会香港片原盘等。现在还开放注册,很容易生存，可能人多关系3天就上传了64G。这个pt站推介大家混。</p>
-<p><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fhdtracker.ru%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://hdtracker.ru/</a><br>俄罗斯第一高清，原盘数量已经达到336，高清资源总体不错。经常开放注册….</p>
-<p><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.hdsource.org%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.hdsource.org/</a><br>德国第一高清</p>
-<p>hdf 法国第一高清<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.hdfrench.com%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.hdfrench.com/</a><br>有制作小组，免费1080P高清电影原盘等都很多(720P几乎绝迹)。注册送10G流量.开放注册</p>
-<p>hd-t<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.hd-torrents.org%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.hd-torrents.org/</a><br>这个不记得是罗马尼亚还是哪里的了<br>有制作小组，有很多几M的资源，小水管可以慢慢挂慢慢换流量，部分XXX资源下载按双倍计算下载要小心别下XXX，需要邀请注册。</p>
-<p><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fawesome-hd.com%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://awesome-hd.com/</a><br>这个pt网站以前还不错，由于数据丢失3次，账号又要第三次重练我对它已经失去信心了，需要邀请注册</p>
-<p><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fasiandvdclub.org%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://asiandvdclub.org/</a><br>ADC 亚洲DVD俱乐部 这个是DVD老大 喜欢香港片朋友一定要加 开放注册<br>需要修改hosts文件才能访问<br>C:\WINDOWS\system32\drivers\etc 下hosts文件添加以下内容<br>127.0.0.1 localhost<br>85.11.25.78 asiandvdclub.org<br>85.11.25.78 <a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.asiandvdclub.org&amp;link2key=7a853f0514" target="_blank" rel="external">www.asiandvdclub.org</a><br>85.11.25.78 announce.asiandvdclub.org</p>
-<p><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.thedvdclub.org%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.thedvdclub.org/</a><br>老牌DVD站，有上站ADC加此站基本DVD无忧了，经常开放注册.</p>
-<p>韩国黑猫<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fbittalk.org%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://bittalk.org/</a><br>需要邀请注册，邀请很容易拿到，在论坛 经常发邀请，也可以直接索取，这个站很怕事很低调，所以没什么人气，下载东西很慢，挂种子有积分。</p>
-<p><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.waffles.fm%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.waffles.fm/</a><br>这个音乐站种子数量已经达到25W，超级难混，没有seedbox等被BAN吧。</p>
-<p><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwhat.cd%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://what.cd/</a><br>这个是音乐第一下载大站,里面的邀请区最强大的，可以索求各种邀请。混到PU有SCC邀请</p>
-<p><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fvipmusic.org%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://vipmusic.org/</a><br>音乐下载站，种子接近2W，喜欢音乐加入这个站点不错.需要邀请注册.</p>
-<p><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.music-vid.com%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.music-vid.com/</a><br>MV下载站只要以欧美MV为主.日韩华语暂时没有发现.MV收集狂不错的选择,需要邀请注册，由于邀请有连坐牢，估计不是亲兄弟，都不发给你。</p>
-<p><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fbtmusic.eu%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://btmusic.eu/</a><br>无损flac音乐站,不允许发表有损格式,需要邀请注册。</p>
-<p><a href="http://www.douban.com/link2/?url=http%3A%2F%2Ftracker.elektronik.ro&amp;link2key=7a853f0514" target="_blank" rel="external">http://tracker.elektronik.ro</a><br>音乐好站</p>
-<p><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.blackcats-games.net%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.blackcats-games.net/</a><br>黑猫全球最大的游戏综合站，LOLG上已经清晰著名了站点资源，需要邀请注册.</p>
-<p><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.bitme.org%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.bitme.org/</a><br>教育学习资料站，各种教学资料很全，需要邀请注册.</p>
-<p><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fx264.me%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://x264.me/</a><br>资源高清电影.dvdRIP,站点特色很多DVDrip-x264,原盘没有发现。需要邀请注册。</p>
-<p>Thor’sLand<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fethor.net%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://ethor.net/</a><br>0ADY综合站</p>
-<p>0ADY电影综合站<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.iplay.ro%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.iplay.ro/</a><br>xvid.x264.HDTV.音乐，需要邀请注册.</p>
-<p><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.cosmoneo.com%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.cosmoneo.com/</a><br>泰 国站点06年开站,种子已经达到4W多,很有可能是泰国第一站,主要韩国,中国,日本,DVD为主,高清资源比较少只有200多种子,找了找泰国本国高清 竟然没看到一个,给人感觉泰国还没步入高清时代。咱们连接速度也很慢,试了几个种子最快10多K,我看这个环境我是没办法生存了……..</p>
-<p>BWT<br><a href="http://www.douban.com/link2/?url=http%3A%2F%2Fwww.bwtorrents.com%2F&amp;link2key=7a853f0514" target="_blank" rel="external">http://www.bwtorrents.com/</a><br>印度宝莱坞 主要以印度及周边国家体育电影电视音乐MV等，论坛形式PT</p>
-<p>本帖转自第一纳斯网</p>
-<div id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd"></div><br><div id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd"></div>
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2453,21 +2438,21 @@ public static String getExceptionStackTrace(Throwable e) {
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">44</span>
+              <span class="site-state-item-count">47</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-count">33</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">83</span>
+              <span class="site-state-item-count">88</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -2540,8 +2525,8 @@ public static String getExceptionStackTrace(Throwable e) {
     <footer id="footer" class="footer">
       <div class="footer-inner"> <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2015</span>
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="icon-next-heart fa fa-heart"></i>
   </span>

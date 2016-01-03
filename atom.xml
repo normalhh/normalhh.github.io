@@ -4,7 +4,7 @@
   <subtitle><![CDATA[简简单单的技术博客]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://normalhh.github.io/"/>
-  <updated>2015-11-28T07:16:29.000Z</updated>
+  <updated>2016-01-03T13:17:28.000Z</updated>
   <id>http://normalhh.github.io/</id>
   
   <author>
@@ -13,6 +13,99 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[MAC OSX上配置adb命令（附2个抓log的实用小脚本）]]></title>
+    <link href="http://normalhh.github.io/2016/01/03/MAC-OSX%E4%B8%8A%E9%85%8D%E7%BD%AEadb%E5%91%BD%E4%BB%A4%EF%BC%88%E9%99%842%E4%B8%AA%E6%8A%93log%E7%9A%84%E5%AE%9E%E7%94%A8%E5%B0%8F%E8%84%9A%E6%9C%AC%EF%BC%89/"/>
+    <id>http://normalhh.github.io/2016/01/03/MAC-OSX上配置adb命令（附2个抓log的实用小脚本）/</id>
+    <published>2016-01-03T13:04:46.000Z</published>
+    <updated>2016-01-03T13:17:28.000Z</updated>
+    <content type="html"><![CDATA[<p><strong>本文转载自：<a href="http://blog.csdn.net/yanzi1225627/article/details/42130401" target="_blank" rel="external">MAC OSX上配置adb命令（附2个抓log的实用小脚本）</a></strong></p>
+<p>Mac上跟linux是一样的，要想使用adb命令，配置如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/profile</span><br></pre></td></tr></table></figure></p>
+<p>然后在里面加上如下两行代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;PATH&#125;</span>:/Users/yanzi/work/adt-bundle-mac-x86_64-<span class="number">20140702</span>/sdk/platform-tools</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;PATH&#125;</span>:/Users/yanzi/work/adt-bundle-mac-x86_64-<span class="number">20140702</span>/sdk/tools</span><br></pre></td></tr></table></figure></p>
+<p>保存完毕后，输入下面的命令使刚才的设置生效。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure></p>
+<p>eclispe自带的ddms看log有时候不是那么好使，总是自动跳的太快，然后嗖的一下就没了，为此贡献下面2个.sh小脚本。<br>第一个，保存所有的log到固定文件:getAllLog.sh<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adb shell logcat -c</span><br><span class="line"></span><br><span class="line">adb shell logcat -v time &gt; /Users/yanzi/Desktop/all.log</span><br></pre></td></tr></table></figure></p>
+<p>第二个，实时显示固定tag的log：showTagLog.sh<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">adb shell logcat -c</span><br><span class="line"></span><br><span class="line"><span class="comment">#adb shell logcat -v time | grep -i yanzi</span></span><br><span class="line"></span><br><span class="line">adb shell logcat -v time | grep --color=auto -i yanzi</span><br></pre></td></tr></table></figure></p>
+<p>其中－i的意思是忽略大小写，加了－－color之后可以让符合条件的字符变成红色。上面的yanzi就是你要抓的tag。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><strong>本文转载自：<a href="http://blog.csdn.net/yanzi1225627/article/details/42130401" target="_blank" rel="external">MAC OSX上配置adb命令（附2个抓log]]>
+    </summary>
+    
+      <category term="MAC" scheme="http://normalhh.github.io/tags/MAC/"/>
+    
+      <category term="adb" scheme="http://normalhh.github.io/tags/adb/"/>
+    
+      <category term="terminal" scheme="http://normalhh.github.io/tags/terminal/"/>
+    
+      <category term="MAC" scheme="http://normalhh.github.io/categories/MAC/"/>
+    
+      <category term="Android" scheme="http://normalhh.github.io/categories/MAC/Android/"/>
+    
+      <category term="adb" scheme="http://normalhh.github.io/categories/MAC/Android/adb/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Android应用程序权限解析]]></title>
+    <link href="http://normalhh.github.io/2016/01/03/Android%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%9D%83%E9%99%90%E8%A7%A3%E6%9E%90/"/>
+    <id>http://normalhh.github.io/2016/01/03/Android应用程序权限解析/</id>
+    <published>2016-01-03T08:06:13.000Z</published>
+    <updated>2016-01-03T08:06:13.000Z</updated>
+    <content type="html"><![CDATA[<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br><span class="line">478</span><br><span class="line">479</span><br><span class="line">480</span><br><span class="line">481</span><br><span class="line">482</span><br><span class="line">483</span><br><span class="line">484</span><br><span class="line">485</span><br><span class="line">486</span><br><span class="line">487</span><br><span class="line">488</span><br><span class="line">489</span><br><span class="line">490</span><br><span class="line">491</span><br><span class="line">492</span><br><span class="line">493</span><br><span class="line">494</span><br><span class="line">495</span><br><span class="line">496</span><br><span class="line">497</span><br><span class="line">498</span><br><span class="line">499</span><br><span class="line">500</span><br><span class="line">501</span><br><span class="line">502</span><br><span class="line">503</span><br><span class="line">504</span><br><span class="line">505</span><br><span class="line">506</span><br><span class="line">507</span><br></pre></td><td class="code"><pre><span class="line">ACCESS_CHECKIN_PROPERTIES = "mandroid.permission.ACCESS_CHECKIN_PROPERTIES";</span><br><span class="line"></span><br><span class="line">ACCESS_CHECKIN_PROPERTIES_DES = "允许程序读取或写入登记check-in数据库属性表的权限";</span><br><span class="line"></span><br><span class="line">ACCESS_COARSE_LOCATION = "android.permission.ACCESS_COARSE_LOCATION";</span><br><span class="line"></span><br><span class="line">ACCESS_COARSE_LOCATION_DES = "允许程序通过WiFi或移动基站的方式获取用户错略的经纬度信息，定位精度大概误差在~米";</span><br><span class="line"></span><br><span class="line">ACCESS_FINE_LOCATION = "android.permission.ACCESS_FINE_LOCATION";</span><br><span class="line"></span><br><span class="line">ACCESS_FINE_LOCATION_DES = "允许程序通过GPS芯片接收卫星的定位信息，定位精度达米以内";</span><br><span class="line"></span><br><span class="line">ACCESS_LOCATION_EXTRA_COMMANDS = "android.permission.ACCESS_LOCATION_EXTRA_COMMANDS";</span><br><span class="line"></span><br><span class="line">ACCESS_LOCATION_EXTRA_COMMANDS_DES = "允许程序访问额外的定位提供者指令";</span><br><span class="line"></span><br><span class="line">ACCESS_MOCK_LOCATION = "android.permission.ACCESS_MOCK_LOCATION";</span><br><span class="line"></span><br><span class="line">ACCESS_MOCK_LOCATION_DES = "允许程序获取模拟定位信息，一般用于帮助开发者调试应用";</span><br><span class="line"></span><br><span class="line">ACCESS_NETWORK_STATE = "android.permission.ACCESS_NETWORK_STATE";</span><br><span class="line"></span><br><span class="line">ACCESS_NETWORK_STATE_DES = "允许程序获取网络信息状态，如当前的网络连接是否有效";</span><br><span class="line"></span><br><span class="line">ACCESS_SURFACE_FLINGER = "android.permission.ACCESS_SURFACE_FLINGER";</span><br><span class="line"></span><br><span class="line">ACCESS_SURFACE_FLINGER_DES = "Android平台上底层的图形显示支持，一般用于游戏或照相机预览界面和底层模式的屏幕截图";</span><br><span class="line"></span><br><span class="line">ACCESS_WIFI_STATE = "android.permission.ACCESS_WIFI_STATE";</span><br><span class="line"></span><br><span class="line">ACCESS_WIFI_STATE_DES = "允许程序获取当前WiFi接入的状态以及WLAN热点的信息";</span><br><span class="line"></span><br><span class="line">ACCOUNT_MANAGER = "android.permission.ACCOUNT_MANAGER";</span><br><span class="line"></span><br><span class="line">ACCOUNT_MANAGER_DES = "允许程序获取账户验证信息，主要为GMail账户信息，只有系统级进程才能访问的权限";</span><br><span class="line"></span><br><span class="line">AUTHENTICATE_ACCOUNTS = "android.permission.AUTHENTICATE_ACCOUNTS";</span><br><span class="line"></span><br><span class="line">AUTHENTICATE_ACCOUNTS_DES = "允许程序通过账户验证方式访问账户管理ACCOUNT_MANAGER相关信息";</span><br><span class="line"></span><br><span class="line">BATTERY_STATS = "android.permission.BATTERY_STATS";</span><br><span class="line"></span><br><span class="line">BATTERY_STATS_DES = "允许程序获取电池电量统计信息";</span><br><span class="line"></span><br><span class="line">BIND_APPWIDGET = "android.permission.BIND_APPWIDGET";</span><br><span class="line"></span><br><span class="line">BIND_APPWIDGET_DES = "允许程序告诉appWidget服务需要访问小插件的数据库，只有非常少的应用才用到此权限";</span><br><span class="line"></span><br><span class="line">BIND_DEVICE_ADMIN = "android.permission.BIND_DEVICE_ADMIN";</span><br><span class="line"></span><br><span class="line">BIND_DEVICE_ADMIN_DES = "请求系统管理员接收者receiver，只有系统才能使用";</span><br><span class="line"></span><br><span class="line">BIND_INPUT_METHOD = "android.permission.BIND_INPUT_METHOD";</span><br><span class="line"></span><br><span class="line">BIND_INPUT_METHOD_DES = "请求InputMethodService服务，只有系统才能使用";</span><br><span class="line"></span><br><span class="line">BIND_REMOTEVIEWS = "android.permission.BIND_REMOTEVIEWS";</span><br><span class="line"></span><br><span class="line">BIND_REMOTEVIEWS_DES = "必须通过RemoteViewsService服务来请求，只有系统才能用";</span><br><span class="line"></span><br><span class="line">BIND_WALLPAPER = "android.permission.BIND_WALLPAPER";</span><br><span class="line"></span><br><span class="line">BIND_WALLPAPER_DES = "必须通过WallpaperService服务来请求，只有系统才能用";</span><br><span class="line"></span><br><span class="line">BLUETOOTH = "android.permission.BLUETOOTH";</span><br><span class="line"></span><br><span class="line">BLUETOOTH_DES = "允许程序连接配对过的蓝牙设备";</span><br><span class="line"></span><br><span class="line">BLUETOOTH_ADMIN = "android.permission.BLUETOOTH_ADMIN";</span><br><span class="line"></span><br><span class="line">BLUETOOTH_ADMIN_DES = "允许程序进行发现和配对新的蓝牙设备";</span><br><span class="line"></span><br><span class="line">BRICK = "android.permission.BRICK";</span><br><span class="line"></span><br><span class="line">BRICK_DES = "能够禁用手机，非常危险，顾名思义就是让手机变成砖头";</span><br><span class="line"></span><br><span class="line">BROADCAST_PACKAGE_REMOVED = "android.permission.BROADCAST_PACKAGE_REMOVED";</span><br><span class="line"></span><br><span class="line">BROADCAST_PACKAGE_REMOVED_DES = "允许程序删除时广播";</span><br><span class="line"></span><br><span class="line">BROADCAST_SMS = "android.permission.BROADCAST_SMS";</span><br><span class="line"></span><br><span class="line">BROADCAST_SMS_DES = "允许程序当收到短信时触发一个广播";</span><br><span class="line"></span><br><span class="line">BROADCAST_STICKY = "android.permission.BROADCAST_STICKY";</span><br><span class="line"></span><br><span class="line">BROADCAST_STICKY_DES = "允许程序收到广播后快速收到下一个广播";</span><br><span class="line"></span><br><span class="line">BROADCAST_WAP_PUSH = "ndroid.permission.BROADCAST_WAP_PUSH";</span><br><span class="line"></span><br><span class="line">BROADCAST_WAP_PUSH_DES = "WAPPUSH服务收到后触发一个广播";</span><br><span class="line"></span><br><span class="line">CALL_PHONE = "android.permission.CALL_PHONE";</span><br><span class="line"></span><br><span class="line">CALL_PHONE_DES = "允许程序从非系统拨号器里拨打电话";</span><br><span class="line"></span><br><span class="line">CALL_PRIVILEGED = "android.permission.CALL_PRIVILEGED";</span><br><span class="line"></span><br><span class="line">CALL_PRIVILEGED_DES = "允许程序拨打电话，替换系统的拨号器界面";</span><br><span class="line"></span><br><span class="line">CAMERA = "android.permission.CAMERA";</span><br><span class="line"></span><br><span class="line">CAMERA_DES = "允许程序访问摄像头进行拍照";</span><br><span class="line"></span><br><span class="line">CHANGE_COMPONENT_ENABLED_STATE = "android.permission.CHANGE_COMPONENT_ENABLED_STATE";</span><br><span class="line"></span><br><span class="line">CHANGE_COMPONENT_ENABLED_STATE_DES = "改变组件是否启用状态";</span><br><span class="line"></span><br><span class="line">CHANGE_CONFIGURATION = "android.permission.CHANGE_CONFIGURATION";</span><br><span class="line"></span><br><span class="line">CHANGE_CONFIGURATION_DES = "允许当前应用改变配置，如定位";</span><br><span class="line"></span><br><span class="line">CHANGE_NETWORK_STATE = "android.permission.CHANGE_NETWORK_STATE";</span><br><span class="line"></span><br><span class="line">CHANGE_NETWORK_STATE_DES = "允许程序改变网络状态,如是否联网";</span><br><span class="line"></span><br><span class="line">CHANGE_WIFI_MULTICAST_STATE = "android.permission.CHANGE_WIFI_MULTICAST_STATE";</span><br><span class="line"></span><br><span class="line">CHANGE_WIFI_MULTICAST_STATE_DES = "允许程序改变WiFi多播状态";</span><br><span class="line"></span><br><span class="line">CHANGE_WIFI_STATE = "android.permission.CHANGE_WIFI_STATE";</span><br><span class="line"></span><br><span class="line">CHANGE_WIFI_STATE_DES = "允许程序改变WiFi状态";</span><br><span class="line"></span><br><span class="line">CLEAR_APP_CACHE = "android.permission.CLEAR_APP_CACHE";</span><br><span class="line"></span><br><span class="line">CLEAR_APP_CACHE_DES = "允许程序清除应用缓存";</span><br><span class="line"></span><br><span class="line">CLEAR_APP_USER_DATA = "android.permission.CLEAR_APP_USER_DATA";</span><br><span class="line"></span><br><span class="line">CLEAR_APP_USER_DATA_DES = "允许程序清除用户数据";</span><br><span class="line"></span><br><span class="line">CWJ_GROUP = "android.permission.CWJ_GROUP";</span><br><span class="line"></span><br><span class="line">CWJ_GROUP_DES = "允许CWJ账户组访问底层信息";</span><br><span class="line"></span><br><span class="line">CELL_PHONE_MASTER_EX = "android.permission.CELL_PHONE_MASTER_EX";</span><br><span class="line"></span><br><span class="line">CELL_PHONE_MASTER_EX_DES = "手机优化大师扩展权限";</span><br><span class="line"></span><br><span class="line">CONTROL_LOCATION_UPDATES = "android.permission.CONTROL_LOCATION_UPDATES";</span><br><span class="line"></span><br><span class="line">CONTROL_LOCATION_UPDATES_DES = "允许程序获得移动网络定位信息改变";</span><br><span class="line"></span><br><span class="line">DELETE_CACHE_FILES = "android.permission.DELETE_CACHE_FILES";</span><br><span class="line"></span><br><span class="line">DELETE_CACHE_FILES_DES = "允许程序删除缓存文件";</span><br><span class="line"></span><br><span class="line">DELETE_PACKAGES = "android.permission.DELETE_PACKAGES";</span><br><span class="line"></span><br><span class="line">DELETE_PACKAGES_DES = "允许程序删除应用";</span><br><span class="line"></span><br><span class="line">DEVICE_POWER = "android.permission.DEVICE_POWER";</span><br><span class="line"></span><br><span class="line">DEVICE_POWER_DES = "允许程序访问底层电源管理";</span><br><span class="line"></span><br><span class="line">DIAGNOSTIC = "android.permission.DIAGNOSTIC";</span><br><span class="line"></span><br><span class="line">DIAGNOSTIC_DES = "允许程序到RW到诊断资源";</span><br><span class="line"></span><br><span class="line">DISABLE_KEYGUARD = "android.permission.DISABLE_KEYGUARD";</span><br><span class="line"></span><br><span class="line">DISABLE_KEYGUARD_DES = "允许程序禁用键盘锁";</span><br><span class="line"></span><br><span class="line">DUMP = "android.permission.DUMP";</span><br><span class="line"></span><br><span class="line">DUMP_DES = "允许程序获取系统dump信息从系统服务";</span><br><span class="line"></span><br><span class="line">EXPAND_STATUS_BAR = "android.permission.EXPAND_STATUS_BAR";</span><br><span class="line"></span><br><span class="line">EXPAND_STATUS_BAR_DES = "允许程序扩展或收缩状态栏";</span><br><span class="line"></span><br><span class="line">FACTORY_TEST = "android.permission.FACTORY_TEST";</span><br><span class="line"></span><br><span class="line">FACTORY_TEST_DES = "允许程序运行工厂测试模式";</span><br><span class="line"></span><br><span class="line">FLASHLIGHT = "android.permission.FLASHLIGHT";</span><br><span class="line"></span><br><span class="line">FLASHLIGHT_DES = "允许访问闪光灯";</span><br><span class="line"></span><br><span class="line">FORCE_BACK = "android.permission.FORCE_BACK";</span><br><span class="line"></span><br><span class="line">FORCE_BACK_DES = "允许程序强制使用back后退按键，无论Activity是否在顶层";</span><br><span class="line"></span><br><span class="line">GET_ACCOUNTS = "android.permission.GET_ACCOUNTS";</span><br><span class="line"></span><br><span class="line">GET_ACCOUNTS_DES = "允许程序访问账户Gmail列表";</span><br><span class="line"></span><br><span class="line">GET_PACKAGE_SIZE = "android.permission.GET_PACKAGE_SIZE";</span><br><span class="line"></span><br><span class="line">GET_PACKAGE_SIZE_DES = "允许程序获取应用的文件大小";</span><br><span class="line"></span><br><span class="line">GET_TASKS = "android.permission.GET_TASKS";</span><br><span class="line"></span><br><span class="line">GET_TASKS_DES = "允许程序获取任务信息";</span><br><span class="line"></span><br><span class="line">GLOBAL_SEARCH = "android.permission.GLOBAL_SEARCH";</span><br><span class="line"></span><br><span class="line">GLOBAL_SEARCH_DES = "允许程序允许全局搜索";</span><br><span class="line"></span><br><span class="line">HARDWARE_TEST = "android.permission.HARDWARE_TEST";</span><br><span class="line"></span><br><span class="line">HARDWARE_TEST_DES = "允许程序访问硬件辅助设备，用于硬件测试";</span><br><span class="line"></span><br><span class="line">INJECT_EVENTS = "android.permission.INJECT_EVENTS";</span><br><span class="line"></span><br><span class="line">INJECT_EVENTS_DES = "允许程序访问本程序的底层事件，获取按键、轨迹球的事件流";</span><br><span class="line"></span><br><span class="line">INSTALL_LOCATION_PROVIDER = "android.permission.INSTALL_LOCATION_PROVIDER";</span><br><span class="line"></span><br><span class="line">INSTALL_LOCATION_PROVIDER_DES = "允许程序安装定位提供";</span><br><span class="line"></span><br><span class="line">INSTALL_PACKAGES = "android.permission.INSTALL_PACKAGES";</span><br><span class="line"></span><br><span class="line">INSTALL_PACKAGES_DES = "允许程序安装应用";</span><br><span class="line"></span><br><span class="line">INTERNAL_SYSTEM_WINDOW = "android.permission.INTERNAL_SYSTEM_WINDOW";</span><br><span class="line"></span><br><span class="line">INTERNAL_SYSTEM_WINDOW_DES = "允许程序打开内部窗口，不对第三方应用程序开放此权限";</span><br><span class="line"></span><br><span class="line">INTERNET = "android.permission.INTERNET";</span><br><span class="line"></span><br><span class="line">INTERNET_DES = "允许程序访问网络连接，可能产生GPRS流量";</span><br><span class="line"></span><br><span class="line">KILL_BACKGROUND_PROCESSES = "android.permission.KILL_BACKGROUND_PROCESSES";</span><br><span class="line"></span><br><span class="line">KILL_BACKGROUND_PROCESSES_DES = "允许程序调用killBackgroundProcesses(String).方法结束后台进程";</span><br><span class="line"></span><br><span class="line">MANAGE_ACCOUNTS = "android.permission.MANAGE_ACCOUNTS";</span><br><span class="line"></span><br><span class="line">MANAGE_ACCOUNTS_DES = "允许程序管理AccountManager中的账户列表";</span><br><span class="line"></span><br><span class="line">MANAGE_APP_TOKENS = "android.permission.MANAGE_APP_TOKENS";</span><br><span class="line"></span><br><span class="line">MANAGE_APP_TOKENS_DES = "管理创建、摧毁、Z轴顺序，仅用于系统";</span><br><span class="line"></span><br><span class="line">MTWEAK_USER = "android.permission.MTWEAK_USER";</span><br><span class="line"></span><br><span class="line">MTWEAK_USER_DES = "允许mTweak用户访问高级系统权限";</span><br><span class="line"></span><br><span class="line">MTWEAK_FORUM = "android.permission.MTWEAK_FORUM";</span><br><span class="line"></span><br><span class="line">MTWEAK_FORUM_DES = "允许程序使用mTweak社区权限";</span><br><span class="line"></span><br><span class="line">MASTER_CLEAR = "android.permission.MASTER_CLEAR";</span><br><span class="line"></span><br><span class="line">MASTER_CLEAR_DES = "允许程序执行软格式化，删除系统配置信息";</span><br><span class="line"></span><br><span class="line">MODIFY_AUDIO_SETTINGS = "android.permission.MODIFY_AUDIO_SETTINGS";</span><br><span class="line"></span><br><span class="line">MODIFY_AUDIO_SETTINGS_DES = "允许程序修改声音设置信息";</span><br><span class="line"></span><br><span class="line">MODIFY_PHONE_STATE = "android.permission.MODIFY_PHONE_STATE";</span><br><span class="line"></span><br><span class="line">MODIFY_PHONE_STATE_DES = "允许程序修改电话状态，如飞行模式，但不包含替换系统拨号器界面";</span><br><span class="line"></span><br><span class="line">MOUNT_FORMAT_FILESYSTEMS = "android.permission.MOUNT_FORMAT_FILESYSTEMS";</span><br><span class="line"></span><br><span class="line">MOUNT_FORMAT_FILESYSTEMS_DES = "允许程序格式化可移动文件系统，比如格式化清空SD卡";</span><br><span class="line"></span><br><span class="line">MOUNT_UNMOUNT_FILESYSTEMS = "android.permission.MOUNT_UNMOUNT_FILESYSTEMS";</span><br><span class="line"></span><br><span class="line">MOUNT_UNMOUNT_FILESYSTEMS_DES = "允许程序挂载、反挂载外部文件系统";</span><br><span class="line"></span><br><span class="line">NFC = "android.permission.NFC";</span><br><span class="line"></span><br><span class="line">NFC_DES = "允许程序执行NFC近距离通讯操作，用于移动支持";</span><br><span class="line"></span><br><span class="line">PERSISTENT_ACTIVITY = "android.permission.PERSISTENT_ACTIVITY";</span><br><span class="line"></span><br><span class="line">PERSISTENT_ACTIVITY_DES = "允许程序创建一个永久的Activity，该功能标记为将来将被移除";</span><br><span class="line"></span><br><span class="line">PROCESS_OUTGOING_CALLS = "android.permission.PROCESS_OUTGOING_CALLS";</span><br><span class="line"></span><br><span class="line">PROCESS_OUTGOING_CALLS_DES = "允许程序监视，修改或放弃播出电话";</span><br><span class="line"></span><br><span class="line">READ_CALENDAR = "android.permission.READ_CALENDAR";</span><br><span class="line"></span><br><span class="line">READ_CALENDAR_DES = "允许程序读取用户的日程信息";</span><br><span class="line"></span><br><span class="line">READ_CONTACTS = "android.permission.READ_CONTACTS";</span><br><span class="line"></span><br><span class="line">READ_CONTACTS_DES = "允许程序访问联系人通讯录信息";</span><br><span class="line"></span><br><span class="line">READ_FRAME_BUFFER = "android.permission.READ_FRAME_BUFFER";</span><br><span class="line"></span><br><span class="line">READ_FRAME_BUFFER_DES = "允许程序读取帧缓存用于屏幕截图";</span><br><span class="line"></span><br><span class="line">READ_HISTORY_BOOKMARKS = "com.android.browser.permission.READ_HISTORY_BOOKMARKS";</span><br><span class="line"></span><br><span class="line">READ_HISTORY_BOOKMARKS_DES = "允许程序读取浏览器收藏夹和历史记录";</span><br><span class="line"></span><br><span class="line">READ_INPUT_STATE = "android.permission.READ_INPUT_STATE";</span><br><span class="line"></span><br><span class="line">READ_INPUT_STATE_DES = "允许程序读取当前键的输入状态，仅用于系统";</span><br><span class="line"></span><br><span class="line">READ_LOGS = "android.permission.READ_LOGS";</span><br><span class="line"></span><br><span class="line">READ_LOGS_DES = "允许程序读取系统底层日志";</span><br><span class="line"></span><br><span class="line">READ_PHONE_STATE = "android.permission.READ_PHONE_STATE";</span><br><span class="line"></span><br><span class="line">READ_PHONE_STATE_DES = "允许程序访问电话状态";</span><br><span class="line"></span><br><span class="line">READ_SMS = "android.permission.READ_SMS";</span><br><span class="line"></span><br><span class="line">READ_SMS_DES = "允许程序读取短信内容";</span><br><span class="line"></span><br><span class="line">READ_SYNC_SETTINGS = "android.permission.READ_SYNC_SETTINGS";</span><br><span class="line"></span><br><span class="line">READ_SYNC_SETTINGS_DES = "允许程序读取同步设置，读取Google在线同步设置";</span><br><span class="line"></span><br><span class="line">READ_SYNC_STATS = "android.permission.READ_SYNC_STATS";</span><br><span class="line"></span><br><span class="line">READ_SYNC_STATS_DES = "允许程序读取同步状态，获得Google在线同步状态";</span><br><span class="line"></span><br><span class="line">REBOOT = "android.permission.REBOOT";</span><br><span class="line"></span><br><span class="line">REBOOT_DES = "允许程序重新启动设备";</span><br><span class="line"></span><br><span class="line">RECEIVE_BOOT_COMPLETED = "android.permission.RECEIVE_BOOT_COMPLETED";</span><br><span class="line"></span><br><span class="line">RECEIVE_BOOT_COMPLETED_DES = "允许程序开机自动运行";</span><br><span class="line"></span><br><span class="line">RECEIVE_MMS = "android.permission.RECEIVE_MMS";</span><br><span class="line"></span><br><span class="line">RECEIVE_MMS_DES = "允许程序接收彩信";</span><br><span class="line"></span><br><span class="line">RECEIVE_SMS = "android.permission.RECEIVE_SMS";</span><br><span class="line"></span><br><span class="line">RECEIVE_SMS_DES = "允许程序接收短信";</span><br><span class="line"></span><br><span class="line">RECEIVE_WAP_PUSH = "android.permission.RECEIVE_WAP_PUSH";</span><br><span class="line"></span><br><span class="line">RECEIVE_WAP_PUSH_DES = "允许程序接收WAPPUSH信息";</span><br><span class="line"></span><br><span class="line">RECORD_AUDIO = "android.permission.RECORD_AUDIO";</span><br><span class="line"></span><br><span class="line">RECORD_AUDIO_DES = "允许程序录制声音通过手机或耳机的麦克";</span><br><span class="line"></span><br><span class="line">REORDER_TASKS = "android.permission.REORDER_TASKS";</span><br><span class="line"></span><br><span class="line">REORDER_TASKS_DES = "允许程序重新排序系统Z轴运行中的任务";</span><br><span class="line"></span><br><span class="line">RESTART_PACKAGES = "android.permission.RESTART_PACKAGES";</span><br><span class="line"></span><br><span class="line">RESTART_PACKAGES_DES = "允许程序结束任务通过restartPackage(String)方法，该方式将在外来放弃";</span><br><span class="line"></span><br><span class="line">SEND_SMS = "android.permission.SEND_SMS";</span><br><span class="line"></span><br><span class="line">SEND_SMS_DES = "允许程序发送短信";</span><br><span class="line"></span><br><span class="line">SET_ACTIVITY_WATCHER = "android.permission.SET_ACTIVITY_WATCHER";</span><br><span class="line"></span><br><span class="line">SET_ACTIVITY_WATCHER_DES = "允许程序设置Activity观察器一般用于monkey测试";</span><br><span class="line"></span><br><span class="line">SET_ALARM = "com.android.alarm.permission.SET_ALARM";</span><br><span class="line"></span><br><span class="line">SET_ALARM_DES = "允许程序设置闹铃提醒";</span><br><span class="line"></span><br><span class="line">SET_ALWAYS_FINISH = "android.permission.SET_ALWAYS_FINISH";</span><br><span class="line"></span><br><span class="line">SET_ALWAYS_FINISH_DES = "允许程序设置程序在后台是否总是退出";</span><br><span class="line"></span><br><span class="line">SET_ANIMATION_SCALE = "android.permission.SET_ANIMATION_SCALE";</span><br><span class="line"></span><br><span class="line">SET_ANIMATION_SCALE_DES = "允许程序设置全局动画缩放";</span><br><span class="line"></span><br><span class="line">SET_DEBUG_APP = "android.permission.SET_DEBUG_APP";</span><br><span class="line"></span><br><span class="line">SET_DEBUG_APP_DES = "允许程序设置调试程序，一般用于开发";</span><br><span class="line"></span><br><span class="line">SET_ORIENTATION = "android.permission.SET_ORIENTATION";</span><br><span class="line"></span><br><span class="line">SET_ORIENTATION_DES = "允许程序设置屏幕方向为横屏或标准方式显示，不用于普通应用";</span><br><span class="line"></span><br><span class="line">SET_PREFERRED_APPLICATIONS = "android.permission.SET_PREFERRED_APPLICATIONS";</span><br><span class="line"></span><br><span class="line">SET_PREFERRED_APPLICATIONS_DES = "允许程序设置应用的参数，已不再工作具体查看addPackageToPreferred(String)介绍";</span><br><span class="line"></span><br><span class="line">SET_PROCESS_LIMIT = "android.permission.SET_PROCESS_LIMIT";</span><br><span class="line"></span><br><span class="line">SET_PROCESS_LIMIT_DES = "允许程序设置最大的进程数量的限制";</span><br><span class="line"></span><br><span class="line">SET_TIME = "android.permission.SET_TIME";</span><br><span class="line"></span><br><span class="line">SET_TIME_DES = "允许程序设置系统时间";</span><br><span class="line"></span><br><span class="line">SET_TIME_ZONE = "android.permission.SET_TIME_ZONE";</span><br><span class="line"></span><br><span class="line">SET_TIME_ZONE_DES = "允许程序设置系统时区";</span><br><span class="line"></span><br><span class="line">SET_WALLPAPER = "android.permission.SET_WALLPAPER";</span><br><span class="line"></span><br><span class="line">SET_WALLPAPER_DES = "允许程序设置桌面壁纸";</span><br><span class="line"></span><br><span class="line">SET_WALLPAPER_HINTS = "android.permission.SET_WALLPAPER_HINTS";</span><br><span class="line"></span><br><span class="line">SET_WALLPAPER_HINTS_DES = "允许程序设置壁纸建议";</span><br><span class="line"></span><br><span class="line">SIGNAL_PERSISTENT_PROCESSES = "ndroid.permission.SIGNAL_PERSISTENT_PROCESSES";</span><br><span class="line"></span><br><span class="line">SIGNAL_PERSISTENT_PROCESSES_DES = "允许程序发送一个永久的进程信号";</span><br><span class="line"></span><br><span class="line">STATUS_BAR = "android.permission.STATUS_BAR";</span><br><span class="line"></span><br><span class="line">STATUS_BAR_DES = "允许程序打开、关闭、禁用状态栏";</span><br><span class="line"></span><br><span class="line">SUBSCRIBED_FEEDS_READ = "android.permission.SUBSCRIBED_FEEDS_READ";</span><br><span class="line"></span><br><span class="line">SUBSCRIBED_FEEDS_READ_DES = "允许程序访问订阅信息的数据库";</span><br><span class="line"></span><br><span class="line">SUBSCRIBED_FEEDS_WRITE = "android.permission.SUBSCRIBED_FEEDS_WRITE";</span><br><span class="line"></span><br><span class="line">SUBSCRIBED_FEEDS_WRITE_DES = "允许程序写入或修改订阅内容的数据库";</span><br><span class="line"></span><br><span class="line">SYSTEM_ALERT_WINDOW = "android.permission.SYSTEM_ALERT_WINDOW";</span><br><span class="line"></span><br><span class="line">SYSTEM_ALERT_WINDOW_DES = "允许程序显示系统窗口";</span><br><span class="line"></span><br><span class="line">UPDATE_DEVICE_STATS = "android.permission.UPDATE_DEVICE_STATS";</span><br><span class="line"></span><br><span class="line">UPDATE_DEVICE_STATS_DES = "允许程序更新设备状态";</span><br><span class="line"></span><br><span class="line">USE_CREDENTIALS = "android.permission.USE_CREDENTIALS";</span><br><span class="line"></span><br><span class="line">USE_CREDENTIALS_DES = "允许程序请求验证从AccountManager";</span><br><span class="line"></span><br><span class="line">USE_SIP = "android.permission.USE_SIP";</span><br><span class="line"></span><br><span class="line">USE_SIP_DES = "允许程序使用SIP视频服务";</span><br><span class="line"></span><br><span class="line">VIBRATE = "android.permission.VIBRATE";</span><br><span class="line"></span><br><span class="line">VIBRATE_DES = "允许程序振动";</span><br><span class="line"></span><br><span class="line">WAKE_LOCK = "android.permission.WAKE_LOCK";</span><br><span class="line"></span><br><span class="line">WAKE_LOCK_DES = "允许程序在手机屏幕关闭后后台进程仍然运行";</span><br><span class="line"></span><br><span class="line">WRITE_APN_SETTINGS = "android.permission.WRITE_APN_SETTINGS";</span><br><span class="line"></span><br><span class="line">WRITE_APN_SETTINGS_DES = "允许程序写入网络GPRS接入点设置";</span><br><span class="line"></span><br><span class="line">WRITE_CALENDAR = "android.permission.WRITE_CALENDAR";</span><br><span class="line"></span><br><span class="line">WRITE_CALENDAR_DES = "允许程序写入日程，但不可读取";</span><br><span class="line"></span><br><span class="line">WRITE_CONTACTS = "android.permission.WRITE_CONTACTS";</span><br><span class="line"></span><br><span class="line">WRITE_CONTACTS_DES = "允许程序写入联系人，但不可读取";</span><br><span class="line"></span><br><span class="line">WRITE_EXTERNAL_STORAGE = "android.permission.WRITE_EXTERNAL_STORAGE";</span><br><span class="line"></span><br><span class="line">WRITE_EXTERNAL_STORAGE_DES = "允许程序写入外部存储，如SD卡上写文件";</span><br><span class="line"></span><br><span class="line">WRITE_GSERVICES = "android.permission.WRITE_GSERVICES";</span><br><span class="line"></span><br><span class="line">WRITE_GSERVICES_DES = "允许程序写入GoogleMap服务数据";</span><br><span class="line"></span><br><span class="line">WRITE_HISTORY_BOOKMARKS = "com.android.browser.permission.WRITE_HISTORY_BOOKMARKS";</span><br><span class="line"></span><br><span class="line">WRITE_HISTORY_BOOKMARKS_DES = "允许程序写入浏览器历史记录或收藏夹，但不可读取";</span><br><span class="line"></span><br><span class="line">WRITE_SECURE_SETTINGS = "android.permission.WRITE_SECURE_SETTINGS";</span><br><span class="line"></span><br><span class="line">WRITE_SECURE_SETTINGS_DES = "允许程序读写系统安全敏感的设置项";</span><br><span class="line"></span><br><span class="line">WRITE_SETTINGS = "android.permission.WRITE_SETTINGS";</span><br><span class="line"></span><br><span class="line">WRITE_SETTINGS_DES = "允许程序读写系统设置项";</span><br><span class="line"></span><br><span class="line">WRITE_SMS = "android.permission.WRITE_SMS";</span><br><span class="line"></span><br><span class="line">WRITE_SMS_DES = "允许程序编写短信";</span><br><span class="line"></span><br><span class="line">WRITE_SYNC_SETTINGS = "android.permission.WRITE_SYNC_SETTINGS";</span><br><span class="line"></span><br><span class="line">WRITE_SYNC_SETTINGS_DES = "允许程序写入Google在线同步设置";</span><br><span class="line"></span><br><span class="line">INSTALL_SHORTCUT = "com.android.launcher.permission.INSTALL_SHORTCUT";</span><br><span class="line"></span><br><span class="line">INSTALL_SHORTCUT_DES = "允许程序创建快捷方式";</span><br><span class="line"></span><br><span class="line">UNINSTALL_SHORTCUT = "com.android.launcher.permission.UNINSTALL_SHORTCUT";</span><br><span class="line"></span><br><span class="line">UNINSTALL_SHORTCUT_DES = "允许程序删除快捷方式";</span><br><span class="line"></span><br><span class="line">READ_SETTINGS = "com.android.launcher.permission.READ_SETTINGS";</span><br><span class="line"></span><br><span class="line">READ_SETTINGS_DES = "允许程序读取快捷方式信息";</span><br><span class="line"></span><br><span class="line">READ_EXTERNAL_STORAGE = "android.permission.READ_EXTERNAL_STORAGE";</span><br><span class="line"></span><br><span class="line">READ_EXTERNAL_STORAGE_DES = "允许程序读取设备外部存储空间（内置SDcard和外置SDCard)";</span><br><span class="line"></span><br><span class="line">READ_CALL_LOG = "android.permission.READ_CALL_LOG";</span><br><span class="line"></span><br><span class="line">READ_CALL_LOG_DES = "允许程序读取用户的通话记录";</span><br><span class="line"></span><br><span class="line">WRITE_CALL_LOG = "android.permission.WRITE_CALL_LOG";</span><br><span class="line"></span><br><span class="line">WRITE_CALL_LOG_DES = "允许程序写入（但是不能读）用户的联系人数据";</span><br><span class="line"></span><br><span class="line">READ_SETTINGS = "com.android.launcher.permission.READ_SETTINGS";</span><br><span class="line"></span><br><span class="line">READ_SETTINGS_DES = "允许程序读取快捷方式信息";</span><br></pre></td></tr></table></figure>
+]]></content>
+    <summary type="html">
+    <![CDATA[<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="]]>
+    </summary>
+    
+      <category term="Android" scheme="http://normalhh.github.io/tags/Android/"/>
+    
+      <category term="permissions" scheme="http://normalhh.github.io/tags/permissions/"/>
+    
+      <category term="Android" scheme="http://normalhh.github.io/categories/Android/"/>
+    
+      <category term="permissions" scheme="http://normalhh.github.io/categories/Android/permissions/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Mac之vim普通命令使用]]></title>
+    <link href="http://normalhh.github.io/2016/01/03/Mac%E4%B9%8Bvim%E6%99%AE%E9%80%9A%E5%91%BD%E4%BB%A4%E4%BD%BF%E7%94%A8/"/>
+    <id>http://normalhh.github.io/2016/01/03/Mac之vim普通命令使用/</id>
+    <published>2016-01-03T06:12:23.000Z</published>
+    <updated>2016-01-03T06:27:13.000Z</updated>
+    <content type="html"><![CDATA[<p>高级一些的编辑器，都会包含宏功能，vim当然不能缺少了，在vim中使用宏是非常方便的：</p>
+<p>:qx     开始记录宏，并将结果存入寄存器x<br>q     退出记录模式<br>@x     播放记录在x寄存器中的宏命令<br>稍微解释一下，当在normal模式下输入:qx后，你对文本的所有编辑动作将会被记录下来，再次输入q即退出了记录模<br>式，然后输入@x对刚才记录下来的命令进行重复，此命令后可跟数字，表示要重复多少次，比如@x20，可以重复20次。这个在文本的批处理中是非常有用的。<br>同时编辑多个文件<br>在vim众多的插件中，有一个叫minibuffer的插件，就是下面所说的标签页功能了，可以支持同时编辑多个文件。</p>
+<h2 id="u6807_u7B7E_u547D_u4EE4"><a href="#u6807_u7B7E_u547D_u4EE4" class="headerlink" title="标签命令"></a>标签命令</h2><p>:tabe fn     在一个新的标签页中编辑文件fn<br>gt     切换到下一个标签页<br>gT     切换到上一个标签页<br>:tabr     切换到第一个标签页<br>:tabl     切换到最后一个标签页<br>:tabm [N]     把当前tab移动到第N个tab之后<br>对，正如你所想象的那样，跟eclipse, ue等的标签页是一个意思！</p>
+<h2 id="u7A97_u53E3_u547D_u4EE4"><a href="#u7A97_u53E3_u547D_u4EE4" class="headerlink" title="窗口命令"></a>窗口命令</h2><p>ctrl+w s     水平分割窗口<br>ctrl+w w     切换窗口<br>ctrl+w q     退出当前窗口(由于同时有多个文件，此命令不会影响其他窗口)<br>ctrl+w v     垂直分割窗口</p>
+<h2 id="u5176_u4ED6"><a href="#u5176_u4ED6" class="headerlink" title="其他"></a>其他</h2><p>vim在保存之前不会对文件做实际的修改，只是加载到缓冲区中，对文件的编辑其实是对缓冲区的编辑，直到:w时才会存入物理文件。</p>
+<p>:e file     把file加载到新的缓冲区中<br>:bn     跳转到下一个缓冲区<br>:bd     删除缓冲区(关闭文件)<br>:sp fn     分割窗口，并将fn加载到新的窗口中</p>
+<h2 id="u9000_u51FA_u7F16_u8F91_u5668"><a href="#u9000_u51FA_u7F16_u8F91_u5668" class="headerlink" title="退出编辑器"></a>退出编辑器</h2><p>:w     将缓冲区写入文件，即保存修改<br>:wq     保存修改并退出<br>:x     保存修改并退出<br>:q     退出，如果对缓冲区进行过修改，则会提示<br>:q!     强制退出，放弃修改</p>
+<h2 id="u67E5_u627E_u66FF_u6362"><a href="#u67E5_u627E_u66FF_u6362" class="headerlink" title="查找替换"></a>查找替换</h2><p>/pattern     向后搜索字符串pattern<br>?pattern     向前搜索字符串pattern<br>n     下一个匹配(如果是/搜索，则是向下的下一个，?搜索则是向上的下一个)<br>N     上一个匹配(同上)<br>:%s/old/new/g     搜索整个文件，将所有的old替换为new<br>:%s/old/new/gc     搜索整个文件，将所有的old替换为new，每次都要你确认是否替换</p>
+<h2 id="u590D_u5236_u7C98_u8D34"><a href="#u590D_u5236_u7C98_u8D34" class="headerlink" title="复制粘贴"></a>复制粘贴</h2><p>dd     删除光标所在行<br>dw     删除一个字(word)<br>x     删除当前字符<br>X     删除前一个字符<br>D     删除到行末<br>yy     复制一行，此命令前可跟数字，标识复制多行，如6yy，表示从当前行开始复制6行<br>yw     复制一个字<br>y$     复制到行末<br>p     粘贴粘贴板的内容到当前行的下面<br>P     粘贴粘贴板的内容到当前行的上面<br>]p     有缩进的粘贴，vim会自动调节代码的缩进<br>“a     将内容放入/存入a寄存器，可以支持多粘贴板<br>附：比如常用的一个寄存器就是系统寄存器，名称为+，所以从系统粘贴板粘贴到vim中的命令为”+p,注意此处的+不表示操作符，二十一个寄存器。</p>
+<h2 id="u79FB_u52A8_u5149_u6807"><a href="#u79FB_u52A8_u5149_u6807" class="headerlink" title="移动光标"></a>移动光标</h2><p>在vim中移动光标跟其他的编辑器中有很大的区别，不过一旦学会了，就会飞速的在文本中移动了。</p>
+<p>h,j,k,l     左，下，上，右<br>ctrl-f     上翻一页<br>ctrl-b     下翻一页<br>%     跳到与当前括号匹配的括号处，如当前在{，则跳转到与之匹配的}处<br>w     跳到下一个字首，按标点或单词分割<br>W     跳到下一个字首，长跳，如end-of-line被认为是一个字<br>e     跳到下一个字尾<br>E     跳到下一个字尾，长跳<br>b     跳到上一个字<br>B     跳到上一个字，长跳<br>0     跳至行首，不管有无缩进，就是跳到第0个字符<br>^     跳至行首的第一个字符<br>$     跳至行尾<br>gg     跳至文件的第一行<br>gd     跳至当前光标所在的变量的声明处<br>[N]G     跳到第N行，如0G，就等价于gg，100G就是第100行<br>fx     在当前行中找x字符，找到了就跳转至<br>;     重复上一个f命令，而不用重复的输入fx<br>tx     与fx类似，但是只是跳转到x的前一个字符处<br>Fx     跟fx的方向相反<br>),(     跳转到上/下一个语句<br>*     查找光标所在处的单词，向下查找<br>#     查找光标所在处的单词，向上查找<br>`.     跳转至上次编辑位置</p>
+<h2 id="u5728_u5C4F_u5E55_u4E0A_u79FB_u52A8"><a href="#u5728_u5C4F_u5E55_u4E0A_u79FB_u52A8" class="headerlink" title="在屏幕上移动"></a>在屏幕上移动</h2><p>H     移动光标到当前屏幕上最上边的一行<br>M     移动光标到当前屏幕上中间的一行<br>L     移动光标到当前屏幕上最下边的一行</p>
+<h2 id="u4E66_u7B7E"><a href="#u4E66_u7B7E" class="headerlink" title="书签"></a>书签</h2><p>ma     把当前位置存成标签a<br>`a     跳转到标签a处</p>
+<h2 id="u7F16_u8F91"><a href="#u7F16_u8F91" class="headerlink" title="编辑"></a>编辑</h2><p>r     替换一个字符<br>J     将下一行和当前行连接为一行<br>cc     删除当前行并进入编辑模式<br>cw     删除当前字，并进入编辑模式<br>c$     擦除从当前位置至行末的内容，并进入编辑模式<br>s     删除当前字符并进入编辑模式<br>S     删除光标所在行并进入编辑模式<br>xp     交换当前字符和下一个字符<br>u     撤销<br>ctrl+r     重做<br>.     重复上一个编辑命令<br>~     切换大小写，当前字符<br>g~iw     切换当前字的大小写<br>gUiw     将当前字变成大写<br>guiw     将当前字变成小写<br>>&gt;     将当前行右移一个单位<br>&lt;&lt;     将当前行左移一个单位(一个tab符)<br>==     自动缩进当前行</p>
+<h2 id="u63D2_u5165_u6A21_u5F0F"><a href="#u63D2_u5165_u6A21_u5F0F" class="headerlink" title="插入模式"></a>插入模式</h2><p>i     从当前光标处进入插入模式<br>I     进入插入模式，并置光标于行首<br>a     追加模式，置光标于当前光标之后<br>A     追加模式，置光标于行末<br>o     在当前行之下新加一行，并进入插入模式<br>O     在当前行之上新加一行，并进入插入模式<br>Esc     退出插入模式</p>
+<h2 id="u53EF_u89C6_u6A21_u5F0F"><a href="#u53EF_u89C6_u6A21_u5F0F" class="headerlink" title="可视模式"></a>可视模式</h2><h3 id="u6807_u8BB0_u6587_u672C"><a href="#u6807_u8BB0_u6587_u672C" class="headerlink" title="标记文本"></a>标记文本</h3><p>v     进入可视模式，单字符模式<br>V     进入可视模式，行模式<br>ctrl+v     进入可视模式，列模式，类似于UE的列模式<br>o     跳转光标到选中块的另一个端点<br>U     将选中块中的内容转成大写<br>O     跳转光标到块的另一个端点<br>aw     选中一个字<br>ab     选中括号中的所有内容，包括括号本身<br>aB     选中{}括号中的所有内容<br>ib     选中括号中的内容，不含括号<br>iB     选中{}中的内容，不含{}</p>
+<h3 id="u5BF9_u6807_u8BB0_u8FDB_u884C_u52A8_u4F5C"><a href="#u5BF9_u6807_u8BB0_u8FDB_u884C_u52A8_u4F5C" class="headerlink" title="对标记进行动作"></a>对标记进行动作</h3><p>>     块右移<br>&lt;     块左移<br>y     复制块<br>d     删除块<br>~     切换块中内容的大小写 </p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>高级一些的编辑器，都会包含宏功能，vim当然不能缺少了，在vim中使用宏是非常方便的：</p>
+<p>:qx     开始记录宏，并将结果存入寄存器x<br>q     退出记录模式<br>@x     播放记录在x寄存器中的宏命令<br>稍微解释一下，当在normal模式]]>
+    </summary>
+    
+      <category term="MAC" scheme="http://normalhh.github.io/tags/MAC/"/>
+    
+      <category term="command" scheme="http://normalhh.github.io/tags/command/"/>
+    
+      <category term="vim" scheme="http://normalhh.github.io/tags/vim/"/>
+    
+      <category term="MAC" scheme="http://normalhh.github.io/categories/MAC/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[教你制作完美的Favicon]]></title>
@@ -707,324 +800,6 @@
       <category term="Axure" scheme="http://normalhh.github.io/categories/Axure/"/>
     
       <category term="设计" scheme="http://normalhh.github.io/categories/Axure/%E8%AE%BE%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[SecureCRT常用指令]]></title>
-    <link href="http://normalhh.github.io/2015/07/30/securecrt-command/"/>
-    <id>http://normalhh.github.io/2015/07/30/securecrt-command/</id>
-    <published>2015-07-30T05:53:10.000Z</published>
-    <updated>2015-12-14T12:44:29.000Z</updated>
-    <content type="html"><![CDATA[<p>rz  : 上传文件.</p>
-<p>ps -auxf  :查看进程</p>
-<p>tar -cvf /home/cbinews/openads_new_20090827.tar ./openads_new:打包命令</p>
-<p>mkdir:新建目录</p>
-<p>.zip<br>解 压：unzip FileName.zip<br>压缩：zip FileName.zip DirName</p>
-<p>.tar<br>解 包：tar xvf FileName.tar<br>打包：tar cvf FileName.tar DirName</p>
-<p>.tgz<br>解 压：tar zxvf FileName.tgz<br>压缩：未知</p>
-<p>查看文件末尾命令：</p>
-<p>tail -f /var/log/messages.log</p>
-<p>当前目录下文件数：</p>
-<p>ls   |   wc   -l</p>
-<p>查看空间使用情况命令：</p>
-<p>df -lh</p>
-<p>linux定时执行文件：</p>
-<p>crontab -e</p>
-<p>保存后要重载：</p>
-<p>/etc/rc.d/init.d/crond reload</p>
-<p>了解当前目录：</p>
-<p>pwd</p>
-<p>查看内存状态命令：</p>
-<p>free</p>
-<p>查看磁盘空间使用情况：</p>
-<p>df -am</p>
-<p>linux后台执行程序：</p>
-<p>nohup java -jar <em>**</em>.jar &amp;</p>
-<p>目前使用CPU,MEM的状况</p>
-<p>ps -uxwww</p>
-<p>修改文件编码方式：</p>
-<p>iconv -f gbk -t utf8 index.html &gt; index1.html</p>
-<p>把gbk编码的index.html文件转成index1.html</p>
-<p>查找目录：</p>
-<p>查找名字为conf的目录</p>
-<p>#find /目录-type d -name conf</p>
-<hr>
-<p>一、ls 只列出文件名 （相当于dir，dir也可以使用）<br>-A:列出所有文件，包含隐藏文 件。<br>-l：列表形式，包含文件的绝大部分属性。<br>-R：递归显示。<br>–help：此命令的帮助。</p>
-<p>二、cd 改变目录<br>cd /:进入根目录<br>cd ：回到自己的目录（用户不同则目录也不同，root为/root，xxt为/home/xxt<br>cd ..：回到上级目录<br>pwd：显示当前所在的目录</p>
-<p>三.less 文件名：查看文件内 容。</p>
-<p>四.q 退出打开的文件。</p>
-<p>五.上传文件： rz 选择要传送的文件，确定。</p>
-<p>六.下载文件： sz 指定文件名,enter敲，即下载到了secureCRT/download目录下。</p>
-<p>七：删除文件： rm 删除文件 ，rmdir 删除空目录。<br>八.显示 最近输入的20条命令：history 20<br>九.获得帮助命令 –help查看命令下详细参数：  如：rz –help   ， sz –help  。</p>
-<p>十.cd 进入某个文件夹的命令：<br>mkdir+ 文件夹名 创建某个文件夹的命令<br>sz+文件名 从服务器端向本机发送文件的命令<br>rz 从本机向服务器端传送文件的命令<br>ll 列出当前目录下的所有文件,包括每个文件的详细信息<br>dir 对当前文件夹<br>vi 打开当前文件</p>
-<p>十一.在编辑某个文件的时候：<br>a 切换到编辑模式<br>ctrl+c 退出编辑模式<br>dd 删除整行<br>:q 退出当前文件<br>:w 写入并保存当前文件<br>-f 强行xx的参数。。。</p>
-<p>&nbsp;</p>
-<p>其它命令：<br>1.ps -ef  //查看server的进程,以列表形式显示的server进程。<br>ps 显示当前在系统运行的进程 /usr/bin/ps [选项] -e 显示每个现在运行的进程 -f 生成一个完全的列表</p>
-<h2 id="u5B9E_u9645_u64CD_u4F5C_uFF1A"><a href="#u5B9E_u9645_u64CD_u4F5C_uFF1A" class="headerlink" title="实际操作："></a>实际操作：</h2><p>1 SSH客户端连接到10.5.1.55系统（参见《启动远程客户端说明SecureCRT.doc》）</p>
-<p>$ cd /home/bea2/user_projects/csdomain/bin</p>
-<p>2 查看weblogic92服务进程</p>
-<p>$ ps -eaf | grep weblogic</p>
-<p>bea2 327926 331940   0 13:08:45 pts/4 0:00 grep weblogic</p>
-<p>webadmin 421908 368956   0   Sep 24      - 4:13 /usr/java5_64/bin/java -Xms256m -Xmx512m -da -Dplatform.home=/home/weblogic/bea/weblogic92 -Dwls.home=/home/weblogic/bea/weblogic92/server -Dwli.home=/home/weblogic/bea/weblogic92/integration -Dweblogic.management.discover=true -Dwlw.iterativeDev=false -Dwlw.testConsole=false -Dwlw.logErrorsToConsole= -Dweblogic.ext.dirs=/home/weblogic/bea/patch_weblogic923/profiles/default/sy<em>*</em>t_manifest_classpath -Dweblogic.Name=AdminServer -Djava.security.policy=/home/weblogic/bea/weblogic92/server/lib/weblogic.policy weblogic.Server</p>
-<p>bea2 491796 385044 17 00:12:50 pts/6 182:55 /usr/java5_64/bin/java -Xms6g -Xmx8g -javaagent:/home/bea2/user_projects/csdomain/Introscope/wily/Agent.jar -Dcom.wily.introscope.agentProfile=/home/bea2/user_projects/csdomain/Introscope/wily/IntroscopeAgent.profile -Dcom.wily.introscope.agent.agentName=AdminServer -da -Dplatform.home=/home/weblogic/bea/weblogic92 -Dwls.home=/home/weblogic/bea/weblogic92/server -Dwli.home=/home/weblogic/bea/weblogic92/integration -Dweblogic.management.discover=true -Dwlw.iterativeDev= -Dwlw.testConsole= -Dwlw.logErrorsToConsole= -Dfile.encoding=GBK -Dibm.stream.nio=true -Dweblogic.ext.dirs=/home/weblogic/bea/patch_weblogic923/profiles/default/sy<em>*</em>t_manifest_classpath -Dweblogic.Name=AdminServer -Djava.security.policy=/home/weblogic/bea/weblogic92/server/lib/weblogic.policy weblogic.Server</p>
-<p>说明：根据以上提示查看登陆用户bea2启动的进程，注意标红的bea2为进程拥有着， 491796为进程号</p>
-<p>3 执行如下命令杀掉进程</p>
-<p>$ kill -9 491796（根据2操做查找到得系统进程号）</p>
-<p>说明：执行后再执行$ ps -eaf | grep weblogic命令将不会看到该进程号的weblogic进程</p>
-<p>4 启动服务</p>
-<p>$ ./quickRun.sh</p>
-<hr>
-<p>2.ant -buildfile CMS_MainTrunk.xml  //build 包</p>
-<p>3.vi test.txt  //浏览文件内容<br>i {insert写输入}<br>esc  退出insert<br>:wq! write 保存并退出vi模式<br>:q!  不保存退出vi模式</p>
-<p>4.我一般习惯用ps –ef命令，这样看到以列表形式显示的server进程；用命令pstree来查看server的进程，这样看到以树的形式显示的server进程。<br>Pstree 命令的优点在于可以立即找出某进程的父进程。您可能会需要使用 -p 选项显示每个进程的 PID，以及 -u 选项来显示启动该进程的用户名。<br>一 般来说，这一树结构比较长，您就需要这么执行 pstree –up | less　这将让您纵览整个进程树结构。</p>
-<p>5.secureCRT中乱码解决：Options-&gt;SessionOptions-&gt;Appearance-&gt;font把 default改成UTF-8，就可以显示中文字体了。</p>
-<p>6.hostname：查hostname</p>
-<p>7.ifconfig 查询主机IP</p>
-<p>8.在S-CRT下用ctrl+c 和ctrl+v：<br>Options—Global Options—Edit default Settings进去后点Terminal—Emulation然后点Mapped Keys，点中低部的，use windows copy and paste key，点确认。</p>
-<p>&nbsp;</p>
-<p>9.进入vi的命令：<br>vi filename :打开或新建文件，并将光标置于第一行首<br>vi +n filename ：打开文件，并将光标置于第n行首<br>vi + filename ：打开文件，并将光标置于最后一行首<br>vi +/pattern filename：打开文件，并将光标置于第一个与pattern匹配的串处</p>
-<p>10.移动光标类命令：<br>}：光标移至段落开头<br>{：光标移至段落结尾<br>nG： 光标移至第n行首<br>n+：光标下移n行<br>n-：光标上移n行<br>n$：光标移至第n行尾<br>H ：光标移至屏幕顶行<br>M ：光标移至屏幕中间行<br>L ：光标移至屏幕最后行<br>0：（注意是数字零）光标移至当前行首<br>$：光标移至当前行尾</p>
-<p>11.屏幕翻滚类命令：<br>Ctrl+u：向文件首翻半屏<br>Ctrl+d：向文件尾翻半屏<br>Ctrl+f：向文件尾翻一屏  //好像是 r<br>Ctrl＋b；向文件首翻一屏<br>12.搜索命令：<br>/pattern：从光标开始处向文件尾搜索pattern<br>?pattern：从光标开始处向文件首搜索pattern<br>n：在同一方向重复上一次搜索命令<br>N：在反方向上重复上一次搜索命令</p>
-<p>显示行号    :set number     或 :set nu<br>去除行号    :set nonumber  或  :set nonu</p>
-<div></div><br><div>13.VI中复制与粘贴：</div><br>1）单行复制<br><br>在命令模式下，将光标移动到将要复制的行处，按“yy”进行复制；<br><br>2）多行复制<br><div>在命令模式下，将光标移动到将要复制的首行处，按“nyy”复制n行；其中n为1、2、3.</div><br><div>3）粘贴</div><br><div>在命令模式下，将光标移动到将要粘贴的行处，按“p”进行粘贴</div><br><div></div><br><div>14.在屏幕上移动</div><br><div><br><div>Vi提供了三个关于光标在全屏幕上移动并且文件本身不发生滚动的命令。它们分别是H、M和L命令。</div><br><div>　　(1)H命令</div><br><div>　 　该命令将光标移至屏幕首行的行首（即左上角），也就是当前屏幕的第一行，而不是整个文件的第一行。利用此命令可以快速将光标移至屏幕顶部。若在H命令之 前加上数字n，则将光标移至第n行的行首。值得一提的是，使用命令dH将会删除从光标当前所在行至所显示屏幕首行的全部内容。</div><br><div>　　(2)M命令</div><br><div>　 　该命令将光标移至屏幕显示文件的中间行的行首。即如果当前屏幕已经充满,则移动到整个屏幕的中间行；如果并未充满，则移动到文本的那些行的中间行。利用 此命令可以快速地将光标从屏幕的任意位置移至屏幕显示文件的中间行的行首。例如，在上面屏幕显示的情况下（不论光标在屏幕的何处），在命令模式下，输入命 令M之后，光标都将移到add这一行的字母a上。同样值得一提的是，使用命令dM将会删除从光标当前所在行至屏幕显示文件的中间行的全部内容。</div><br><div>　　(3)L命令</div><br><div>　 　当文件显示内容超过一屏时，该命令将光标移至屏幕上的最底行的行首；当文件显示内容不足一屏时，该命令将光标移至文件的最后一行的行首。可见，利用此命 令可以快速准确地将光标移至屏幕底部或文件的最后一行。若在L命令之前加上数字n，则将光标移至从屏幕底部算起第n行的行首。同样值得一提的是，使用命令 dL将会删除从光标当前行至屏幕底行的全部内容。</div><br></div><br><div></div><br><div><br><br>postgres 使用：<br>1.进入sql运行环境。<br>[test@test bin]$ ./psql -n dbname -U usrname<br>stay81=# select count(*) from table1;<br>count<br>——-<br>5986<br>(1 row)<br><br>2. 退出，使用结束后退出，不然连接一直被挂起。<br>stay81=# \q<br><br>3.postgres 数据导出。<br>[postgres@test bin]$ ./pg_dump -U postgres -t testTable -d testDB &gt; testTable.dump<br>或[postgres@test bin]$ ./pg_dump -U postgres -d testDB -t testTable -F c -v &gt; testTable.dump<br><br>4. postgres 数据导入。<br>[postgres@test bin]$ ./psql -U postgres -d testDB &lt; testTable.dump<br>或[postgres@test bin]$ ./pg_restore -U postgres -d testDB &lt; testTable.dump<br><br>5.一台主机上将数据库目录转储到另一台主机上。<br>pg_dump -h host1 -p 5432 dbname | psql -h host2 -p post1 dbname<br>或./pg_dump -U postgres -d testDB1 -t testTable | ./psql -U postgres -d testDB2<br>-U 为用户名 ，-d 为DB名，-t 为表名称，如果整个数据库导出，不需此项。<br><br>6.php执行。<br>[test@test bin]$ /usr/bin/php -q ./batchstart.php<br><br></div>]]></content>
-    <summary type="html">
-    <![CDATA[<p>rz  : 上传文件.</p>
-<p>ps -auxf  :查看进程</p>
-<p>tar -cvf /home/cbinews/openads_new_20090827.tar ./openads_new:打包命令</p>
-<p>mkdir:新建目录</p>
-<p>.zi]]>
-    </summary>
-    
-      <category term="代码" scheme="http://normalhh.github.io/categories/%E4%BB%A3%E7%A0%81/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[uTorrent新手必看]]></title>
-    <link href="http://normalhh.github.io/2015/07/29/utorrent-must-read/"/>
-    <id>http://normalhh.github.io/2015/07/29/utorrent-must-read/</id>
-    <published>2015-07-29T00:24:29.000Z</published>
-    <updated>2015-12-14T12:44:29.000Z</updated>
-    <content type="html"><![CDATA[<div id="post_content_41844970031" class="d_post_content j_d_post_content ">新手请看：可连接状态为“否”的解决方法<br>1、连接状态为“否”是什么意思？<br>连接状态为“否”不是说你的PT客户端连不上TRACKER服务器，而是说外网的同时下载的用户无法连接到你，不能跟你交换数据了，也就是说你只能单向地发送数据和取数据，这会大大地影响你的下载和上传速度。2、连接状态为“否”的原因是什么？<br>原因概括地说是网络设置问题，通常会因为防火墙阻挡、路由未设置、端口映射不正确等原因。<br><br>3、连接状态为“否”有什么影响？<br>简单地说只影响速度，其他没有影响。<br><br>4、如何确认我的网络设置是否正确？<br>如果对站里反馈的连接状态有疑问，可以自己来测试一下，方法有二：<br>测试前先保证你已经打开PT客户端，并正常运行，记下你的IP地址和PT使用的端口号。<br>A、借用EMULE的端口测试，打开<a href="http://jump.bdimg.com/safecheck/index?url=x+Z5mMbGPAvyQjgFIr6pySokMhDUBkzuEj49KCTzKSRrm2KZkCDuGwmc9bMRB0hg4BnMGzFiHt82DIepa4OlDCBKN/Xwo+zJ2mhtjrFny56GcCxON2VEldcH1G5+YcaStk0BpqvyjkV2Pah4egTNMg==" target="_blank" rel="external">http://www.emule.org.cn/porttest/</a>，输入你的PT客户端所使用的端口号，看看是否能测试成功。<br>B、让你的朋友在外部测试你的PT端口号。假设你的IP地址是1.2.3.4,端口号为6666，让你的朋友运行 TELNET 1.2.3.4 6666 ，如果连接失败，说明端口未正确设置。<br><br>5、如何正确设置网络？<br>ADSL用户及通过路由上网的兄弟请参考第7条<br>公司内网用户：公司内网一般无法正确路由，需由网管在路由或防火墙上作设置，网管更专业。但有些公司是用NAT透明代理方式的，PT不会受到限制。<br>校园网用户：与公司网类似，多数校园网是内网，通过路由和网关接入互联网，无解，除非你搞定网管。IPV6的用户如何设置，因没有合适环境未研究，请有办法的兄弟跟贴。<br><br>6、连接“否”会不会影响上传下载流量的统计？<br>连接状态不影响流量统计，上传下载是通过TRACKER服务器进行的，与此无关。<br><br>7、ADSL用户设置路由器<br>以下内容由网络收集转载而来，仅供参考，因各种环境不同请大家根据自己的实际情况操作<br><br>内网ADSL 端口映射准备工作!新手必看！<br><br>Quote:<br>首先，确定你的ADSL是公网还是内网？<br>判断公网还是内网的方法：<br><br>用ipconfig查：<br>（1）Windows 9x/Me用户<br>用鼠标选择“开始”-&gt;“程序”-&gt;“MS-DOS方式”，打开一个DOS命令行窗口，执行：ipconfig<br>（2）Windows NT/2000/XP用户<br>用鼠标选择“开始”-&gt;“程序”-&gt;“附件”-&gt;“命令提示符”，打开一个DOS命令行窗口，执行：ipconfig<br><br>Ethernet adapter 本地连接:<br><br>Connection-specific DNS Suffix . :<br>Description . . . . . . . . . . . : Realtek RTL8139/810x Family Fast Ethernet<br>NIC<br>Physical Address. . . . . . . . . : 00-11-D8-EB-8B-A8<br>DHCP Enabled. . . . . . . . . . . : No<br>IP Address. . . . . . . . . . . . : 192.168.1.250 就是你电脑的IP地址<br>Subnet Mask . . . . . . . . . . . : 255.255.255.0 子网掩码<br>Default Gateway . . . . . . . . . : 192.168.1.1 网关，也就是你路由器的IP地址！<br>DNS Servers . . . . . . . . . . . : 202.96.134.133<br>202.96.128.68<br><br>如果你的ＩＰ是以下三种基本上判定为内网：<br>10.x.x.x；172.x.x.x；192.168.x.x。<br><br>现在我们找到了路由器的IP地址后，可以直接在浏览器地址栏输入路由器的IP，进入路由器的设置界面！进行端口映射！<br><br>其次，是否支持并开启了路由？<br>现在大部分ＡＤＳＬ支持路由功能，这个应该没有问题。这里要确定你的ＡＤＳＬ的路由是否已经开启。有一点需要明确的就是开启路由与端口映射的关系：是因为开启了路由才需要作端口映射。<br>因此对于ＡＤＳＬ公网用户：<br>1、如果没有开启路由功能，则无需再作端口映射。只要打开防火墙相应端口就没有问题。<br>2、如果是通过ＡＤＳＬ路由自动拨号或者共享上网的，即变为内网用户，则有必要进行端口映射。请继续。<br><br>最后，获得ＡＤＳＬ默认ＩＰ的地址，以及用户名与密码。<br>在做端口映射前，请大家详细看说明书，特别是有关NAT方面的设置。这样会让你少走很多弯路，也许很有可能你在看完说明书就已经找到的解决问题的方法。有一点需要说明的是，很多附带的说明书都比较粗略地提到这方面的信息，这就需要你到该产品的主页上去查找。<br><br>这里根据我的ADSL的设置以及网友们的成功经验。特地把ADSL分为有Virtual Server（虚拟服务器）设置和只有NAT（端口映射）设置的两种。<br><br>在IE中输入你的默认ＩＰ地址（比如：10.0.0.2或192.168.1.1），通过用户名和密码进入ADSL的Web页设置。端口映射便开始了<br><br>如果你是电信送的ADSL就有可能在WEB页里面找不到Virtual Server（虚拟服务器）或NAT（端口映射）设置<br><br>我们还可以用telnet（远程连接）的方法设置<br>在“运行”里输入 telnet 192.168.1.1 在 LOGON PASSWORD: 输入密码后所有的设置选项都出来了<br><br>此方法可以适用所有DASL（不包括USB接口的）<br>分享率：1,949.277<br><br>教程]UT简易设置教程<br>参考版本 uTorrent 2.0.1 build 19248<br><br>凡是使用UT 2.0.1的用户，请将高级设置中的net.calc_overhead要设置为false，否则UT的流量统计将包括网络开销，但网络开销不是真正的流量<br><br>如果想看完整版本的介绍，请移步<br>[教程]uTorrent安装设置指南及绿化方法<br><br>隐私信息<br>自动检查更新 ： 不勾<br>更新到beta版本 ： 不勾<br>在检测更新时发送详细信息(总是匿名) ： 勾选<br><br>说明：建议大家不要更新到BETA版本。另外虽然工作人员相当努力，但是对新版本的支持还是会有一定的延迟，所以请取消自动更新，避免更新后提示为”banned client”(被禁客户端)。<br>如要更新请到官网下载或者手动更新，具体方法为：菜单栏上，帮助-&gt;检查更新，此时需注意ChinaHDTV是否已经支持新版本。<br><br>下载任务<br>未完成文件添加.!ut后缀 ： ？<br>这个根据自己的喜好选择。对于想预览文件的朋友就不要勾选这个选项了，毕竟更改了文件扩展名，很多时候会不方便。<br><br>活动时避免进入待机状态 ： 勾选<br>对于电脑会自动进入待机状态的同学，请务必勾选，避免因为长时间无人看守而待机，使得电脑断开网络连接最终使得UT无法下载及上传<br><br>监听端口<br>添加系统防火墙例外 ： 勾选<br>这个一定要勾选，重要性就不多说什么了。你说你把系统自带的防火墙禁用了？好吧，你不勾选也行……<br>每次启动后使用随即端口 ： 不勾<br>没有必要在每次启动UT的时候都更换一个端口，使用一个确定的端口的效果会更好。除非你有特殊的需求<br><br>这里的端口号选择，尽量避免和一些常用软件的默认端口冲突，可以考虑8000以上的高段端口，或者让UT随即一个端口，如果对自己有信心，也可以自己设置一个端口。<br>对于ADSL用户，由于部分ISP会封锁端口，这里的端口尽量避免使用6881—6999、8881—8889、16881—16889端口<br><br>队列设置<br>最大的活动任务数(上传或下载) ： 20<br>最大的活动下载数 ： 5<br>UT本身此处的设置值比较小，需要自己改动。另外说明一下，活动任务不是指所有的任务，而是指到达一定传输速度的任务，所以一般来说20已经能满足要求了。<br><br>出现排队的现象就是因为这里的设置值过小，请设当增大设置值<br><br>做种目标<br>做种任务的优先级高于下载任务 ： 勾选<br>说明一下，UT默认分享率为150%。我比较喜欢整数，所以改为了200%，截图时忘记改回去了……大家请见谅<br><br>当uTorrent达到做种目标时<br>限制上传速度为 ： 不勾<br><br></div><br><div id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd"></div>]]></content>
-    <summary type="html">
-    <![CDATA[<div id="post_content_41844970031" class="d_post_content j_d_post_content ">新手请看：可连接状态为“否”的解决方法<br>1、连接状态为“否”是什么意思？<br>连接状态为“否”不是说你的PT客户端连不上]]>
-    </summary>
-    
-      <category term="utorrent" scheme="http://normalhh.github.io/tags/utorrent/"/>
-    
-      <category term="杂" scheme="http://normalhh.github.io/categories/%E6%9D%82/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[hexo常用命令笔记]]></title>
-    <link href="http://normalhh.github.io/2015/05/25/hexo-usual-command/"/>
-    <id>http://normalhh.github.io/2015/05/25/hexo-usual-command/</id>
-    <published>2015-05-25T03:04:45.000Z</published>
-    <updated>2015-12-14T12:44:29.000Z</updated>
-    <content type="html"><![CDATA[<div class="article fmt"><br><br>## hexo<br><br>    bash<code>&lt;a name=&quot;baidusnap0&quot;&gt;&lt;/a&gt;**npm** &lt;a name=&quot;baidusnap1&quot;&gt;&lt;/a&gt;**install** hexo -g #安装  
-    **npm** update hexo -g #升级  
-    hexo init #初始化
-    `&lt;/pre&gt;
-
-    ## 简写
-
-    `hexo n &quot;我的博客&quot;` == `hexo new &quot;我的博客&quot;` #新建文章
-    `hexo p` == `hexo publish`
-    `hexo g` == `hexo generate`#生成
-    `hexo s` == `hexo server` #启动服务预览
-    `hexo d` == `hexo deploy`#部署
-
-    ## 服务器
-
-    `hexo server` #Hexo 会监视文件变动并自动更新，您无须重启服务器。
-    `hexo server -s` #静态模式
-    `hexo server -p 5000` #更改端口
-    `hexo server -i 192.168.1.1` #自定义 IP
-
-    `hexo clean` #清除缓存 网页正常情况下可以忽略此条命令
-    `hexo g` #生成静态网页
-    `hexo d` #开始部署
-
-    ### 监视文件变动
-
-    `hexo generate` #使用 Hexo 生成静态文件快速而且简单
-    `hexo generate --watch` #监视文件变动
-
-    ### 完成后部署
-
-    &gt; 两个命令的作用是相同的
-&gt; 
-&gt;     `hexo generate --deploy`
-&gt; 
-&gt;     `hexo deploy --generate`
-    `hexo deploy -g`
-    `hexo server -g`
-
-    ## 草稿
-
-    `hexo publish [layout] &amp;lt;title&amp;gt;`
-
-    ## 模版
-
-    `hexo new &quot;postName&quot;` #新建文章
-    `hexo new page &quot;pageName&quot;` #新建页面
-    `hexo generate` #生成静态页面至public目录
-    `hexo server` #开启预览访问端口（默认端口4000，&#39;ctrl + c&#39;关闭server）
-    `hexo deploy` #将.deploy目录部署到GitHub
-
-    `hexo new [layout] &amp;lt;title&amp;gt;`
-    `hexo new photo &quot;My Gallery&quot;`
-    `hexo new &quot;Hello World&quot; --lang tw`
-    &lt;table&gt;
-    &lt;thead&gt;
-    &lt;tr&gt;
-    &lt;th&gt;变量&lt;/th&gt;
-    &lt;th&gt;描述&lt;/th&gt;
-    &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-    &lt;tr&gt;
-    &lt;td&gt;layout&lt;/td&gt;
-    &lt;td&gt;布局&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td&gt;title&lt;/td&gt;
-    &lt;td&gt;标题&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td&gt;date&lt;/td&gt;
-    &lt;td&gt;文件建立日期&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;/tbody&gt;
-    &lt;/table&gt;
-    &lt;pre&gt;`title: 使用Hexo搭建个人博客
-    layout: post
-    date: 2014-03-03 19:07:43
-    comments: true
-    categories: Blog
-    tags: [Hexo]
-    keywords: Hexo, Blog
-    description: 生命在于折腾，又把博客折腾到Hexo了。给Hexo点赞。
-    `&lt;/pre&gt;
-
-    ## 模版（Scaffold）
-
-    `hexo new photo &quot;My Gallery&quot;`
-    &lt;table&gt;
-    &lt;thead&gt;
-    &lt;tr&gt;
-    &lt;th&gt;变量&lt;/th&gt;
-    &lt;th&gt;描述&lt;/th&gt;
-    &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-    &lt;tr&gt;
-    &lt;td&gt;layout&lt;/td&gt;
-    &lt;td&gt;布局&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td&gt;title&lt;/td&gt;
-    &lt;td&gt;标题&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td&gt;date&lt;/td&gt;
-    &lt;td&gt;文件建立日期&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;/tbody&gt;
-    &lt;/table&gt;
-
-    ## 设置文章摘要
-
-    &lt;pre&gt;`以上是文章摘要 &amp;lt;!--more--&amp;gt; 以下是余下全文 
-    `&lt;/pre&gt;
-
-    ## 写作
-
-    `hexo new page &amp;lt;title&amp;gt;`
-    `hexo new post &amp;lt;title&amp;gt;`
-    &lt;table&gt;
-    &lt;thead&gt;
-    &lt;tr&gt;
-    &lt;th&gt;变量&lt;/th&gt;
-    &lt;th&gt;描述&lt;/th&gt;
-    &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-    &lt;tr&gt;
-    &lt;td&gt;:title&lt;/td&gt;
-    &lt;td&gt;标题&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td&gt;:year&lt;/td&gt;
-    &lt;td&gt;建立的年份（4 位数）&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td&gt;:month&lt;/td&gt;
-    &lt;td&gt;建立的月份（2 位数）&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td&gt;:i_month&lt;/td&gt;
-    &lt;td&gt;建立的月份（去掉开头的零）&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td&gt;:day&lt;/td&gt;
-    &lt;td&gt;建立的日期（2 位数）&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-    &lt;td&gt;:i_day&lt;/td&gt;
-    &lt;td&gt;建立的日期（去掉开头的零）&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;/tbody&gt;
-    &lt;/table&gt;
-
-    ### 推送到服务器上
-
-    `hexo n` #写文章
-    `hexo g` #生成
-    `hexo d` #部署 #可与`hexo g`合并为 `hexo d -g`
-
-    ## 报错
-
-    ### 1.找不到git部署
-
-    &lt;pre&gt;`ERROR Deployer not found: git
-    `&lt;/pre&gt;
-    **解决方法**
-
-    `**npm** **install** &lt;a name=&quot;baidusnap2&quot;&gt;&lt;/a&gt;**hexo-deployer-git** --save`
-
-    ### 3.部署类型设置git
-
-    hexo 3.0 部署类型不再是`github`，`_config.yml` 中修改
-    &lt;pre&gt;`bash</code># Deployment<br>    ## Docs: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">http://hexo.io/docs/deployment.html</a><br>    deploy:<br>      type: git<br>      repository: git@<strong><em>.github.com:</em></strong>/<strong>*.github.io.git<br>      branch: master<br>    <code>&lt;/pre&gt;
-
-    ### 4\. xcodebuild
-
-    xcode-select: error: tool &#39;xcodebuild&#39; requires Xcode, but active developer directory &#39;/Library/Developer/CommandLineTools&#39; is a command line tools instance</code></strong>npm<strong> </strong>install<strong> bcrypt<code>### 5\. RSS不显示
-
-    #### 安装RSS插件</code></strong>npm<strong> </strong>install** hexo-generator-feed –save<code>#### 开启RSS功能
-
-    编辑hexo/_config.yml，添加如下代码：
-    &lt;pre&gt;</code>rss: /atom.xml #rss地址  默认即可<br>    <code>&lt;/pre&gt;
-
-    #### 开启评论
-
-    1.我使用多说代替自带的评论，在[多说](http://duoshuo.com) 网站注册 &amp;gt; 后台管理 &amp;gt; 添加新站点 &amp;gt; 工具 === 复制通用代码 里面有 short_name
-
-1.  在根目录</code>_config.yml<code>添加一行</code>disqus_shortname: jslite<code>是在多说注册时产生的
-2.  复制到</code>themes\landscape\layout_partial\article.ejs<code>把
-    &lt;pre&gt;</code>&lt;% if (!index &amp;&amp; post.comments &amp;&amp; config.disqus_shortname){ %&gt;<br>    &lt;section id=”comments”&gt;<br>    &lt;div id=”disqus_thread”&gt;<br>      &lt;noscript&gt;Please enable JavaScript to view the &lt;a href=”//disqus.com/?ref_noscript”&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;<br>    &lt;/div&gt;<br>    &lt;/section&gt;<br>    &lt;% } %&gt;<br>    <code>&lt;/pre&gt;
-    改为
-    &lt;pre&gt;</code>html``&lt;% if (!index &amp;&amp; post.comments &amp;&amp; config.disqus_shortname){ %&gt;<br>      &lt;section id=”comments”&gt;<br>        &lt;!– 多说评论框 start –&gt;<br>        &lt;div class=”ds-thread” data-thread-key=”&lt;%= post.layout %&gt;-&lt;%= post.slug %&gt;” data-title=”&lt;%= post.title %&gt;” data-url=”&lt;%= page.permalink %&gt;”&gt;&lt;/div&gt;<br>        &lt;!– 多说评论框 end –&gt;<br>        &lt;!– 多说公共JS代码 start (一个网页只需插入一次) –&gt;<br>        &lt;script type=”text/javascript”&gt;<br>        var duoshuoQuery = {short_name:’&lt;%= config.disqus_shortname %&gt;’};<br>          (function() {<br>            var ds = document.createElement(‘script’);<br>            ds.type = ‘text/javascript’;ds.async = true;<br>            ds.src = (document.location.protocol == ‘https:’ ? ‘https:’ : ‘http:’) + ‘//static.duoshuo.com/embed.js’;<br>            ds.charset = ‘UTF-8’;<br>            (document.getElementsByTagName(‘head’)[0]<br>             || document.getElementsByTagName(‘body’)[0]).appendChild(ds);<br>          })();<br>          &lt;/script&gt;<br>        &lt;!– 多说公共JS代码 end –&gt;<br>      &lt;/section&gt;<br>    &lt;% } %&gt;<br><br></div>]]></content>
-    <summary type="html">
-    <![CDATA[<div class="article fmt"><br><br>## hexo<br><br>    bash<code>&lt;a name=&quot;baidusnap0&quot;&gt;&lt;/a&gt;**npm** &lt;a name=&quot;baidus]]>
-    </summary>
-    
-      <category term="Hexo" scheme="http://normalhh.github.io/tags/Hexo/"/>
-    
-      <category term="代码" scheme="http://normalhh.github.io/categories/%E4%BB%A3%E7%A0%81/"/>
     
   </entry>
   
