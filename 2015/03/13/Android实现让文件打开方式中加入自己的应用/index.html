@@ -36,7 +36,7 @@
 
 
 
-  <meta name="keywords" content="杂,铃声," />
+  <meta name="keywords" content="Android,AndroidManifest,打开方式," />
 
 
 
@@ -47,31 +47,19 @@
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
 
 
-<meta name="description" content="刚起床，正在用洗衣机洗衣服，突然想起了之前玩过的《真·三国无双》里面的『敌羞吾去脱他衣』这句空耳台词，
-于是准备改成我的手机铃声，因为前些日子手机升级成了肾6（其实我的肾还在），所以要制作的话需要做点准备工作：
-1.声音文件：
-敌羞吾去脱他衣的声音文件，很幸运的在游侠网上找到一个压缩包，只有2.1mb大小，解压缩后有58个mp3文件。
-2.iTunes:
-由于用的是MAC，直接打开就可以了，如果没">
+<meta name="description" content="通过文档查看器打开一个文本文件时，会弹出一个可用来打开的软件列表；如何让自己的软件也出现在该列表中呢？ 通过设置AndroidManifest.xml文件即可：
+&amp;lt;activity android:name=”.EasyNote” android:label=”@string/app_name” android:launchMode=”singleTask” android:screenOr">
 <meta property="og:type" content="article">
-<meta property="og:title" content="杂">
-<meta property="og:url" content="http://normalhh.github.io/2015/02/01/e6-9d-82/index.html">
+<meta property="og:title" content="Android实现让文件打开方式中加入自己的应用">
+<meta property="og:url" content="http://normalhh.github.io/2015/03/13/Android实现让文件打开方式中加入自己的应用/index.html">
 <meta property="og:site_name" content="Normal's Blog!">
-<meta property="og:description" content="刚起床，正在用洗衣机洗衣服，突然想起了之前玩过的《真·三国无双》里面的『敌羞吾去脱他衣』这句空耳台词，
-于是准备改成我的手机铃声，因为前些日子手机升级成了肾6（其实我的肾还在），所以要制作的话需要做点准备工作：
-1.声音文件：
-敌羞吾去脱他衣的声音文件，很幸运的在游侠网上找到一个压缩包，只有2.1mb大小，解压缩后有58个mp3文件。
-2.iTunes:
-由于用的是MAC，直接打开就可以了，如果没">
+<meta property="og:description" content="通过文档查看器打开一个文本文件时，会弹出一个可用来打开的软件列表；如何让自己的软件也出现在该列表中呢？ 通过设置AndroidManifest.xml文件即可：
+&amp;lt;activity android:name=”.EasyNote” android:label=”@string/app_name” android:launchMode=”singleTask” android:screenOr">
 <meta property="og:updated_time" content="2015-12-14T12:44:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="杂">
-<meta name="twitter:description" content="刚起床，正在用洗衣机洗衣服，突然想起了之前玩过的《真·三国无双》里面的『敌羞吾去脱他衣』这句空耳台词，
-于是准备改成我的手机铃声，因为前些日子手机升级成了肾6（其实我的肾还在），所以要制作的话需要做点准备工作：
-1.声音文件：
-敌羞吾去脱他衣的声音文件，很幸运的在游侠网上找到一个压缩包，只有2.1mb大小，解压缩后有58个mp3文件。
-2.iTunes:
-由于用的是MAC，直接打开就可以了，如果没">
+<meta name="twitter:title" content="Android实现让文件打开方式中加入自己的应用">
+<meta name="twitter:description" content="通过文档查看器打开一个文本文件时，会弹出一个可用来打开的软件列表；如何让自己的软件也出现在该列表中呢？ 通过设置AndroidManifest.xml文件即可：
+&amp;lt;activity android:name=”.EasyNote” android:label=”@string/app_name” android:launchMode=”singleTask” android:screenOr">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -83,7 +71,7 @@
 
 
 
-  <title> 杂 | Normal's Blog! </title>
+  <title> Android实现让文件打开方式中加入自己的应用 | Normal's Blog! </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -218,7 +206,7 @@
             
             
               
-                杂
+                Android实现让文件打开方式中加入自己的应用
               
             
           </h1>
@@ -227,8 +215,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-02-01T09:07:24+08:00" content="2015-02-01">
-              2015-02-01
+            <time itemprop="dateCreated" datetime="2015-03-13T17:07:42+08:00" content="2015-03-13">
+              2015-03-13
             </time>
           </span>
 
@@ -237,8 +225,20 @@
               &nbsp; | &nbsp; 分类于
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/杂/" itemprop="url" rel="index">
-                    <span itemprop="name">杂</span>
+                  <a href="/categories/JAVA/" itemprop="url" rel="index">
+                    <span itemprop="name">JAVA</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JAVA/代码/" itemprop="url" rel="index">
+                    <span itemprop="name">代码</span>
                   </a>
                 </span>
 
@@ -253,8 +253,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/02/01/e6-9d-82/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/02/01/e6-9d-82/" itemprop="commentsCount"></span>
+                <a href="/2015/03/13/Android实现让文件打开方式中加入自己的应用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/13/Android实现让文件打开方式中加入自己的应用/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -273,24 +273,25 @@
       
 
       
-        <span itemprop="articleBody"><p>刚起床，正在用洗衣机洗衣服，突然想起了之前玩过的《真·三国无双》里面的『敌羞吾去脱他衣』这句空耳台词，</p>
-<p>于是准备改成我的手机铃声，因为前些日子手机升级成了肾6（其实我的肾还在），所以要制作的话需要做点准备工作：</p>
-<p>1.声音文件：</p>
-<p>敌羞吾去脱他衣的声音文件，很幸运的在游侠网上找到一个压缩包，只有2.1mb大小，解压缩后有58个mp3文件。</p>
-<p>2.iTunes:</p>
-<p>由于用的是MAC，直接打开就可以了，如果没有的话网上百度一下很容易就找到了</p>
-<p>开始制作：</p>
-<ol>
-<li>iTunes创建一个新的播放列表：“敌羞吾去脱他衣”，把58个mp3文件拖到播放列表里（导入到iTunes播放列表）</li>
-<li>全选58个mp3文件，右键创建AAC文件（因为本身声音文件的时长很短，也就2-4秒左右，所以就省略了查看文件简介截取音频时间的步骤）</li>
-<li>创建好之后右键随便点一个文件，在Finder中打开，按照文件类型排序</li>
-<li>把生成的58个m4a文件拖到桌面上创建好的一个新文件夹里，把58个m4a文件后缀改成m4r（使用Adobe Bridge可以批量修改文件后缀）</li>
-<li>打开PP助手，插上我的iPhone，选择铃声–&gt;导入–&gt;把文件夹里的58个m4r文件导入到手机，然后就可以修改手机铃声了<br>这里我提供两个压缩包，里面分别是mp3版本的和m4r版本的声音文件，你们可以节省制作的时间了，直接导入手机就可以换铃声了。</li>
-</ol>
-<p>下载地址：</p>
-<p>mp3版（<a href="http://yunpan.cn/cKSTLIc4XHEqd" title=" （提取码：debf）" target="_blank" rel="external"><strong>点我下载</strong></a>） （提取码：debf）</p>
-<p>m4r版（<a href="http://yunpan.cn/cKShpRvV3RBNL" title=" （提取码：7159）" target="_blank" rel="external"><strong>点我下载</strong></a>） （提取码：7159）</p>
-<div id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd"></div></span>
+        <span itemprop="articleBody"><p>通过文档查看器打开一个文本文件时，会弹出一个可用来打开的软件列表；<br>如何让自己的软件也出现在该列表中呢？ 通过设置AndroidManifest.xml文件即可：</p>
+<p><pre class="lang:xhtml decode:true ">&lt;activity android:name=”.EasyNote” android:label=”@string/app_name” android:launchMode=”singleTask” android:screenOrientation=”portrait”&gt;<br>&lt; intent-filter&gt;<br>&lt; action android:name=”android.intent.action.MAIN” /&gt;<br>&lt; category android:name=”android.intent.category.LAUNCHER” /&gt;<br>&lt; /intent-filter&gt;<br>&lt;intent-filter&gt;<br>&lt; action android:name=”android.intent.action.VIEW”&gt;&lt;/action&gt;<br>&lt; category android:name=”android.intent.category.DEFAULT”&gt;&lt;/category&gt;<br>&lt; data android:mimeType=”text/plain”&gt;&lt;/data&gt;<br>&lt; /intent-filter&gt;<br>&lt; /activity&gt;</pre><br>第一个&lt;intent-filter&gt;标签是每个程序都有的，关键是要添加第二个！这样你的应用程序就会出现在默认打开列表了。。。</p>
+<p>注意需要将mimeType修改成你需要的类型，文本文件当然就是：text/plain</p>
+<p>还有其它常用的如：</p>
+<p>text/plain（纯文本）</p>
+<p>text/html（HTML文档）</p>
+<p>application/xhtml+xml（XHTML文档）</p>
+<p>image/gif（GIF图像）</p>
+<p>image/jpeg（JPEG图像）【PHP中为：image/pjpeg】</p>
+<p>image/png（PNG图像）【PHP中为：image/x-png】</p>
+<p>video/mpeg（MPEG动画）</p>
+<p>application/octet-stream（任意的二进制数据）</p>
+<p>application/pdf（PDF文档）</p>
+<p>application/msword（Microsoft Word文件）</p>
+<p>message/rfc822（RFC 822形式）</p>
+<p>multipart/alternative（HTML邮件的HTML形式和纯文本形式，相同内容使用不同形式表示）</p>
+<p>application/x-www-form-urlencoded（使用HTTP的POST方法提交的表单）</p>
+<p>multipart/form-data（同上，但主要用于表单提交时伴随文件上传的场合）</p>
+</span>
       
     </div>
 
@@ -298,9 +299,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/杂/" rel="tag">#杂</a>
+            <a href="/tags/Android/" rel="tag">#Android</a>
           
-            <a href="/tags/铃声/" rel="tag">#铃声</a>
+            <a href="/tags/AndroidManifest/" rel="tag">#AndroidManifest</a>
+          
+            <a href="/tags/打开方式/" rel="tag">#打开方式</a>
           
         </div>
       
@@ -309,16 +312,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/01/31/test1/" rel="next" title="Test1">
-                <i class="fa fa-chevron-left"></i> Test1
+              <a href="/2015/03/04/toast-util-class/" rel="next" title="Toast的工具类--可以取消的Toast">
+                <i class="fa fa-chevron-left"></i> Toast的工具类--可以取消的Toast
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/02/02/e7-b2-89-e7-b2-89-e7-9a-84-ef-bc-8c-e8-90-8c-e8-90-8c-e5-93-92-ef-bc-8c-e5-a5-bd-e5-8f-af-e7-88-b1/" rel="prev" title="粉粉的，萌萌哒，好可爱~">
-                粉粉的，萌萌哒，好可爱~ <i class="fa fa-chevron-right"></i>
+              <a href="/2015/03/16/stringbuilder-stringbuffer-string-differences/" rel="prev" title="全面解释java中StringBuilder、StringBuffer、String类之间的关系">
+                全面解释java中StringBuilder、StringBuffer、String类之间的关系 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -367,8 +370,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/02/01/e6-9d-82/"
-                   data-title="杂" data-url="http://normalhh.github.io/2015/02/01/e6-9d-82/">
+              <div class="ds-thread" data-thread-key="2015/03/13/Android实现让文件打开方式中加入自己的应用/"
+                   data-title="Android实现让文件打开方式中加入自己的应用" data-url="http://normalhh.github.io/2015/03/13/Android实现让文件打开方式中加入自己的应用/">
               </div>
             
           </div>
@@ -411,7 +414,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">47</span>
+              <span class="site-state-item-count">45</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

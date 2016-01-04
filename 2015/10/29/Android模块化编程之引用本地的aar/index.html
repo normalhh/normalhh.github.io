@@ -36,7 +36,7 @@
 
 
 
-  <meta name="keywords" content="喵星人,萌," />
+  <meta name="keywords" content="Android,Android Studio,aar,模块化," />
 
 
 
@@ -47,41 +47,16 @@
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
 
 
-<meta name="description" content="在某些时候，喵星人是让你深恶痛绝的存在，但是如果从下往上的角度去看，会发现一个异常可爱的萌星人
-粉嫩的小肉垫，真的让人难以自拔。有的时候，有的人或者事，从某一个角度去看会令人非常不爽，但如果从另外一个角度去看
-或许能让你感到耳目一新或者欣喜。">
+<meta name="description" content="随着项目越来越多，代码的复用就变得异常重要，这时候就要进行模块化编程，就是把一些通用的组件或者类库做成单独的模块，其他项目直接进行引用就 好。针对Android开发最常见的就是Android Library，在Gradle出现之前引用Android Library的方式也很繁琐，但是有了Gradle一切变得非常简单方便。## aar何为aar？大家都知道jar文件把，如果你有一个Android L">
 <meta property="og:type" content="article">
-<meta property="og:title" content="粉粉的，萌萌哒，好可爱~">
-<meta property="og:url" content="http://normalhh.github.io/2015/02/02/e7-b2-89-e7-b2-89-e7-9a-84-ef-bc-8c-e8-90-8c-e8-90-8c-e5-93-92-ef-bc-8c-e5-a5-bd-e5-8f-af-e7-88-b1/index.html">
+<meta property="og:title" content="Android模块化编程之引用本地的aar">
+<meta property="og:url" content="http://normalhh.github.io/2015/10/29/Android模块化编程之引用本地的aar/index.html">
 <meta property="og:site_name" content="Normal's Blog!">
-<meta property="og:description" content="在某些时候，喵星人是让你深恶痛绝的存在，但是如果从下往上的角度去看，会发现一个异常可爱的萌星人
-粉嫩的小肉垫，真的让人难以自拔。有的时候，有的人或者事，从某一个角度去看会令人非常不爽，但如果从另外一个角度去看
-或许能让你感到耳目一新或者欣喜。">
-<meta property="og:image" content="http://i2.tietuku.com/b29e3ddb167d32cb.jpg">
-<meta property="og:image" content="http://i2.tietuku.com/c6c254556e7b386a.jpg">
-<meta property="og:image" content="http://i2.tietuku.com/c1a61e5f80801dfb.jpg">
-<meta property="og:image" content="http://i2.tietuku.com/126775bc5046b1f2.jpg">
-<meta property="og:image" content="http://i2.tietuku.com/71de7c88902d794a.jpg">
-<meta property="og:image" content="http://i2.tietuku.com/d16341555a402f10.jpg">
-<meta property="og:image" content="http://i2.tietuku.com/877b9b3285dcd964.jpg">
-<meta property="og:image" content="http://i2.tietuku.com/808b5db9fdb98864.jpg">
-<meta property="og:image" content="http://i2.tietuku.com/2b7b551bc47f5ece.jpg">
-<meta property="og:image" content="http://i2.tietuku.com/faaa497f5185cc29.jpg">
-<meta property="og:image" content="http://i2.tietuku.com/70507bb951f482c8.jpg">
-<meta property="og:image" content="http://i2.tietuku.com/4a523d2322bd2076.jpg">
-<meta property="og:image" content="http://i2.tietuku.com/5fb65d9de8df1387.jpg">
-<meta property="og:image" content="http://i2.tietuku.com/82081c482a3ea1d8.jpg">
-<meta property="og:image" content="http://i2.tietuku.com/ba159bc27f4781b7.jpg">
-<meta property="og:image" content="http://i2.tietuku.com/8f3eb8884f503f08.jpg">
-<meta property="og:image" content="http://i2.tietuku.com/ef862629ac9a8c0e.jpg">
-<meta property="og:image" content="http://i2.tietuku.com/85c7c3d3e7fa577e.jpg">
-<meta property="og:image" content="http://i2.tietuku.com/e9e6127a2109cd32.jpg">
+<meta property="og:description" content="随着项目越来越多，代码的复用就变得异常重要，这时候就要进行模块化编程，就是把一些通用的组件或者类库做成单独的模块，其他项目直接进行引用就 好。针对Android开发最常见的就是Android Library，在Gradle出现之前引用Android Library的方式也很繁琐，但是有了Gradle一切变得非常简单方便。## aar何为aar？大家都知道jar文件把，如果你有一个Android L">
 <meta property="og:updated_time" content="2015-12-14T12:44:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="粉粉的，萌萌哒，好可爱~">
-<meta name="twitter:description" content="在某些时候，喵星人是让你深恶痛绝的存在，但是如果从下往上的角度去看，会发现一个异常可爱的萌星人
-粉嫩的小肉垫，真的让人难以自拔。有的时候，有的人或者事，从某一个角度去看会令人非常不爽，但如果从另外一个角度去看
-或许能让你感到耳目一新或者欣喜。">
+<meta name="twitter:title" content="Android模块化编程之引用本地的aar">
+<meta name="twitter:description" content="随着项目越来越多，代码的复用就变得异常重要，这时候就要进行模块化编程，就是把一些通用的组件或者类库做成单独的模块，其他项目直接进行引用就 好。针对Android开发最常见的就是Android Library，在Gradle出现之前引用Android Library的方式也很繁琐，但是有了Gradle一切变得非常简单方便。## aar何为aar？大家都知道jar文件把，如果你有一个Android L">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -93,7 +68,7 @@
 
 
 
-  <title> 粉粉的，萌萌哒，好可爱~ | Normal's Blog! </title>
+  <title> Android模块化编程之引用本地的aar | Normal's Blog! </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -228,7 +203,7 @@
             
             
               
-                粉粉的，萌萌哒，好可爱~
+                Android模块化编程之引用本地的aar
               
             
           </h1>
@@ -237,8 +212,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-02-02T22:40:36+08:00" content="2015-02-02">
-              2015-02-02
+            <time itemprop="dateCreated" datetime="2015-10-29T22:14:35+08:00" content="2015-10-29">
+              2015-10-29
             </time>
           </span>
 
@@ -247,8 +222,56 @@
               &nbsp; | &nbsp; 分类于
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/杂/" itemprop="url" rel="index">
-                    <span itemprop="name">杂</span>
+                  <a href="/categories/Andriod/" itemprop="url" rel="index">
+                    <span itemprop="name">Andriod</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Andriod/Android-Studio/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Studio</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Andriod/Android-Studio/IntelliJ-IDEA/" itemprop="url" rel="index">
+                    <span itemprop="name">IntelliJ IDEA</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Andriod/Android-Studio/IntelliJ-IDEA/代码/" itemprop="url" rel="index">
+                    <span itemprop="name">代码</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Andriod/Android-Studio/IntelliJ-IDEA/代码/开发工具/" itemprop="url" rel="index">
+                    <span itemprop="name">开发工具</span>
                   </a>
                 </span>
 
@@ -263,8 +286,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/02/02/e7-b2-89-e7-b2-89-e7-9a-84-ef-bc-8c-e8-90-8c-e8-90-8c-e5-93-92-ef-bc-8c-e5-a5-bd-e5-8f-af-e7-88-b1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/02/02/e7-b2-89-e7-b2-89-e7-9a-84-ef-bc-8c-e8-90-8c-e8-90-8c-e5-93-92-ef-bc-8c-e5-a5-bd-e5-8f-af-e7-88-b1/" itemprop="commentsCount"></span>
+                <a href="/2015/10/29/Android模块化编程之引用本地的aar/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/29/Android模块化编程之引用本地的aar/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -283,29 +306,7 @@
       
 
       
-        <span itemprop="articleBody"><p>在某些时候，喵星人是让你深恶痛绝的存在，但是如果从下往上的角度去看，会发现一个异常可爱的萌星人</p>
-<p>粉嫩的小肉垫，真的让人难以自拔。有的时候，有的人或者事，从某一个角度去看会令人非常不爽，但如果从另外一个角度去看</p>
-<p>或许能让你感到耳目一新或者欣喜。</p>
-<p><a href="http://i2.tietuku.com/b29e3ddb167d32cb.jpg" target="_blank" rel="external"><img src="http://i2.tietuku.com/b29e3ddb167d32cb.jpg" alt="" title="1"></a></p>
-<p><a href="http://i2.tietuku.com/c6c254556e7b386a.jpg" target="_blank" rel="external"><img src="http://i2.tietuku.com/c6c254556e7b386a.jpg" alt="" title="2"></a></p>
-<p><a href="http://i2.tietuku.com/c1a61e5f80801dfb.jpg" target="_blank" rel="external"><img src="http://i2.tietuku.com/c1a61e5f80801dfb.jpg" alt="" title="3"></a></p>
-<p><a href="http://i2.tietuku.com/126775bc5046b1f2.jpg" target="_blank" rel="external"><img src="http://i2.tietuku.com/126775bc5046b1f2.jpg" alt="" title="4"></a></p>
-<p><a href="http://i2.tietuku.com/71de7c88902d794a.jpg" target="_blank" rel="external"><img src="http://i2.tietuku.com/71de7c88902d794a.jpg" alt="" title="5"></a></p>
-<p><a href="http://i2.tietuku.com/d16341555a402f10.jpg" target="_blank" rel="external"><img src="http://i2.tietuku.com/d16341555a402f10.jpg" alt="" title="6"></a></p>
-<p><a href="http://i2.tietuku.com/877b9b3285dcd964.jpg" target="_blank" rel="external"><img src="http://i2.tietuku.com/877b9b3285dcd964.jpg" alt="" title="7"></a></p>
-<p><a href="http://i2.tietuku.com/808b5db9fdb98864.jpg" target="_blank" rel="external"><img src="http://i2.tietuku.com/808b5db9fdb98864.jpg" alt="" title="8"></a></p>
-<p><a href="http://i2.tietuku.com/2b7b551bc47f5ece.jpg" target="_blank" rel="external"><img src="http://i2.tietuku.com/2b7b551bc47f5ece.jpg" alt="" title="9"></a></p>
-<p><a href="http://i2.tietuku.com/faaa497f5185cc29.jpg" target="_blank" rel="external"><img src="http://i2.tietuku.com/faaa497f5185cc29.jpg" alt="" title="10"></a></p>
-<p><a href="http://i2.tietuku.com/70507bb951f482c8.jpg" target="_blank" rel="external"><img src="http://i2.tietuku.com/70507bb951f482c8.jpg" alt="" title="11"></a></p>
-<p><a href="http://i2.tietuku.com/4a523d2322bd2076.jpg" target="_blank" rel="external"><img src="http://i2.tietuku.com/4a523d2322bd2076.jpg" alt="" title="12"></a></p>
-<p><a href="http://i2.tietuku.com/5fb65d9de8df1387.jpg" target="_blank" rel="external"><img src="http://i2.tietuku.com/5fb65d9de8df1387.jpg" alt="" title="13"></a></p>
-<p><a href="http://i2.tietuku.com/82081c482a3ea1d8.jpg" target="_blank" rel="external"><img src="http://i2.tietuku.com/82081c482a3ea1d8.jpg" alt="" title="14"></a></p>
-<p><a href="http://i2.tietuku.com/ba159bc27f4781b7.jpg" target="_blank" rel="external"><img src="http://i2.tietuku.com/ba159bc27f4781b7.jpg" alt="" title="15"></a></p>
-<p><a href="http://i2.tietuku.com/8f3eb8884f503f08.jpg" target="_blank" rel="external"><img src="http://i2.tietuku.com/8f3eb8884f503f08.jpg" alt="" title="16"></a></p>
-<p><a href="http://i2.tietuku.com/ef862629ac9a8c0e.jpg" target="_blank" rel="external"><img src="http://i2.tietuku.com/ef862629ac9a8c0e.jpg" alt="" title="17"></a></p>
-<p><a href="http://i2.tietuku.com/85c7c3d3e7fa577e.jpg" target="_blank" rel="external"><img src="http://i2.tietuku.com/85c7c3d3e7fa577e.jpg" alt="" title="18"></a></p>
-<p><a href="http://i2.tietuku.com/e9e6127a2109cd32.jpg" target="_blank" rel="external"><img src="http://i2.tietuku.com/e9e6127a2109cd32.jpg" alt="" title="19"></a></p>
-<div id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd"></div></span>
+        <span itemprop="articleBody"><div class="content"><br><br>随着项目越来越多，代码的复用就变得异常重要，这时候就要进行模块化编程，就是把一些通用的组件或者类库做成单独的模块，其他项目直接进行引用就 好。针对Android开发最常见的就是Android Library，在Gradle出现之前引用Android Library的方式也很繁琐，但是有了Gradle一切变得非常简单方便。<br><br>## aar<br><br>何为aar？大家都知道jar文件把，如果你有一个Android Library项目，可以很容易的导出jar文件，然后在其他项目中很方便的引用，aar和jar类似，区别就是一个Android Library项目导出的jar文件不能包含资源文件，比如一些drawable文件、xml资源文件之类的，所以这就有很大的限制，在gradle之前 我们要引用带资源文件的Android Library必须要把整个library导入进来进行引用，但是有了gradle之后，Android Library项目可以直接导出成aar，然后其他项目像引用jar的方式直接方便的引用。<br><br>## 导出aar<br><br>首先Android Library项目的gradle脚本只需要在开头声明<code> </code><br><pre class="lang:java decode:true ">apply plugin: ‘com.android.library’</pre><br>之后就和导出apk文件一样的方法，执行 <strong>./gradlew assembleRelease</strong>，然后就可以在 <strong>build/outputs/aar</strong> 文件夹里生成aar文件<br><br>## 引用本地的aar<br><br>生成aar之后下一步就是如何引用本地的aar文件？本地的aar文件并没有像引用jar文件这么简单，官方也没有提供解决方案。好在国外的一些前辈总结出了方法，下面就以test.aar文件为例来详述下方法<br><br>1、把aar文件放在一个文件目录内，比如就放在libs目录内<br><br>2、在app的build.gradle文件添加如下内容<br><pre class="lang:java decode:true ">repositories {<br>    flatDir {<br>        dirs ‘libs’ //this way we can find the .aar file in libs folder<br>    }<br>}</pre><br>3、之后在其他项目中添加一句gradle依赖便方便的引用了该library<br><pre class="lang:java decode:true ">dependencies {<br>    compile(name:’test’, ext:’aar’)<br>}</pre><br>以上方法亲测有效。<br><br>## 总结<br><br>当然通过gradle最普遍的方法是把aar上传到mavenCentral或者jcenter，引用的话更方便，但是对于一些公司内部 library不想公开，而传统的引用library方式又太繁琐，引用本地的aar文件这种方式会非常方便合适，之后通用的模块只需要做成 library，不管更新还是修改只需要打包成aar，然后供其他项目使用就好了，对Android开发来说这是提升代码复用非常有效的一个手段。<br><br></div><br><div id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd"></div></span>
       
     </div>
 
@@ -313,9 +314,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/喵星人/" rel="tag">#喵星人</a>
+            <a href="/tags/Android/" rel="tag">#Android</a>
           
-            <a href="/tags/萌/" rel="tag">#萌</a>
+            <a href="/tags/Android-Studio/" rel="tag">#Android Studio</a>
+          
+            <a href="/tags/aar/" rel="tag">#aar</a>
+          
+            <a href="/tags/模块化/" rel="tag">#模块化</a>
           
         </div>
       
@@ -324,16 +329,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/02/01/e6-9d-82/" rel="next" title="杂">
-                <i class="fa fa-chevron-left"></i> 杂
+              <a href="/2015/10/29/boot-android-studio-gradle-build/" rel="next" title="加速Android Studio/Gradle构建">
+                <i class="fa fa-chevron-left"></i> 加速Android Studio/Gradle构建
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/02/16/wordpress-load-ajax-googleapis-com-problem/" rel="prev" title="wordpress加载ajax.googleapis.com页面问题">
-                wordpress加载ajax.googleapis.com页面问题 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/11/16/android-studio-errorexecution/" rel="prev" title="Android-Studio因为导入项目类库和重复jar包导致的奇葩问题">
+                Android-Studio因为导入项目类库和重复jar包导致的奇葩问题 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -382,8 +387,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/02/02/e7-b2-89-e7-b2-89-e7-9a-84-ef-bc-8c-e8-90-8c-e8-90-8c-e5-93-92-ef-bc-8c-e5-a5-bd-e5-8f-af-e7-88-b1/"
-                   data-title="粉粉的，萌萌哒，好可爱~" data-url="http://normalhh.github.io/2015/02/02/e7-b2-89-e7-b2-89-e7-9a-84-ef-bc-8c-e8-90-8c-e8-90-8c-e5-93-92-ef-bc-8c-e5-a5-bd-e5-8f-af-e7-88-b1/">
+              <div class="ds-thread" data-thread-key="2015/10/29/Android模块化编程之引用本地的aar/"
+                   data-title="Android模块化编程之引用本地的aar" data-url="http://normalhh.github.io/2015/10/29/Android模块化编程之引用本地的aar/">
               </div>
             
           </div>
@@ -426,7 +431,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">47</span>
+              <span class="site-state-item-count">45</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
