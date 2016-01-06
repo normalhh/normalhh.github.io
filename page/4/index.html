@@ -204,6 +204,183 @@
             
             
               
+                <a class="post-title-link" href="/2015/04/08/android-studio-the-gradle-first/" itemprop="url">
+                  Android Studio系列教程四--Gradle基础
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-04-08T14:56:02+08:00" content="2015-04-08">
+              2015-04-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Studio/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Studio</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Studio/开发工具/" itemprop="url" rel="index">
+                    <span itemprop="name">开发工具</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/04/08/android-studio-the-gradle-first/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/08/android-studio-the-gradle-first/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p>本文转载自：<a href="http://stormzhang.com/devtools/2014/12/18/android-studio-tutorial4/" title="Android Studio系列教程四--Gradle基础" target="_blank" rel="external">http://stormzhang.com/devtools/2014/12/18/android-studio-tutorial4/</a></p>
+<p>其实很早之前也写了一篇Gradle的基础博客，但是时间很久了，现在Gradle已经更新了很多，所以暂且结合Stduio 1.0正式版与最新的Gradle语法来详细讲解下，小伙伴们直接跟我一步步来学习吧。</p>
+<h2 id="u4EC0_u4E48_u662FGradle_uFF1F"><a href="#u4EC0_u4E48_u662FGradle_uFF1F" class="headerlink" title="什么是Gradle？"></a>什么是Gradle？</h2><p>Gradle是一种依赖管理工具，基于Groovy语言，面向Java应用为主，它抛弃了基于XML的各种繁琐配置，取而代之的是一种基于Groovy的内部领域特定（DSL）语言。</p>
+<h2 id="u5B89_u88C5Gradle"><a href="#u5B89_u88C5Gradle" class="headerlink" title="安装Gradle"></a>安装Gradle</h2><p>在<a href="http://1.normalme.sinaapp.com/android-studio-start1-install/" title="【转载】Android Studio系列教程一–下载与安装" target="_blank" rel="external">Android Studio系列教程一–下载与安装</a>中新建项目成功后会下载Gradle，貌似这个过程不翻墙也是可以下载，但是访问特别慢，建议翻墙下载。那么下载的Gradle到什么地方呢？</p>
+<ul>
+<li>Mac上会默认下载到 <strong>/Users/&lt;用户名&gt;/.gradle/wrapper/dists</strong> 目录</li>
+<li>Win平台会默认下载到 <strong>C:\Documents and Settings&lt;用户名&gt;.gradle\wrapper\dists</strong> 目录<br>你会看到这个目录下有个 gradle-x.xx-all 的文件夹, 如果下载实在太慢，但是又不想翻墙的话，可以自己手动到<a href="http://www.gradle.org/downloads" target="_blank" rel="external">Gradle官网</a>下载对应的版本，然后将下载的.zip文件(也可以解压)复制到上述的gradle-x.xx-all 文件夹下，不过还是建议让它直接下载的好。</li>
+</ul>
+<h2 id="Gradle__u57FA_u672C_u6982_u5FF5"><a href="#Gradle__u57FA_u672C_u6982_u5FF5" class="headerlink" title="Gradle 基本概念"></a>Gradle 基本概念</h2><p>下面就以我的开源项目 <a href="https://github.com/stormzhang/9GAG" target="_blank" rel="external"><strong>9GAG</strong></a> 来详细讲解下和Gradle相关的知识, 和Gradle相关的几个文件一般有如下几个：</p>
+<p><a href="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/gradle1.png" target="_blank" rel="external"><img src="http://normalme-wordpress.stor.sinaapp.com/uploads/2015/04/gradle1.png" alt="gradle1"></a></p>
+<p>红色标记部分从上到下咱们来一步步分析：</p>
+<h4 id="1-_9GAG/app/build-gradle"><a href="#1-_9GAG/app/build-gradle" class="headerlink" title="1. 9GAG/app/build.gradle"></a>1. 9GAG/app/build.gradle</h4><p>这个文件是app文件夹下这个Module的gradle配置文件，也可以算是整个项目最主要的gradle配置文件，我们来看下这个文件的内容：</p>
+<p><pre class="lang:java decode:true ">// 声明是Android程序<br>apply plugin: ‘com.android.application’</pre></p>
+<p>android {<br>    // 编译SDK的版本<br>    compileSdkVersion 21<br>    // build tools的版本<br>    buildToolsVersion “21.1.1”</p>
+<pre><code>defaultConfig {
+    // 应用的包名
+    applicationId &quot;me.storm.ninegag&quot;
+    minSdkVersion 14
+    targetSdkVersion 21
+    versionCode 1
+    versionName &quot;1.0.0&quot;
+}
+
+// java版本
+compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_7
+    targetCompatibility JavaVersion.VERSION_1_7
+}
+
+buildTypes {
+    debug {
+        // debug模式
+    }
+
+    release {
+        // 是否进行混淆
+        minifyEnabled false
+        // 混淆文件的位置
+        proguardFiles getDefaultProguardFile(&apos;proguard-android.txt&apos;), &apos;proguard-rules.txt&apos;
+    }
+}
+
+// 移除lint检查的error
+lintOptions {
+  abortOnError false
+}
+</code></pre><p>}</p>
+<p>dependencies {<br>    // 编译libs目录下的所有jar包<br>    compile fileTree(dir: ‘libs’, include: [‘*.jar’])<br>    compile ‘com.android.support:support-v4:21.0.2’<br>    compile ‘com.etsy.android.grid:library:1.0.5’<br>    compile ‘com.alexvasilkov:foldable-layout:1.0.1’<br>    // 编译extras目录下的ShimmerAndroid模块<br>    compile project(‘:extras:ShimmerAndroid’)<br>}<br>这里需要说明几点：</p>
+<ul>
+<li>文件开头apply plugin是最新gradle版本的写法，以前的写法是apply plugin: ‘android’, 如果还是以前的写法，请改正过来。</li>
+<li>buildToolsVersion这个需要你本地安装该版本才行，很多人导入新的第三方库，失败的原因之一是build version的版本不对，这个可以手动更改成你本地已有的版本或者打开 <strong>SDK Manager</strong> 去下载对应版本。</li>
+<li>applicationId代表应用的包名，也是最新的写法，这里就不在多说了。</li>
+<li>android 5.0开始默认安装jdk1.7才能编译，但是由于mac系统自带jdk的版本是1.6，所以需要手动下载jdk1.7并配置下，具体可以见我这篇博客<a href="http://stormzhang.com/android/2014/06/27/manage-java-on-macosx/" target="_blank" rel="external">Mac下安装和管理Java</a></li>
+<li>minifyEnabled也是最新的语法，很早之前是runProguard,这个也需要更新下。</li>
+<li>proguardFiles这部分有两段，前一部分代表系统默认的android程序的混淆文件，该文件已经包含了基本的混淆声明，免去了我们很多事，这个文件的目录在 <strong>&lt;sdk目录&gt;/tools/proguard/proguard-android.txt</strong> , 后一部分是我们项目里的自定义的混淆文件，目录就在 <strong>app/proguard-rules.txt</strong> , 如果你用Studio 1.0创建的新项目默认生成的文件名是 <strong>proguard-rules.pro</strong> , 这个名字没关系，在这个文件里你可以声明一些第三方依赖的一些混淆规则，由于是开源项目，9GAG里并未进行混淆，具体混淆的语法也不是本篇博客讨论的范 围。最终混淆的结果是这两部分文件共同作用的。</li>
+<li>compile project(‘:extras:ShimmerAndroid’)这一行是因为9GAG中存在其他Module，不知道Module的概念可以看下这篇博客<a href="http://1.normalme.sinaapp.com/android-studio-setup-run/" title="Android Studio系列教程二–基本设置与运行" target="_blank" rel="external">Android Studio系列教程二–基本设置与运行</a>, 总之你可以理解成Android Library，由于Gradle的普及以及远程仓库的完善，这种依赖渐渐的会变得非常不常见，但是你需要知道有这种依赖的。</li>
+<li>以上文件里的内容只是基本配置，其实还有很多自定义部分，如自动打包debug，release，beta等环境，签名，多渠道打包等，后续会单独拿出来讲解。</li>
+</ul>
+<h4 id="2-_9GAG/extras/ShimmerAndroid/build-gradle"><a href="#2-_9GAG/extras/ShimmerAndroid/build-gradle" class="headerlink" title="2. 9GAG/extras/ShimmerAndroid/build.gradle"></a>2. 9GAG/extras/ShimmerAndroid/build.gradle</h4><p>每一个Module都需要有一个gradle配置文件，语法都是一样，唯一不同的是开头声明的是 <strong>apply plugin: ‘com.android.library’</strong></p>
+<h4 id="3-_9GAG/gradle"><a href="#3-_9GAG/gradle" class="headerlink" title="3. 9GAG/gradle"></a>3. 9GAG/gradle</h4><p>这个目录下有个 <strong>wrapper</strong> 文件夹，里面可以看到有两个文件，我们主要看下 <strong>gradle-wrapper.properties</strong> 这个文件的内容：</p>
+<p><pre class="lang:java decode:true ">#Thu Dec 18 16:02:24 CST 2014<br>distributionBase=GRADLE_USER_HOME<br>distributionPath=wrapper/dists<br>zipStoreBase=GRADLE_USER_HOME<br>zipStorePath=wrapper/dists<br>distributionUrl=https\://services.gradle.org/distributions/gradle-2.2.1-all.zip</pre><br>可以看到里面声明了gradle的目录与下载路径以及当前项目使用的gradle版本，这些默认的路径我们一般不会更改的，这个文件里指明的gradle版本不对也是很多导包不成功的原因之一。</p>
+<h2 id="4-_9GAG/build-gradle"><a href="#4-_9GAG/build-gradle" class="headerlink" title="4. 9GAG/build.gradle"></a>4. 9GAG/build.gradle</h2><p>这个文件是整个项目的gradle基础配置文件,我们来看看这里面的内容</p>
+<p><pre class="lang:java decode:true ">// Top-level build file where you can add configuration options common to all sub-projects/modules.</pre></p>
+<p>buildscript {<br>    repositories {<br>        jcenter()<br>    }<br>    dependencies {<br>        classpath ‘com.android.tools.build:gradle:1.0.0’<br>    }<br>}</p>
+<p>allprojects {<br>    repositories {<br>        jcenter()<br>    }<br>}<br>内容主要包含了两个方面：一个是声明仓库的源，这里可以看到是指明的jcenter(), 之前版本则是mavenCentral(), jcenter可以理解成是一个新的中央远程仓库，兼容maven中心仓库，而且性能更优。另一个是声明了android gradle plugin的版本，android studio 1.0正式版必须要求支持gradle plugin 1.0的版本。</p>
+<h2 id="5-_9GAG/settings-gradle"><a href="#5-_9GAG/settings-gradle" class="headerlink" title="5. 9GAG/settings.gradle"></a>5. 9GAG/settings.gradle</h2><p>这个文件是全局的项目配置文件，里面主要声明一些需要加入gradle的module，我们来看看9GAG该文件的内容：</p>
+<p><pre class="lang:java decode:true ">include ‘:app’, ‘:extras:ShimmerAndroid’</pre><br>文件中的 <strong>app</strong>, <strong>extras:ShimmerAndroid</strong> 都是module，如果还有其他module都需要按照如上格式加进去。</p>
+<h2 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h2><p>关于gradle的基础知识就介绍到这里，接下来会介绍一种我常用的快速方便的编译查看第三方开源项目的方法，如何导入Android Studio，Gradle常用基本命令，多渠道打包配置等。有疑问或者发现错误欢迎大家直接博客留言。</p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
                 <a class="post-title-link" href="/2015/04/08/android-studio-keymap/" itemprop="url">
                   Android Studio系列教程三--快捷键
                 </a>
@@ -2269,133 +2446,6 @@ intentFilter.addAction(String);--为 BroadcastReceiver指定action，使之用�
 
 
     
-      
-
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                <a class="post-title-link" href="/2015/03/13/Android实现让文件打开方式中加入自己的应用/" itemprop="url">
-                  Android实现让文件打开方式中加入自己的应用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-03-13T17:07:42+08:00" content="2015-03-13">
-              2015-03-13
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/JAVA/" itemprop="url" rel="index">
-                    <span itemprop="name">JAVA</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/JAVA/代码/" itemprop="url" rel="index">
-                    <span itemprop="name">代码</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/03/13/Android实现让文件打开方式中加入自己的应用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/13/Android实现让文件打开方式中加入自己的应用/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>通过文档查看器打开一个文本文件时，会弹出一个可用来打开的软件列表；<br>如何让自己的软件也出现在该列表中呢？ 通过设置AndroidManifest.xml文件即可：</p>
-<p><pre class="lang:xhtml decode:true ">&lt;activity android:name=”.EasyNote” android:label=”@string/app_name” android:launchMode=”singleTask” android:screenOrientation=”portrait”&gt;<br>&lt; intent-filter&gt;<br>&lt; action android:name=”android.intent.action.MAIN” /&gt;<br>&lt; category android:name=”android.intent.category.LAUNCHER” /&gt;<br>&lt; /intent-filter&gt;<br>&lt;intent-filter&gt;<br>&lt; action android:name=”android.intent.action.VIEW”&gt;&lt;/action&gt;<br>&lt; category android:name=”android.intent.category.DEFAULT”&gt;&lt;/category&gt;<br>&lt; data android:mimeType=”text/plain”&gt;&lt;/data&gt;<br>&lt; /intent-filter&gt;<br>&lt; /activity&gt;</pre><br>第一个&lt;intent-filter&gt;标签是每个程序都有的，关键是要添加第二个！这样你的应用程序就会出现在默认打开列表了。。。</p>
-<p>注意需要将mimeType修改成你需要的类型，文本文件当然就是：text/plain</p>
-<p>还有其它常用的如：</p>
-<p>text/plain（纯文本）</p>
-<p>text/html（HTML文档）</p>
-<p>application/xhtml+xml（XHTML文档）</p>
-<p>image/gif（GIF图像）</p>
-<p>image/jpeg（JPEG图像）【PHP中为：image/pjpeg】</p>
-<p>image/png（PNG图像）【PHP中为：image/x-png】</p>
-<p>video/mpeg（MPEG动画）</p>
-<p>application/octet-stream（任意的二进制数据）</p>
-<p>application/pdf（PDF文档）</p>
-<p>application/msword（Microsoft Word文件）</p>
-<p>message/rfc822（RFC 822形式）</p>
-<p>multipart/alternative（HTML邮件的HTML形式和纯文本形式，相同内容使用不同形式表示）</p>
-<p>application/x-www-form-urlencoded（使用HTTP的POST方法提交的表单）</p>
-<p>multipart/form-data（同上，但主要用于表单提交时伴随文件上传的场合）</p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2438,21 +2488,21 @@ intentFilter.addAction(String);--为 BroadcastReceiver指定action，使之用�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">45</span>
+              <span class="site-state-item-count">46</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">88</span>
+              <span class="site-state-item-count">90</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

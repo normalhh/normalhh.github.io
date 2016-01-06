@@ -204,6 +204,133 @@
             
             
               
+                <a class="post-title-link" href="/2015/03/13/Android实现让文件打开方式中加入自己的应用/" itemprop="url">
+                  Android实现让文件打开方式中加入自己的应用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-03-13T17:07:42+08:00" content="2015-03-13">
+              2015-03-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JAVA/" itemprop="url" rel="index">
+                    <span itemprop="name">JAVA</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JAVA/代码/" itemprop="url" rel="index">
+                    <span itemprop="name">代码</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/03/13/Android实现让文件打开方式中加入自己的应用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/13/Android实现让文件打开方式中加入自己的应用/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p>通过文档查看器打开一个文本文件时，会弹出一个可用来打开的软件列表；<br>如何让自己的软件也出现在该列表中呢？ 通过设置AndroidManifest.xml文件即可：</p>
+<p><pre class="lang:xhtml decode:true ">&lt;activity android:name=”.EasyNote” android:label=”@string/app_name” android:launchMode=”singleTask” android:screenOrientation=”portrait”&gt;<br>&lt; intent-filter&gt;<br>&lt; action android:name=”android.intent.action.MAIN” /&gt;<br>&lt; category android:name=”android.intent.category.LAUNCHER” /&gt;<br>&lt; /intent-filter&gt;<br>&lt;intent-filter&gt;<br>&lt; action android:name=”android.intent.action.VIEW”&gt;&lt;/action&gt;<br>&lt; category android:name=”android.intent.category.DEFAULT”&gt;&lt;/category&gt;<br>&lt; data android:mimeType=”text/plain”&gt;&lt;/data&gt;<br>&lt; /intent-filter&gt;<br>&lt; /activity&gt;</pre><br>第一个&lt;intent-filter&gt;标签是每个程序都有的，关键是要添加第二个！这样你的应用程序就会出现在默认打开列表了。。。</p>
+<p>注意需要将mimeType修改成你需要的类型，文本文件当然就是：text/plain</p>
+<p>还有其它常用的如：</p>
+<p>text/plain（纯文本）</p>
+<p>text/html（HTML文档）</p>
+<p>application/xhtml+xml（XHTML文档）</p>
+<p>image/gif（GIF图像）</p>
+<p>image/jpeg（JPEG图像）【PHP中为：image/pjpeg】</p>
+<p>image/png（PNG图像）【PHP中为：image/x-png】</p>
+<p>video/mpeg（MPEG动画）</p>
+<p>application/octet-stream（任意的二进制数据）</p>
+<p>application/pdf（PDF文档）</p>
+<p>application/msword（Microsoft Word文件）</p>
+<p>message/rfc822（RFC 822形式）</p>
+<p>multipart/alternative（HTML邮件的HTML形式和纯文本形式，相同内容使用不同形式表示）</p>
+<p>application/x-www-form-urlencoded（使用HTTP的POST方法提交的表单）</p>
+<p>multipart/form-data（同上，但主要用于表单提交时伴随文件上传的场合）</p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
                 <a class="post-title-link" href="/2015/03/04/toast-util-class/" itemprop="url">
                   Toast的工具类--可以取消的Toast
                 </a>
@@ -1040,21 +1167,21 @@ public static String getExceptionStackTrace(Throwable e) {
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">45</span>
+              <span class="site-state-item-count">46</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">88</span>
+              <span class="site-state-item-count">90</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

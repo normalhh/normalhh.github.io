@@ -4,7 +4,7 @@
   <subtitle><![CDATA[简简单单的技术博客]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://normalhh.github.io/"/>
-  <updated>2016-01-03T13:17:28.000Z</updated>
+  <updated>2016-01-06T16:10:29.000Z</updated>
   <id>http://normalhh.github.io/</id>
   
   <author>
@@ -13,6 +13,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Mac下批量将GBK转换UTF-8编码]]></title>
+    <link href="http://normalhh.github.io/2016/01/06/Mac%E4%B8%8B%E6%89%B9%E9%87%8F%E5%B0%86GBK%E8%BD%AC%E6%8D%A2UTF-8%E7%BC%96%E7%A0%81/"/>
+    <id>http://normalhh.github.io/2016/01/06/Mac下批量将GBK转换UTF-8编码/</id>
+    <published>2016-01-06T15:55:20.000Z</published>
+    <updated>2016-01-06T16:10:29.000Z</updated>
+    <content type="html"><![CDATA[<p><strong>本文转载自：<a href="http://weijun.me/post/develop/2015-07-29" target="_blank" rel="external">Mac下批量将GBK转换UTF-8编码</a></strong><br>具体实现方法如下：</p>
+<h4 id="1-_u5207_u6362_u5230_u6E90_u6587_u4EF6_u6240_u5728_u76EE_u5F55"><a href="#1-_u5207_u6362_u5230_u6E90_u6587_u4EF6_u6240_u5728_u76EE_u5F55" class="headerlink" title="1.切换到源文件所在目录"></a>1.切换到源文件所在目录</h4><p>用Android Studio开发的时候，源码目录会在java文件夹下</p>
+<h4 id="2-__u6279_u91CF_u5C06-java_u91CD_u5168_u540D_u4E3A-java_gbk"><a href="#2-__u6279_u91CF_u5C06-java_u91CD_u5168_u540D_u4E3A-java_gbk" class="headerlink" title="2. 批量将.java重全名为.java_gbk"></a>2. 批量将<em>.java重全名为</em>.java_gbk</h4><p>（5条命令全部复制，一次执行，处理多层子目录，下同）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> */*.java;<span class="keyword">do</span> mv <span class="string">"<span class="variable">$i</span>"</span> <span class="string">"<span class="variable">$&#123;i%.java&#125;</span>.java_gbk"</span> ;<span class="keyword">done</span>;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> */*/*.java;<span class="keyword">do</span> mv <span class="string">"<span class="variable">$i</span>"</span> <span class="string">"<span class="variable">$&#123;i%.java&#125;</span>.java_gbk"</span> ;<span class="keyword">done</span>;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> */*/*/*.java;<span class="keyword">do</span> mv <span class="string">"<span class="variable">$i</span>"</span> <span class="string">"<span class="variable">$&#123;i%.java&#125;</span>.java_gbk"</span> ;<span class="keyword">done</span>;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> */*/*/*/*.java;<span class="keyword">do</span> mv <span class="string">"<span class="variable">$i</span>"</span> <span class="string">"<span class="variable">$&#123;i%.java&#125;</span>.java_gbk"</span> ;<span class="keyword">done</span>;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> */*/*/*/*/*.java;<span class="keyword">do</span> mv <span class="string">"<span class="variable">$i</span>"</span> <span class="string">"<span class="variable">$&#123;i%.java&#125;</span>.java_gbk"</span> ;<span class="keyword">done</span>;</span><br></pre></td></tr></table></figure></p>
+<h4 id="3-__u6279_u91CF_u5C06-java_gbk_u8F6C_u6362_u4E3AUTF-8_u7684-java"><a href="#3-__u6279_u91CF_u5C06-java_gbk_u8F6C_u6362_u4E3AUTF-8_u7684-java" class="headerlink" title="3. 批量将.java_gbk转换为UTF-8的.java"></a>3. 批量将<em>.java_gbk转换为UTF-8的</em>.java</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> *.java_gbk;<span class="keyword">do</span> iconv <span class="operator">-f</span> GBK -t UTF8 <span class="string">"<span class="variable">$i</span>"</span> &gt; <span class="string">"<span class="variable">$&#123;i%.java_gbk&#125;</span>.java"</span> ;<span class="keyword">done</span>;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> */*.java_gbk;<span class="keyword">do</span> iconv <span class="operator">-f</span> GBK -t UTF8 <span class="string">"<span class="variable">$i</span>"</span> &gt; <span class="string">"<span class="variable">$&#123;i%.java_gbk&#125;</span>.java"</span> ;<span class="keyword">done</span>;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> */*/*.java_gbk;<span class="keyword">do</span> iconv <span class="operator">-f</span> GBK -t UTF8 <span class="string">"<span class="variable">$i</span>"</span> &gt; <span class="string">"<span class="variable">$&#123;i%.java_gbk&#125;</span>.java"</span> ;<span class="keyword">done</span>;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> */*/*/*.java_gbk;<span class="keyword">do</span> iconv <span class="operator">-f</span> GBK -t UTF8 <span class="string">"<span class="variable">$i</span>"</span> &gt; <span class="string">"<span class="variable">$&#123;i%.java_gbk&#125;</span>.java"</span> ;<span class="keyword">done</span>;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> */*/*/*/*.java_gbk;<span class="keyword">do</span> iconv <span class="operator">-f</span> GBK -t UTF8 <span class="string">"<span class="variable">$i</span>"</span> &gt; <span class="string">"<span class="variable">$&#123;i%.java_gbk&#125;</span>.java"</span> ;<span class="keyword">done</span>;</span><br></pre></td></tr></table></figure>
+<p>如果遇到编码转换失败：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">iconv: com/easemob/task/LoadImageTask.java_gbk:<span class="number">93</span>:<span class="number">87</span>: cannot convert</span><br><span class="line"></span><br><span class="line">iconv: com/easemob/utils/CommonUtils.java_gbk:<span class="number">31</span>:<span class="number">25</span>: cannot convert</span><br><span class="line"></span><br><span class="line">iconv: com/easemob/view/PasteEditText.java_gbk:<span class="number">28</span>:<span class="number">5</span>: cannot convert</span><br></pre></td></tr></table></figure></p>
+<p>则应该是部分源文件不是GBK编码，无法转换。<br>笔者的情况是部分源文件已经是UTF-8编码，则作如下处理：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>手动将对应的转换失败的*.java删除</span><br><span class="line"><span class="number">2.</span>然后将对应的*.java_gbk重命名为*.java</span><br><span class="line"><span class="number">3.</span>再次执行命令<span class="number">3</span>（这步貌似不必，但以防万一）</span><br></pre></td></tr></table></figure></p>
+<h4 id="4-__u6279_u91CF_u5220_u9664*-java_gbk"><a href="#4-__u6279_u91CF_u5220_u9664*-java_gbk" class="headerlink" title="4. 批量删除*.java_gbk"></a>4. 批量删除*.java_gbk</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">find ./ -name <span class="string">"*.java_gbk"</span> -exec rm -rf &#123;&#125; \;</span><br><span class="line">find ./ -name <span class="string">"*/*.java_gbk"</span> -exec rm -rf &#123;&#125; \;</span><br><span class="line">find ./ -name <span class="string">"*/*/*.java_gbk"</span> -exec rm -rf &#123;&#125; \;</span><br><span class="line">find ./ -name <span class="string">"*/*/*/*.java_gbk"</span> -exec rm -rf &#123;&#125; \;</span><br><span class="line">find ./ -name <span class="string">"*/*/*/*/*.java_gbk"</span> -exec rm -rf &#123;&#125; \;</span><br></pre></td></tr></table></figure>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><strong>本文转载自：<a href="http://weijun.me/post/develop/2015-07-29" target="_blank" rel="external">Mac下批量将GBK转换UTF-8编码</a></strong><br>具体实现方]]>
+    </summary>
+    
+      <category term="Android" scheme="http://normalhh.github.io/tags/Android/"/>
+    
+      <category term="Encoding" scheme="http://normalhh.github.io/tags/Encoding/"/>
+    
+      <category term="GBK" scheme="http://normalhh.github.io/tags/GBK/"/>
+    
+      <category term="Terminal" scheme="http://normalhh.github.io/tags/Terminal/"/>
+    
+      <category term="UTF-8" scheme="http://normalhh.github.io/tags/UTF-8/"/>
+    
+      <category term="批量" scheme="http://normalhh.github.io/tags/%E6%89%B9%E9%87%8F/"/>
+    
+      <category term="Android" scheme="http://normalhh.github.io/categories/Android/"/>
+    
+      <category term="Android Studio" scheme="http://normalhh.github.io/categories/Android/Android-Studio/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[MAC OSX上配置adb命令（附2个抓log的实用小脚本）]]></title>
@@ -679,124 +715,6 @@
       <category term="交互设计" scheme="http://normalhh.github.io/tags/%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/"/>
     
       <category term="设计" scheme="http://normalhh.github.io/categories/%E8%AE%BE%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[iOS8的颜色、文字和布局学习]]></title>
-    <link href="http://normalhh.github.io/2015/08/31/ios8-color-letters-layout/"/>
-    <id>http://normalhh.github.io/2015/08/31/ios8-color-letters-layout/</id>
-    <published>2015-08-30T17:24:37.000Z</published>
-    <updated>2015-12-14T12:44:29.000Z</updated>
-    <content type="html"><![CDATA[<p>在去年，Apple针对新时代用户彻底更新了其设计语言。现在的设计语言相对之前大为简化，能够让设计师将精力集中到动画和功能上，而不是繁复的视觉细节上。</p>
-<p><strong>很多人都曾问过我：设计应当如何入门？成为一名优秀设计师有没有捷径可走？要我说，虽然没有捷径，但确实有几个适用于iOS的设计技巧和规则能够从全局角度改变你的设计方式。</strong></p>
-<p>当 然，即便你目前的设计目标是完全不同于iOS的平台，相互之间的设计理念也是相通的，你可以将在web和印刷领域学习到的技巧运用到iOS设计中去。 iOS 8是一个让设计寻回根源的平台，它给人一种类似现代杂志的感觉，文字精美、布局简单。本书中所介绍的内容将在你未来设计优秀产品的旅程中给你带来巨大的裨 益。</p>
-<p><img src="http://www.yuanxingku.com/data/attachment/portal/201412/06/102331km541tqcccwm43m8.jpg" alt=""></p>
-<p><strong>iOS 8人机界面指南</strong></p>
-<p>在开始设计之前，我们需要先了解一下都有哪些资源可为我们所用。幸运的是，这方面资源还是很多的。</p>
-<p><img src="http://www.yuanxingku.com/data/attachment/portal/201412/06/102331fqx9v49ldg34k3eb.jpg" alt=""></p>
-<p>如果你还没读过iOS 8人机界面指南，我强烈建议你快速浏览一遍，让自己从整体上了解一下新版本进行了哪些改变和改进。</p>
-<p><strong>核心理念</strong></p>
-<p>iOS 8包含3大核心理念：遵从、明晰与深度。</p>
-<p>下面我将这几项设计原则的含义细化成能够实际操作的内容进行解释，当然，我解释的深度将远甚于Apple指南。</p>
-<p>&nbsp;</p>
-<p><strong>顺从</strong></p>
-<p>以内容为主角，其他都是配角。所使用的元素应当作为内容的补充，不要使用会分散人注意力的视觉元素与内容争抢目光。</p>
-<p>&nbsp;</p>
-<p><strong>简化</strong></p>
-<p>将用户界面简化到只保留最核心的美感。每次在你要添加新元素时都应自问：是否必要？如果你的应用不属于游戏或者没有特定的主题，那么请慎重使用大量的材质、3D效果和多重阴影，将关键放到功能性颜色、协调渐变和美观的文字上。</p>
-<p><img src="http://www.yuanxingku.com/data/attachment/portal/201412/06/102331csaaa7rkdg6a7jqj.jpg" alt=""></p>
-<p><strong>内容最大化</strong></p>
-<p>内容应占满整个屏幕，给内中的元素留出最大的空间。不要使用多重容器，将滚动区域最大化以便给交互留出更多空间。</p>
-<p><img src="http://www.yuanxingku.com/data/attachment/portal/201412/06/102331xs3v1yyh3w0t3sm3.jpg" alt=""></p>
-<p><strong>颜色</strong></p>
-<p>使用显眼的颜色表现能够点击或需要突出的元素。颜色和中性色调选择的正确与否将决定你设计的成败。这是iOS 8设计中将要深层次讲解的一个方面。</p>
-<p><img src="http://www.yuanxingku.com/data/attachment/portal/201412/06/102332jwzr55n18z5z514l.jpg" alt=""></p>
-<p><strong>文字既是内容</strong></p>
-<p>为了简化用户界面以及突出内容，文字将占到整个屏幕的50%到90%。考虑到这一点，你应当选用漂亮的字体，通过设定适当的粗细、线宽和颜色使其达到视觉美观、适合阅读的状态。这一方面将在文字部分进行更深入的介绍。</p>
-<p><img src="http://www.yuanxingku.com/data/attachment/portal/201412/06/102332lpxihijgp18g1iah.jpg" alt=""></p>
-<p><strong>负空间</strong></p>
-<p>使用负空间凸显内容。你所能看到的东西越少，就越能将注意力全部集中到仅有的物体上。负空间能够留出呼吸的余地。不用在屏幕中堆砌太多的结构和无用的视觉元素。</p>
-<p><img src="http://www.yuanxingku.com/data/attachment/portal/201412/06/102332d9uzpkwosyonxz9o.png" alt=""></p>
-<p><strong>图标状态</strong></p>
-<p>用于导航的图标有两种状态：轮廓及填充。使用轮廓的好处是不分散注意力。如果对图标进行填充，就会转移人的注意力。另外其还可能表示当前页面为活动页面。</p>
-<p><img src="http://www.yuanxingku.com/data/attachment/portal/201412/06/102332hgr11xmxtgi6x61r.png" alt=""></p>
-<p><strong>明晰</strong></p>
-<p>让一切显然易懂。按钮应当表现出自己的功能，文字应该方便阅读并留出舒适的间距。你的内容应当明确表现出应用的功效。例如，如果是有关咖啡的应用，则应当能让人联想到咖啡豆、浓缩咖啡和咖啡的棕褐色。</p>
-<p><strong>文字要方便阅读</strong></p>
-<p>在视网膜屏幕上，文字的大小不能小于22px。最佳阅读尺寸为32px。</p>
-<p><img src="http://www.yuanxingku.com/data/attachment/portal/201412/06/102332rmtpc8gmmhjj8mm5.jpg" alt=""></p>
-<p><strong>使用作用明确的图标</strong></p>
-<p>图 标不能含混不清，应当明确表现出自身的作用。在可能的情况下，尽量使用文字辅助。如果你使用了图标，那就一定不能在其他地方使用与当前图标类似的其他图 标，否则会让用户看不懂。同样，不要使用“后退”或者“提交”这种太泛泛的文字，而应尽可能明确，例如“返回首页”或者“注册新账号”等。更多细节请阅读 图标部分。</p>
-<p><img src="http://www.yuanxingku.com/data/attachment/portal/201412/06/102332ol5q8off5f44o77e.jpg" alt=""></p>
-<p><strong>描述性画面</strong></p>
-<p>每个页面都应说明自己的用途。尽量减少使用品牌内容，代以明确的画面标题，如果采用了标签栏，则还应使用高亮的当前标签状态。</p>
-<p><img src="http://www.yuanxingku.com/data/attachment/portal/201412/06/102333gkmsqokxlogu1kkn.jpg" alt=""></p>
-<p><strong>颜色的含义</strong></p>
-<p>颜色是有含义的。你可以使用红色、绿色、蓝色和中性色调分别表现破坏性操作、确认操作、链接和非活动状态。如果将这些颜色用做其他用途则会误导用户。例如，删除按钮上一定不要使用绿色。</p>
-<p><img src="http://www.yuanxingku.com/data/attachment/portal/201412/06/102333oxbedud66du6p77x.jpg" alt=""></p>
-<p><strong>深度</strong></p>
-<p>深度可能是最难理解的一个部分了。这是个非常抽象，同时又很有力而独特的概念。深度是指所有内容都应当具有关联和过渡关系。在真实生活中，当你从一个房间进到另一个房间中时，你会产生过渡和距离感，这样你才不会迷路。这个理念同样适用于用户界面。</p>
-<p>“对人和人所存在的现实的冷漠，是设计的唯一大忌。”-Dieter Rams</p>
-<p><strong>过渡界面</strong></p>
-<p>从个人角度来讲，我认为这是iOS 8最有意思也最独一无二的一方面。每个屏幕之间的过渡、桌面缩放成文件夹然后缩放到应用。从传统角度来说，这种技巧很难操作，但Xcode 5让这一切变得容易实现。有关这部分技巧将在动画部分进行详解。</p>
-<p>&nbsp;</p>
-<p>[embed]<a href="https://designcode.io/images/mp4/transitional.mp4[/embed" target="_blank" rel="external">https://designcode.io/images/mp4/transitional.mp4[/embed</a>]</p>
-<p><strong>模糊背景</strong></p>
-<p>背景不能影响到内容的清晰度。将背景模糊化不仅能让你保证其颜色的自然，同时能够突出前景。模糊并不是无中生有的效果，它在现实生活中也真实存在，比如你定睛看某个物体时，其他物体就会变模糊。</p>
-<p>[embed]<a href="https://designcode.io/images/mp4/blur.mp4[/embed" target="_blank" rel="external">https://designcode.io/images/mp4/blur.mp4[/embed</a>]</p>
-<p><a href="http://s1.nq.com/img/cnnq/20141202/20141202133755_bg6.jpg" target="_blank" rel="external"><img src="http://s1.nq.com/img/cnnq/20141202/20141202133755_bg6.jpg" alt=""></a></p>
-<p><strong>一切为了讨喜</strong></p>
-<p>在指南中有3项能够让应用出彩的内容没有被提到：动画、手势和音效。这3项内容很容易用过火，所以要谨慎。</p>
-<p><strong>动画</strong></p>
-<p>动画不仅能作为画面之间的过渡，还能给你的设计增添趣味性。另外还能让容易被忽略的元素受到关注。</p>
-<p>[embed]<a href="https://designcode.io/images/mp4/animations.mp4[/embed" target="_blank" rel="external">https://designcode.io/images/mp4/animations.mp4[/embed</a>]</p>
-<p><strong>手势</strong></p>
-<p>[embed]<a href="https://designcode.io/images/mp4/uikit.mp4[/embed" target="_blank" rel="external">https://designcode.io/images/mp4/uikit.mp4[/embed</a>]</p>
-<p>自iPhone 5开始采用长屏幕以来，后退按钮按起来就不那么方便了。所以说，手势虽然比不上眼睛看得见的视觉按钮，但也可以作为视觉交互的一个延伸。其对于水平比较高的用户来说非常方便。而随着我们大家的水平日渐提高，视觉提示正逐渐让位给一些真正有用的功能。</p>
-<p>[embed]<a href="https://designcode.io/images/mp4/gestures.mp4[/embed" target="_blank" rel="external">https://designcode.io/images/mp4/gestures.mp4[/embed</a>]</p>
-<p><strong>音效</strong></p>
-<p>音效在应用中的使用很少，但其却能将一项平凡的任务转变成令人激动的体验。通过音效，大家不用眼睛就能知道你使用的是什么应用。如果能让音效达到耳熟能详的效果，你就能以最小的努力赢得很大的成功。</p>
-<p>[embed]<a href="https://designcode.io/images/mp4/sounds.mp4[/embed" target="_blank" rel="external">https://designcode.io/images/mp4/sounds.mp4[/embed</a>]</p>
-<p><img src="http://s1.nq.com/img/cnnq/20141202/20141202135535_bg6.jpg" alt=""></p>
-<p><strong>三条规则</strong></p>
-<p>下面这3条极为重要的iOS 设计规则是万万不可忽略的：思考触摸界面、提高文字可读性并针对iPhone 4进行优化。</p>
-<p><strong>触摸设计</strong></p>
-<p>按钮应当方便好按。在视网膜屏幕上，按钮的大小应当为60-120px高。最佳高度为88px。在极少数情况下，可以为文字内部的链接设定44px，但使用时要慎重——用户可能很难按得到。即便是纯文字按钮也应该有至少60px的可点击区域。宽度应与高度相同。</p>
-<p><img src="http://s1.nq.com/img/cnnq/20141202/20141202135004_Unknown-26.jpg" alt=""></p>
-<p><strong>可读性</strong></p>
-<p>在视网膜屏幕上，文字大小不能小于22px。最佳阅读字体大小为32px。使用120-140%的线高可提高阅读体验。</p>
-<p><img src="http://s1.nq.com/img/cnnq/20141202/20141202135152_textsize.png" alt=""></p>
-<p><img src="http://s1.nq.com/img/cnnq/20141202/20141202135423_bg6.jpg" alt=""></p>
-<p><strong>入门模板</strong></p>
-<p>学习新技术的最佳方式就是对他人的作品进行反向工程。这些模板不仅可以帮助你学习，还可以拿来直接使用或者定制，这样一来你就不用每每从零开始，从而能够避免很多出错的可能性。模板能让你的设计更加得心应手，慢慢地你就会入迷。</p>
-<p><strong>ios 8 Template for Sketch</strong></p>
-<p>iOS 8 Template for Sketch是一个绝佳的起点。其可为你提供iOS 8中现有的大多数UI元素，你可以在自己的设计中随心使用。在使用时，要逐渐习惯标题、按钮、对话框等元素的尺寸。</p>
-<p><a href="https://github.com/rafaelconde/ios8-ui-kit" target="_blank" rel="external"><img src="http://s1.nq.com/img/cnnq/20141202/20141202135654_iphone_6.png" alt=""></a></p>
-<p><strong>iOS 8 Illustrator Vector UI Kit</strong></p>
-<p>这是针对iOS 8的一套非常完整的UI包。这个模板虽然全面但是只适用于Illustrator。</p>
-<p><a href="http://mercury.io/blog/ios-8-illustrator-vector-ui-kit-update" target="_blank" rel="external"><img src="http://s1.nq.com/img/cnnq/20141202/20141202135734_ios8_vector_zoom_out.png" alt=""></a></p>
-<p><strong>iOS 8及iPhone 6资源</strong></p>
-<p>为iOS 8和iPhone 6及Plus进行设计相对还说还是个比较新颖的课题，所以说这一部分会不断更新。</p>
-<p><a href="https://designcode.io/iphone6" target="_blank" rel="external"><img src="http://s1.nq.com/img/cnnq/20141202/20141202135830_iphone6bg.jpg" alt=""></a></p>
-<p>&nbsp;</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>在去年，Apple针对新时代用户彻底更新了其设计语言。现在的设计语言相对之前大为简化，能够让设计师将精力集中到动画和功能上，而不是繁复的视觉细节上。</p>
-<p><strong>很多人都曾问过我：设计应当如何入门？成为一名优秀设计师有没有捷径可走？要我说，虽然没有捷径，但]]>
-    </summary>
-    
-      <category term="Axure" scheme="http://normalhh.github.io/tags/Axure/"/>
-    
-      <category term="交互设计" scheme="http://normalhh.github.io/tags/%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/"/>
-    
-      <category term="原型设计" scheme="http://normalhh.github.io/tags/%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1/"/>
-    
-      <category term="设计" scheme="http://normalhh.github.io/tags/%E8%AE%BE%E8%AE%A1/"/>
-    
-      <category term="Axure" scheme="http://normalhh.github.io/categories/Axure/"/>
-    
-      <category term="设计" scheme="http://normalhh.github.io/categories/Axure/%E8%AE%BE%E8%AE%A1/"/>
     
   </entry>
   

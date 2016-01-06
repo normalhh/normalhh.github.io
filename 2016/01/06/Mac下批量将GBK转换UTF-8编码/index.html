@@ -1,0 +1,774 @@
+<!doctype html>
+<html class="theme-next use-motion ">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  
+    <link href='//fonts.lug.ustc.edu.cn/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  
+
+
+<link rel="stylesheet" type="text/css" href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" />
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.2"/>
+
+
+    <meta name="description" content="不要让任何理由成为你不去学习的借口！" />
+
+
+
+  <meta name="keywords" content="Android,Encoding,GBK,Terminal,UTF-8,批量," />
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Normal's Blog!" type="application/atom+xml" />
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+<meta name="description" content="本文转载自：Mac下批量将GBK转换UTF-8编码具体实现方法如下：
+1.切换到源文件所在目录用Android Studio开发的时候，源码目录会在java文件夹下
+2. 批量将.java重全名为.java_gbk（5条命令全部复制，一次执行，处理多层子目录，下同）12345for i in */*.java;do mv &quot;$i&quot; &quot;$&amp;#123;i%.java&amp;#125;.java_gbk&quot; ;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac下批量将GBK转换UTF-8编码">
+<meta property="og:url" content="http://normalhh.github.io/2016/01/06/Mac下批量将GBK转换UTF-8编码/index.html">
+<meta property="og:site_name" content="Normal's Blog!">
+<meta property="og:description" content="本文转载自：Mac下批量将GBK转换UTF-8编码具体实现方法如下：
+1.切换到源文件所在目录用Android Studio开发的时候，源码目录会在java文件夹下
+2. 批量将.java重全名为.java_gbk（5条命令全部复制，一次执行，处理多层子目录，下同）12345for i in */*.java;do mv &quot;$i&quot; &quot;$&amp;#123;i%.java&amp;#125;.java_gbk&quot; ;">
+<meta property="og:updated_time" content="2016-01-06T16:10:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mac下批量将GBK转换UTF-8编码">
+<meta name="twitter:description" content="本文转载自：Mac下批量将GBK转换UTF-8编码具体实现方法如下：
+1.切换到源文件所在目录用Android Studio开发的时候，源码目录会在java文件夹下
+2. 批量将.java重全名为.java_gbk（5条命令全部复制，一次执行，处理多层子目录，下同）12345for i in */*.java;do mv &quot;$i&quot; &quot;$&amp;#123;i%.java&amp;#125;.java_gbk&quot; ;">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'always'
+  };
+</script>
+
+
+
+  <title> Mac下批量将GBK转换UTF-8编码 | Normal's Blog! </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Normal's Blog!</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">简简单单的技术博客</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Mac下批量将GBK转换UTF-8编码
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-01-06T23:55:20+08:00" content="2016-01-06">
+              2016-01-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/Android-Studio/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Studio</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/06/Mac下批量将GBK转换UTF-8编码/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/06/Mac下批量将GBK转换UTF-8编码/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p><strong>本文转载自：<a href="http://weijun.me/post/develop/2015-07-29" target="_blank" rel="external">Mac下批量将GBK转换UTF-8编码</a></strong><br>具体实现方法如下：</p>
+<h4 id="1-_u5207_u6362_u5230_u6E90_u6587_u4EF6_u6240_u5728_u76EE_u5F55"><a href="#1-_u5207_u6362_u5230_u6E90_u6587_u4EF6_u6240_u5728_u76EE_u5F55" class="headerlink" title="1.切换到源文件所在目录"></a>1.切换到源文件所在目录</h4><p>用Android Studio开发的时候，源码目录会在java文件夹下</p>
+<h4 id="2-__u6279_u91CF_u5C06-java_u91CD_u5168_u540D_u4E3A-java_gbk"><a href="#2-__u6279_u91CF_u5C06-java_u91CD_u5168_u540D_u4E3A-java_gbk" class="headerlink" title="2. 批量将.java重全名为.java_gbk"></a>2. 批量将<em>.java重全名为</em>.java_gbk</h4><p>（5条命令全部复制，一次执行，处理多层子目录，下同）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> */*.java;<span class="keyword">do</span> mv <span class="string">"<span class="variable">$i</span>"</span> <span class="string">"<span class="variable">$&#123;i%.java&#125;</span>.java_gbk"</span> ;<span class="keyword">done</span>;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> */*/*.java;<span class="keyword">do</span> mv <span class="string">"<span class="variable">$i</span>"</span> <span class="string">"<span class="variable">$&#123;i%.java&#125;</span>.java_gbk"</span> ;<span class="keyword">done</span>;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> */*/*/*.java;<span class="keyword">do</span> mv <span class="string">"<span class="variable">$i</span>"</span> <span class="string">"<span class="variable">$&#123;i%.java&#125;</span>.java_gbk"</span> ;<span class="keyword">done</span>;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> */*/*/*/*.java;<span class="keyword">do</span> mv <span class="string">"<span class="variable">$i</span>"</span> <span class="string">"<span class="variable">$&#123;i%.java&#125;</span>.java_gbk"</span> ;<span class="keyword">done</span>;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> */*/*/*/*/*.java;<span class="keyword">do</span> mv <span class="string">"<span class="variable">$i</span>"</span> <span class="string">"<span class="variable">$&#123;i%.java&#125;</span>.java_gbk"</span> ;<span class="keyword">done</span>;</span><br></pre></td></tr></table></figure></p>
+<h4 id="3-__u6279_u91CF_u5C06-java_gbk_u8F6C_u6362_u4E3AUTF-8_u7684-java"><a href="#3-__u6279_u91CF_u5C06-java_gbk_u8F6C_u6362_u4E3AUTF-8_u7684-java" class="headerlink" title="3. 批量将.java_gbk转换为UTF-8的.java"></a>3. 批量将<em>.java_gbk转换为UTF-8的</em>.java</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> *.java_gbk;<span class="keyword">do</span> iconv <span class="operator">-f</span> GBK -t UTF8 <span class="string">"<span class="variable">$i</span>"</span> &gt; <span class="string">"<span class="variable">$&#123;i%.java_gbk&#125;</span>.java"</span> ;<span class="keyword">done</span>;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> */*.java_gbk;<span class="keyword">do</span> iconv <span class="operator">-f</span> GBK -t UTF8 <span class="string">"<span class="variable">$i</span>"</span> &gt; <span class="string">"<span class="variable">$&#123;i%.java_gbk&#125;</span>.java"</span> ;<span class="keyword">done</span>;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> */*/*.java_gbk;<span class="keyword">do</span> iconv <span class="operator">-f</span> GBK -t UTF8 <span class="string">"<span class="variable">$i</span>"</span> &gt; <span class="string">"<span class="variable">$&#123;i%.java_gbk&#125;</span>.java"</span> ;<span class="keyword">done</span>;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> */*/*/*.java_gbk;<span class="keyword">do</span> iconv <span class="operator">-f</span> GBK -t UTF8 <span class="string">"<span class="variable">$i</span>"</span> &gt; <span class="string">"<span class="variable">$&#123;i%.java_gbk&#125;</span>.java"</span> ;<span class="keyword">done</span>;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> */*/*/*/*.java_gbk;<span class="keyword">do</span> iconv <span class="operator">-f</span> GBK -t UTF8 <span class="string">"<span class="variable">$i</span>"</span> &gt; <span class="string">"<span class="variable">$&#123;i%.java_gbk&#125;</span>.java"</span> ;<span class="keyword">done</span>;</span><br></pre></td></tr></table></figure>
+<p>如果遇到编码转换失败：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">iconv: com/easemob/task/LoadImageTask.java_gbk:<span class="number">93</span>:<span class="number">87</span>: cannot convert</span><br><span class="line"></span><br><span class="line">iconv: com/easemob/utils/CommonUtils.java_gbk:<span class="number">31</span>:<span class="number">25</span>: cannot convert</span><br><span class="line"></span><br><span class="line">iconv: com/easemob/view/PasteEditText.java_gbk:<span class="number">28</span>:<span class="number">5</span>: cannot convert</span><br></pre></td></tr></table></figure></p>
+<p>则应该是部分源文件不是GBK编码，无法转换。<br>笔者的情况是部分源文件已经是UTF-8编码，则作如下处理：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>手动将对应的转换失败的*.java删除</span><br><span class="line"><span class="number">2.</span>然后将对应的*.java_gbk重命名为*.java</span><br><span class="line"><span class="number">3.</span>再次执行命令<span class="number">3</span>（这步貌似不必，但以防万一）</span><br></pre></td></tr></table></figure></p>
+<h4 id="4-__u6279_u91CF_u5220_u9664*-java_gbk"><a href="#4-__u6279_u91CF_u5220_u9664*-java_gbk" class="headerlink" title="4. 批量删除*.java_gbk"></a>4. 批量删除*.java_gbk</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">find ./ -name <span class="string">"*.java_gbk"</span> -exec rm -rf &#123;&#125; \;</span><br><span class="line">find ./ -name <span class="string">"*/*.java_gbk"</span> -exec rm -rf &#123;&#125; \;</span><br><span class="line">find ./ -name <span class="string">"*/*/*.java_gbk"</span> -exec rm -rf &#123;&#125; \;</span><br><span class="line">find ./ -name <span class="string">"*/*/*/*.java_gbk"</span> -exec rm -rf &#123;&#125; \;</span><br><span class="line">find ./ -name <span class="string">"*/*/*/*/*.java_gbk"</span> -exec rm -rf &#123;&#125; \;</span><br></pre></td></tr></table></figure>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+            <a href="/tags/Encoding/" rel="tag">#Encoding</a>
+          
+            <a href="/tags/GBK/" rel="tag">#GBK</a>
+          
+            <a href="/tags/Terminal/" rel="tag">#Terminal</a>
+          
+            <a href="/tags/UTF-8/" rel="tag">#UTF-8</a>
+          
+            <a href="/tags/批量/" rel="tag">#批量</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/01/03/MAC-OSX上配置adb命令（附2个抓log的实用小脚本）/" rel="next" title="MAC OSX上配置adb命令（附2个抓log的实用小脚本）">
+                <i class="fa fa-chevron-left"></i> MAC OSX上配置adb命令（附2个抓log的实用小脚本）
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2016/01/06/Mac下批量将GBK转换UTF-8编码/"
+                   data-title="Mac下批量将GBK转换UTF-8编码" data-url="http://normalhh.github.io/2016/01/06/Mac下批量将GBK转换UTF-8编码/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="https://avatars2.githubusercontent.com/u/5423840?v=3&s=460" alt="Normal" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Normal</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">不要让任何理由成为你不去学习的借口！</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">46</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">90</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/normalhh" target="_blank">
+                  <i class="fa fa-github"></i> github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/aisiw" target="_blank">
+                  <i class="fa fa-weibo"></i> weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://douban.com/people/normalhh" target="_blank">
+                  <i class="fa fa-douban"></i> douban
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/normalhh" target="_blank">
+                  <i class="fa fa-zhihu"></i> zhihu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-_u5207_u6362_u5230_u6E90_u6587_u4EF6_u6240_u5728_u76EE_u5F55"><span class="nav-number">1.</span> <span class="nav-text">1.切换到源文件所在目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-__u6279_u91CF_u5C06-java_u91CD_u5168_u540D_u4E3A-java_gbk"><span class="nav-number">2.</span> <span class="nav-text">2. 批量将.java重全名为.java_gbk</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-__u6279_u91CF_u5C06-java_gbk_u8F6C_u6362_u4E3AUTF-8_u7684-java"><span class="nav-number">3.</span> <span class="nav-text">3. 批量将.java_gbk转换为UTF-8的.java</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-__u6279_u91CF_u5220_u9664*-java_gbk"><span class="nav-number">4.</span> <span class="nav-text">4. 批量删除*.java_gbk</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Normal</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"normalme"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.2" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+
+      motionIntegrator.bootstrap();
+    });
+  </script>
+
+  
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>
