@@ -1,0 +1,957 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="CMD,Tree," />
+
+
+
+
+
+  <link rel="alternate" href="/rss2.xml" title="Normal’s Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="有的时候，我们需要生成打包的文件目录下的所有文件结构以便于展示给别人。将下面的代码复制到txt文档中，把后缀文件名改成bat就可以双击运行了。
+Windows下：12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows 和 MAC 下生成目录树文档">
+<meta property="og:url" content="http://normalhh.com/2016/01/22/Windows-和-MAC-下生成目录树文档/index.html">
+<meta property="og:site_name" content="Normal’s Blog">
+<meta property="og:description" content="有的时候，我们需要生成打包的文件目录下的所有文件结构以便于展示给别人。将下面的代码复制到txt文档中，把后缀文件名改成bat就可以双击运行了。
+Windows下：12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364">
+<meta property="og:image" content="http://images.macx.cn/forum/201502/06/100212khkhwagshhxg2hpv.png">
+<meta property="og:updated_time" content="2016-01-22T07:49:11.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Windows 和 MAC 下生成目录树文档">
+<meta name="twitter:description" content="有的时候，我们需要生成打包的文件目录下的所有文件结构以便于展示给别人。将下面的代码复制到txt文档中，把后缀文件名改成bat就可以双击运行了。
+Windows下：12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Windows 和 MAC 下生成目录树文档 | Normal’s Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Normal’s Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">不要让任何理由成为你不去学习的借口！</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+      
+      <li>
+      <a title="把这个链接拖到你的Chrome收藏夹工具栏中" href='javascript:(function() {
+	function c() {
+		var e = document.createElement("link");
+		e.setAttribute("type", "text/css");
+		e.setAttribute("rel", "stylesheet");
+		e.setAttribute("href", f);
+		e.setAttribute("class", l);
+		document.body.appendChild(e)
+	}
+ 
+	function h() {
+		var e = document.getElementsByClassName(l);
+		for (var t = 0; t < e.length; t++) {
+			document.body.removeChild(e[t])
+		}
+	}
+ 
+	function p() {
+		var e = document.createElement("div");
+		e.setAttribute("class", a);
+		document.body.appendChild(e);
+		setTimeout(function() {
+			document.body.removeChild(e)
+		}, 100)
+	}
+ 
+	function d(e) {
+		return {
+			height : e.offsetHeight,
+			width : e.offsetWidth
+		}
+	}
+ 
+	function v(i) {
+		var s = d(i);
+		return s.height > e && s.height < n && s.width > t && s.width < r
+	}
+ 
+	function m(e) {
+		var t = e;
+		var n = 0;
+		while (!!t) {
+			n += t.offsetTop;
+			t = t.offsetParent
+		}
+		return n
+	}
+ 
+	function g() {
+		var e = document.documentElement;
+		if (!!window.innerWidth) {
+			return window.innerHeight
+		} else if (e && !isNaN(e.clientHeight)) {
+			return e.clientHeight
+		}
+		return 0
+	}
+ 
+	function y() {
+		if (window.pageYOffset) {
+			return window.pageYOffset
+		}
+		return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+	}
+ 
+	function E(e) {
+		var t = m(e);
+		return t >= w && t <= b + w
+	}
+ 
+	function S() {
+		var e = document.createElement("audio");
+		e.setAttribute("class", l);
+		e.src = i;
+		e.loop = false;
+		e.addEventListener("canplay", function() {
+			setTimeout(function() {
+				x(k)
+			}, 500);
+			setTimeout(function() {
+				N();
+				p();
+				for (var e = 0; e < O.length; e++) {
+					T(O[e])
+				}
+			}, 15500)
+		}, true);
+		e.addEventListener("ended", function() {
+			N();
+			h()
+		}, true);
+		e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+		document.body.appendChild(e);
+		e.play()
+	}
+ 
+	function x(e) {
+		e.className += " " + s + " " + o
+	}
+ 
+	function T(e) {
+		e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+	}
+ 
+	function N() {
+		var e = document.getElementsByClassName(s);
+		var t = new RegExp("\\b" + s + "\\b");
+		for (var n = 0; n < e.length; ) {
+			e[n].className = e[n].className.replace(t, "")
+		}
+	}
+ 
+	var e = 30;
+	var t = 30;
+	var n = 350;
+	var r = 350;
+	var i = "//101.44.1.121/files/4254000003589B7A/yinyueshiting.baidu.com/data2/music/134379742/1201250291429761661128.mp3";
+	var s = "mw-harlem_shake_me";
+	var o = "im_first";
+	var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+	var a = "mw-strobe_light";
+	var f = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
+	var l = "mw_added_css";
+	var b = g();
+	var w = y();
+	var C = document.getElementsByTagName("*");
+	var k = null;
+	for (var L = 0; L < C.length; L++) {
+		var A = C[L];
+		if (v(A)) {
+			if (E(A)) {
+				k = A;
+				break
+			}
+		}
+	}
+	if (A === null) {
+		console.warn("Could not find a node of the right size. Please try a different page.");
+		return
+	}
+	c();
+	S();
+	var O = [];
+	for (var L = 0; L < C.length; L++) {
+		var A = C[L];
+		if (v(A)) {
+			O.push(A)
+		}
+	}
+})()    '>High一下</a>
+      </li>
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Windows 和 MAC 下生成目录树文档
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-01-22T15:24:14+08:00" content="2016-01-22">
+              2016-01-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/MAC使用技巧/" itemprop="url" rel="index">
+                    <span itemprop="name">MAC使用技巧</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/22/Windows-和-MAC-下生成目录树文档/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/22/Windows-和-MAC-下生成目录树文档/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>有的时候，我们需要生成打包的文件目录下的所有文件结构以便于展示给别人。<br>将下面的代码复制到txt文档中，把后缀文件名改成bat就可以双击运行了。</p>
+<h1 id="Windows_u4E0B_uFF1A"><a href="#Windows_u4E0B_uFF1A" class="headerlink" title="Windows下："></a>Windows下：</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line">color <span class="number">2</span>E</span><br><span class="line">MODE con: COLS=<span class="number">40</span> LINES=<span class="number">20</span></span><br><span class="line">title %date% %time:~,<span class="number">8</span>%</span><br><span class="line">cls</span><br><span class="line">::================================================================</span><br><span class="line">echo.</span><br><span class="line">echo.</span><br><span class="line"><span class="built_in">echo</span> 　　BAT当前目录生成很漂亮的结构树-苏</span><br><span class="line">echo.</span><br><span class="line">echo.</span><br><span class="line">echo.</span><br><span class="line"><span class="built_in">echo</span> 　　选 <span class="number">0</span>   拖动任意目录的结构树</span><br><span class="line">echo.</span><br><span class="line"><span class="built_in">echo</span> 　　选 <span class="number">1</span>   当前目录的结构树</span><br><span class="line">echo.</span><br><span class="line"><span class="built_in">echo</span> 　　选 <span class="number">2</span>   每个下级目录文件</span><br><span class="line">echo.</span><br><span class="line"><span class="built_in">echo</span> 　　选 <span class="number">3</span>   当前目录的目录树</span><br><span class="line">echo.</span><br><span class="line">echo.</span><br><span class="line"><span class="built_in">set</span> /p p=　请选择(<span class="number">0.1</span>.<span class="number">2.3</span>):　</span><br><span class="line"><span class="keyword">if</span> %p%==<span class="number">0</span> goto XX</span><br><span class="line"><span class="keyword">if</span> %p%==<span class="number">1</span> goto AA</span><br><span class="line"><span class="keyword">if</span> %p%==<span class="number">2</span> goto BB</span><br><span class="line"><span class="keyword">if</span> %p%==<span class="number">3</span> goto CC</span><br><span class="line"></span><br><span class="line">:AA</span><br><span class="line">CLS</span><br><span class="line">rem 在当前目录生成很漂亮的结构树</span><br><span class="line">::当前目录名获取==============</span><br><span class="line"><span class="built_in">set</span> <span class="string">"lj=%~p0"</span></span><br><span class="line"><span class="built_in">set</span> <span class="string">"lj=%lj:\= %"</span></span><br><span class="line"><span class="keyword">for</span> %%a <span class="keyword">in</span> (%lj%) <span class="keyword">do</span> <span class="built_in">set</span> wjj=%%a</span><br><span class="line"><span class="built_in">echo</span> 文件夹是:%wjj%</span><br><span class="line">=================================</span><br><span class="line"></span><br><span class="line">tree /f &gt; <span class="string">"%wjj%目录的结构树.TXT"</span></span><br><span class="line">echo.</span><br><span class="line">echo.</span><br><span class="line">=================================</span><br><span class="line">echo.</span><br><span class="line">cls</span><br><span class="line"><span class="built_in">echo</span>　　　 完成，<span class="number">1</span>秒后自动退出……</span><br><span class="line">ping <span class="number">127.0</span>.<span class="number">0.1</span> -n <span class="number">1</span> -w <span class="number">1000</span> &gt; nul</span><br><span class="line">goto out</span><br><span class="line">================================</span><br><span class="line"> </span><br><span class="line">:out</span><br><span class="line">cls</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line"></span><br><span class="line">:BB</span><br><span class="line">CLS</span><br><span class="line">rem 象DIR命令一样,不过每个下级目录文件也列出</span><br><span class="line">::当前目录名获取==============</span><br><span class="line"><span class="built_in">set</span> <span class="string">"lj=%~p0"</span></span><br><span class="line"><span class="built_in">set</span> <span class="string">"lj=%lj:\= %"</span></span><br><span class="line"><span class="keyword">for</span> %%a <span class="keyword">in</span> (%lj%) <span class="keyword">do</span> <span class="built_in">set</span> wjj=%%a</span><br><span class="line"><span class="built_in">echo</span> 文件夹是:%wjj%</span><br><span class="line">=================================</span><br><span class="line"></span><br><span class="line">tree /f &gt; <span class="string">"%wjj%下级目录文件.TXT"</span></span><br><span class="line">echo.</span><br><span class="line">echo.</span><br><span class="line">=================================</span><br><span class="line">echo.</span><br><span class="line">cls</span><br><span class="line"><span class="built_in">echo</span>　　　 完成，<span class="number">1</span>秒后自动退出……</span><br><span class="line">ping <span class="number">127.0</span>.<span class="number">0.1</span> -n <span class="number">1</span> -w <span class="number">1000</span> &gt; nul</span><br><span class="line">goto out</span><br><span class="line">================================</span><br><span class="line"> </span><br><span class="line">:out</span><br><span class="line">cls</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line"> </span><br><span class="line">:CC</span><br><span class="line">CLS</span><br><span class="line">rem 简洁地列出目录当前目录文件</span><br><span class="line">::当前目录名获取==============</span><br><span class="line"><span class="built_in">set</span> <span class="string">"lj=%~p0"</span></span><br><span class="line"><span class="built_in">set</span> <span class="string">"lj=%lj:\= %"</span></span><br><span class="line"><span class="keyword">for</span> %%a <span class="keyword">in</span> (%lj%) <span class="keyword">do</span> <span class="built_in">set</span> wjj=%%a</span><br><span class="line"><span class="built_in">echo</span> 文件夹是:%wjj%</span><br><span class="line">=================================</span><br><span class="line"></span><br><span class="line">tree /f &gt; <span class="string">"%wjj%目录的目录树.TXT"</span></span><br><span class="line"></span><br><span class="line">=================================</span><br><span class="line">echo.</span><br><span class="line">cls</span><br><span class="line"><span class="built_in">echo</span>　　　 完成，<span class="number">1</span>秒后自动退出……</span><br><span class="line">ping <span class="number">127.0</span>.<span class="number">0.1</span> -n <span class="number">1</span> -w <span class="number">1000</span> &gt; nul</span><br><span class="line">goto out</span><br><span class="line">================================</span><br><span class="line"> </span><br><span class="line">:out</span><br><span class="line">cls</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line"></span><br><span class="line">=================================</span><br><span class="line">:XX</span><br><span class="line">CLS</span><br><span class="line">rem 象DIR命令一样,不过每个下级目录文件也列出</span><br><span class="line"><span class="built_in">echo</span> 请拖动文件夹到此窗口......</span><br><span class="line"><span class="built_in">echo</span> 拖动文件夹后按确定继续......</span><br><span class="line"><span class="built_in">set</span> /p Tmp=</span><br><span class="line"><span class="built_in">cd</span> /d %Tmp%</span><br><span class="line">tree /f &gt;<span class="string">"%Tmp%目录的结构树.TXT"</span></span><br><span class="line">echo.</span><br><span class="line"></span><br><span class="line">=================================</span><br><span class="line">echo.</span><br><span class="line">cls</span><br><span class="line"><span class="built_in">echo</span>　　　 完成，<span class="number">1</span>秒后自动退出……</span><br><span class="line">ping <span class="number">127.0</span>.<span class="number">0.1</span> -n <span class="number">1</span> -w <span class="number">1000</span> &gt; nul</span><br><span class="line">goto out</span><br><span class="line">================================</span><br><span class="line"> </span><br><span class="line">:out</span><br><span class="line">cls</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">==============================</span><br></pre></td></tr></table></figure>
+<h1 id="MAC_OSX_u4E0B"><a href="#MAC_OSX_u4E0B" class="headerlink" title="MAC OSX下"></a>MAC OSX下</h1><p>在MAC下因为没有像win下那样的tree命令。使用原生的终端（Terminal）的话只能运行 ls &gt; ~/MacX.txt生成的结果如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Wallys-MacBook-Pro:~ Wally$ ls</span><br><span class="line"><span class="number">360</span>                        Movies                        no desktop.workflow</span><br><span class="line">Applications                Music                        yes desktop.workflow</span><br><span class="line">Desktop                        My Games                “</span><br><span class="line">Documents                Pictures                快盘</span><br><span class="line">Downloads                Prezi                        发送注册信息</span><br><span class="line">Dropbox                        Public                        百度云同步盘</span><br><span class="line">FILE.txt                Sites</span><br><span class="line">Library                        _desktop.ini</span><br></pre></td></tr></table></figure></p>
+<p>而使用 ls -l 可以列出目录下所有文件的数量：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Wallys-MacBook-Pro:~ Wally$ ls <span class="operator">-l</span></span><br><span class="line">total <span class="number">35576</span></span><br><span class="line">drwxr-xr-x@   <span class="number">9</span> Wally   staff       <span class="number">306</span>  <span class="number">6</span>  <span class="number">3</span>  <span class="number">2014</span> <span class="number">360</span></span><br><span class="line">drwxr-xr-x    <span class="number">6</span> Wally   admin       <span class="number">204</span>  <span class="number">7</span> <span class="number">17</span>  <span class="number">2014</span> Applications</span><br><span class="line">drwxr-xr-x   <span class="number">65</span> Wally   admin      <span class="number">2210</span>  <span class="number">1</span> <span class="number">21</span> <span class="number">11</span>:<span class="number">01</span> Desktop</span><br><span class="line">drwx——  <span class="number">314</span> Wally   admin     <span class="number">10676</span>  <span class="number">1</span> <span class="number">12</span> <span class="number">11</span>:<span class="number">00</span> Documents</span><br><span class="line">drwx—r-x  <span class="number">378</span> Wally   admin     <span class="number">12852</span>  <span class="number">1</span> <span class="number">21</span> <span class="number">10</span>:<span class="number">47</span> Downloads</span><br><span class="line">drwx——@   <span class="number">9</span> Wally   staff       <span class="number">306</span> <span class="number">10</span>  <span class="number">9</span> <span class="number">11</span>:<span class="number">35</span> Dropbox</span><br><span class="line">-rw-r–r–    <span class="number">1</span> Wally   staff  <span class="number">18206720</span>  <span class="number">1</span> <span class="number">20</span> <span class="number">15</span>:<span class="number">57</span> FILE.txt</span><br><span class="line">drwx——  <span class="number">135</span> Wally   admin      <span class="number">4590</span>  <span class="number">1</span> <span class="number">20</span> <span class="number">15</span>:<span class="number">10</span> Library</span><br><span class="line">drwxrwxrwx   <span class="number">48</span> Wally   admin      <span class="number">1632</span>  <span class="number">1</span> <span class="number">20</span> <span class="number">10</span>:<span class="number">28</span> Movies</span><br><span class="line">drwx——   <span class="number">17</span> Wally   admin       <span class="number">578</span> <span class="number">10</span> <span class="number">10</span> <span class="number">22</span>:<span class="number">32</span> Music</span><br><span class="line">drwxr-xr-x    <span class="number">3</span> Wally   staff       <span class="number">102</span> <span class="number">12</span> <span class="number">20</span> <span class="number">12</span>:<span class="number">31</span> My Games</span><br><span class="line">drwx——  <span class="number">342</span> Wally   admin     <span class="number">11628</span>  <span class="number">1</span>  <span class="number">4</span> <span class="number">10</span>:<span class="number">59</span> Pictures</span><br><span class="line">drwx-wxr-x    <span class="number">4</span> Wally   staff       <span class="number">136</span>  <span class="number">1</span> <span class="number">20</span> <span class="number">10</span>:<span class="number">33</span> Prezi</span><br><span class="line">drwx—rwx    <span class="number">9</span> Wally   admin       <span class="number">306</span> <span class="number">12</span>  <span class="number">3</span> <span class="number">15</span>:<span class="number">04</span> Public</span><br><span class="line">drwxr-xr-x    <span class="number">6</span> Wally   admin       <span class="number">204</span>  <span class="number">4</span>  <span class="number">5</span>  <span class="number">2010</span> Sites</span><br><span class="line">-rw-r–r–@   <span class="number">1</span> nobody  staff        <span class="number">10</span> <span class="number">11</span> <span class="number">27</span>  <span class="number">2010</span> _desktop.ini</span><br><span class="line">drwxr-xr-x@   <span class="number">3</span> Wally   admin       <span class="number">102</span>  <span class="number">7</span> <span class="number">31</span>  <span class="number">2012</span> no desktop.workflow</span><br><span class="line">drwxr-xr-x@   <span class="number">3</span> Wally   admin       <span class="number">102</span>  <span class="number">7</span> <span class="number">31</span>  <span class="number">2012</span> yes desktop.workflow</span><br><span class="line">drwxr-xr-x    <span class="number">3</span> Wally   staff       <span class="number">102</span>  <span class="number">1</span>  <span class="number">1</span> <span class="number">17</span>:<span class="number">17</span> “</span><br><span class="line">drwxr-xr-x   <span class="number">21</span> Wally   admin       <span class="number">714</span>  <span class="number">5</span>  <span class="number">5</span>  <span class="number">2014</span> 快盘</span><br></pre></td></tr></table></figure></p>
+<p>而使用 ls -lR 则会展开所有子文件夹。<br>另外如果要生成下面这样的目录树结构应该怎么做呢？<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">|—书籍</span><br><span class="line">|—图片</span><br><span class="line">|—–mustang</span><br><span class="line">|—–默认相册</span><br><span class="line">|—文档</span><br><span class="line">|—视频</span><br><span class="line">|—音乐</span><br><span class="line">|-Applications</span><br><span class="line">|—Akamai</span><br><span class="line">|—CrossOver</span><br><span class="line">|—–ScottradeELITE</span><br></pre></td></tr></table></figure></p>
+<p>你需要先进入到需要列出的文件夹, 使用 cd 命令. 然后完整粘贴下面这条命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -R | grep “:$” | sed <span class="operator">-e</span> ‘s/:$//‘ <span class="operator">-e</span> ‘s/[^-][^\/]*\//–/g’ <span class="operator">-e</span> ‘s/^/ /‘ <span class="operator">-e</span> ‘s/-/|/‘</span><br></pre></td></tr></table></figure></p>
+<p>如果要生成像Win下一样的目录树结构，则必须安装tree。安装命令以及使用结果如下图（具体请自测）：<br><img src="http://images.macx.cn/forum/201502/06/100212khkhwagshhxg2hpv.png" alt="效果图"><br>——————————————————————————华丽丽的分割线—————————————————————————<br>另外从一个博客看到下面的方法。作为借鉴：<br>在Mac OSX 系统默认是没有类似windows中的 tree命令，找到一条比较有意思的命令可以实现：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -print | sed <span class="operator">-e</span> <span class="string">'s;[^/]*/;|____;g;s;____|; |;g'</span></span><br></pre></td></tr></table></figure></p>
+<p>命令执行后的效果如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">.</span><br><span class="line"></span><br><span class="line">|__.classpath</span><br><span class="line"></span><br><span class="line">|__.project</span><br><span class="line"></span><br><span class="line">|____bin</span><br><span class="line"></span><br><span class="line">| |____com</span><br><span class="line"></span><br><span class="line">| | |____micmiu</span><br><span class="line"></span><br><span class="line">| |____simple.idl</span><br><span class="line"></span><br><span class="line">|____src</span><br><span class="line"></span><br><span class="line">| |____com</span><br><span class="line"></span><br><span class="line">| | |____micmiu</span><br><span class="line"></span><br><span class="line">| |____simple.idl</span><br></pre></td></tr></table></figure></p>
+<p>为了方便使用，写一个alias 到~/.profile里:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> tree=<span class="string">"find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"</span></span><br></pre></td></tr></table></figure></p>
+<p>本文介绍到此结束<a href="http://www.micmiu.com/" target="_blank" rel="external">@Michael Sun</a>.<br>原创文章，转载请注明： 转载自micmiu – 软件开发+生活点滴[ <a href="http://www.micmiu.com/" target="_blank" rel="external">http://www.micmiu.com/</a> ]<br>本文链接地址: <a href="http://www.micmiu.com/os/mac/mac-osx-cmd-tree/" target="_blank" rel="external">http://www.micmiu.com/os/mac/mac-osx-cmd-tree/</a></p>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CMD/" rel="tag">#CMD</a>
+          
+            <a href="/tags/Tree/" rel="tag">#Tree</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/01/22/PT站大全-我个人主要是混交大葡萄的/" rel="next" title="PT站大全--我个人主要是混交大葡萄的">
+                <i class="fa fa-chevron-left"></i> PT站大全--我个人主要是混交大葡萄的
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/01/22/Beyond-Compare-4-for-Mac-无限试用版/" rel="prev" title="Beyond Compare 4 for Mac 无限试用版">
+                Beyond Compare 4 for Mac 无限试用版 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/01/22/Windows-和-MAC-下生成目录树文档/"
+     data-title="Windows 和 MAC 下生成目录树文档"
+     data-content=""
+     data-url="http://normalhh.com/2016/01/22/Windows-和-MAC-下生成目录树文档/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/01/22/Windows-和-MAC-下生成目录树文档/"
+           data-title="Windows 和 MAC 下生成目录树文档" data-url="http://normalhh.com/2016/01/22/Windows-和-MAC-下生成目录树文档/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Normal Chen" />
+          <p class="site-author-name" itemprop="name">Normal Chen</p>
+          <p class="site-description motion-element" itemprop="description">简简单单，普普通通的技术博客</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/rss2.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/normalhh" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/aisiw" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> weibo
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://douban.com/people/normalhh" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> douban
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/normalhh" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> zhihu
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Windows_u4E0B_uFF1A"><span class="nav-number">1.</span> <span class="nav-text">Windows下：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MAC_OSX_u4E0B"><span class="nav-number">2.</span> <span class="nav-text">MAC OSX下</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Normal Chen</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"normalhh"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>

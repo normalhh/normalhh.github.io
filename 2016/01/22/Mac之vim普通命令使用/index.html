@@ -1,0 +1,973 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="MAC,vim," />
+
+
+
+
+
+  <link rel="alternate" href="/rss2.xml" title="Normal’s Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="高级一些的编辑器，都会包含宏功能，vim当然不能缺少了，在vim中使用宏是非常方便的：
+:qx 开始记录宏，并将结果存入寄存器xq 退出记录模式@x 播放记录在x寄存器中的宏命令稍微解释一下，当在normal模式下输入:qx后，你对文本的所有编辑动作将会被记录下来，再次输入q即退出了记录模式，然后输入@x对刚才记录下来的命令进行重复，此命令后可跟数字，表示要重复多少次，比如@x20，可以重复20次">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac之vim普通命令使用">
+<meta property="og:url" content="http://normalhh.com/2016/01/22/Mac之vim普通命令使用/index.html">
+<meta property="og:site_name" content="Normal’s Blog">
+<meta property="og:description" content="高级一些的编辑器，都会包含宏功能，vim当然不能缺少了，在vim中使用宏是非常方便的：
+:qx 开始记录宏，并将结果存入寄存器xq 退出记录模式@x 播放记录在x寄存器中的宏命令稍微解释一下，当在normal模式下输入:qx后，你对文本的所有编辑动作将会被记录下来，再次输入q即退出了记录模式，然后输入@x对刚才记录下来的命令进行重复，此命令后可跟数字，表示要重复多少次，比如@x20，可以重复20次">
+<meta property="og:updated_time" content="2016-01-22T09:21:11.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mac之vim普通命令使用">
+<meta name="twitter:description" content="高级一些的编辑器，都会包含宏功能，vim当然不能缺少了，在vim中使用宏是非常方便的：
+:qx 开始记录宏，并将结果存入寄存器xq 退出记录模式@x 播放记录在x寄存器中的宏命令稍微解释一下，当在normal模式下输入:qx后，你对文本的所有编辑动作将会被记录下来，再次输入q即退出了记录模式，然后输入@x对刚才记录下来的命令进行重复，此命令后可跟数字，表示要重复多少次，比如@x20，可以重复20次">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Mac之vim普通命令使用 | Normal’s Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Normal’s Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">不要让任何理由成为你不去学习的借口！</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+      
+      <li>
+      <a title="把这个链接拖到你的Chrome收藏夹工具栏中" href='javascript:(function() {
+	function c() {
+		var e = document.createElement("link");
+		e.setAttribute("type", "text/css");
+		e.setAttribute("rel", "stylesheet");
+		e.setAttribute("href", f);
+		e.setAttribute("class", l);
+		document.body.appendChild(e)
+	}
+ 
+	function h() {
+		var e = document.getElementsByClassName(l);
+		for (var t = 0; t < e.length; t++) {
+			document.body.removeChild(e[t])
+		}
+	}
+ 
+	function p() {
+		var e = document.createElement("div");
+		e.setAttribute("class", a);
+		document.body.appendChild(e);
+		setTimeout(function() {
+			document.body.removeChild(e)
+		}, 100)
+	}
+ 
+	function d(e) {
+		return {
+			height : e.offsetHeight,
+			width : e.offsetWidth
+		}
+	}
+ 
+	function v(i) {
+		var s = d(i);
+		return s.height > e && s.height < n && s.width > t && s.width < r
+	}
+ 
+	function m(e) {
+		var t = e;
+		var n = 0;
+		while (!!t) {
+			n += t.offsetTop;
+			t = t.offsetParent
+		}
+		return n
+	}
+ 
+	function g() {
+		var e = document.documentElement;
+		if (!!window.innerWidth) {
+			return window.innerHeight
+		} else if (e && !isNaN(e.clientHeight)) {
+			return e.clientHeight
+		}
+		return 0
+	}
+ 
+	function y() {
+		if (window.pageYOffset) {
+			return window.pageYOffset
+		}
+		return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+	}
+ 
+	function E(e) {
+		var t = m(e);
+		return t >= w && t <= b + w
+	}
+ 
+	function S() {
+		var e = document.createElement("audio");
+		e.setAttribute("class", l);
+		e.src = i;
+		e.loop = false;
+		e.addEventListener("canplay", function() {
+			setTimeout(function() {
+				x(k)
+			}, 500);
+			setTimeout(function() {
+				N();
+				p();
+				for (var e = 0; e < O.length; e++) {
+					T(O[e])
+				}
+			}, 15500)
+		}, true);
+		e.addEventListener("ended", function() {
+			N();
+			h()
+		}, true);
+		e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+		document.body.appendChild(e);
+		e.play()
+	}
+ 
+	function x(e) {
+		e.className += " " + s + " " + o
+	}
+ 
+	function T(e) {
+		e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+	}
+ 
+	function N() {
+		var e = document.getElementsByClassName(s);
+		var t = new RegExp("\\b" + s + "\\b");
+		for (var n = 0; n < e.length; ) {
+			e[n].className = e[n].className.replace(t, "")
+		}
+	}
+ 
+	var e = 30;
+	var t = 30;
+	var n = 350;
+	var r = 350;
+	var i = "//101.44.1.121/files/4254000003589B7A/yinyueshiting.baidu.com/data2/music/134379742/1201250291429761661128.mp3";
+	var s = "mw-harlem_shake_me";
+	var o = "im_first";
+	var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+	var a = "mw-strobe_light";
+	var f = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
+	var l = "mw_added_css";
+	var b = g();
+	var w = y();
+	var C = document.getElementsByTagName("*");
+	var k = null;
+	for (var L = 0; L < C.length; L++) {
+		var A = C[L];
+		if (v(A)) {
+			if (E(A)) {
+				k = A;
+				break
+			}
+		}
+	}
+	if (A === null) {
+		console.warn("Could not find a node of the right size. Please try a different page.");
+		return
+	}
+	c();
+	S();
+	var O = [];
+	for (var L = 0; L < C.length; L++) {
+		var A = C[L];
+		if (v(A)) {
+			O.push(A)
+		}
+	}
+})()    '>High一下</a>
+      </li>
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Mac之vim普通命令使用
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-01-22T17:09:43+08:00" content="2016-01-22">
+              2016-01-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/MAC技巧/" itemprop="url" rel="index">
+                    <span itemprop="name">MAC技巧</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/MAC技巧/vim/" itemprop="url" rel="index">
+                    <span itemprop="name">vim</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/22/Mac之vim普通命令使用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/22/Mac之vim普通命令使用/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>高级一些的编辑器，都会包含宏功能，vim当然不能缺少了，在vim中使用宏是非常方便的：</p>
+<p>:qx 开始记录宏，并将结果存入寄存器x<br>q 退出记录模式<br>@x 播放记录在x寄存器中的宏命令<br>稍微解释一下，当在normal模式下输入:qx后，你对文本的所有编辑动作将会被记录下来，再次输入q即退出了记录模<br>式，然后输入@x对刚才记录下来的命令进行重复，此命令后可跟数字，表示要重复多少次，比如@x20，可以重复20次。这个在文本的批处理中是非常有用的。<br>同时编辑多个文件<br>在vim众多的插件中，有一个叫minibuffer的插件，就是下面所说的标签页功能了，可以支持同时编辑多个文件。</p>
+<h1 id="u6807_u7B7E_u547D_u4EE4"><a href="#u6807_u7B7E_u547D_u4EE4" class="headerlink" title="标签命令"></a>标签命令</h1><p>:tabe fn 在一个新的标签页中编辑文件fn<br>gt 切换到下一个标签页<br>gT 切换到上一个标签页<br>:tabr 切换到第一个标签页<br>:tabl 切换到最后一个标签页<br>:tabs [N] 把当前tab移动到第N个tab之后<br>对，正如你所想象的那样，跟eclipse, ue等的标签页是一个意思！</p>
+<h1 id="u7A97_u53E3_u547D_u4EE4"><a href="#u7A97_u53E3_u547D_u4EE4" class="headerlink" title="窗口命令"></a>窗口命令</h1><p>ctrl+w s 水平分割窗口<br>ctrl+w w 切换窗口<br>ctrl+w q 退出当前窗口(由于同时有多个文件，此命令不会影响其他窗口)<br>ctrl+w v 垂直分割窗口</p>
+<h1 id="u5176_u4ED6"><a href="#u5176_u4ED6" class="headerlink" title="其他"></a>其他</h1><p>vim在保存之前不会对文件做实际的修改，只是加载到缓冲区中，对文件的编辑其实是对缓冲区的编辑，直到:w时才会存入物理文件。<br>:e file 把file加载到新的缓冲区中<br>:bn 跳转到下一个缓冲区<br>:bd 删除缓冲区(关闭文件)<br>:sp fn 分割窗口，并将fn加载到新的窗口中</p>
+<h2 id="u9000_u51FA_u7F16_u8F91_u5668"><a href="#u9000_u51FA_u7F16_u8F91_u5668" class="headerlink" title="退出编辑器"></a>退出编辑器</h2><p>:w 将缓冲区写入文件，即保存修改<br>:wq 保存修改并退出<br>:x 保存修改并退出<br>:q 退出，如果对缓冲区进行过修改，则会提示<br>:q! 强制退出，放弃修改</p>
+<h2 id="u67E5_u627E_u66FF_u6362"><a href="#u67E5_u627E_u66FF_u6362" class="headerlink" title="查找替换"></a>查找替换</h2><p>/pattern 向后搜索字符串pattern<br>?pattern 向前搜索字符串pattern<br>n 下一个匹配(如果是/搜索，则是向下的下一个，?搜索则是向上的下一个)<br>N 上一个匹配(同上)<br>:%s/old/new/g 搜索整个文件，将所有的old替换为new<br>:%s/old/new/gc 搜索整个文件，将所有的old替换为new，每次都要你确认是否替换</p>
+<h2 id="u590D_u5236_u7C98_u8D34"><a href="#u590D_u5236_u7C98_u8D34" class="headerlink" title="复制粘贴"></a>复制粘贴</h2><p>dd 删除光标所在行<br>dw 删除一个字(word)<br>x 删除当前字符<br>X 删除前一个字符<br>D 删除到行末<br>yy 复制一行，此命令前可跟数字，标识复制多行，如6yy，表示从当前行开始复制6行<br>yw 复制一个字<br>y$ 复制到行末<br>p 粘贴粘贴板的内容到当前行的下面<br>P 粘贴粘贴板的内容到当前行的上面<br>]p 有缩进的粘贴，vim会自动调节代码的缩进<br>“a 将内容放入/存入a寄存器，可以支持多粘贴板<br>附：比如常用的一个寄存器就是系统寄存器，名称为+，所以从系统粘贴板粘贴到vim中的命令为”+p,注意此处的+不表示操作符，二十一个寄存器。</p>
+<h2 id="u79FB_u52A8_u5149_u6807"><a href="#u79FB_u52A8_u5149_u6807" class="headerlink" title="移动光标"></a>移动光标</h2><p>在vim中移动光标跟其他的编辑器中有很大的区别，不过一旦学会了，就会飞速的在文本中移动了。<br>h,j,k,l 左，下，上，右<br>ctrl-f 上翻一页<br>ctrl-b 下翻一页<br>% 跳到与当前括号匹配的括号处，如当前在{，则跳转到与之匹配的}处<br>w 跳到下一个字首，按标点或单词分割<br>W 跳到下一个字首，长跳，如end-of-line被认为是一个字<br>e 跳到下一个字尾<br>E 跳到下一个字尾，长跳<br>b 跳到上一个字<br>B 跳到上一个字，长跳<br>0 跳至行首，不管有无缩进，就是跳到第0个字符<br>^ 跳至行首的第一个字符<br>$ 跳至行尾<br>gg 跳至文件的第一行<br>gd 跳至当前光标所在的变量的声明处<br>[N]G 跳到第N行，如0G，就等价于gg，100G就是第100行<br>fx 在当前行中找x字符，找到了就跳转至<br>; 重复上一个f命令，而不用重复的输入fx<br>tx 与fx类似，但是只是跳转到x的前一个字符处<br>Fx 跟fx的方向相反<br>),( 跳转到上/下一个语句<br>* 查找光标所在处的单词，向下查找<br># 查找光标所在处的单词，向上查找<br>`. 跳转至上次编辑位置</p>
+<h2 id="u5728_u5C4F_u5E55_u4E0A_u79FB_u52A8"><a href="#u5728_u5C4F_u5E55_u4E0A_u79FB_u52A8" class="headerlink" title="在屏幕上移动"></a>在屏幕上移动</h2><p>H 移动光标到当前屏幕上最上边的一行<br>M 移动光标到当前屏幕上中间的一行<br>L 移动光标到当前屏幕上最下边的一行</p>
+<h2 id="u4E66_u7B7E"><a href="#u4E66_u7B7E" class="headerlink" title="书签"></a>书签</h2><p>ma 把当前位置存成标签a<br>`a 跳转到标签a处</p>
+<h2 id="u7F16_u8F91"><a href="#u7F16_u8F91" class="headerlink" title="编辑"></a>编辑</h2><p>r 替换一个字符<br>J 将下一行和当前行连接为一行<br>cc 删除当前行并进入编辑模式<br>cw 删除当前字，并进入编辑模式<br>c$ 擦除从当前位置至行末的内容，并进入编辑模式<br>s 删除当前字符并进入编辑模式<br>S 删除光标所在行并进入编辑模式<br>xp 交换当前字符和下一个字符<br>u 撤销<br>ctrl+r 重做<br>. 重复上一个编辑命令<br>~ 切换大小写，当前字符<br>g~iw 切换当前字的大小写<br>gUiw 将当前字变成大写<br>guiw 将当前字变成小写<br>>&gt; 将当前行右移一个单位<br>&lt;&lt; 将当前行左移一个单位(一个tab符)<br>== 自动缩进当前行</p>
+<h1 id="u63D2_u5165_u6A21_u5F0F"><a href="#u63D2_u5165_u6A21_u5F0F" class="headerlink" title="插入模式"></a>插入模式</h1><p>i 从当前光标处进入插入模式<br>I 进入插入模式，并置光标于行首<br>a 追加模式，置光标于当前光标之后<br>A 追加模式，置光标于行末<br>o 在当前行之下新加一行，并进入插入模式<br>O 在当前行之上新加一行，并进入插入模式<br>Esc 退出插入模式</p>
+<h1 id="u53EF_u89C6_u6A21_u5F0F"><a href="#u53EF_u89C6_u6A21_u5F0F" class="headerlink" title="可视模式"></a>可视模式</h1><h2 id="u6807_u8BB0_u6587_u672C"><a href="#u6807_u8BB0_u6587_u672C" class="headerlink" title="标记文本"></a>标记文本</h2><p>v 进入可视模式，单字符模式<br>V 进入可视模式，行模式<br>ctrl+v 进入可视模式，列模式，类似于UE的列模式<br>o 跳转光标到选中块的另一个端点<br>U 将选中块中的内容转成大写<br>O 跳转光标到块的另一个端点<br>aw 选中一个字<br>ab 选中括号中的所有内容，包括括号本身<br>aB 选中{}括号中的所有内容<br>ib 选中括号中的内容，不含括号<br>iB 选中{}中的内容，不含{}</p>
+<h2 id="u5BF9_u6807_u8BB0_u8FDB_u884C_u52A8_u4F5C"><a href="#u5BF9_u6807_u8BB0_u8FDB_u884C_u52A8_u4F5C" class="headerlink" title="对标记进行动作"></a>对标记进行动作</h2><p>> 块右移<br>&lt; 块左移<br>y 复制块<br>d 删除块<br>~ 切换块中内容的大小写 </p>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MAC/" rel="tag">#MAC</a>
+          
+            <a href="/tags/vim/" rel="tag">#vim</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/01/22/加速Android-Studio-Gradle构建/" rel="next" title="加速Android Studio/Gradle构建">
+                <i class="fa fa-chevron-left"></i> 加速Android Studio/Gradle构建
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/01/22/【转载】教你制作完美的Favicon图标(附神器)/" rel="prev" title="【转载】教你制作完美的Favicon图标(附神器)">
+                【转载】教你制作完美的Favicon图标(附神器) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/01/22/Mac之vim普通命令使用/"
+     data-title="Mac之vim普通命令使用"
+     data-content=""
+     data-url="http://normalhh.com/2016/01/22/Mac之vim普通命令使用/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/01/22/Mac之vim普通命令使用/"
+           data-title="Mac之vim普通命令使用" data-url="http://normalhh.com/2016/01/22/Mac之vim普通命令使用/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Normal Chen" />
+          <p class="site-author-name" itemprop="name">Normal Chen</p>
+          <p class="site-description motion-element" itemprop="description">简简单单，普普通通的技术博客</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/rss2.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/normalhh" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/aisiw" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> weibo
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://douban.com/people/normalhh" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> douban
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/normalhh" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> zhihu
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u6807_u7B7E_u547D_u4EE4"><span class="nav-number">1.</span> <span class="nav-text">标签命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u7A97_u53E3_u547D_u4EE4"><span class="nav-number">2.</span> <span class="nav-text">窗口命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u5176_u4ED6"><span class="nav-number">3.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u9000_u51FA_u7F16_u8F91_u5668"><span class="nav-number">3.1.</span> <span class="nav-text">退出编辑器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u67E5_u627E_u66FF_u6362"><span class="nav-number">3.2.</span> <span class="nav-text">查找替换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u590D_u5236_u7C98_u8D34"><span class="nav-number">3.3.</span> <span class="nav-text">复制粘贴</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u79FB_u52A8_u5149_u6807"><span class="nav-number">3.4.</span> <span class="nav-text">移动光标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5728_u5C4F_u5E55_u4E0A_u79FB_u52A8"><span class="nav-number">3.5.</span> <span class="nav-text">在屏幕上移动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4E66_u7B7E"><span class="nav-number">3.6.</span> <span class="nav-text">书签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u7F16_u8F91"><span class="nav-number">3.7.</span> <span class="nav-text">编辑</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u63D2_u5165_u6A21_u5F0F"><span class="nav-number">4.</span> <span class="nav-text">插入模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u53EF_u89C6_u6A21_u5F0F"><span class="nav-number">5.</span> <span class="nav-text">可视模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u6807_u8BB0_u6587_u672C"><span class="nav-number">5.1.</span> <span class="nav-text">标记文本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5BF9_u6807_u8BB0_u8FDB_u884C_u52A8_u4F5C"><span class="nav-number">5.2.</span> <span class="nav-text">对标记进行动作</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Normal Chen</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"normalhh"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>
