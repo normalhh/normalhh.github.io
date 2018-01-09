@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.0.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.0" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Jason, Android" />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Jason's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="简简单单，普普通通的技术博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="about">
+<meta property="og:url" content="https://normalhh.com/about/index.html">
+<meta property="og:site_name" content="Jason&#39;s Blog">
+<meta property="og:description" content="简简单单，普普通通的技术博客">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-02-21T09:43:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="about">
+<meta name="twitter:description" content="简简单单，普普通通的技术博客">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.0.0',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://normalhh.com/about/"/>
+
+
+
+
+
+  <title>用Android Studio和Gradle构建项目实现极少配置打包APK文件 | Jason's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jason's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不要让任何理由成为你不去学习的借口！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+
+            
+              首页
+            
+
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+
+            
+              关于
+            
+
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+
+            
+              标签
+            
+
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+
+            
+              分类
+            
+
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+
+            
+              归档
+            
+
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://normalhh.com/2017/01/11/用Android-Studio和Gradle构建项目实现极少配置打包APK文件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jason Chen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jason's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">用Android Studio和Gradle构建项目实现极少配置打包APK文件</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-11T16:43:08+08:00">2017-01-11</time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Andriod/" itemprop="url" rel="index">
+                    <span itemprop="name">Andriod</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Andriod/Code/" itemprop="url" rel="index">
+                    <span itemprop="name">Code</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/01/11/用Android-Studio和Gradle构建项目实现极少配置打包APK文件/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/01/11/用Android-Studio和Gradle构建项目实现极少配置打包APK文件/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近因为公司与太保合作的一个项目，本身使用的是一个已有项目的源码直接修改进行开发的，当时那个已有项目是用Eclipse构建的，后来在集成太保推送SDK的时候，对方要求在不同的环境使用不同的ApplicationId,也就相当于Eclipse里的packageName，但是在Gradle构建的Android项目中，packageName与ApplicationId是两个不同的概念。为了达到上面的要求，首先我将Eclipse构建的项目迁移到Android Studio中，这个工作量对我来说也算挺大的了，因为整个项目有多个依赖类库，造成了改造的时候依赖的各种混乱。种种恶心的问题不一而足，就不在这里细说了。下面单单说一下如何达成在不同的环境使用不同的ApplicationId进行打包，并达到成功获取推送信息的目的。</p>
+<p>首先要将Project Structure中创建3个Signing配置，如下图所示：<br><img src="https://ww1.sinaimg.cn/large/006tKfTcgw1fbmsopwgoxj316c0d40tf.jpg" alt=""><br>其中debug可以不用配置，但为了方便我还是配了一下，另外两个Sit和Release两个我配的都是使用生产的签名文件，为了让用户测试方便。<br>之后在Flavors标签中添加两个配置，如图所示：<br><img src="https://ww2.sinaimg.cn/large/006tKfTcjw1fbn3fsuor8j31420ncabi.jpg" alt=""><br>其中图片中显示的<code>Unrecognized value</code>，这个等一下再解释，添加好之后什么都不用修改进入下一个标签页Build Types，同样的Buid Type我们也添加两个新的配置，把每一个配置修改一下，debug中的配置如图：<br><img src="https://ww1.sinaimg.cn/large/006tKfTcgw1fbmswgmebzj314u0p40u2.jpg" alt=""><br>Debuggable是指打包的应用是否支持Debug，<br>Jni Debuggable是指打包的应用是否支持Native方法Debug，我这里都是false，因为我只是集成了一些so文件，并不需要调试Native的方法<br>Signing Config就用到了我们刚刚创建的签名配置，下拉菜单中也是可以看到的，这里debug我就使用的deubg的配置，sit使用sit的签名配置，release使用release的签名配置。<br>接下来就是重点了：那好笔和纸，做好笔记哟。</p>
+<p><strong>打开Project根目录下的build.gradle文件</strong>，最上面添加一条<code>apply from: &quot;config.gradle&quot;</code>，表示可以接受在config.gradle文件中的配置的参数数据。接着在Project根目录下添加config.gradle文件，这个就是我们需要使用的配置信息所在的文件了。下面贴出来我的Project中的config.gradle文件的源码，以免会有遗漏的东西导致出问题：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">apply <span class="string">from:</span> <span class="string">"config.gradle"</span></span><br><span class="line"></span><br><span class="line">buildscript &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        jcenter()</span><br><span class="line">        maven &#123;</span><br><span class="line">            url <span class="string">"https://plugins.gradle.org/m2/"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    dependencies &#123;</span><br><span class="line">        classpath <span class="string">'com.android.tools.build:gradle:2.2.3'</span></span><br><span class="line">        classpath <span class="string">"com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3"</span></span><br><span class="line">        <span class="comment">// <span class="doctag">NOTE:</span> Do not place your application dependencies here; they belong</span></span><br><span class="line">        <span class="comment">// in the individual module build.gradle files</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">allprojects &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        jcenter()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">task clean(<span class="string">type:</span> Delete) &#123;</span><br><span class="line">    delete rootProject.buildDir</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接下来配置项目主要Module中的build.config文件，<br><img src="https://ww1.sinaimg.cn/large/006tKfTcgw1fbn407gwk4j31720gugn1.jpg" alt=""><br>上图中可以很清楚的了解到这3项内容就是我们在Project Structure中的signing标签页所创建的配置。所以在这里不再细说了。<br>然后看buildTypes，这里面有三个配置也是我们当时创建好的。但是为了多渠道打包方便，这里需要做一些改造。</p>
+<ol>
+<li><code>buildConfigField &quot;boolean&quot;, &quot;LOG_DEBUG&quot;, &quot;true&quot;</code>这句话是在BuildConfig文件中添加一个布尔值参数，名称为“LOG_DEBUG”，值为“true”，BuildConfig是在每一次编译项目的时候都会自动生成的一个java类，通过这里的配置，我们可以向这个java类中增加我们需要的变量。下面两条类似，主要是为了规定当前配置下，所使用的SERVERURL的地址。这样配置完之后，Sync一下Gradle脚本，我们就可以在项目中直接引用这个变量了。例如：<br><img src="https://ww3.sinaimg.cn/large/006tKfTcgw1fbn4g4foeaj30s205qt9b.jpg" alt=""><br>在改造过程中，为了不影响项目业务逻辑中所写的代码，所以只是替换了Constants这个类中的配置信息。这样我只需要一套配置信息就可以了，在不同的打包模式下，会自动修改替换BuildConfig中的对应变量的值。从而达到零修改多渠道打包的目的。<br>2.<br><img src="https://ww1.sinaimg.cn/large/006tKfTcgw1fbn44r4lrcj31iu128tf2.jpg" alt=""><br>而在上一张图中可以看到有这样一个值<code>rootProject.ext.android.devServerUrl</code>，这个其实就是我们引用的项目根目录下的config.gradle文件中配置的变量值。config.gradle文件中是这样的：</li>
+</ol>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">ext &#123;</span><br><span class="line">    android = [<span class="string">compileSdkVersion:</span> <span class="number">22</span>,</span><br><span class="line"><span class="symbol">               buildToolsVersion:</span> <span class="string">"25.0.2"</span>,</span><br><span class="line">               <span class="string">sitApplicationId    :</span> <span class="string">"com.cpic.sit"</span>,</span><br><span class="line">               <span class="string">proApplicationId    :</span> <span class="string">"com.cpic.pro"</span>,</span><br><span class="line">               <span class="string">minSdkVersion    :</span> <span class="number">16</span>,</span><br><span class="line">               <span class="string">targetSdkVersion :</span> <span class="number">22</span>,</span><br><span class="line"><span class="symbol">               versionCode:</span> <span class="number">1</span>,</span><br><span class="line"><span class="symbol">               sitVersionName:</span> <span class="string">"1.0.8"</span>,</span><br><span class="line"><span class="symbol">               proVersionName:</span> <span class="string">"1.0.1"</span>,</span><br><span class="line"><span class="symbol">               devServerUrl:</span> <span class="string">"\"https://dev.cpic.com.cn/dev/\""</span>,</span><br><span class="line"><span class="symbol">               sitServerUrl:</span> <span class="string">"\"https://sit.cpic.com.cn/sit/\""</span>,</span><br><span class="line"><span class="symbol">               proServerUrl:</span> <span class="string">"\"https://pro.cpic.com.cn/pro/\""</span>,</span><br><span class="line"><span class="symbol">               devAPIUrl:</span> <span class="string">"\"https://dev.cpic.com.cn/dev-http/\""</span>,</span><br><span class="line"><span class="symbol">               sitAPIUrl:</span> <span class="string">"\"https://sit.cpic.com.cn/sit-http/\""</span>,</span><br><span class="line"><span class="symbol">               proAPIUrl:</span> <span class="string">"\"https://pro.cpic.com.cn/pro-http/\""</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>为了方便打包，我将本来是写在项目的Constants类中的url地址配在了config.gradle文件里。名称也根据环境的不同做了区分，分别加上了dev/sit/pro的前缀。我们在打包配置文件中引用的时候直接通过rootProject.ext.android.devServerUrl就可以取到这里的值了。<code>signingConfig signingConfigs.debug</code>这句就是使用Signing中的debug配置，所以在打debug包的时候就使用这个语句配置，打sit包使用<code>signingConfig signingConfigs.sit</code>进行配置，打生产包的时候<code>signingConfig signingConfigs.release</code>进行配置，很好理解。<br>上图中还有一个manifestPlaceholders的参数，这个参数后面的中括号中带了一堆的值，这个参数的作用是替换在AndroidManifest文件中所指定的参数的值，举个例子：<code>JPUSH_CHANNEL_VALUE: &quot;pro&quot;</code>就表示用“pro”替换AndroidManifest中以“JPUSH_CHANNEL_VALUE”为参数的值。而在清单文件中，我们有一项极光推送的配置是这样写的：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta-data</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:name</span>=<span class="string">"JPUSH_CHANNEL"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:value</span>=<span class="string">"$&#123;JPUSH_CHANNEL_VALUE&#125;"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>所以，你可以知道，我们就是要将android:value=的值替换成”pro”。同样的我们又增加了一个<code>THE_APPLICATION_ID: rootProject.ext.android.sitApplicationId</code>这样的参数，这个参数引用了config.gradle配置文件中的sitApplicationId。这里替换的就比较多了，在清单文件中一共有6处需要做这样的替换，</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">permission</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:name</span>=<span class="string">"$&#123;THE_APPLICATION_ID&#125;.permission.JPUSH_MESSAGE"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:protectionLevel</span>=<span class="string">"signature"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"$&#123;THE_APPLICATION_ID&#125;.permission.JPUSH_MESSAGE"</span>/&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">&lt;!-- 极光推送 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">activity</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:name</span>=<span class="string">"cn.jpush.android.ui.PushActivity"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:configChanges</span>=<span class="string">"orientation|keyboardHidden"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:exported</span>=<span class="string">"false"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:theme</span>=<span class="string">"@android:style/Theme.NoTitleBar"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:windowSoftInputMode</span>=<span class="string">"adjustPan"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"cn.jpush.android.ui.PushActivity"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.DEFAULT"</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"$&#123;THE_APPLICATION_ID&#125;"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Required SDK 核心功能 since 1.8.0 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">service</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:name</span>=<span class="string">"cn.jpush.android.service.DaemonService"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:enabled</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:exported</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"cn.jpush.android.intent.DaemonService"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"$&#123;THE_APPLICATION_ID&#125;"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">service</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- Required SDK核心功能 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">receiver</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:name</span>=<span class="string">"cn.jpush.android.service.PushReceiver"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:enabled</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:exported</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">intent-filter</span> <span class="attr">android:priority</span>=<span class="string">"1000"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY"</span>/&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- Required 显示通知栏 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"$&#123;THE_APPLICATION_ID&#125;"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.USER_PRESENT"</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.net.conn.CONNECTIVITY_CHANGE"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- Optional --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.PACKAGE_ADDED"</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.PACKAGE_REMOVED"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">data</span> <span class="attr">android:scheme</span>=<span class="string">"package"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">receiver</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- Required SDK核心功能 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">receiver</span> <span class="attr">android:name</span>=<span class="string">"cn.jpush.android.service.AlarmReceiver"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- User defined. 用户自定义的广播接收器 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">receiver</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:name</span>=<span class="string">".push.MyReceiver"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:enabled</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"cn.jpush.android.intent.REGISTRATION"</span>/&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- Required 用户注册SDK的intent --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"cn.jpush.android.intent.MESSAGE_RECEIVED"</span>/&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- Required 用户接收SDK消息的intent --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"cn.jpush.android.intent.NOTIFICATION_RECEIVED"</span>/&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- Required 用户接收SDK通知栏信息的intent --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"cn.jpush.android.intent.NOTIFICATION_OPENED"</span>/&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- Required 用户打开自定义通知栏的intent --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK"</span>/&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- Optional 用户接受Rich Push Javascript 回调函数的intent --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"cn.jpush.android.intent.CONNECTION"</span>/&gt;</span></span><br><span class="line">      <span class="comment">&lt;!--  --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY"</span>/&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 接收网络变化 连接/断开 since 1.6.3 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"$&#123;THE_APPLICATION_ID&#125;"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">receiver</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>对应的极光推送所需要的APP_KEY的值，我们也可以这样替换，以及百度推送的MyPushKey和env的值也是这样的</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Required . Enable it you can get statistics data with channel --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta-data</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:name</span>=<span class="string">"JPUSH_CHANNEL"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:value</span>=<span class="string">"$&#123;JPUSH_CHANNEL_VALUE&#125;"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta-data</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:name</span>=<span class="string">"JPUSH_APPKEY"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:value</span>=<span class="string">"$&#123;JPUSH_APPKEY_VALUE&#125;"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- &lt;/&gt;值来自开发者平台取得的AppKey --&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 百度推送 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- push应用定义消息receiver声明 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">receiver</span> <span class="attr">android:name</span>=<span class="string">".push.MyPushMessageReceiver"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">&lt;!-- 接收push消息 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"com.baidu.android.pushservice.action.MESSAGE"</span>/&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 接收bind,unbind,fetch,delete等反馈消息 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"com.baidu.android.pushservice.action.RECEIVE"</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"com.baidu.android.pushservice.action.notification.CLICK"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">receiver</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">receiver</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:name</span>=<span class="string">"com.baidu.android.pushservice.PushServiceReceiver"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:process</span>=<span class="string">":bdservice_v1"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.BOOT_COMPLETED"</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.net.conn.CONNECTIVITY_CHANGE"</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"com.baidu.android.pushservice.action.notification.SHOW"</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"com.baidu.android.pushservice.action.media.CLICK"</span>/&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 以下四项为可选的action声明，可大大提高service存活率和消息到达速度 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.MEDIA_MOUNTED"</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.USER_PRESENT"</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.ACTION_POWER_CONNECTED"</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.ACTION_POWER_DISCONNECTED"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">receiver</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Push服务接收客户端发送的各种请求 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">receiver</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:name</span>=<span class="string">"com.baidu.android.pushservice.RegistrationReceiver"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:process</span>=<span class="string">":bdservice_v1"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"com.baidu.android.pushservice.action.METHOD"</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"com.baidu.android.pushservice.action.BIND_SYNC"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.PACKAGE_REMOVED"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">data</span> <span class="attr">android:scheme</span>=<span class="string">"package"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">receiver</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">service</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:name</span>=<span class="string">"com.baidu.android.pushservice.PushService"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:exported</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:process</span>=<span class="string">":bdservice_v1"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"com.baidu.android.pushservice.action.PUSH_SERVICE"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">service</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 4.4版本新增的CommandService声明，提升小米和魅族手机上的实际推送到达率 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">service</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:name</span>=<span class="string">"com.baidu.android.pushservice.CommandService"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:exported</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 在百度开发者中心查询应用的API Key --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta-data</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:name</span>=<span class="string">"api_key"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:value</span>=<span class="string">"DzifCKe1j4NYwD0X3LvBrIpF"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- appCode --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta-data</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:name</span>=<span class="string">"MyPushKey"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:value</span>=<span class="string">"$&#123;BAIDU_APPCODE_VALUE&#125;"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta-data</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:name</span>=<span class="string">"env"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:value</span>=<span class="string">"$&#123;ENV_VALUE&#125;"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- push结束 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">service</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:name</span>=<span class="string">"com.example.mysdk.service.ReceiptService"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:enabled</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:exported</span>=<span class="string">"false"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">service</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:name</span>=<span class="string">".service.CpicPushService"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:enabled</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:exported</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">service</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">receiver</span> <span class="attr">android:name</span>=<span class="string">".common.UpdateReceiver"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这样才能在打包的时候，节省我们大量的重复劳动</p>
+<ol>
+<li>之后就是打包渠道的配置了，打包渠道就是在ProjectStructure中Flavors标签页按照正常来讲，会有各大应用市场的渠道要配置，比如360，应用宝，谷歌play，豆瓣等等。然而我们现在只讨论区分各个环境所应该使用的配置，因此我这里的配置是这样写的</li>
+</ol>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">productFlavors &#123;</span><br><span class="line">   sitConfig &#123;</span><br><span class="line">       applicationId rootProject.ext.android.sitApplicationId</span><br><span class="line">       minSdkVersion rootProject.ext.android.minSdkVersion</span><br><span class="line">       targetSdkVersion rootProject.ext.android.maxSdkVersion</span><br><span class="line">       versionName rootProject.ext.android.sitVersionName</span><br><span class="line">       versionCode rootProject.ext.android.versionCode</span><br><span class="line">       <span class="comment">// dex突破65535的限制</span></span><br><span class="line">       multiDexEnabled <span class="literal">true</span></span><br><span class="line">   &#125;</span><br><span class="line">   proConfig &#123;</span><br><span class="line">       applicationId rootProject.ext.android.proApplicationId</span><br><span class="line">       minSdkVersion rootProject.ext.android.minSdkVersion</span><br><span class="line">       targetSdkVersion rootProject.ext.android.maxSdkVersion</span><br><span class="line">       versionName rootProject.ext.android.proVersionName</span><br><span class="line">       versionCode rootProject.ext.android.versionCode</span><br><span class="line">       <span class="comment">// dex突破65535的限制</span></span><br><span class="line">       multiDexEnabled <span class="literal">true</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因为我们全部引用的是config.gradle文件中的配置信息，所以导致我们的Android Studio无法识别到这些参数的值，因此才会有上面的<code>Unrecognized value</code>的情况出现。</p>
+<ol>
+<li>最后就是打包的APK文件名的生成规则，这里我就用的很简单的规则去生成了，你们也可以研究一下更加复杂的生成规则，具体的内容我也不细讲了，直接贴出来源码</li>
+</ol>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//修改生成的apk名字</span></span><br><span class="line">applicationVariants.all&#123; variant-&gt;</span><br><span class="line">   variant.outputs.each &#123; output-&gt;</span><br><span class="line">       <span class="keyword">def</span> oldFile = output.outputFile</span><br><span class="line">       <span class="keyword">def</span> newName = <span class="string">''</span>;</span><br><span class="line">       <span class="keyword">if</span>(variant.buildType.name.equals(<span class="string">'release'</span>))&#123;</span><br><span class="line"><span class="comment">//                println(variant.productFlavors[0].name)</span></span><br><span class="line">           <span class="keyword">def</span> releaseApkName = <span class="string">'pro-'</span> + rootProject.ext.android.proVersionName + <span class="string">'-'</span> + variant.buildType.name +<span class="string">'.apk'</span></span><br><span class="line">           output.outputFile = <span class="keyword">new</span> File(oldFile.parent, releaseApkName)</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">if</span>(variant.buildType.name.equals(<span class="string">'sit'</span>))&#123;</span><br><span class="line">           newName = <span class="string">'sit-'</span> + rootProject.ext.android.sitVersionName + <span class="string">'-'</span> + variant.buildType.name +<span class="string">'.apk'</span></span><br><span class="line">           output.outputFile = <span class="keyword">new</span> File(oldFile.parent, newName)</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em><strong>注：以上Module配置文件的代码全部都要写在<code>android {</code>里面才不会报错。</strong></em></p>
+<p>下面就可以检验我们配置的成果了：<br><img src="https://ww4.sinaimg.cn/large/006tKfTcjw1fbn5xwnwuzj30fy0hkwfb.jpg" alt=""><br>选择需要的打包方式<br><img src="https://ww4.sinaimg.cn/large/006tKfTcjw1fbn5z1974vj30oe0gi74u.jpg" alt=""><br>选择需要打包的渠道<br><img src="https://ww1.sinaimg.cn/large/006tKfTcjw1fbn5yflmwdj30ow0gy74v.jpg" alt=""></p>
+<p>这样打包一次只会打包单一渠道的。如果想要一次性打包多渠道，可以参考网上的教程折腾一下。<br>以上内容均为本博主个人劳动创作，转载请注明出处，谢谢！</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Jason Chen 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="Jason Chen 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Jason Chen
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://normalhh.com/2017/01/11/用Android-Studio和Gradle构建项目实现极少配置打包APK文件/" title="用Android Studio和Gradle构建项目实现极少配置打包APK文件">https://normalhh.com/2017/01/11/用Android-Studio和Gradle构建项目实现极少配置打包APK文件/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/Gradle/" rel="tag"># Gradle</a>
+          
+            <a href="/tags/打包/" rel="tag"># 打包</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/06/Webview自定义缓存网页加载的图片资源/" rel="next" title="Webview自定义缓存网页加载的图片资源">
+                <i class="fa fa-chevron-left"></i> Webview自定义缓存网页加载的图片资源
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/21/Beyond Compare4 For Mac无限试用/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Jason Chen" />
+            
+              <p class="site-author-name" itemprop="name">Jason Chen</p>
+              <p class="site-description motion-element" itemprop="description">简简单单，普普通通的技术博客</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/normalhh" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:jinghao_chen@msn.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/Normalchen" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.facebook.com/chennormal" target="_blank" title="Facebook">
+                      
+                        <i class="fa fa-fw fa-facebook"></i>Facebook</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jason Chen</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.0.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.0"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://Normalhh.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://normalhh.com/2017/01/11/用Android-Studio和Gradle构建项目实现极少配置打包APK文件/';
+          this.page.identifier = '2017/01/11/用Android-Studio和Gradle构建项目实现极少配置打包APK文件/';
+          this.page.title = '用Android Studio和Gradle构建项目实现极少配置打包APK文件';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://Normalhh.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=6.0.0"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=6.0.0"></script>
+
+
+  
+
+</body>
+</html>

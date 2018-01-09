@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.0.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.0" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Jason, Android" />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Jason's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="简简单单，普普通通的技术博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="about">
+<meta property="og:url" content="https://normalhh.com/about/index.html">
+<meta property="og:site_name" content="Jason&#39;s Blog">
+<meta property="og:description" content="简简单单，普普通通的技术博客">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-02-21T09:43:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="about">
+<meta name="twitter:description" content="简简单单，普普通通的技术博客">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.0.0',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://normalhh.com/about/"/>
+
+
+
+
+
+  <title>Windows 和 MAC 下生成目录树文档 | Jason's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jason's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不要让任何理由成为你不去学习的借口！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+
+            
+              首页
+            
+
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+
+            
+              关于
+            
+
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+
+            
+              标签
+            
+
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+
+            
+              分类
+            
+
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+
+            
+              归档
+            
+
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+	<h1 class="post-title" itemprop="name headline">Windows 和 MAC 下生成目录树文档</h1>
+
+
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <p>有的时候，我们需要生成打包的文件目录下的所有文件结构以便于展示给别人。<br>将下面的代码复制到txt文档中，把后缀文件名改成bat就可以双击运行了。</p>
+<h1 id="Windows下："><a href="#Windows下：" class="headerlink" title="Windows下："></a>Windows下：</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line">color 2E</span><br><span class="line">MODE con: COLS=40 LINES=20</span><br><span class="line">title %date% %time:~,8%</span><br><span class="line">cls</span><br><span class="line">::================================================================</span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"><span class="built_in">echo</span> 　　BAT当前目录生成很漂亮的结构树-苏</span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"><span class="built_in">echo</span> 　　选 0   拖动任意目录的结构树</span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"><span class="built_in">echo</span> 　　选 1   当前目录的结构树</span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"><span class="built_in">echo</span> 　　选 2   每个下级目录文件</span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"><span class="built_in">echo</span> 　　选 3   当前目录的目录树</span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"><span class="built_in">set</span> /p p=　请选择(0.1.2.3):　</span><br><span class="line"><span class="keyword">if</span> %p%==0 goto XX</span><br><span class="line"><span class="keyword">if</span> %p%==1 goto AA</span><br><span class="line"><span class="keyword">if</span> %p%==2 goto BB</span><br><span class="line"><span class="keyword">if</span> %p%==3 goto CC</span><br><span class="line"></span><br><span class="line">:AA</span><br><span class="line">CLS</span><br><span class="line">rem 在当前目录生成很漂亮的结构树</span><br><span class="line">::当前目录名获取==============</span><br><span class="line"><span class="built_in">set</span> <span class="string">"lj=%~p0"</span></span><br><span class="line"><span class="built_in">set</span> <span class="string">"lj=%lj:\= %"</span></span><br><span class="line"><span class="keyword">for</span> %%a <span class="keyword">in</span> (%lj%) <span class="keyword">do</span> <span class="built_in">set</span> wjj=%%a</span><br><span class="line"><span class="built_in">echo</span> 文件夹是:%wjj%</span><br><span class="line">=================================</span><br><span class="line"></span><br><span class="line">tree /f &gt; <span class="string">"%wjj%目录的结构树.TXT"</span></span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line">=================================</span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line">cls</span><br><span class="line"><span class="built_in">echo</span>　　　 完成，1秒后自动退出……</span><br><span class="line">ping 127.0.0.1 -n 1 -w 1000 &gt; nul</span><br><span class="line">goto out</span><br><span class="line">================================</span><br><span class="line"> </span><br><span class="line">:out</span><br><span class="line">cls</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line"></span><br><span class="line">:BB</span><br><span class="line">CLS</span><br><span class="line">rem 象DIR命令一样,不过每个下级目录文件也列出</span><br><span class="line">::当前目录名获取==============</span><br><span class="line"><span class="built_in">set</span> <span class="string">"lj=%~p0"</span></span><br><span class="line"><span class="built_in">set</span> <span class="string">"lj=%lj:\= %"</span></span><br><span class="line"><span class="keyword">for</span> %%a <span class="keyword">in</span> (%lj%) <span class="keyword">do</span> <span class="built_in">set</span> wjj=%%a</span><br><span class="line"><span class="built_in">echo</span> 文件夹是:%wjj%</span><br><span class="line">=================================</span><br><span class="line"></span><br><span class="line">tree /f &gt; <span class="string">"%wjj%下级目录文件.TXT"</span></span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line">=================================</span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line">cls</span><br><span class="line"><span class="built_in">echo</span>　　　 完成，1秒后自动退出……</span><br><span class="line">ping 127.0.0.1 -n 1 -w 1000 &gt; nul</span><br><span class="line">goto out</span><br><span class="line">================================</span><br><span class="line"> </span><br><span class="line">:out</span><br><span class="line">cls</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line"> </span><br><span class="line">:CC</span><br><span class="line">CLS</span><br><span class="line">rem 简洁地列出目录当前目录文件</span><br><span class="line">::当前目录名获取==============</span><br><span class="line"><span class="built_in">set</span> <span class="string">"lj=%~p0"</span></span><br><span class="line"><span class="built_in">set</span> <span class="string">"lj=%lj:\= %"</span></span><br><span class="line"><span class="keyword">for</span> %%a <span class="keyword">in</span> (%lj%) <span class="keyword">do</span> <span class="built_in">set</span> wjj=%%a</span><br><span class="line"><span class="built_in">echo</span> 文件夹是:%wjj%</span><br><span class="line">=================================</span><br><span class="line"></span><br><span class="line">tree /f &gt; <span class="string">"%wjj%目录的目录树.TXT"</span></span><br><span class="line"></span><br><span class="line">=================================</span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line">cls</span><br><span class="line"><span class="built_in">echo</span>　　　 完成，1秒后自动退出……</span><br><span class="line">ping 127.0.0.1 -n 1 -w 1000 &gt; nul</span><br><span class="line">goto out</span><br><span class="line">================================</span><br><span class="line"> </span><br><span class="line">:out</span><br><span class="line">cls</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line"></span><br><span class="line">=================================</span><br><span class="line">:XX</span><br><span class="line">CLS</span><br><span class="line">rem 象DIR命令一样,不过每个下级目录文件也列出</span><br><span class="line"><span class="built_in">echo</span> 请拖动文件夹到此窗口......</span><br><span class="line"><span class="built_in">echo</span> 拖动文件夹后按确定继续......</span><br><span class="line"><span class="built_in">set</span> /p Tmp=</span><br><span class="line"><span class="built_in">cd</span> /d %Tmp%</span><br><span class="line">tree /f &gt;<span class="string">"%Tmp%目录的结构树.TXT"</span></span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"></span><br><span class="line">=================================</span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line">cls</span><br><span class="line"><span class="built_in">echo</span>　　　 完成，1秒后自动退出……</span><br><span class="line">ping 127.0.0.1 -n 1 -w 1000 &gt; nul</span><br><span class="line">goto out</span><br><span class="line">================================</span><br><span class="line"> </span><br><span class="line">:out</span><br><span class="line">cls</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">==============================</span><br></pre></td></tr></table></figure>
+<h1 id="MAC-OSX下"><a href="#MAC-OSX下" class="headerlink" title="MAC OSX下"></a>MAC OSX下</h1><p>在MAC下因为没有像win下那样的tree命令。使用原生的终端（Terminal）的话只能运行 ls &gt; ~/MacX.txt生成的结果如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Wallys-MacBook-Pro:~ Wally$ ls</span><br><span class="line">360                        Movies                        no desktop.workflow</span><br><span class="line">Applications                Music                        yes desktop.workflow</span><br><span class="line">Desktop                        My Games                “</span><br><span class="line">Documents                Pictures                快盘</span><br><span class="line">Downloads                Prezi                        发送注册信息</span><br><span class="line">Dropbox                        Public                        百度云同步盘</span><br><span class="line">FILE.txt                Sites</span><br><span class="line">Library                        _desktop.ini</span><br></pre></td></tr></table></figure></p>
+<p>而使用 ls -l 可以列出目录下所有文件的数量：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Wallys-MacBook-Pro:~ Wally$ ls -l</span><br><span class="line">total 35576</span><br><span class="line">drwxr-xr-x@   9 Wally   staff       306  6  3  2014 360</span><br><span class="line">drwxr-xr-x    6 Wally   admin       204  7 17  2014 Applications</span><br><span class="line">drwxr-xr-x   65 Wally   admin      2210  1 21 11:01 Desktop</span><br><span class="line">drwx——  314 Wally   admin     10676  1 12 11:00 Documents</span><br><span class="line">drwx—r-x  378 Wally   admin     12852  1 21 10:47 Downloads</span><br><span class="line">drwx——@   9 Wally   staff       306 10  9 11:35 Dropbox</span><br><span class="line">-rw-r–r–    1 Wally   staff  18206720  1 20 15:57 FILE.txt</span><br><span class="line">drwx——  135 Wally   admin      4590  1 20 15:10 Library</span><br><span class="line">drwxrwxrwx   48 Wally   admin      1632  1 20 10:28 Movies</span><br><span class="line">drwx——   17 Wally   admin       578 10 10 22:32 Music</span><br><span class="line">drwxr-xr-x    3 Wally   staff       102 12 20 12:31 My Games</span><br><span class="line">drwx——  342 Wally   admin     11628  1  4 10:59 Pictures</span><br><span class="line">drwx-wxr-x    4 Wally   staff       136  1 20 10:33 Prezi</span><br><span class="line">drwx—rwx    9 Wally   admin       306 12  3 15:04 Public</span><br><span class="line">drwxr-xr-x    6 Wally   admin       204  4  5  2010 Sites</span><br><span class="line">-rw-r–r–@   1 nobody  staff        10 11 27  2010 _desktop.ini</span><br><span class="line">drwxr-xr-x@   3 Wally   admin       102  7 31  2012 no desktop.workflow</span><br><span class="line">drwxr-xr-x@   3 Wally   admin       102  7 31  2012 yes desktop.workflow</span><br><span class="line">drwxr-xr-x    3 Wally   staff       102  1  1 17:17 “</span><br><span class="line">drwxr-xr-x   21 Wally   admin       714  5  5  2014 快盘</span><br></pre></td></tr></table></figure></p>
+<p>而使用 ls -lR 则会展开所有子文件夹。<br>另外如果要生成下面这样的目录树结构应该怎么做呢？<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">|—书籍</span><br><span class="line">|—图片</span><br><span class="line">|—–mustang</span><br><span class="line">|—–默认相册</span><br><span class="line">|—文档</span><br><span class="line">|—视频</span><br><span class="line">|—音乐</span><br><span class="line">|-Applications</span><br><span class="line">|—Akamai</span><br><span class="line">|—CrossOver</span><br><span class="line">|—–ScottradeELITE</span><br></pre></td></tr></table></figure></p>
+<p>你需要先进入到需要列出的文件夹, 使用 cd 命令. 然后完整粘贴下面这条命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -R | grep “:$” | sed -e ‘s/:$//‘ -e ‘s/[^-][^\/]*\//–/g’ -e ‘s/^/ /‘ -e ‘s/-/|/‘</span><br></pre></td></tr></table></figure></p>
+<p>如果要生成像Win下一样的目录树结构，则必须安装tree。安装命令为<code>brew install tree</code>，使用结果如下图（具体请自测）：<br><img src="http://ww4.sinaimg.cn/large/79ed64cejw1f3bhd9afjaj20ve0j0go3.jpg" alt=""><br>tree的命令如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">NormaldeMacBook-Pro:Blog Normal$ tree --<span class="built_in">help</span></span><br><span class="line">usage: tree [-acdfghilnpqrstuvxACDFJQNSUX] [-H baseHREF] [-T title ]</span><br><span class="line">	[-L level [-R]] [-P pattern] [-I pattern] [-o filename] [--version]</span><br><span class="line">	[--<span class="built_in">help</span>] [--inodes] [--device] [--noreport] [--nolinks] [--dirsfirst]</span><br><span class="line">	[--charset charset] [--filelimit[=]<span class="comment">#] [--si] [--timefmt[=]&lt;f&gt;]</span></span><br><span class="line">	[--sort[=]&lt;name&gt;] [--matchdirs] [--ignore-case] [--] [&lt;directory list&gt;]</span><br><span class="line">  ------- Listing options -------</span><br><span class="line">  -a            All files are listed.</span><br><span class="line">  -d            List directories only.</span><br><span class="line">  -l            Follow symbolic links like directories.</span><br><span class="line">  -f            Print the full path prefix <span class="keyword">for</span> each file.</span><br><span class="line">  -x            Stay on current filesystem only.</span><br><span class="line">  -L level      Descend only level directories deep.</span><br><span class="line">  -R            Rerun tree when max dir level reached.</span><br><span class="line">  -P pattern    List only those files that match the pattern given.</span><br><span class="line">  -I pattern    Do not list files that match the given pattern.</span><br><span class="line">  --ignore-case Ignore <span class="keyword">case</span> when pattern matching.</span><br><span class="line">  --matchdirs   Include directory names <span class="keyword">in</span> -P pattern matching.</span><br><span class="line">  --noreport    Turn off file/directory count at end of tree listing.</span><br><span class="line">  --charset X   Use charset X <span class="keyword">for</span> terminal/HTML and indentation line output.</span><br><span class="line">  --filelimit <span class="comment"># Do not descend dirs with more than # files in them.</span></span><br><span class="line">  --timefmt &lt;f&gt; Print and format time according to the format &lt;f&gt;.</span><br><span class="line">  -o filename   Output to file instead of stdout.</span><br><span class="line">  -------- File options ---------</span><br><span class="line">  -q            Print non-printable characters as <span class="string">'?'</span>.</span><br><span class="line">  -N            Print non-printable characters as is.</span><br><span class="line">  -Q            Quote filenames with double quotes.</span><br><span class="line">  -p            Print the protections <span class="keyword">for</span> each file.</span><br><span class="line">  -u            Displays file owner or UID number.</span><br><span class="line">  -g            Displays file group owner or GID number.</span><br><span class="line">  -s            Print the size <span class="keyword">in</span> bytes of each file.</span><br><span class="line">  -h            Print the size <span class="keyword">in</span> a more human readable way.</span><br><span class="line">  --si          Like -h, but use <span class="keyword">in</span> SI units (powers of 1000).</span><br><span class="line">  -D            Print the date of last modification or (-c) status change.</span><br><span class="line">  -F            Appends <span class="string">'/'</span>, <span class="string">'='</span>, <span class="string">'*'</span>, <span class="string">'@'</span>, <span class="string">'|'</span> or <span class="string">'&gt;'</span> as per ls -F.</span><br><span class="line">  --inodes      Print inode number of each file.</span><br><span class="line">  --device      Print device ID number to <span class="built_in">which</span> each file belongs.</span><br><span class="line">  ------- Sorting options -------</span><br><span class="line">  -v            Sort files alphanumerically by version.</span><br><span class="line">  -t            Sort files by last modification time.</span><br><span class="line">  -c            Sort files by last status change time.</span><br><span class="line">  -U            Leave files unsorted.</span><br><span class="line">  -r            Reverse the order of the sort.</span><br><span class="line">  --dirsfirst   List directories before files (-U disables).</span><br><span class="line">  --sort X      Select sort: name,version,size,mtime,ctime.</span><br><span class="line">  ------- Graphics options ------</span><br><span class="line">  -i            Don<span class="string">'t print indentation lines.</span></span><br><span class="line"><span class="string">  -A            Print ANSI lines graphic indentation lines.</span></span><br><span class="line"><span class="string">  -S            Print with CP437 (console) graphics indentation lines.</span></span><br><span class="line"><span class="string">  -n            Turn colorization off always (-C overrides).</span></span><br><span class="line"><span class="string">  -C            Turn colorization on always.</span></span><br><span class="line"><span class="string">  ------- XML/HTML/JSON options -------</span></span><br><span class="line"><span class="string">  -X            Prints out an XML representation of the tree.</span></span><br><span class="line"><span class="string">  -J            Prints out an JSON representation of the tree.</span></span><br><span class="line"><span class="string">  -H baseHREF   Prints out HTML format with baseHREF as top directory.</span></span><br><span class="line"><span class="string">  -T string     Replace the default HTML title and H1 header with string.</span></span><br><span class="line"><span class="string">  --nolinks     Turn off hyperlinks in HTML output.</span></span><br><span class="line"><span class="string">  ---- Miscellaneous options ----</span></span><br><span class="line"><span class="string">  --version     Print version and exit.</span></span><br><span class="line"><span class="string">  --help        Print usage and this help message and exit.</span></span><br><span class="line"><span class="string">  --            Options processing terminator.</span></span><br></pre></td></tr></table></figure></p>
+<p>如果要输出到文件，就用：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tree --charset utf-8 -o /Users/Normal/desktop/$(date +%Y-%m-%d).txt</span><br></pre></td></tr></table></figure></p>
+<p>——————————————————————————华丽丽的分割线—————————————————————————<br>另外从一个博客看到下面的方法。作为借鉴：<br>在Mac OSX 系统默认是没有类似windows中的 tree命令，找到一条比较有意思的命令可以实现：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -<span class="built_in">print</span> | sed -e <span class="string">'s;[^/]*/;|____;g;s;____|; |;g'</span></span><br></pre></td></tr></table></figure></p>
+<p>命令执行后的效果如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">.</span><br><span class="line"></span><br><span class="line">|__.classpath</span><br><span class="line"></span><br><span class="line">|__.project</span><br><span class="line"></span><br><span class="line">|____bin</span><br><span class="line"></span><br><span class="line">| |____com</span><br><span class="line"></span><br><span class="line">| | |____micmiu</span><br><span class="line"></span><br><span class="line">| |____simple.idl</span><br><span class="line"></span><br><span class="line">|____src</span><br><span class="line"></span><br><span class="line">| |____com</span><br><span class="line"></span><br><span class="line">| | |____micmiu</span><br><span class="line"></span><br><span class="line">| |____simple.idl</span><br></pre></td></tr></table></figure></p>
+<p>为了方便使用，写一个alias 到~/.profile里:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> tree=<span class="string">"find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"</span></span><br></pre></td></tr></table></figure></p>
+<p>本文介绍到此结束<a href="http://www.micmiu.com/" target="_blank" rel="noopener">@Michael Sun</a>.<br>原创文章，转载请注明： 转载自micmiu – 软件开发+生活点滴[ <a href="http://www.micmiu.com/" target="_blank" rel="noopener">http://www.micmiu.com/</a> ]<br>本文链接地址: <a href="http://www.micmiu.com/os/mac/mac-osx-cmd-tree/" target="_blank" rel="noopener">http://www.micmiu.com/os/mac/mac-osx-cmd-tree/</a></p>
+
+        
+      </div>
+      
+      
+      
+    </div>
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Jason Chen" />
+            
+              <p class="site-author-name" itemprop="name">Jason Chen</p>
+              <p class="site-description motion-element" itemprop="description">简简单单，普普通通的技术博客</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/normalhh" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:jinghao_chen@msn.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/Normalchen" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.facebook.com/chennormal" target="_blank" title="Facebook">
+                      
+                        <i class="fa fa-fw fa-facebook"></i>Facebook</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Windows下："><span class="nav-number">1.</span> <span class="nav-text">Windows下：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MAC-OSX下"><span class="nav-number">2.</span> <span class="nav-text">MAC OSX下</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jason Chen</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.0.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.0"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://Normalhh.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://normalhh.com/backup/Windows-和-MAC-下生成目录树文档.html';
+          this.page.identifier = 'backup/Windows-和-MAC-下生成目录树文档.html';
+          this.page.title = 'Windows 和 MAC 下生成目录树文档';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://Normalhh.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=6.0.0"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=6.0.0"></script>
+
+
+  
+
+</body>
+</html>

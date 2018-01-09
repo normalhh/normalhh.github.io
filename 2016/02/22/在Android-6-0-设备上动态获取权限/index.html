@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.0.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.0" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Jason, Android" />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Jason's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="简简单单，普普通通的技术博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="about">
+<meta property="og:url" content="https://normalhh.com/about/index.html">
+<meta property="og:site_name" content="Jason&#39;s Blog">
+<meta property="og:description" content="简简单单，普普通通的技术博客">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-02-21T09:43:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="about">
+<meta name="twitter:description" content="简简单单，普普通通的技术博客">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.0.0',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://normalhh.com/about/"/>
+
+
+
+
+
+  <title>【转载】在Android 6.0 设备上动态获取权限 | Jason's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jason's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不要让任何理由成为你不去学习的借口！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+
+            
+              首页
+            
+
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+
+            
+              关于
+            
+
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+
+            
+              标签
+            
+
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+
+            
+              分类
+            
+
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+
+            
+              归档
+            
+
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://normalhh.com/2016/02/22/在Android-6-0-设备上动态获取权限/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jason Chen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jason's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">【转载】在Android 6.0 设备上动态获取权限</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-02-22T14:07:52+08:00">2016-02-22</time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/Code/" itemprop="url" rel="index">
+                    <span itemprop="name">Code</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/02/22/在Android-6-0-设备上动态获取权限/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2016/02/22/在Android-6-0-设备上动态获取权限/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>本文转载自<a href="http://gudong.name/%E6%8A%80%E6%9C%AF/2015/11/10/android_m_permission.html" target="_blank" rel="noopener">在Android 6.0 设备上动态获取权限</a></strong></p>
+<p>众所周知，Android 6.0 相比之前的Android版本有一个很大的不同点，就是动态获取权限。今天自己在做拨号功能时，正巧遇到这个问题， 顺手记录下在Android 6.0 上如何动态获取权限。<br>下面从自己一开始的问题入手</p>
+<p>###实现拨号功能</p>
+<p>说到拨号，一个 Intent 就搞定，代码如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">callDirectly</span><span class="params">(String mobile)</span></span>&#123;</span><br><span class="line">	Intent intent = <span class="keyword">new</span> Intent();</span><br><span class="line">	intent.setAction(<span class="string">"android.intent.action.CALL"</span>);</span><br><span class="line">	intent.setData(Uri.parse(<span class="string">"tel:"</span> + mobile));</span><br><span class="line">	mContext.startActivity(intent);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当然 你可别忘了在 Manifest 文件中去声明拨号的权限</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.CALL\_PHONE"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>###问题</p>
+<p>如果在 Android 6.0 以前的设备上，上面的代码都是没有问题的，但是如果是在 Android 6.0 设备上，并且项目的 targetSdkVersion 你设置的是23，那么 当你执行上面的拨号代码时，程序将会奔溃掉。</p>
+<p>此时你肯定想到了 如果 targetSdkVersion 值设置的小于23是不是就不会奔溃了，恩，确实如此， 此时即使使用Android6.0的设备，程序也不会奔溃，原因显而易见，Android 的权限机制是 Android M 后才加入的。从 Android M 开始 应用程序申请的权限是在运行时动态赋给用户的。<br>关于动态分配权限，一些同学可能不是很清楚。这里稍稍提一下 Android 6.0 的权限动态分配。 如果你只对最终的解决方案感兴趣，可以跳过下面这节，直接去看解决方案</p>
+<p>###权限动态分配###</p>
+<p>在 Android6.0 之前，下载好一个应用程序，点击安装我们看到的大都是像这样的界面。<br><img src="http://gudong.name/assets/android_m_install.jpg" alt=""><br>上图分别是Nexus6和小米手机在安装软件时的界面。</p>
+<p>在安装时你会发现，手机操作系统会提示，这个软件会索要了你手机的那些权限，并且给用一个列表进行展示，但是这些提示只是在安装是提示，只要你点击接受或者安装， 表示你允许这个应用在可以获取它申明的所有权限。一般很少有人在安装时，会因为看到某个应用因为申请了某一个敏感权限而放弃安装应用。因为这个权限虽然敏感， 但是对于当前的用户是不可感知的，因为他现在并没有立即去查看你的最近通话、短信记录…</p>
+<p>说到这里，我们自然而然的会想到，其实最好的方式是，当这个应用在用户使用过程中，正准备使用某个权限时，比如说读取短信列表，系统能及时的弹出一个提示框，说这个应用要读取您的短信内容， 您是否允许。然后用户结合当前应用的执行动作，依据当前条件判断，是不是应该授予应用读取短信记录的权限。这绝对的最完美的。 因为在具体的使用过程中，用户可以结合当前应用的使用场景，去思考、判断是不是应该给这个应用相应的权限。不给能怎样，给了会怎样， 这样对用户而言，完全是主动的，相比安装时那种选择，这样的做法无疑是对用户莫大的尊重，同时这也保证了用户的个人隐私。</p>
+<p>说到这里，不得不插一句，其实 MIUI 早就实现了这个系统特性，在这一点上 MIUI 确实走到了 Android团队的前面，恩，给 MIUI 点个赞。</p>
+<p>然而直到 Android 6.0 这个版本开始，上面的假设终于得到了谷歌的实践，除了在应用安装时，操作系统会提示应用会获取那些权限，在运行过程中，当应用去真的获取一些敏感 权限时，系统还会弹出一个提示框，询问用户是不是授予应用相应的权限。如下图所示。<br><img src="http://gudong.name/assets/android_m_sms.jpeg" alt=""><br>这就是 Android 6.0 的运行时权限检查机制。下面是Google官方对此的解释，只截取介绍部分</p>
+<p><code>Beginning in Android 6.0 (API level 23), users grant permissions to apps while the app is running, not when they install the app. This approach streamlines the app install process, since the user does not need to grant permissions when they install or update the app. It also gives the user more control over the app&#39;s functionality; for example, a user could choose to give a camera app access to the camera but not to the device location. The user can revoke the permissions at any time, by going to the app&#39;s Settings screen.</code><br>###解决方案###</p>
+<p>其实上面已经说了一种取巧的方案，将 targetSdkVersion 设为小于23的值，程序将不会奔溃， 但是在Android 6.0 上你的应用程序依旧拨不了电话，这是真的。所以要想兼容6.0版本，必须通过下面的方式进行代码层面的兼容。</p>
+<p>对Android版本做判断，然后对Android 6.0 做特殊处理，代码如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> REQUEST\_CODE\_ASK\_CALL\_PHONE = <span class="number">123</span>;</span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCall</span><span class="params">(String mobile)</span></span>&#123;</span><br><span class="line">	    <span class="keyword">this</span>.mMobile = mobile;</span><br><span class="line">	    <span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= <span class="number">23</span>) &#123;</span><br><span class="line">	        <span class="keyword">int</span> checkCallPhonePermission = ContextCompat.checkSelfPermission(mContext,Manifest.permission.CALL_PHONE);</span><br><span class="line">	        <span class="keyword">if</span>(checkCallPhonePermission != PackageManager.PERMISSION_GRANTED)&#123;</span><br><span class="line">	            ActivityCompat.requestPermissions(mContext,<span class="keyword">new</span> String[]&#123;Manifest.permission.CALL_PHONE&#125;,REQUEST_CODE_ASK_CALL_PHONE);</span><br><span class="line">	            <span class="keyword">return</span>;</span><br><span class="line">	        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	            <span class="comment">//上面已经写好的拨号方法</span></span><br><span class="line">	            callDirectly(mobile);</span><br><span class="line">	        &#125;</span><br><span class="line">	    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	        <span class="comment">//上面已经写好的拨号方法</span></span><br><span class="line">	        callDirectly(mobile);</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>此时，如果一个Android6.0的用户触发拨号动作，执行上面的代码，那么他将会看到一个很好看的MaterialDialog，如下图所示。<br><img src="http://gudong.name/assets/android_m_permission.jpeg" alt=""><br>那么用户点击拒绝或者允许，我们怎么才能拿到回调呢，如果能拿到回调，我们就可以根据用户的选择来执行不同的操作了。</p>
+<p>这里应该会看到在 ActivityCompat 的 requestPermissions 方法中，最后一个参数是一个requestCode，看到它自然而然想到了经常用到的onActivityResult， 这里当执行 ActivityCompat 的 requestPermissions 方法后有一个回调机制，需要我们在当前 Activity 中实现 onRequestPermissionsResult 这个方法，具体如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onRequestPermissionsResult</span><span class="params">(<span class="keyword">int</span> requestCode, String[] permissions, <span class="keyword">int</span>[] grantResults)</span> </span>&#123;</span><br><span class="line">	    <span class="keyword">switch</span> (requestCode) &#123;</span><br><span class="line">	        <span class="keyword">case</span> REQUEST_CODE_ASK_CALL_PHONE:</span><br><span class="line">	            <span class="keyword">if</span> (grantResults[<span class="number">0</span>] == PackageManager.PERMISSION_GRANTED) &#123;</span><br><span class="line">	                <span class="comment">// Permission Granted</span></span><br><span class="line">	                callDirectly(mobile);</span><br><span class="line">	            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	                <span class="comment">// Permission Denied</span></span><br><span class="line">	                Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">"CALL_PHONE Denied"</span>, Toast.LENGTH_SHORT)</span><br><span class="line">	                        .show();</span><br><span class="line">	            &#125;</span><br><span class="line">	            <span class="keyword">break</span>;</span><br><span class="line">	        <span class="keyword">default</span>:</span><br><span class="line">	            <span class="keyword">super</span>.onRequestPermissionsResult(requestCode, permissions, grantResults);</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>这里会对提供了一个对用户点击做判断的入口，开发者可以根据 grantResults[0] 的类型，来判断用户点击的是允许还是拒绝，接着就可以执行相应的逻辑了。</p>
+<h3 id="有用的链接"><a href="#有用的链接" class="headerlink" title="有用的链接"></a>有用的链接</h3><p>关于AndroidM上权限的动态获取，这里只给出了一个最简单的示例，如果你还没有尽兴，那么下面这篇国外的博文，一定会让你满足。</p>
+<p><a href="http://inthecheesefactory.com/blog/things-you-need-to-know-about-android-m-permission-developer-edition/en" target="_blank" rel="noopener">Everything every Android Developer must know about new Android’s Runtime Permission</a></p>
+<p>这篇英文博文内容很长、内容也比较多，十足的干货。您慢用~</p>
+<p>后记：偶然发现已经有哥们把上面的这篇文章做了翻译，真是极好的，附上翻译链接，给翻译者同学点赞，辛苦！</p>
+<p>另外，最近看到一个Github上的开源项目 <a href="https://github.com/k0shk0sh/PermissionHelper" target="_blank" rel="noopener">PermissionHelper</a> ，专门用于处理 Android 6.0 的权限兼容问题。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Jason Chen 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="Jason Chen 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Jason Chen
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://normalhh.com/2016/02/22/在Android-6-0-设备上动态获取权限/" title="【转载】在Android 6.0 设备上动态获取权限">https://normalhh.com/2016/02/22/在Android-6-0-设备上动态获取权限/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/Permission/" rel="tag"># Permission</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/01/24/iOS及Mac开源项目和学习资料【超级全面】/" rel="next" title="iOS及Mac开源项目和学习资料【超级全面】">
+                <i class="fa fa-chevron-left"></i> iOS及Mac开源项目和学习资料【超级全面】
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/29/ButterKnife8的使用方式/" rel="prev" title="ButterKnife8的使用方式">
+                ButterKnife8的使用方式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Jason Chen" />
+            
+              <p class="site-author-name" itemprop="name">Jason Chen</p>
+              <p class="site-description motion-element" itemprop="description">简简单单，普普通通的技术博客</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/normalhh" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:jinghao_chen@msn.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/Normalchen" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.facebook.com/chennormal" target="_blank" title="Facebook">
+                      
+                        <i class="fa fa-fw fa-facebook"></i>Facebook</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#有用的链接"><span class="nav-number">1.</span> <span class="nav-text">有用的链接</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jason Chen</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.0.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.0"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://Normalhh.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://normalhh.com/2016/02/22/在Android-6-0-设备上动态获取权限/';
+          this.page.identifier = '2016/02/22/在Android-6-0-设备上动态获取权限/';
+          this.page.title = '【转载】在Android 6.0 设备上动态获取权限';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://Normalhh.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=6.0.0"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=6.0.0"></script>
+
+
+  
+
+</body>
+</html>
