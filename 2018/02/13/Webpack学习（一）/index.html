@@ -90,7 +90,7 @@
 
 
 
-  <meta name="keywords" content="Jason, Android" />
+  <meta name="keywords" content=",," />
 
 
 
@@ -105,17 +105,20 @@
 
 
 
-<meta name="description" content="简简单单，普普通通的技术博客">
+<meta name="description" content="有的时候，我们需要生成打包的文件目录下的所有文件结构以便于展示给别人。将下面的代码复制到txt文档中，把后缀文件名改成bat就可以双击运行了。 Windows下：12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364">
+<meta name="keywords" content="CMD,Tree">
 <meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="https://normalhh.com/about/index.html">
+<meta property="og:title" content="Windows 和 MAC 下生成目录树文档">
+<meta property="og:url" content="https://normalhh.com/backup/Windows-和-MAC-下生成目录树文档.html">
 <meta property="og:site_name" content="Jason&#39;s Blog">
-<meta property="og:description" content="简简单单，普普通通的技术博客">
+<meta property="og:description" content="有的时候，我们需要生成打包的文件目录下的所有文件结构以便于展示给别人。将下面的代码复制到txt文档中，把后缀文件名改成bat就可以双击运行了。 Windows下：12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/79ed64cejw1f3bhd9afjaj20ve0j0go3.jpg">
 <meta property="og:updated_time" content="2017-02-21T09:43:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="简简单单，普普通通的技术博客">
+<meta name="twitter:title" content="Windows 和 MAC 下生成目录树文档">
+<meta name="twitter:description" content="有的时候，我们需要生成打包的文件目录下的所有文件结构以便于展示给别人。将下面的代码复制到txt文档中，把后缀文件名改成bat就可以双击运行了。 Windows下：12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364">
+<meta name="twitter:image" content="http://ww4.sinaimg.cn/large/79ed64cejw1f3bhd9afjaj20ve0j0go3.jpg">
 
 
 
@@ -147,7 +150,7 @@
 
 
 
-  <link rel="canonical" href="https://normalhh.com/about/"/>
+  <link rel="canonical" href="https://normalhh.com/backup/Windows-和-MAC-下生成目录树文档.html"/>
 
 
 
@@ -427,19 +430,19 @@
       
         <p>今日才真正开始学习Vue.js，之前对Vue一点了解都没有，而且不清楚Vue的各种语法，但有一点我是清楚的，使用Vue，必须要学习使用Webpack。跟随视频讲师的的讲解来做应该能够让我少走一些弯路，不过实际上从开发工具的选用来说就已经与讲师产生了分歧，讲师用的是Visual Studio Code，我还是更喜欢用Webstorm。好在两者功能都很强大，也很智能。下面就来开始讲解步骤（前提，需要安装好nodejs并配置完成，我这里使用Mac下的homebrew安装。具体方法请另行Google）。<br><a id="more"></a></p>
 <h4 id="创建一个Empty-Project"><a href="#创建一个Empty-Project" class="headerlink" title="创建一个Empty Project"></a>创建一个Empty Project</h4><ul>
-<li>location可以自己随便修改，我这里把最后的untitled改成Vue-webpack-demo，点击Create<br><img src="/20180213091549290/20180213092221098.png" alt=""></li>
-<li>创建src文件夹，并打开开发工具的Terminal窗口。命令行会自动进入到当前项目的目录下<br><img src="/20180213091549290/20180213092612682.png" alt=""></li>
+<li>location可以自己随便修改，我这里把最后的untitled改成Vue-webpack-demo，点击Create<br><img src="https://i.loli.net/2018/02/13/5a825feec1e96.png" alt=""></li>
+<li>创建src文件夹，并打开开发工具的Terminal窗口。命令行会自动进入到当前项目的目录下<br><img src="https://i.loli.net/2018/02/13/5a825feedf8cf.png" alt=""></li>
 <li>命令行中输入npm init -y</li>
 <li>执行完毕再输入npm install webpack vue vue-loader css-loader vue-template-compiler</li>
 <li>执行完毕就可以看到项目目录下多出了node_modules, package.jason, package-lock.json</li>
-<li>因为我之前对webpack的配置有了一些问题，现在需要在开发工具的设置中设置一下webpack的配置文件路径。下面是我手动设置的路径，如果是新创建的项目是会自动配置的，不需要手动配置了入下面第二张图片。<br><img src="/20180213091549290/20180213093213991.png" alt=""><br><img src="/20180213091549290/20180213093609566.png" alt=""></li>
-<li>src下新建一个Vue组件<br><img src="/20180213091549290/20180213100024549.png" alt=""></li>
-<li>文件名叫app，创建好之后有一个报错信息<br><img src="/20180213091549290/20180213101031432.png" alt=""></li>
-<li>需要转为ES6<br><img src="/20180213091549290/20180213101131340.png" alt=""></li>
+<li>因为我之前对webpack的配置有了一些问题，现在需要在开发工具的设置中设置一下webpack的配置文件路径。下面是我手动设置的路径，如果是新创建的项目是会自动配置的，不需要手动配置了入下面第二张图片。<br><img src="https://i.loli.net/2018/02/13/5a825feed0d1b.png" alt=""><br><img src="https://i.loli.net/2018/02/13/5a825feed9e85.png" alt=""></li>
+<li>src下新建一个Vue组件<br><img src="https://i.loli.net/2018/02/13/5a825feee8fad.png" alt=""></li>
+<li>文件名叫app，创建好之后有一个报错信息<br><img src="https://i.loli.net/2018/02/13/5a825ff0229a6.png" alt=""></li>
+<li>需要转为ES6<br><img src="https://i.loli.net/2018/02/13/5a825fef40b17.png" alt=""></li>
 <li>完成后的代码如下</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"test"</span>&gt;</span>&#123;&#123;text&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="undefined">        data() &#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="javascript">                text: <span class="string">'abc'</span></span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    #test&#123;</span></span><br><span class="line"><span class="undefined">        color: red;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="/20180213091549290/20180213101417803.png" alt=""></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"test"</span>&gt;</span>&#123;&#123;text&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    export default &#123;</span></span><br><span class="line"><span class="undefined">        data() &#123;</span></span><br><span class="line"><span class="undefined">            return &#123;</span></span><br><span class="line"><span class="undefined">                text: 'abc'</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    #test&#123;</span></span><br><span class="line"><span class="undefined">        color: red;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2018/02/13/5a825fef5b0c0.png" alt=""></p>
 <h4 id="创建Webpack配置文件"><a href="#创建Webpack配置文件" class="headerlink" title="创建Webpack配置文件"></a>创建Webpack配置文件</h4><ul>
 <li>在项目目录下创建webpack.config.js文件</li>
 <li>输入以下内容</li>
@@ -568,10 +571,6 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/02/13/20180213113256/" rel="prev" title="20180213113256">
-                20180213113256 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
       
@@ -661,7 +660,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
