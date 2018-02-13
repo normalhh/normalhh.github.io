@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://normalhh.com/"/>
-  <updated>2017-02-21T09:43:50.000Z</updated>
+  <updated>2018-02-13T03:13:25.641Z</updated>
   <id>https://normalhh.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Webpack学习（一）</title>
+    <link href="https://normalhh.com/2018/02/13/Webpack%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>https://normalhh.com/2018/02/13/Webpack学习（一）/</id>
+    <published>2018-02-13T00:58:46.000Z</published>
+    <updated>2018-02-13T03:13:25.641Z</updated>
+    
+    <summary type="html">
+    
+      使用Webstorm构建Vue+webpack的TODO应用项目
+    
+    </summary>
+    
+      <category term="Web" scheme="https://normalhh.com/categories/Web/"/>
+    
+      <category term="Code" scheme="https://normalhh.com/categories/Web/Code/"/>
+    
+    
+      <category term="HTML5" scheme="https://normalhh.com/tags/HTML5/"/>
+    
+      <category term="Vue" scheme="https://normalhh.com/tags/Vue/"/>
+    
+      <category term="Webpack" scheme="https://normalhh.com/tags/Webpack/"/>
+    
+      <category term="Webstorm" scheme="https://normalhh.com/tags/Webstorm/"/>
+    
+  </entry>
   
   <entry>
     <title></title>
