@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://normalhh.com/"/>
-  <updated>2018-02-13T12:39:32.457Z</updated>
+  <updated>2018-02-17T07:57:29.838Z</updated>
   <id>https://normalhh.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Webstorm 引入webpack但仍然无法找到部分Plugin的问题</title>
+    <link href="https://normalhh.com/2018/02/17/Webstorm-%E5%BC%95%E5%85%A5webpack%E4%BD%86%E4%BB%8D%E7%84%B6%E6%97%A0%E6%B3%95%E6%89%BE%E5%88%B0%E9%83%A8%E5%88%86Plugin%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>https://normalhh.com/2018/02/17/Webstorm-引入webpack但仍然无法找到部分Plugin的问题/</id>
+    <published>2018-02-17T07:36:57.000Z</published>
+    <updated>2018-02-17T07:57:29.838Z</updated>
+    
+    <summary type="html">
+    
+      Webstorm 开发前端项目过程中，引入了webpack，但是在使用webpack.DefinePlugin()的时候报了一个问题：Unresolved type of DefinePlugin
+    
+    </summary>
+    
+      <category term="Web" scheme="https://normalhh.com/categories/Web/"/>
+    
+      <category term="Code" scheme="https://normalhh.com/categories/Web/Code/"/>
+    
+    
+      <category term="Webpack" scheme="https://normalhh.com/tags/Webpack/"/>
+    
+      <category term="Webstorm" scheme="https://normalhh.com/tags/Webstorm/"/>
+    
+      <category term="Problems" scheme="https://normalhh.com/tags/Problems/"/>
+    
+  </entry>
   
   <entry>
     <title>自定义百度云盘分享密码【2018-01-25更新】</title>

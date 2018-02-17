@@ -156,7 +156,7 @@
 
 
 
-  <title>归档 | Jason's Blog</title>
+  <title>Webstorm 引入webpack但仍然无法找到部分Plugin的问题 | Jason's Blog</title>
   
 
 
@@ -175,7 +175,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -299,74 +299,250 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 20 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2016">2016</h1>
-          </div>
-        
-        
-
-        
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://normalhh.com/2018/02/17/Webstorm-引入webpack但仍然无法找到部分Plugin的问题/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jason Chen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jason's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2016/08/23/【转】自定义百度网盘分享密码（Javascript）/" itemprop="url">
-              
-                <span itemprop="name">【转】自定义百度网盘分享密码（Javascript）</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Webstorm 引入webpack但仍然无法找到部分Plugin的问题</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-23T14:38:05+08:00"
-              content="2016-08-23" >
-          08-23
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-17T15:36:57+08:00">2018-02-17</time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web/Code/" itemprop="url" rel="index">
+                    <span itemprop="name">Code</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/02/17/Webstorm-引入webpack但仍然无法找到部分Plugin的问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/02/17/Webstorm-引入webpack但仍然无法找到部分Plugin的问题/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  Webstorm 开发前端项目过程中，引入了webpack，但是在使用webpack.DefinePlugin()的时候报了一个问题：Unresolved type of DefinePlugin
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <p>最近在学习Vue的使用，然而里面又涉及到了Webpack的用法，再加上Webstorm，自然而然遇到了一些困难，其中一个比较典型的问题是因为要使用Webpack中的插件时，Webstorm报了一个错：Unresolved type of DefinePlugin<br>如下图所示：<br><img src="https://intellij-support.jetbrains.com/hc/user_images/KTXslvonCLazAO2s9w-EFQ.png" alt=""><br>这个是别人的问题，我的问题是在使用DefinePlugin这个插件的时候提示的，但两个问题是一个类型，所以问题原因和解决方案是一样的。<br>原因：<br>Plugin 模块在webpack中是通过下面的方式导出的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">exportPlugins</span>(<span class="params">exports, path, plugins</span>) </span>&#123;</span><br><span class="line">    plugins.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">Object</span>.defineProperty(exports, name, &#123;</span><br><span class="line">            configurable: <span class="literal">false</span>,</span><br><span class="line">            enumerable: <span class="literal">true</span>,</span><br><span class="line">            get: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="built_in">require</span>(path + <span class="string">"/"</span> + name);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exportPlugins(exports, <span class="string">"."</span>, [</span><br><span class="line">    <span class="string">"DefinePlugin"</span>,</span><br><span class="line">    <span class="string">"NormalModuleReplacementPlugin"</span>,</span><br><span class="line">...</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+<p>这种动态生成的模块不能静态解析，所以需要引入 typescript stubs具体方法是(Preferences | Languages &amp; Frameworks | JavaScript | Libraries, Download.., choose ‘webpack’ | Download and Install);<br><img src="https://i.loli.net/2018/02/17/5a87e046b145d.png" alt=""><br>然后就可以动态解析所需要的模块了。</p>
+<p><strong>原解决方法地址：</strong><br><em><a href="https://intellij-support.jetbrains.com/hc/en-us/community/posts/115000171870-WebStorm-Unresolved-function-or-method" target="_blank" rel="noopener">WebStorm - Unresolved function or method</a></em></p>
+<a id="more"></a>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Jason Chen 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="Jason Chen 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Jason Chen
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://normalhh.com/2018/02/17/Webstorm-引入webpack但仍然无法找到部分Plugin的问题/" title="Webstorm 引入webpack但仍然无法找到部分Plugin的问题">https://normalhh.com/2018/02/17/Webstorm-引入webpack但仍然无法找到部分Plugin的问题/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Webpack/" rel="tag"># Webpack</a>
+          
+            <a href="/tags/Webstorm/" rel="tag"># Webstorm</a>
+          
+            <a href="/tags/Problems/" rel="tag"># Problems</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/13/自定义百度云盘分享密码【2018-01-25】/" rel="next" title="自定义百度云盘分享密码【2018-01-25更新】">
+                <i class="fa fa-chevron-left"></i> 自定义百度云盘分享密码【2018-01-25更新】
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -374,6 +550,20 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -618,6 +808,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.0"></script>
+
+
 
   
 
@@ -635,6 +829,18 @@
       <script id="dsq-count-scr" src="https://Normalhh.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://normalhh.com/2018/02/17/Webstorm-引入webpack但仍然无法找到部分Plugin的问题/';
+          this.page.identifier = '2018/02/17/Webstorm-引入webpack但仍然无法找到部分Plugin的问题/';
+          this.page.title = 'Webstorm 引入webpack但仍然无法找到部分Plugin的问题';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://Normalhh.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
