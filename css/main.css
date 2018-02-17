@@ -1669,16 +1669,10 @@ pre .javascript .function {
 #QR a {
   border: 0;
 }
-#QR img {
-  width: 180px;
-  max-width: 100%;
-  display: inline-block;
-  margin: 0.8em 2em 0 2em;
-}
 #wechat:hover p {
-  animation: roll 0.1s infinite linear;
-  -webkit-animation: roll 0.1s infinite linear;
-  -moz-animation: roll 0.1s infinite linear;
+  animation: fade 5s infinite alternate;
+  -webkit-animation: roll 5s infinite alternate;
+  -moz-animation: roll 5s infinite alternate;
 }
 #alipay:hover p {
   animation: roll 0.1s infinite linear;
@@ -1689,6 +1683,12 @@ pre .javascript .function {
   animation: roll 0.1s infinite linear;
   -webkit-animation: roll 0.1s infinite linear;
   -moz-animation: roll 0.1s infinite linear;
+}
+#QR img {
+  width: 180px;
+  max-width: 100%;
+  display: inline-block;
+  margin: 0.8em 2em 0 2em;
 }
 @-moz-keyframes roll {
   from {
@@ -1752,6 +1752,70 @@ pre .javascript .function {
     -ms-transform: rotateZ(-30deg);
     -o-transform: rotateZ(-30deg);
     transform: rotateZ(-30deg);
+  }
+}
+@-moz-keyframes fade {
+  from {
+    -webkit-transform: opacity 100;
+    -moz-transform: opacity 100;
+    -ms-transform: opacity 100;
+    -o-transform: opacity 100;
+    transform: opacity 100;
+  }
+  to {
+    -webkit-transform: opacity 30;
+    -moz-transform: opacity 30;
+    -ms-transform: opacity 30;
+    -o-transform: opacity 30;
+    transform: opacity 30;
+  }
+}
+@-webkit-keyframes fade {
+  from {
+    -webkit-transform: opacity 100;
+    -moz-transform: opacity 100;
+    -ms-transform: opacity 100;
+    -o-transform: opacity 100;
+    transform: opacity 100;
+  }
+  to {
+    -webkit-transform: opacity 30;
+    -moz-transform: opacity 30;
+    -ms-transform: opacity 30;
+    -o-transform: opacity 30;
+    transform: opacity 30;
+  }
+}
+@-o-keyframes fade {
+  from {
+    -webkit-transform: opacity 100;
+    -moz-transform: opacity 100;
+    -ms-transform: opacity 100;
+    -o-transform: opacity 100;
+    transform: opacity 100;
+  }
+  to {
+    -webkit-transform: opacity 30;
+    -moz-transform: opacity 30;
+    -ms-transform: opacity 30;
+    -o-transform: opacity 30;
+    transform: opacity 30;
+  }
+}
+@keyframes fade {
+  from {
+    -webkit-transform: opacity 100;
+    -moz-transform: opacity 100;
+    -ms-transform: opacity 100;
+    -o-transform: opacity 100;
+    transform: opacity 100;
+  }
+  to {
+    -webkit-transform: opacity 30;
+    -moz-transform: opacity 30;
+    -ms-transform: opacity 30;
+    -o-transform: opacity 30;
+    transform: opacity 30;
   }
 }
 .post-copyright {
@@ -1946,7 +2010,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #a61485;
+  background: #d5443e;
 }
 .links-of-blogroll {
   font-size: 13px;

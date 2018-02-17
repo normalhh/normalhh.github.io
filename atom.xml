@@ -300,9 +300,9 @@
       <category term="Code" scheme="https://normalhh.com/categories/Android/Code/"/>
     
     
-      <category term="Permission" scheme="https://normalhh.com/tags/Permission/"/>
-    
       <category term="Android" scheme="https://normalhh.com/tags/Android/"/>
+    
+      <category term="Permission" scheme="https://normalhh.com/tags/Permission/"/>
     
   </entry>
   
@@ -342,7 +342,7 @@
     <link href="https://normalhh.com/2016/01/24/Android%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%9D%83%E9%99%90%E8%A7%A3%E6%9E%90/"/>
     <id>https://normalhh.com/2016/01/24/Android应用程序权限解析/</id>
     <published>2016-01-24T03:49:50.000Z</published>
-    <updated>2018-02-13T04:30:34.956Z</updated>
+    <updated>2018-02-13T05:07:03.971Z</updated>
     
     <summary type="html">
     
@@ -363,9 +363,9 @@ ACCESS_CHECKIN_PROPERTIES_DES =
       <category term="Code" scheme="https://normalhh.com/categories/Android/Code/"/>
     
     
-      <category term="Permission" scheme="https://normalhh.com/tags/Permission/"/>
-    
       <category term="Android" scheme="https://normalhh.com/tags/Android/"/>
+    
+      <category term="Permission" scheme="https://normalhh.com/tags/Permission/"/>
     
   </entry>
   
