@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://normalhh.com/"/>
-  <updated>2018-02-17T07:57:29.838Z</updated>
+  <updated>2018-02-23T07:10:07.383Z</updated>
   <id>https://normalhh.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue.js 2.0学习笔记1</title>
+    <link href="https://normalhh.com/2018/02/23/Vue.js-2.0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>https://normalhh.com/2018/02/23/Vue.js-2.0学习笔记/</id>
+    <published>2018-02-23T07:04:03.000Z</published>
+    <updated>2018-02-23T07:10:07.383Z</updated>
+    
+    <summary type="html">
+    
+      阻止事件冒泡与默认行为
+    
+    </summary>
+    
+      <category term="Web" scheme="https://normalhh.com/categories/Web/"/>
+    
+      <category term="Code" scheme="https://normalhh.com/categories/Web/Code/"/>
+    
+    
+      <category term="HTML5" scheme="https://normalhh.com/tags/HTML5/"/>
+    
+      <category term="Vue.js" scheme="https://normalhh.com/tags/Vue-js/"/>
+    
+  </entry>
   
   <entry>
     <title>Webstorm 引入webpack但仍然无法找到部分Plugin的问题</title>
@@ -577,36 +601,6 @@ ACCESS_CHECKIN_PROPERTIES_DES =
       <category term="Hexo" scheme="https://normalhh.com/tags/Hexo/"/>
     
       <category term="High一下" scheme="https://normalhh.com/tags/High%E4%B8%80%E4%B8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PT站大全--我个人主要是混交大葡萄的</title>
-    <link href="https://normalhh.com/2016/01/22/PT%E7%AB%99%E5%A4%A7%E5%85%A8-%E6%88%91%E4%B8%AA%E4%BA%BA%E4%B8%BB%E8%A6%81%E6%98%AF%E6%B7%B7%E4%BA%A4%E5%A4%A7%E8%91%A1%E8%90%84%E7%9A%84/"/>
-    <id>https://normalhh.com/2016/01/22/PT站大全-我个人主要是混交大葡萄的/</id>
-    <published>2016-01-22T07:23:32.000Z</published>
-    <updated>2017-02-21T09:43:50.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;国内著名PT站点&quot;&gt;&lt;a href=&quot;#国内著名PT站点&quot; class=&quot;headerlink&quot; title=&quot;国内著名PT站点&quot;&gt;&lt;/a&gt;国内著名PT站点&lt;/h1&gt;&lt;h2 id=&quot;HDchina-高清中国&quot;&gt;&lt;a href=&quot;#HDchina-高清中国&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Share" scheme="https://normalhh.com/categories/Share/"/>
-    
-      <category term="Website" scheme="https://normalhh.com/categories/Share/Website/"/>
-    
-    
-      <category term="PT站" scheme="https://normalhh.com/tags/PT%E7%AB%99/"/>
-    
-      <category term="交大葡萄园" scheme="https://normalhh.com/tags/%E4%BA%A4%E5%A4%A7%E8%91%A1%E8%90%84%E5%9B%AD/"/>
     
   </entry>
   
