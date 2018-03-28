@@ -138,7 +138,7 @@
 <meta property="og:description" content="最近在面试，遇到了一些问题，先记录下来，以便加深理解记忆">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2018/03/28/5abb36bf514c9.png">
-<meta property="og:updated_time" content="2018-03-28T06:31:56.198Z">
+<meta property="og:updated_time" content="2018-03-28T06:51:04.111Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="部分面试题总结">
 <meta name="twitter:description" content="最近在面试，遇到了一些问题，先记录下来，以便加深理解记忆">
@@ -470,9 +470,11 @@
 <li>使用Class类的newInstance方法</li>
 <li>使用Constructor类的newInstance方法</li>
 <li>使用clone方法</li>
-<li>使用反序列化</li>
+<li>使用反序列化  </li>
 </ol>
 </li>
+</ol>
+<ol>
 <li><p>线程池的用法</p>
 <ol>
 <li><p>线程池的作用:</p>
@@ -532,6 +534,8 @@
 <li>实现Runnable接口</li>
 </ol>
 </li>
+</ol>
+<ol>
 <li><p>对称加密、非对称加密、MD5加密</p>
 <ol>
 <li><p>对称加密与非对称加密的区别：</p>
@@ -546,7 +550,11 @@
 <li><p>MD5加密</p>
 <ol>
 <li><p>MD5的作用</p>
-<p> 一致性检验<br> 数字签名<br> 安全访问认证</p>
+<ul>
+<li>一致性检验</li>
+<li>数字签名</li>
+<li>安全访问认证</li>
+</ul>
 </li>
 <li><p>MD5 算法具有很多特点：</p>
 <ul>
@@ -575,20 +583,24 @@
 <h1 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h1><ol>
 <li><p>组件化开发与插件化开发</p>
 <p> 组件化开发就是将一个app分成多个模块，每个模块都是一个组件（Module），开发的过程中我们可以让这些组件相互依赖或者单独调试部分组件等，但是最终发布的时候是将这些组件合并统一成一个apk，这就是组件化开发。<br> 插件化开发和组件化开发略有不用，插件化开发时将整个app拆分成很多模块，这些模块包括一个宿主和多个插件，每个模块都是一个apk（组件化的每个模块是个lib），最终打包的时候将宿主apk和插件apk分开或者联合打包。</p>
-<p> 组件化开发的优点：</p>
+<ol>
+<li><p>组件化开发的优点：</p>
 <ul>
 <li>每个模块可以独立开发编译运行</li>
 <li>开发单个模块时可以共享资源和工具类</li>
-<li><p>可以针对单个模块测试</p>
-<p>插件化开发的优点：</p>
+<li>可以针对单个模块测试</li>
+</ul>
 </li>
-<li><p>宿主和插件分开编译</p>
-</li>
+<li><p>插件化开发的优点：</p>
+<ul>
+<li>宿主和插件分开编译</li>
 <li>并发开发</li>
 <li>动态更新插件</li>
 <li>按需下载模块</li>
 <li>方法数或变量数爆棚</li>
 </ul>
+</li>
+</ol>
 </li>
 <li><p>Android应用内存优化</p>
 <p> 为什么优化：</p>
@@ -684,16 +696,17 @@
 <ul>
 <li>良好的封装性， 使用建造者模式可以使客户端不必知道产品内部组成的细节；</li>
 <li>建造者独立，容易扩展；</li>
-<li><p>在对象创建过程中会使用到系统中的一些其它对象，这些对象在产品对象的创建过程中不易得到。</p>
-<p><strong>缺点</strong></p>
-</li>
-<li><p>会产生多余的Builder对象以及Director对象，消耗内存；</p>
-</li>
-<li>对象的构建过程暴露。</li>
+<li>在对象创建过程中会使用到系统中的一些其它对象，这些对象在产品对象的创建过程中不易得到。</li>
 </ul>
 </li>
 </ol>
 </li>
+</ol>
+<pre><code>**缺点**
+
+* 会产生多余的Builder对象以及Director对象，消耗内存；  
+* 对象的构建过程暴露。
+</code></pre><ol>
 <li><p>代理(Proxy)模式</p>
 <ol>
 <li><p>模式的定义</p>
